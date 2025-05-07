@@ -1,0 +1,43 @@
+﻿
+//__ MAIN VARIABLES
+@import "site-theme/variables.scss";
+
+//__ MAIN MIXINS
+@import "mixins/grid.scss";
+@import "mixins/border-radius.scss";
+@import "mixins/box-shadow.scss";
+@import "mixins/full-viewport.scss";
+@import "mixins/shapes.scss";
+@import "mixins/transitions.scss";
+@import "mixins/responsive-queries.scss";
+@import "mixins/form-mixin.scss";
+@import "mixins/scrollbar.scss";
+
+//__ SITE CORE STYLES
+@import "site-theme/font.scss";
+@import "site-theme/icons.scss";
+@import "site-theme/general.scss";
+@import "site-theme/link.scss";
+@import "site-theme/button.scss";
+@import "site-theme/header.scss";
+@import "site-theme/table.scss";
+@import "site-theme/form.scss";
+@import "site-theme/box.scss";
+@import "site-theme/status.scss";
+@import "site-theme/seconday-procedure-button.scss";
+@import "site-theme/arrow.scss";
+@import "site-theme/tabs.scss";
+@import "site-theme/modal.scss";
+@import "site-theme/message.scss";
+@import "site-theme/spinner.scss";
+@import "site-theme/breadcrum.scss";
+@import "site-theme/tooltip.scss";
+@import "site-theme/menu-admin.scss";
+
+//__ SECTIONS
+@import "sections/bocaPagoAltaConfirmacion.scss";
+@import"sections/derechoHabiente-altaConfirmacion.scss";
+@import"sections/apoderadoAlta.scss";
+@import"sections/depositoJudicial.scss";
+@import"sections/dec614.scss";
+@import"sections/misLiqui.scss";

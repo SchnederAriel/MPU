@@ -1,0 +1,364 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background: #fafafb;
+    @extend .font--text;
+    margin: 0;
+    padding: 0;
+}
+
+main{
+    margin-bottom: 50px;
+}
+
+h1, h2, h3, h4, h5, html {
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    color: #656565;
+}
+
+.container {
+    //max-width: 1024px;
+}
+.no-margin {
+    margin: 0 !important;
+}
+// Sacarle padding a las columnas de bootstrap
+.no-padding {
+    padding: 0 !important;
+}
+.no-padding-left {
+    padding-left: 0 !important;
+}
+.no-padding-right {
+    padding-right: 0 !important;
+}
+
+.is-visible{
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.text-align--left {
+    text-align: left;
+}
+.text-align--right {
+    text-align: right;
+}
+.text-align--center {
+    text-align: center;
+}
+
+.full-width {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+.rotate-180 {
+    transform: rotate(-180deg);
+}
+
+.main-dashboard {
+    position: relative;
+    top: -190px;
+}
+.section__header {
+    margin-bottom: 20px;
+    .form-group-option{
+        margin-top:7px !important;
+    }
+}
+.tab-title-container{
+    .link{
+        margin-left: 20px;
+        &:first-child{
+            margin-left:0;
+        }
+    }
+}
+
+.main-section-title {
+    @extend .form__title;
+    text-align: center;
+    display: block !important;
+    font-size: 30px;
+    margin-right: 0 !important;
+    margin-bottom: 40px !important;
+    font-weight: 500;
+}
+
+.tramites-secundarios-main-container{
+    margin: 50px 0;
+}
+
+.principal-grid-container {
+    margin-bottom: 25px;
+
+    .form__button-container {
+        display: inline-block;
+        cursor: pointer;
+        padding: 0px 25px;
+        /* height: 36px; */
+        position: relative;
+
+        [class^="icon--"], [class*=" icon--"] {
+            font-size: 30px;
+            @include objtransform(rotate(-45deg));
+            display: inline-block;
+            position: absolute;
+            top: -28px;
+            left: 18px;
+            color: $colorBlue;
+            cursor: pointer;
+
+
+            &:hover {
+                opacity: .7;
+            }
+        }
+
+        input[type="submit"] {
+            display: none;
+        }
+    }
+}
+
+    .text--important {
+        font-weight: 600;
+    }
+    // Igualar altura con medio de pagos
+    .medio-pago-main-container {
+        .box__header {
+            height: 52px;
+        }
+    }
+
+    .procedure--apoderado {
+        .procedure__text {
+            text-transform: capitalize;
+        }
+    }
+
+
+.historial-main-container {
+    .box__header {
+        .box__main-title{
+            @extend .box__main-title;
+            margin-bottom: 20px;
+        }
+
+    }
+}
+
+.principal-grid-container {
+    .small, small {
+        color: #fff;
+        opacity: .6;
+        font-size: 12px;
+    }
+}
+
+.container-envio-email {
+    display: inline-block !important;
+
+    .button-container {
+        .button--blue-border[data-toggle='modal'] {
+            margin-left: 0 !important;
+    }
+}
+}
+
+.divider-line {
+    position: relative;
+    text-align: center;
+    //color: $colorBlue;
+    //text-transform: uppercase;
+    margin: 30px 0;
+    @extend .font--title-box;
+
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        height: 1px;
+        background: #ccc;
+        width: 35%;
+        top: 50%;
+    }
+
+    &::before {
+        left: 0;
+    }
+
+    &::after {
+        right: 0;
+    }
+}
+
+
+// Datepiker
+.datepicker table tr{
+
+    td {
+        &.disabled {
+            color: $colorRed !important;
+            opacity: .3;
+        }
+        &.active{
+            background: $colorBlue !important;
+            background-image:none !important;
+        }
+    }
+}
+
+.menuConsultas-container {
+
+    .query-container {
+        @extend .procedure-container;
+        height: auto !important;
+        padding: 20px !important;
+        border: 1px solid #ccc;
+         @include border-radius(5px);
+
+        .query__text {
+            font-size: 14px;
+            line-height: 19px;
+            color: #495366;
+            font-weight: 400;
+
+            &:first-letter {
+                text-transform: uppercase;
+            }
+
+            &:hover a {
+                color: #495366 !important;
+            }
+        }
+
+        .query__title {
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #3D4453;
+
+            &:first-letter {
+                text-transform: uppercase;
+            }
+        }
+
+        &:hover {
+            @include box-shadow(0px 10px 30px 0px rgba(0,0,0,0.1));
+            opacity: .9 !important;
+            background: #Fff;
+        }
+    }
+}
+
+.padding-top-1x{
+    padding-top: $spacing !important;
+}
+
+.margin-top-2x {
+    margin-top: ($spacing * 2) !important;
+}
+
+.margin-top-3x {
+    margin-top: ($spacing * 3) !important;
+}
+
+
+.margin-bottom-1x {
+    margin-bottom: $spacing !important;
+}
+
+.margin-bottom-2x {
+    margin-bottom: ($spacing * 2) !important;
+}
+
+.margin-bottom-3x {
+    margin-bottom: ($spacing * 3) !important;
+}
+
+
+// Print
+    .print-container {
+        .print__body {
+            .title {
+     
+                margin-bottom: 15px;
+                text-transform: uppercase;
+            }
+
+            text-align: left;
+
+            .print__body-header {
+                padding: 10px 15px;
+                border: 1px solid #ccc;
+                margin-bottom: 25px;
+                margin-top: 15px;
+
+                .print__body-data {
+                    .row {
+                        padding: 5px 0;
+                    }
+
+                    .data-label {
+                        display: inline-block;
+
+                        &:first-letter {
+                            text-transform: uppercase;
+                        }
+                    }
+
+                    .data-text {
+                        font-weight: 600;
+                        display: inline-block;
+
+                        &:first-letter {
+                            text-transform: uppercase;
+                        }
+                    }
+                }
+            }
+
+            .print__text-container {
+                ul {
+                    margin-top: 20px;
+
+                    li {
+                        text-transform: capitalize;
+                    }
+                }
+
+                .text-container-name {
+                    text-transform: capitalize;
+                }
+
+                &:first-letter {
+                    text-transform: uppercase;
+                }
+            }
+        }
+
+        .print__footer {
+            .print__footer-signature {
+                .signature-box {
+                    border: 1px solid #ccc;
+                    width: 50%;
+                    margin-bottom: 10px;
+                }
+
+                margin-bottom: 40px;
+            }
+
+            text-align: left;
+            margin-top: 100px;
+        }
+    }

@@ -1,0 +1,2 @@
+2024-09-30 23:00:07,370 [6] ERROR MedioUnicoDePago.Filtros.RequiereAutenticacionAttribute - !!!!!!!!!!!!!ERROR AL OBTENER LOS DATOS DE LAS CREDENCIALES
+2024-09-30 23:00:07,377 [6] INFO  MedioUnicoDePago.Filtros.RequiereAutenticacionAttribute - ERROR AL OBTENER LOS DATOS DE LAS CREDENCIALES

@@ -1,0 +1,79 @@
+﻿[class^="icon--"], [class*=" icon--"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'Lupa Icons' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+.icon--error {
+    &:before {
+        content: $icon-error;
+    }
+}
+
+.icon--ok {
+    &:before {
+        content: $icon-ok;
+    }
+}
+
+.icon--warning {
+    &:before {
+        content: $icon-warning;
+    }
+}
+
+.icon--help {
+    &:before {
+        content: $icon-help;
+    }
+}
+
+.icon--left-arrow {
+    &:before {
+        content: $icon-left-arrow;
+    }
+}
+
+.icon--right-arrow {
+    &:before {
+        content: $icon-right-arrow;
+    }
+}
+
+.icon--home {
+    &:before {
+        content: $icon-home;
+    }
+}
+
+.icon--search {
+    &:before {
+        content: $icon-search;
+    }
+}
+
+.icon--edit {
+    &:before {
+        content: $icon-edit;
+    }
+}
+
+.icon--trash {
+    &:before {
+        content: $icon-trash;
+    }
+}
+
+.fa-check-circle {
+    color: $colorTextSuccess614;
+}
+

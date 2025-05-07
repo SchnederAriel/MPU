@@ -1,0 +1,14 @@
+2024-01-13 18:20:23,899 [6] INFO  CunaMiAnses.Controllers.ErrorController - --->  traking en error controller
+2024-01-13 18:20:23,906 [6] INFO  CunaMiAnses.Controllers.ErrorController - ---> ERROR: - 
+2024-01-13 18:20:31,046 [6] INFO  CunaMiAnses.Filtros.ErrorHandler - ---> ERROR controlado desde Error handler
+2024-01-13 18:20:31,048 [6] ERROR CunaMiAnses.Filtros.ErrorHandler - Error tipo NULLREFERENCEEXCEPTION en Contolador: Error - Método: ErrorSolo : Error: Referencia a objeto no establecida como instancia de un objeto. - StackTrace:    en ASP._Page_Views_Error_ErrorSolo_cshtml.Execute() en c:\Proyectos\la-lupa-mianses\CunaMiAnses\Views\Error\ErrorSolo.cshtml:línea 45
+   en System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   en System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   en System.Web.WebPages.StartPage.ExecutePageHierarchy()
+   en System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   en System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__5(IAsyncResult asyncResult)

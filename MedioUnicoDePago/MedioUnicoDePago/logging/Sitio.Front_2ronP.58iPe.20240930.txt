@@ -1,0 +1,20 @@
+2024-09-30 13:58:11,504 [6] INFO  MedioUnicoDePago.Filtros.ErrorHandler - ---> ERROR controlado desde Error handler
+2024-09-30 13:58:11,516 [6] ERROR MedioUnicoDePago.Filtros.ErrorHandler - Error tipo INVALIDOPERATIONEXCEPTION en Contolador: Home - Método: MPUApp : Error: No se encuentra la vista 'Error' ni su vista maestra o no hay un motor de búsqueda que admita las ubicaciones de búsqueda. Se buscó en las siguientes ubicaciones: 
+~/Views/Home/Error.aspx
+~/Views/Home/Error.ascx
+~/Views/Shared/Error.aspx
+~/Views/Shared/Error.ascx
+~/Views/Home/Error.cshtml
+~/Views/Home/Error.vbhtml
+~/Views/Shared/Error.cshtml
+~/Views/Shared/Error.vbhtml - StackTrace:    en System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   en System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_6.<BeginInvokeAction>b__3()
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__5(IAsyncResult asyncResult)
+2024-09-30 13:58:11,866 [8] INFO  MedioUnicoDePago.Controllers.ErrorController - --->  traking en error controller
+2024-09-30 13:58:11,866 [8] INFO  MedioUnicoDePago.Controllers.ErrorController - ---> ERROR: - No se encuentra la vista 'Error' ni su vista maestra o no hay un motor de búsqueda que admita las ubicaciones de búsqueda. Se buscó en las siguientes ubicaciones: ~/Views/Home/Error.aspx~/Views/Home/Error.ascx~/Views/Shared/Error.aspx~/Views/Shared/Error.ascx~/Views/Home/Error.cshtml~/Views/Home/Error.vbhtml~/Views/Shared/Error.cshtml~/Views/Shared/Error.vbhtml

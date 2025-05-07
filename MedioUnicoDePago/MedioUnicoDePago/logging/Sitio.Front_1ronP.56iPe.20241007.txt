@@ -1,0 +1,9 @@
+2024-10-07 20:53:10,846 [6] ERROR MedioUnicoDePago.Controllers.HomeController - Error al obtener el medio de pago vigente para el CUIL 20150003521
+System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en Anses.Director.Session.Credencial.ObtenerCredencial()
+   en Anses.Director.Session.DirectorExtension.ProcessMessage(SoapMessage message)
+   en System.Web.Services.Protocols.SoapMessage.RunExtensions(SoapExtension[] extensions, Boolean throwOnException)
+   en System.Web.Services.Protocols.SoapHttpClientProtocol.BeforeSerialize(WebRequest request, String methodName, Object[] parameters)
+   en System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   en MedioUnicoDePago.GestionarMPU.GestionMPU.ObtenerMedioPagoVigente(String cuil) en C:\Users\E131676\Downloads\prueba\MedioUnicoDePago\MedioUnicoDePago\Web References\GestionarMPU\Reference.cs:línea 137
+   en MedioUnicoDePago.Controllers.HomeController.<MPUApp>d__19.MoveNext() en C:\Users\E131676\Downloads\prueba\MedioUnicoDePago\MedioUnicoDePago\Controllers\HomeController.cs:línea 236

@@ -1,0 +1,28 @@
+2024-09-09 21:28:23,690 [8] INFO  MedioUnicoDePago.Controllers.HomeController - Procesando medio de pago: BANCO DE LA NACION ARGENTINA             - SUC. RECOLETA                           
+2024-09-09 21:28:23,699 [8] INFO  MedioUnicoDePago.Controllers.HomeController - Procesando medio de pago: BANCO DE LA NACION ARGENTINA             - AG. MONSERRAT                           
+2024-09-09 21:28:23,699 [8] INFO  MedioUnicoDePago.Controllers.HomeController - Procesando medio de pago: BANCO DE LA NACION ARGENTINA             - 047-AV MOSCONI                          
+2024-09-09 21:28:23,699 [8] INFO  MedioUnicoDePago.Controllers.HomeController - Procesando medio de pago: BANCO DE LA NACION ARGENTINA             - 4009 - SUC 9 ABASTO                     
+2024-09-09 21:28:23,699 [8] INFO  MedioUnicoDePago.Controllers.HomeController - Procesando medio de pago: BANCO DE LA NACION ARGENTINA             - SUC. LINIERS                            
+2024-09-09 21:28:23,699 [8] INFO  MedioUnicoDePago.Controllers.HomeController - Procesando medio de pago: BANCO DE LA NACION ARGENTINA             - AGENCIA RECOLETA                        
+2024-09-09 21:28:23,699 [8] INFO  MedioUnicoDePago.Controllers.HomeController - Procesando medio de pago: BANCO DE LA NACION ARGENTINA             - SUC. MONSERRAT                          
+2024-09-09 21:28:23,699 [8] INFO  MedioUnicoDePago.Controllers.HomeController - Procesando medio de pago: BANCO DE LA NACION ARGENTINA             - SUC.042 RETIRO                          
+2024-09-09 21:28:23,699 [8] INFO  MedioUnicoDePago.Controllers.HomeController - Procesando medio de pago: BANCO DE LA NACION ARGENTINA             - SUC.ESTADO DE ISRAEL                    
+2024-09-09 21:28:23,699 [8] INFO  MedioUnicoDePago.Controllers.HomeController - Procesando medio de pago: BANCO DE LA NACION ARGENTINA             - SUC. 60 VILLA ORTUZAR                   
+2024-09-09 21:28:23,699 [8] INFO  MedioUnicoDePago.Controllers.HomeController - Procesando medio de pago: BANCO DE LA NACION ARGENTINA             - SUC. NORTE                              
+2024-09-09 21:28:23,699 [8] INFO  MedioUnicoDePago.Controllers.HomeController - Procesando medio de pago: BANCO DE LA NACION ARGENTINA             - CAJA NAC. DE PREV. TRAB. IND. COM Y A.C.
+2024-09-09 21:28:23,699 [8] INFO  MedioUnicoDePago.Controllers.HomeController - Procesando medio de pago: BANCO DE LA NACION ARGENTINA             - CAJA DE SEGURIDAD SOCIAL PARA ABOGADOS  
+2024-09-09 21:28:25,531 [8] INFO  MedioUnicoDePago.Controllers.HomeController - MediosPagoViewModel creados: 13
+2024-09-09 21:29:05,943 [6] INFO  MedioUnicoDePago.Controllers.HomeController - Procesando medio de pago: BANCO DE LA NACION ARGENTINA             - SUC. RECOLETA                           
+2024-09-09 21:29:58,231 [6] INFO  MedioUnicoDePago.Controllers.HomeController - Procesando medio de pago: BANCO DE LA NACION ARGENTINA             - AG. MONSERRAT                           
+2024-09-09 21:30:05,670 [6] INFO  MedioUnicoDePago.Controllers.HomeController - Procesando medio de pago: BANCO DE LA NACION ARGENTINA             - 047-AV MOSCONI                          
+2024-09-09 21:30:07,680 [6] INFO  MedioUnicoDePago.Controllers.HomeController - Procesando medio de pago: BANCO DE LA NACION ARGENTINA             - 4009 - SUC 9 ABASTO                     
+2024-09-09 21:30:09,703 [6] INFO  MedioUnicoDePago.Controllers.HomeController - Procesando medio de pago: BANCO DE LA NACION ARGENTINA             - SUC. LINIERS                            
+2024-09-09 21:30:12,051 [6] INFO  MedioUnicoDePago.Controllers.HomeController - Procesando medio de pago: BANCO DE LA NACION ARGENTINA             - AGENCIA RECOLETA                        
+2024-09-09 21:30:15,325 [6] INFO  MedioUnicoDePago.Controllers.HomeController - Procesando medio de pago: BANCO DE LA NACION ARGENTINA             - SUC. MONSERRAT                          
+2024-09-09 21:30:15,325 [6] INFO  MedioUnicoDePago.Controllers.HomeController - Procesando medio de pago: BANCO DE LA NACION ARGENTINA             - SUC.042 RETIRO                          
+2024-09-09 21:30:15,325 [6] INFO  MedioUnicoDePago.Controllers.HomeController - Procesando medio de pago: BANCO DE LA NACION ARGENTINA             - SUC.ESTADO DE ISRAEL                    
+2024-09-09 21:30:15,325 [6] INFO  MedioUnicoDePago.Controllers.HomeController - Procesando medio de pago: BANCO DE LA NACION ARGENTINA             - SUC. 60 VILLA ORTUZAR                   
+2024-09-09 21:30:15,325 [6] INFO  MedioUnicoDePago.Controllers.HomeController - Procesando medio de pago: BANCO DE LA NACION ARGENTINA             - SUC. NORTE                              
+2024-09-09 21:30:15,325 [6] INFO  MedioUnicoDePago.Controllers.HomeController - Procesando medio de pago: BANCO DE LA NACION ARGENTINA             - CAJA NAC. DE PREV. TRAB. IND. COM Y A.C.
+2024-09-09 21:30:15,325 [6] INFO  MedioUnicoDePago.Controllers.HomeController - Procesando medio de pago: BANCO DE LA NACION ARGENTINA             - CAJA DE SEGURIDAD SOCIAL PARA ABOGADOS  
+2024-09-09 21:30:15,325 [6] INFO  MedioUnicoDePago.Controllers.HomeController - MediosPagoViewModel creados: 13

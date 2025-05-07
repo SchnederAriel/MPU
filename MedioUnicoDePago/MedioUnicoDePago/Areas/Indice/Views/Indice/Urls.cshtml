@@ -1,0 +1,64 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Urls</title>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="table__title h2 centrado button--blue">Índice</div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <button class="btn btn-success">@Html.ActionLink("DECRETO 614", "AltaDecreto/Alta", "decreto614", new { Area = "" }, new { })</button>
+                </div>
+                <div class="col-lg-6">
+                    <label class="">CUIL:</label>
+                    <input id="ipdec614" class="input-sm" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <button class="btn btn-success"> @Html.ActionLink("DECRETO 840", "AltaDecreto/Alta", "decreto840", new { Area = "" }, new { })</button>
+                </div>
+                <div class="col-lg-6">
+                    <label class="">CUIL:</label>
+                    <input id="ipdec840" class="input-sm" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <button class="btn btn-success">@Html.ActionLink("LIQAAFF", "liquidaciones/Index", "liquidaciones", new { Area = "" }, new { })</button>
+                </div>
+                <div class="col-lg-6">
+                    <label class="">CUIL:</label>
+                    <input id="ipliqaaff" class="input-sm" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <button class="btn btn-success"> @Html.ActionLink("MISLIQUI", "MisLiqui/Index", "misLiqui", new { Area = "" }, new { })</button>
+                </div>
+                <div class="col-lg-6">
+                    <label class="">CUIL:</label>
+                    <input id="ipmisliqui" class="input-sm" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <button class="btn btn-success"> @Html.ActionLink("BOCA DE PAGO", "MisLiqui/Index", "misLiqui", new { Area = "" }, new { })</button>
+                </div>
+                <div class="col-lg-6">
+                    <label class="">CUIL:</label>
+                    <input id="ipbocadepago" class="input-sm" />
+                </div>
+            </div>
+        </div>
+    
+</body>
+</html>

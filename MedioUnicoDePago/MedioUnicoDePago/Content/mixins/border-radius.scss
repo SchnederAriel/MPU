@@ -1,0 +1,23 @@
+//-----------------------------
+//
+//    Border Radius Mixins
+//
+//-----------------------------
+
+//__ Border Radius
+@mixin border-radius($radius) {
+  border-radius:            $radius;
+  background-clip:          padding-box;
+}
+//** Como aplicarla? @include border-radius(50%); **
+
+//__ Border Radius Individual
+@mixin border-radius-individual ($border-top-left, $border-top-right, $border-bottom-right, $border-bottom-left) {
+
+  border-top-right-radius:            $border-top-right;
+  border-bottom-right-radius:         $border-bottom-right;
+  border-bottom-left-radius:          $border-bottom-left;
+  border-top-left-radius:             $border-top-left;
+  background-clip:                    padding-box;
+}
+//** Como aplicarla? @include border-radius-individual(10px, 5px, 10px, 5px); **

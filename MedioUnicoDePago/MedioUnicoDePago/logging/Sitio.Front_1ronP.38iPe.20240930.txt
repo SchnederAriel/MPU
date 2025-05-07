@@ -1,0 +1,1 @@
+2024-09-30 22:26:22,224 [6] INFO  MedioUnicoDePago.Filtros.ErrorHandler - ---> ERROR controlado desde Error handler

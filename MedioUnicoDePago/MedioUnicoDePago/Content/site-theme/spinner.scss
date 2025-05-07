@@ -1,0 +1,77 @@
+﻿#spinner-container {
+    display: none;
+
+    .overlay {
+        @include square(100%);
+        position: fixed;
+        background: rgba(50,59,69,.8);
+        z-index: 99999;
+        top: 0;
+        text-align: center;
+    }
+
+    .spinner__container {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%);
+    }
+
+    .spinner__loading {
+        @include circle(70px);
+        border: 3px solid rgba(255,255,255,.5);
+        border-top-color: $colorBlue;
+        animation: spin 1s infinite linear;
+        -webkit-animation: spin 1s infinite linear;
+        display: inline-block;
+    }
+
+    .spinner__text {
+        color: #fff;
+        margin-top: 25px;
+        text-transform: lowercase;
+        font-size: 14px;
+        position:relative;
+
+        &:before {
+            display: inline-block;
+            width: 50%;
+            text-align: center;
+            background: #fff;
+            height: 2px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: auto;
+            top: 0;
+        }
+
+        &:first-letter {
+            text-transform: uppercase;
+        }
+    }
+
+    @keyframes spin {
+        to {
+            -webkit-transform: rotate(360deg);
+        }
+    }
+
+    @-webkit-keyframes spin {
+        to {
+            -webkit-transform: rotate(360deg);
+        }
+    }
+}
+
+/*
+    <div id="spinner-container">
+        <div class="overlay">
+            <div class="spinner__container">
+                <div class="spinner__loading"></div>
+                <div class="spinner__text"></div>
+            </div>
+        </div>
+    </div>
+
+*/

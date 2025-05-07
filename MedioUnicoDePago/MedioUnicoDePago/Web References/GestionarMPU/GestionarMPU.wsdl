@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://MPU.anses.gov.ar" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://MPU.anses.gov.ar" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://MPU.anses.gov.ar">
+      <s:element name="ConsultarBancosPorCercania">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codigoPostal" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarBancosPorCercaniaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarBancosPorCercaniaResult" type="tns:ArrayOfDTOBanco" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDTOBanco">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DTOBanco" nillable="true" type="tns:DTOBanco" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DTOBanco">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Codigo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Direccion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoAgencia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreAgencia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoPostal" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerMedioPagoVigente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cuil" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerMedioPagoVigenteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerMedioPagoVigenteResult" type="tns:DTOMedioPagoVigente" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DTOMedioPagoVigente">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdModo" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cuil" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="CModoPago" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CBco" nillable="true" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="CAge" nillable="true" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cbu1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cbu2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cvu1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cvu2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Alias" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PeDesde" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PeHasta" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CEstado" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="TimeEstado" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdTramite" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="FAlta" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="DAge" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IpOrigen" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Udai" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="OpeTramite" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TimeTramite" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="DBco" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoPostal" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DomCalle" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GuardarMedioPagoUnico">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="medioPago" type="tns:DTOMedioPago" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DTOMedioPago">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Cuil" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoMedioPago" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CbuInicio" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="CbuFinal" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="CBanco" nillable="true" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="CAgencia" nillable="true" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="PeInicioPago" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cvu1" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cvu2" nillable="true" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Alias" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IpOrigen" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Udai" nillable="true" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="OpeTramite" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GuardarMedioPagoUnicoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GuardarMedioPagoUnicoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarMPDisponibles">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cuil" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarMPDisponiblesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarMPDisponiblesResult" type="tns:ArrayOfDTOMedioPagoDisponible" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDTOMedioPagoDisponible">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DTOMedioPagoDisponible" nillable="true" type="tns:DTOMedioPagoDisponible" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DTOMedioPagoDisponible">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Cuil" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="PeEmision" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="PeLiquidado" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="CBanco" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="CAgencia" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="CSistema" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="MRetenido" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MPago" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CTipoLiq" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cbu1" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cbu2" nillable="true" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreBanco" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreAgencia" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TraerBancosFisicos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codigoPostal" type="s:short" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerBancosFisicosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerBancosFisicosResult" type="tns:ArrayOfDTOBanco" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarBancosVirtuales">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListarBancosVirtualesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarBancosVirtualesResult" type="tns:ArrayOfDTOBanco" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarBilleterasVirtuales">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListarBilleterasVirtualesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarBilleterasVirtualesResult" type="tns:ArrayOfDTOBanco" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarBancosCorreo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codigoPostal" type="s:short" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarBancosCorreoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarBancosCorreoResult" type="tns:ArrayOfDTOBanco" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerApoderado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="apod" type="tns:DTOApoderado" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DTOApoderado">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="cuil" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="p_pago" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerApoderadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ObtenerApoderadoResult" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerNombreBanco">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="banco" type="s:short" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerNombreBancoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerNombreBancoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerNombreAgencia">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="banco" type="s:short" />
+            <s:element minOccurs="1" maxOccurs="1" name="agencia" type="s:short" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerNombreAgenciaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerNombreAgenciaResult" type="tns:DTOAgencia" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DTOAgencia">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="NombreAgencia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Calle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroCalle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Localidad" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ConsultarBancosPorCercaniaSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarBancosPorCercania" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarBancosPorCercaniaSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarBancosPorCercaniaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerMedioPagoVigenteSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerMedioPagoVigente" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerMedioPagoVigenteSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerMedioPagoVigenteResponse" />
+  </wsdl:message>
+  <wsdl:message name="GuardarMedioPagoUnicoSoapIn">
+    <wsdl:part name="parameters" element="tns:GuardarMedioPagoUnico" />
+  </wsdl:message>
+  <wsdl:message name="GuardarMedioPagoUnicoSoapOut">
+    <wsdl:part name="parameters" element="tns:GuardarMedioPagoUnicoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarMPDisponiblesSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarMPDisponibles" />
+  </wsdl:message>
+  <wsdl:message name="ListarMPDisponiblesSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarMPDisponiblesResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerBancosFisicosSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerBancosFisicos" />
+  </wsdl:message>
+  <wsdl:message name="TraerBancosFisicosSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerBancosFisicosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarBancosVirtualesSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarBancosVirtuales" />
+  </wsdl:message>
+  <wsdl:message name="ListarBancosVirtualesSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarBancosVirtualesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarBilleterasVirtualesSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarBilleterasVirtuales" />
+  </wsdl:message>
+  <wsdl:message name="ListarBilleterasVirtualesSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarBilleterasVirtualesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarBancosCorreoSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarBancosCorreo" />
+  </wsdl:message>
+  <wsdl:message name="ListarBancosCorreoSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarBancosCorreoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerApoderadoSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerApoderado" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerApoderadoSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerApoderadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerNombreBancoSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerNombreBanco" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerNombreBancoSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerNombreBancoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerNombreAgenciaSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerNombreAgencia" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerNombreAgenciaSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerNombreAgenciaResponse" />
+  </wsdl:message>
+  <wsdl:portType name="GestionMPUSoap">
+    <wsdl:operation name="ConsultarBancosPorCercania">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta los bancos por cercanía según el código postal.</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarBancosPorCercaniaSoapIn" />
+      <wsdl:output message="tns:ConsultarBancosPorCercaniaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerMedioPagoVigente">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene el medio de pago vigente para un CUIL.</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerMedioPagoVigenteSoapIn" />
+      <wsdl:output message="tns:ObtenerMedioPagoVigenteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GuardarMedioPagoUnico">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Guarda un nuevo medio de pago único para un beneficiario.</wsdl:documentation>
+      <wsdl:input message="tns:GuardarMedioPagoUnicoSoapIn" />
+      <wsdl:output message="tns:GuardarMedioPagoUnicoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarMPDisponibles">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Lista los medios de pago disponibles para un CUIL.</wsdl:documentation>
+      <wsdl:input message="tns:ListarMPDisponiblesSoapIn" />
+      <wsdl:output message="tns:ListarMPDisponiblesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerBancosFisicos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta los bancos físicos por código postal.</wsdl:documentation>
+      <wsdl:input message="tns:TraerBancosFisicosSoapIn" />
+      <wsdl:output message="tns:TraerBancosFisicosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarBancosVirtuales">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Lista los bancos virtuales disponibles.</wsdl:documentation>
+      <wsdl:input message="tns:ListarBancosVirtualesSoapIn" />
+      <wsdl:output message="tns:ListarBancosVirtualesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarBilleterasVirtuales">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Lista las billeteras virtuales disponibles.</wsdl:documentation>
+      <wsdl:input message="tns:ListarBilleterasVirtualesSoapIn" />
+      <wsdl:output message="tns:ListarBilleterasVirtualesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarBancosCorreo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Lista las bancos correo disponibles.</wsdl:documentation>
+      <wsdl:input message="tns:ListarBancosCorreoSoapIn" />
+      <wsdl:output message="tns:ListarBancosCorreoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerApoderado">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene apoderados.</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerApoderadoSoapIn" />
+      <wsdl:output message="tns:ObtenerApoderadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNombreBanco">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene el nombre del banco a través del stored procedure PFSP_NOMBREBANCO.</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerNombreBancoSoapIn" />
+      <wsdl:output message="tns:ObtenerNombreBancoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNombreAgencia">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene la información de la agencia a través del stored procedure PFSP_NOMBREAGENCIA.</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerNombreAgenciaSoapIn" />
+      <wsdl:output message="tns:ObtenerNombreAgenciaSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GestionMPUSoap" type="tns:GestionMPUSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ConsultarBancosPorCercania">
+      <soap:operation soapAction="http://MPU.anses.gov.ar/ConsultarBancosPorCercania" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerMedioPagoVigente">
+      <soap:operation soapAction="http://MPU.anses.gov.ar/ObtenerMedioPagoVigente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarMedioPagoUnico">
+      <soap:operation soapAction="http://MPU.anses.gov.ar/GuardarMedioPagoUnico" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarMPDisponibles">
+      <soap:operation soapAction="http://MPU.anses.gov.ar/ListarMPDisponibles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerBancosFisicos">
+      <soap:operation soapAction="http://MPU.anses.gov.ar/TraerBancosFisicos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarBancosVirtuales">
+      <soap:operation soapAction="http://MPU.anses.gov.ar/ListarBancosVirtuales" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarBilleterasVirtuales">
+      <soap:operation soapAction="http://MPU.anses.gov.ar/ListarBilleterasVirtuales" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarBancosCorreo">
+      <soap:operation soapAction="http://MPU.anses.gov.ar/ListarBancosCorreo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerApoderado">
+      <soap:operation soapAction="http://MPU.anses.gov.ar/ObtenerApoderado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNombreBanco">
+      <soap:operation soapAction="http://MPU.anses.gov.ar/ObtenerNombreBanco" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNombreAgencia">
+      <soap:operation soapAction="http://MPU.anses.gov.ar/ObtenerNombreAgencia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="GestionMPUSoap12" type="tns:GestionMPUSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ConsultarBancosPorCercania">
+      <soap12:operation soapAction="http://MPU.anses.gov.ar/ConsultarBancosPorCercania" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerMedioPagoVigente">
+      <soap12:operation soapAction="http://MPU.anses.gov.ar/ObtenerMedioPagoVigente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarMedioPagoUnico">
+      <soap12:operation soapAction="http://MPU.anses.gov.ar/GuardarMedioPagoUnico" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarMPDisponibles">
+      <soap12:operation soapAction="http://MPU.anses.gov.ar/ListarMPDisponibles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerBancosFisicos">
+      <soap12:operation soapAction="http://MPU.anses.gov.ar/TraerBancosFisicos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarBancosVirtuales">
+      <soap12:operation soapAction="http://MPU.anses.gov.ar/ListarBancosVirtuales" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarBilleterasVirtuales">
+      <soap12:operation soapAction="http://MPU.anses.gov.ar/ListarBilleterasVirtuales" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarBancosCorreo">
+      <soap12:operation soapAction="http://MPU.anses.gov.ar/ListarBancosCorreo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerApoderado">
+      <soap12:operation soapAction="http://MPU.anses.gov.ar/ObtenerApoderado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNombreBanco">
+      <soap12:operation soapAction="http://MPU.anses.gov.ar/ObtenerNombreBanco" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNombreAgencia">
+      <soap12:operation soapAction="http://MPU.anses.gov.ar/ObtenerNombreAgencia" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GestionMPU">
+    <wsdl:port name="GestionMPUSoap" binding="tns:GestionMPUSoap">
+      <soap:address location="http://10.8.10.124/GestionarMPU/GestionarMPU.asmx" />
+    </wsdl:port>
+    <wsdl:port name="GestionMPUSoap12" binding="tns:GestionMPUSoap12">
+      <soap12:address location="http://10.8.10.124/GestionarMPU/GestionarMPU.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

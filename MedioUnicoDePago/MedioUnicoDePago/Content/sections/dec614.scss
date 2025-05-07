@@ -1,0 +1,223 @@
+﻿/* Titulos*/
+
+.titulo-principal {
+    color: #005296;
+    font-weight: bold;
+}
+/*Tabla*/
+
+.tabla-datos {
+    border: 1px solid #dee2e6;
+}
+
+.tabla-datos thead {
+    background-color: #005296;
+    color: white;
+}
+
+.tabla-datos tbody tr:nth-child(even) {
+    background-color: #dee2e6;
+}
+
+.tabla-datos tr {
+    text-align: left;
+    border: 1px solid #dee2e6;
+}
+
+.select {
+    background-color: #1786e2;
+    color: white;
+}
+
+.titulo {
+    background-color: #005296;
+    color: white;
+    text-transform: uppercase;
+    padding: 10px 18px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/*Div*/
+.contenedor {
+    border: 1px solid #dee2e6;
+    margin: 20px 0;
+}
+
+.detalle {
+    text-transform: uppercase;
+    padding: 18px 35px;
+}
+
+.detalle ul {
+    list-style-type: none;
+}
+
+.titulo-detalle {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.titulo-secundario {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.titulo-secundario-azul {
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #005296;
+}
+
+.titulo-verde {
+    padding-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #35bf5a;
+}
+
+.elem-inline {
+    display: inline;
+}
+
+.solicitud {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #dee2e6;
+    border-top: 10px solid #005296;
+}
+
+.cobro {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #dee2e6;
+    border-top: 10px solid #9283be;
+}
+
+.azul {
+    color: #005296;
+}
+/*Botones*/
+.boton-azul {
+    padding: 10px 50px;
+    background-color: #005296;
+    color: white;
+    border: none;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.boton-azul:hover {
+    opacity: 0.7;
+}
+
+.boton-blanco {
+    padding: 10px 50px;
+    background-color: white;
+    color: #005296;
+    border: 1px solid #005296;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-right: 50px;
+}
+
+.boton-blanco:hover {
+    opacity: 0.7;
+}
+
+
+.boton-blanco-modal {
+    padding: 10px 30px;
+    background-color: white;
+    color: #005296;
+    border: 1px solid #005296;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-right: 30px;
+}
+
+.boton-azul-modal {
+    padding: 10px 30px;
+    background-color: #005296;
+    color: white;
+    border: none;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.centrado {
+    display: flex;
+    justify-content: center;
+}
+
+.titulo-cobro {
+    display: inline-flex;
+    align-items: center;
+    height: 37px;
+    position: absolute;
+    color: #005296;
+    font-weight: bold;
+    font-size: 16px;
+    padding-left: 15px;
+}
+
+.descripcion-cobro {
+    padding-left: 50px;
+}
+
+.celeste {
+    color: #1786e2;
+}
+
+.link {
+    cursor: pointer;
+    color: #1786e2;
+    text-decoration: underline;
+    padding-left: 10px;
+}
+
+/*Modal*/
+.titulo-modal {
+    text-align: left;
+    padding: 25px 0 0 36px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+@media only screen and (max-width: 840px) {
+
+    .msj-info {
+        padding: 4px 4px;
+    }
+
+    .tabla-datos tr {
+        border: 1px solid #dee2e6;
+    }
+
+    table.dataTable thead th, table.dataTable thead td {
+        padding: 2px;
+        border-bottom: 1px solid #111;
+    }
+
+    table.dataTable tbody th, table.dataTable tbody td {
+        padding: 4px 4px;
+    }
+
+    .font--text, body, .table-container .table .table__body .table__row .table__column, .table-container .table .table__body .table__row td, .table-container .table .table__body tr .table__column, .table-container .table .table__body tr td, .table-container .table tbody .table__row .table__column, .table-container .table tbody .table__row td, .table-container .table tbody tr .table__column, .table-container .table tbody tr td, .form-group-option .form-group__item .form__label {
+        font-weight: 400;
+        font-size: 9px;
+        color: #000;
+    }
+
+    table.dataTable.no-footer {
+        border-bottom: 1px solid #111;
+        width: unset !important;
+    }
+
+    table__title sorting_disabled {
+        width: unset !important;
+    }
+}
+
+

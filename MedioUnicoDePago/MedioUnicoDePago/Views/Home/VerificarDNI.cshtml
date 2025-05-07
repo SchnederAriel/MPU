@@ -1,0 +1,167 @@
+﻿@{
+    ViewBag.Title = "Medio de Pago Único - ANSES";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/Site.css" rel="stylesheet" />
+<style>
+    body {
+        background-color: #dcdcdc;
+        color: #333;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .container {
+        max-width: 800px;
+        margin-top: 50px;
+    }
+
+    .card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-body {
+        padding: 30px;
+    }
+
+    h1 {
+        color: #0056b3;
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .subtitle {
+        color: #6c757d;
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        border-color: #6c757d;
+    }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            border-color: #545b62;
+        }
+
+    .dni-images {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 20px;
+    }
+
+    .dni-image {
+        text-align: center;
+    }
+
+        .dni-image img {
+            max-width: 200px;
+            margin-bottom: 10px;
+        }
+</style>
+
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h1>Seleccione su Medio de Cobro para percibir todas sus prestaciones</h1>
+
+            <div class="mb-4">
+                <h5 class="subtitle">Cambio de lugar de cobro.</h5>
+                <p>Si quiere cambiar el lugar donde recibe su asignación familiar podrá elegir entre: acreditación en cuenta (CBU), banco por código postal o billetera virtual. Simplifique su trámite según sus preferencias. ¡La elección es comodidad!</p>
+            </div>
+
+            <div class="alert alert-info" role="alert">
+                <strong>Forma de pago - Importante:</strong> Al elegir un nuevo medio, éste sustituirá permanentemente la opción anterior.
+            </div>
+
+            <div class="mb-4">
+                <h5 class="subtitle">Confirmá tu DNI</h5>
+                <p>Ingresá los 11 dígitos del número de trámite de tu DNI:</p>
+
+                <div class="dni-images">
+                    <div class="dni-image">
+                        <img src="~/Content/Images/dni.png" alt="Nuevo DNI" />
+                        <p>Nuevo DNI</p>
+                    </div>
+                    <div class="dni-image">
+                        <img src="~/Content/Images/dni_anterior.png" alt="DNI anterior" />
+                        <p>DNI anterior</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" id="idTramite" class="form-control" placeholder="Ingrese N° de trámite" maxlength="11">
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-end mt-4">
+                <button type="button" id="btnContinuar" class="btn btn-primary">Continuar</button>
+            </div>
+
+            <div id="mensaje" class="alert mt-3" role="alert" style="display: none;"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+        $(document).ready(function() {
+        $('#btnContinuar').click(function() {
+            var idTramite = $('#idTramite').val();
+            var dni = '@ViewBag.DNI';
+
+            $.ajax({
+                url: '@Url.Action("ValidarIDTramite", "Home")',
+                type: 'POST',
+                data: { DNI: dni, IdTramite: idTramite },
+                success: function(response) {
+                    if (response.success) {
+                        $('#mensaje').removeClass('alert-danger').addClass('alert-success')
+                            .text('Validación exitosa. Redirigiendo...').show();
+
+                        // Verificar ViewBag.MedioDePagoActual y redirigir
+                        var medioPagoActual = '@ViewBag.MedioDePagoActual';
+                        var redirectUrl = medioPagoActual && medioPagoActual !== ''
+                            ? '@Url.Action("GuardarMDP", "Home")'
+                            : '@Url.Action("ListadoMDP", "Home")';
+
+                        setTimeout(function() {
+                            window.location.href = redirectUrl;
+                        }, 2000);
+                    } else {
+                        $('#mensaje').removeClass('alert-success').addClass('alert-danger')
+                            .text(response.message || 'Error en la validación. Por favor, intente nuevamente.').show();
+                    }
+                },
+                error: function() {
+                    $('#mensaje').removeClass('alert-success').addClass('alert-danger')
+                        .text('Error de conexión. Por favor, intente nuevamente más tarde.').show();
+                }
+            });
+        });
+
+        $('#btnVolver').click(function() {
+            window.history.back();
+        });
+    });
+
+
+</script>
+
+
+

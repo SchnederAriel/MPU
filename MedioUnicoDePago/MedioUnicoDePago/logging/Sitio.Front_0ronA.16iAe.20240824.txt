@@ -1,0 +1,13 @@
+2024-08-24 00:59:43,086 [6] ERROR GestionMPU - Error al obtener el medio de pago vigente***   en WS.MPU.Negocio.GestionarMPUNeg.ObtenerMedioPagoVigente(String cuil) en C:\Users\E131676\Desktop\JUAN\WORK BENCH\WS.MPU\WS.MPU.Negocio\GestionarMPUNeg.cs:línea 39
+   en WS.MPU.GestionMPU.ObtenerMedioPagoVigente(String cuil) en C:\Users\E131676\Desktop\JUAN\WORK BENCH\WS.MPU\WS.MPU\GestionarMPU.asmx.cs:línea 54
+2024-08-24 00:59:43,105 [6] ERROR CunaMiAnses.Controllers.HomeController - Error al obtener el medio de pago vigente para el CUIL 27026825917
+System.Exception: Error al obtener el medio de pago vigente ---> System.InvalidOperationException: SQL1159  Initialization error with DB2 .NET Data Provider, reason code 10, tokens 0.0.00, 11.5.40, Process Owner: ANSES\E131676
+   en IBM.Data.DB2.DB2ConnPool.Open(DB2Connection connection, String& szConnectionString, DB2ConnSettings& ppSettings, Object& ppConn)
+   en IBM.Data.DB2.DB2Connection.Open()
+   en WS.MPU.GestionarMPU.Datos.Connection..ctor() en C:\Users\E131676\Desktop\JUAN\WORK BENCH\WS.MPU\WS.MPU.Datos\Connection.cs:línea 24
+   en WS.MPU.GestionarMPU.Datos.GestionarMPUDatos.ObtenerMedioPagoVigente(String cuil) en C:\Users\E131676\Desktop\JUAN\WORK BENCH\WS.MPU\WS.MPU.Datos\GestionarMPUDatos.cs:línea 60
+   en WS.MPU.Negocio.GestionarMPUNeg.ObtenerMedioPagoVigente(String cuil) en C:\Users\E131676\Desktop\JUAN\WORK BENCH\WS.MPU\WS.MPU.Negocio\GestionarMPUNeg.cs:línea 34
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en WS.MPU.Negocio.GestionarMPUNeg.ObtenerMedioPagoVigente(String cuil) en C:\Users\E131676\Desktop\JUAN\WORK BENCH\WS.MPU\WS.MPU.Negocio\GestionarMPUNeg.cs:línea 39
+   en WS.MPU.GestionMPU.ObtenerMedioPagoVigente(String cuil) en C:\Users\E131676\Desktop\JUAN\WORK BENCH\WS.MPU\WS.MPU\GestionarMPU.asmx.cs:línea 64
+   en CunaMiAnses.Controllers.HomeController.<MDPActual>d__11.MoveNext() en C:\Users\E131676\Downloads\prueba\la-lupa-mianses-master\CunaMiAnses\Controllers\HomeController.cs:línea 97

@@ -1,0 +1,170 @@
+2024-01-15 12:15:58,828 [43] INFO  CunaMiAnses.Controllers.HomeController - ENTRE CREATE: {"apellidoYNombre":null,"cuil":"23111111111","numDocumento":null,"nombreAgentePag":null,"fechaPresentacion":null,"codProvincia":null,"codLocalidad":null,"codAgencia":null,"idAgencia":null,"codBanco":null,"idBanco":null,"codPostal":null,"idPostal":null,"tipoBocaPago":"BVIRTUAL","CBU":null,"BilleteraVirtual":["007-003",""],"cbuInicio":null,"cbuFinal":null,"hdnCbuInicio":null,"hdnCbuFinal":null,"confirm":false,"numTramite":null,"idTramite":null,"descripcionUdai":null,"codUdai":null,"selectedAgPag":null,"listProvincias":[],"listLocalidades":null,"descAgencia":null,"descBanco":null,"descDomicilio":null,"periodoDesdeBDP":null,"periodoHastaBDP":null,"descripcionEstado":null,"operadorTramite":null,"codigoEstado":0,"mensajeError":null,"SoloCorreo":0,"SoloCBU":0,"esMenor":0,"btnAltaMedioPago":"notAuthorized","viewAlta":false,"ErrorCoelsa":"","ListadoBancosInhibidos":null}
+2024-01-15 12:15:58,831 [43] INFO  ProxyLupa - ConsultarUsuarioXCuil - Iniciando consulta - SIN TOKEN - 
+2024-01-15 12:15:58,831 [43] INFO  ProxyLupa - ConsultarUsuarioXCuil - Consultando SERVICIO - TraerUsuarioxCuil - SIN HEADER -> 
+2024-01-15 12:15:59,061 [43] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-15 12:15:59,061 [43] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-15 12:15:59,094 [43] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-15 12:15:59,094 [43] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-15 12:15:59,095 [43] INFO  ProxyLupa - {"CBUFinal":null,"CBUInicio":null,"CodAgencia":3,"CodBanco":7,"CodigoPostal":"1004","DesAgencia":"SUC. N  7-BOEDO                         ","DesBanco":"BANCO DE GALICIA Y BUENOS               ","DomCalle":"GASCON 1682                   ","Historial":true,"ModoPago":3,"PeDesde":"2023-11-01T00:00:00","PeHasta":null,"Tramite":685869}
+2024-01-15 12:15:59,095 [43] INFO  ProxyLupa - ConsultarUsuarioXCuil - Mapeando resultado - SIN TOKEN
+2024-01-15 12:15:59,095 [43] INFO  ProxyLupa - ConsultarUsuarioXCuil - Fin Mapping - Retornando - SIN TOKEN 
+2024-01-15 12:15:59,095 [43] INFO  ProxyLupa - TraerPeriodosCronoLiq - Iniciando consulta - SIN TOKEN - 
+2024-01-15 12:15:59,095 [43] INFO  ProxyLupa - TraerPeriodosCronoLiq - Consultando SERVICIO - TraerPeriodosCronoliq - SIN HEADER 
+2024-01-15 12:15:59,117 [43] INFO  ProxyLupa - TraerPeriodosCronoLiq - Retornando - SIN TOKEN
+2024-01-15 12:15:59,117 [43] DEBUG CunaMiAnses.Controllers.HomeController - EL FORMULARIO ES VALIDO
+2024-01-15 12:15:59,117 [43] DEBUG CunaMiAnses.Controllers.HomeController - LLAMO AL INSERT
+2024-01-15 12:15:59,117 [43] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - InsertarMedioDePago - Iniciando insert - SIN TOKEN
+2024-01-15 12:15:59,117 [43] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - InsertarMedioDePago - Consultando SERVICIO - MDPagoInsert - SIN HEADER -> 
+2024-01-15 12:15:59,117 [43] DEBUG CunaMiAnses.Proxies.ProxyBocaDePago - ALTA MEDIO DE PAGO -> {"CBU_Final":null,"CBU_Inicio":null,"Cod_Agencia":3,"Cod_Banco":7,"Cod_Cuenta_Judicial":0.0,"Cuil":23111111111.0,"Cuit":23111111111.0,"FechaPrensentacion":"2024-01-15T12:15:59.1178831-03:00","IpOrigen":null,"OperadorTramite":"MiAnses","Tramite":-1,"Udai":10000008.0}
+2024-01-15 12:15:59,222 [43] DEBUG CunaMiAnses.Proxies.ProxyBocaDePago - RESULT -> {"FechaFinPago":0.0,"FechaFinVigencia":null,"FechaInicioPago":202311.0,"FechaInicioVigencia":null,"HayErrores":false,"ID_tramite":685873,"Mensajes":[""],"Nro_tramite":11460}
+2024-01-15 12:15:59,222 [43] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - InsertarMedioDePago - Mapeando resultado - SIN TOKEN - 
+2024-01-15 12:15:59,222 [43] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-15 12:15:59,222 [43] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-15 12:15:59,249 [43] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-15 12:15:59,249 [43] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-15 12:15:59,249 [43] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - InsertarMedioDePago - Fin Mapping - Retornando - SIN TOKEN
+2024-01-15 12:15:59,249 [43] DEBUG CunaMiAnses.Controllers.HomeController - DEVUELVE EL INSERT
+2024-01-15 12:16:09,463 [35] INFO  CunaMiAnses.Controllers.HomeController - Entro por cuil 23111111111
+2024-01-15 12:16:09,463 [35] INFO  ProxyLupa - ConsultarUsuarioXCuil - Iniciando consulta - SIN TOKEN - 
+2024-01-15 12:16:09,463 [35] INFO  ProxyLupa - ConsultarUsuarioXCuil - Consultando SERVICIO - TraerUsuarioxCuil - SIN HEADER -> 
+2024-01-15 12:16:09,623 [35] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-15 12:16:09,623 [35] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-15 12:16:09,655 [35] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-15 12:16:09,655 [35] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-15 12:16:09,655 [35] INFO  ProxyLupa - {"CBUFinal":null,"CBUInicio":null,"CodAgencia":3,"CodBanco":7,"CodigoPostal":"1004","DesAgencia":"SUC. N  7-BOEDO                         ","DesBanco":"BANCO DE GALICIA Y BUENOS               ","DomCalle":"GASCON 1682                   ","Historial":true,"ModoPago":3,"PeDesde":"2023-11-01T00:00:00","PeHasta":null,"Tramite":685873}
+2024-01-15 12:16:09,655 [35] INFO  ProxyLupa - ConsultarUsuarioXCuil - Mapeando resultado - SIN TOKEN
+2024-01-15 12:16:09,655 [35] INFO  ProxyLupa - ConsultarUsuarioXCuil - Fin Mapping - Retornando - SIN TOKEN 
+2024-01-15 12:16:09,655 [35] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-15 12:16:09,655 [35] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-15 12:16:09,683 [35] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-15 12:16:09,683 [35] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-15 12:16:09,683 [35] INFO  ProxyLupa - TraerListadoDeProvincias - Iniciando consulta - SIN TOKEN - 
+2024-01-15 12:16:09,683 [35] INFO  ProxyLupa - TraerListadoDeProvincias - Consultando SERVICIO - TraerListaProvincias - SIN HEADER 
+2024-01-15 12:16:09,749 [35] INFO  ProxyLupa - TraerListadoDeProvincias - Mapeando resultado - SIN TOKEN
+2024-01-15 12:16:09,749 [35] INFO  ProxyLupa - TraerListadoDeProvincias - Fin Mapping - Retornando - SIN TOKEN
+2024-01-15 12:16:09,749 [35] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Iniciando consulta - SIN TOKEN
+2024-01-15 12:16:09,749 [35] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Consultando SERVICIO - ListadoCodBancoInhibido - SIN HEADER - 
+2024-01-15 12:16:09,770 [35] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Retornando - SIN TOKEN
+2024-01-15 12:16:17,666 [31] INFO  CunaMiAnses.Controllers.HomeController - ENTRE CREATE: {"apellidoYNombre":null,"cuil":"23111111111","numDocumento":null,"nombreAgentePag":null,"fechaPresentacion":null,"codProvincia":null,"codLocalidad":null,"codAgencia":null,"idAgencia":null,"codBanco":null,"idBanco":null,"codPostal":null,"idPostal":null,"tipoBocaPago":"BVIRTUAL","CBU":null,"BilleteraVirtual":["007-001",""],"cbuInicio":null,"cbuFinal":null,"hdnCbuInicio":null,"hdnCbuFinal":null,"confirm":false,"numTramite":null,"idTramite":null,"descripcionUdai":null,"codUdai":null,"selectedAgPag":null,"listProvincias":[],"listLocalidades":null,"descAgencia":null,"descBanco":null,"descDomicilio":null,"periodoDesdeBDP":null,"periodoHastaBDP":null,"descripcionEstado":null,"operadorTramite":null,"codigoEstado":0,"mensajeError":null,"SoloCorreo":0,"SoloCBU":0,"esMenor":0,"btnAltaMedioPago":"notAuthorized","viewAlta":false,"ErrorCoelsa":"","ListadoBancosInhibidos":null}
+2024-01-15 12:16:17,666 [31] INFO  ProxyLupa - ConsultarUsuarioXCuil - Iniciando consulta - SIN TOKEN - 
+2024-01-15 12:16:17,666 [31] INFO  ProxyLupa - ConsultarUsuarioXCuil - Consultando SERVICIO - TraerUsuarioxCuil - SIN HEADER -> 
+2024-01-15 12:16:17,823 [31] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-15 12:16:17,823 [31] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-15 12:16:17,852 [31] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-15 12:16:17,852 [31] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-15 12:16:17,852 [31] INFO  ProxyLupa - {"CBUFinal":null,"CBUInicio":null,"CodAgencia":3,"CodBanco":7,"CodigoPostal":"1004","DesAgencia":"SUC. N  7-BOEDO                         ","DesBanco":"BANCO DE GALICIA Y BUENOS               ","DomCalle":"GASCON 1682                   ","Historial":true,"ModoPago":3,"PeDesde":"2023-11-01T00:00:00","PeHasta":null,"Tramite":685873}
+2024-01-15 12:16:17,852 [31] INFO  ProxyLupa - ConsultarUsuarioXCuil - Mapeando resultado - SIN TOKEN
+2024-01-15 12:16:17,852 [31] INFO  ProxyLupa - ConsultarUsuarioXCuil - Fin Mapping - Retornando - SIN TOKEN 
+2024-01-15 12:16:17,852 [31] INFO  ProxyLupa - TraerPeriodosCronoLiq - Iniciando consulta - SIN TOKEN - 
+2024-01-15 12:16:17,852 [31] INFO  ProxyLupa - TraerPeriodosCronoLiq - Consultando SERVICIO - TraerPeriodosCronoliq - SIN HEADER 
+2024-01-15 12:16:17,876 [31] INFO  ProxyLupa - TraerPeriodosCronoLiq - Retornando - SIN TOKEN
+2024-01-15 12:16:17,876 [31] DEBUG CunaMiAnses.Controllers.HomeController - EL FORMULARIO ES VALIDO
+2024-01-15 12:16:17,876 [31] DEBUG CunaMiAnses.Controllers.HomeController - LLAMO AL INSERT
+2024-01-15 12:16:17,876 [31] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - InsertarMedioDePago - Iniciando insert - SIN TOKEN
+2024-01-15 12:16:17,876 [31] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - InsertarMedioDePago - Consultando SERVICIO - MDPagoInsert - SIN HEADER -> 
+2024-01-15 12:16:17,876 [31] DEBUG CunaMiAnses.Proxies.ProxyBocaDePago - ALTA MEDIO DE PAGO -> {"CBU_Final":null,"CBU_Inicio":null,"Cod_Agencia":1,"Cod_Banco":7,"Cod_Cuenta_Judicial":0.0,"Cuil":23111111111.0,"Cuit":23111111111.0,"FechaPrensentacion":"2024-01-15T12:16:17.8761352-03:00","IpOrigen":null,"OperadorTramite":"MiAnses","Tramite":-1,"Udai":10000008.0}
+2024-01-15 12:16:17,953 [31] DEBUG CunaMiAnses.Proxies.ProxyBocaDePago - RESULT -> {"FechaFinPago":0.0,"FechaFinVigencia":null,"FechaInicioPago":202311.0,"FechaInicioVigencia":null,"HayErrores":false,"ID_tramite":685874,"Mensajes":[""],"Nro_tramite":11461}
+2024-01-15 12:16:17,953 [31] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - InsertarMedioDePago - Mapeando resultado - SIN TOKEN - 
+2024-01-15 12:16:17,953 [31] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-15 12:16:17,953 [31] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-15 12:16:17,983 [31] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-15 12:16:17,983 [31] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-15 12:16:17,983 [31] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - InsertarMedioDePago - Fin Mapping - Retornando - SIN TOKEN
+2024-01-15 12:16:17,983 [31] DEBUG CunaMiAnses.Controllers.HomeController - DEVUELVE EL INSERT
+2024-01-15 12:16:26,513 [32] INFO  CunaMiAnses.Controllers.HomeController - Entro por cuil 23111111111
+2024-01-15 12:16:26,513 [32] INFO  ProxyLupa - ConsultarUsuarioXCuil - Iniciando consulta - SIN TOKEN - 
+2024-01-15 12:16:26,513 [32] INFO  ProxyLupa - ConsultarUsuarioXCuil - Consultando SERVICIO - TraerUsuarioxCuil - SIN HEADER -> 
+2024-01-15 12:16:26,675 [32] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-15 12:16:26,675 [32] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-15 12:16:26,703 [32] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-15 12:16:26,703 [32] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-15 12:16:26,703 [32] INFO  ProxyLupa - {"CBUFinal":null,"CBUInicio":null,"CodAgencia":1,"CodBanco":7,"CodigoPostal":"1427","DesAgencia":"SUC. N 22-PQUE. CHAS                    ","DesBanco":"BANCO DE GALICIA Y BUENOS               ","DomCalle":"AV. DE LOS INCAS 4763         ","Historial":true,"ModoPago":3,"PeDesde":"2023-11-01T00:00:00","PeHasta":null,"Tramite":685874}
+2024-01-15 12:16:26,703 [32] INFO  ProxyLupa - ConsultarUsuarioXCuil - Mapeando resultado - SIN TOKEN
+2024-01-15 12:16:26,703 [32] INFO  ProxyLupa - ConsultarUsuarioXCuil - Fin Mapping - Retornando - SIN TOKEN 
+2024-01-15 12:16:26,703 [32] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-15 12:16:26,703 [32] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-15 12:16:26,735 [32] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-15 12:16:26,735 [32] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-15 12:16:26,735 [32] INFO  ProxyLupa - TraerListadoDeProvincias - Iniciando consulta - SIN TOKEN - 
+2024-01-15 12:16:26,735 [32] INFO  ProxyLupa - TraerListadoDeProvincias - Consultando SERVICIO - TraerListaProvincias - SIN HEADER 
+2024-01-15 12:16:26,772 [32] INFO  ProxyLupa - TraerListadoDeProvincias - Mapeando resultado - SIN TOKEN
+2024-01-15 12:16:26,772 [32] INFO  ProxyLupa - TraerListadoDeProvincias - Fin Mapping - Retornando - SIN TOKEN
+2024-01-15 12:16:26,772 [32] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Iniciando consulta - SIN TOKEN
+2024-01-15 12:16:26,772 [32] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Consultando SERVICIO - ListadoCodBancoInhibido - SIN HEADER - 
+2024-01-15 12:16:26,791 [32] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Retornando - SIN TOKEN
+2024-01-15 12:16:32,340 [32] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - BuscarAgentePagador - Iniciando consulta - SIN TOKEN - 
+2024-01-15 12:16:32,340 [32] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - BuscarAgentePagador - Consultando SERVICIO - BuscarMediosDP - SIN HEADER - 
+2024-01-15 12:16:32,402 [32] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - BuscarAgentePagador - Retornando - SIN TOKEN - 
+2024-01-15 12:16:35,755 [32] INFO  CunaMiAnses.Controllers.HomeController - ENTRE CREATE: {"apellidoYNombre":null,"cuil":"23111111111","numDocumento":null,"nombreAgentePag":null,"fechaPresentacion":null,"codProvincia":null,"codLocalidad":null,"codAgencia":"6","idAgencia":null,"codBanco":"14","idBanco":null,"codPostal":"1424","idPostal":null,"tipoBocaPago":"AP","CBU":null,"BilleteraVirtual":["007-001",""],"cbuInicio":null,"cbuFinal":null,"hdnCbuInicio":null,"hdnCbuFinal":null,"confirm":false,"numTramite":null,"idTramite":null,"descripcionUdai":null,"codUdai":null,"selectedAgPag":"14,6","listProvincias":[],"listLocalidades":null,"descAgencia":null,"descBanco":null,"descDomicilio":null,"periodoDesdeBDP":null,"periodoHastaBDP":null,"descripcionEstado":null,"operadorTramite":null,"codigoEstado":0,"mensajeError":null,"SoloCorreo":0,"SoloCBU":0,"esMenor":0,"btnAltaMedioPago":"notAuthorized","viewAlta":false,"ErrorCoelsa":"","ListadoBancosInhibidos":null}
+2024-01-15 12:16:35,755 [32] INFO  ProxyLupa - ConsultarUsuarioXCuil - Iniciando consulta - SIN TOKEN - 
+2024-01-15 12:16:35,755 [32] INFO  ProxyLupa - ConsultarUsuarioXCuil - Consultando SERVICIO - TraerUsuarioxCuil - SIN HEADER -> 
+2024-01-15 12:16:36,032 [32] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-15 12:16:36,032 [32] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-15 12:16:36,062 [32] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-15 12:16:36,062 [32] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-15 12:16:36,062 [32] INFO  ProxyLupa - {"CBUFinal":null,"CBUInicio":null,"CodAgencia":1,"CodBanco":7,"CodigoPostal":"1427","DesAgencia":"SUC. N 22-PQUE. CHAS                    ","DesBanco":"BANCO DE GALICIA Y BUENOS               ","DomCalle":"AV. DE LOS INCAS 4763         ","Historial":true,"ModoPago":3,"PeDesde":"2023-11-01T00:00:00","PeHasta":null,"Tramite":685874}
+2024-01-15 12:16:36,062 [32] INFO  ProxyLupa - ConsultarUsuarioXCuil - Mapeando resultado - SIN TOKEN
+2024-01-15 12:16:36,062 [32] INFO  ProxyLupa - ConsultarUsuarioXCuil - Fin Mapping - Retornando - SIN TOKEN 
+2024-01-15 12:16:36,062 [32] INFO  ProxyLupa - TraerPeriodosCronoLiq - Iniciando consulta - SIN TOKEN - 
+2024-01-15 12:16:36,062 [32] INFO  ProxyLupa - TraerPeriodosCronoLiq - Consultando SERVICIO - TraerPeriodosCronoliq - SIN HEADER 
+2024-01-15 12:16:36,085 [32] INFO  ProxyLupa - TraerPeriodosCronoLiq - Retornando - SIN TOKEN
+2024-01-15 12:16:36,085 [32] DEBUG CunaMiAnses.Controllers.HomeController - EL FORMULARIO ES VALIDO
+2024-01-15 12:16:36,085 [32] DEBUG CunaMiAnses.Controllers.HomeController - LLAMO AL INSERT
+2024-01-15 12:16:36,085 [32] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - InsertarMedioDePago - Iniciando insert - SIN TOKEN
+2024-01-15 12:16:36,085 [32] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - InsertarMedioDePago - Consultando SERVICIO - MDPagoInsert - SIN HEADER -> 
+2024-01-15 12:16:36,085 [32] DEBUG CunaMiAnses.Proxies.ProxyBocaDePago - ALTA MEDIO DE PAGO -> {"CBU_Final":null,"CBU_Inicio":null,"Cod_Agencia":6,"Cod_Banco":14,"Cod_Cuenta_Judicial":0.0,"Cuil":23111111111.0,"Cuit":23111111111.0,"FechaPrensentacion":"2024-01-15T12:16:36.0859839-03:00","IpOrigen":null,"OperadorTramite":"MiAnses","Tramite":-1,"Udai":10000008.0}
+2024-01-15 12:16:36,150 [32] DEBUG CunaMiAnses.Proxies.ProxyBocaDePago - RESULT -> {"FechaFinPago":0.0,"FechaFinVigencia":null,"FechaInicioPago":202311.0,"FechaInicioVigencia":null,"HayErrores":false,"ID_tramite":685875,"Mensajes":[""],"Nro_tramite":11462}
+2024-01-15 12:16:36,150 [32] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - InsertarMedioDePago - Mapeando resultado - SIN TOKEN - 
+2024-01-15 12:16:36,150 [32] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-15 12:16:36,150 [32] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-15 12:16:36,203 [32] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-15 12:16:36,203 [32] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-15 12:16:36,203 [32] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - InsertarMedioDePago - Fin Mapping - Retornando - SIN TOKEN
+2024-01-15 12:16:36,203 [32] DEBUG CunaMiAnses.Controllers.HomeController - DEVUELVE EL INSERT
+2024-01-15 12:16:50,477 [36] INFO  CunaMiAnses.Controllers.HomeController - Entro por cuil 23111111111
+2024-01-15 12:16:50,477 [36] INFO  ProxyLupa - ConsultarUsuarioXCuil - Iniciando consulta - SIN TOKEN - 
+2024-01-15 12:16:50,477 [36] INFO  ProxyLupa - ConsultarUsuarioXCuil - Consultando SERVICIO - TraerUsuarioxCuil - SIN HEADER -> 
+2024-01-15 12:16:50,649 [36] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-15 12:16:50,649 [36] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-15 12:16:50,680 [36] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-15 12:16:50,680 [36] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-15 12:16:50,680 [36] INFO  ProxyLupa - {"CBUFinal":null,"CBUInicio":null,"CodAgencia":6,"CodBanco":14,"CodigoPostal":"1424","DesAgencia":"4018 - SUC 18 CABALLITO                 ","DesBanco":"BANCO DE LA PROVINCIA DE BUENOS AIRES   ","DomCalle":"RIVADAVIA 5025                ","Historial":true,"ModoPago":3,"PeDesde":"2023-11-01T00:00:00","PeHasta":null,"Tramite":685875}
+2024-01-15 12:16:50,680 [36] INFO  ProxyLupa - ConsultarUsuarioXCuil - Mapeando resultado - SIN TOKEN
+2024-01-15 12:16:50,680 [36] INFO  ProxyLupa - ConsultarUsuarioXCuil - Fin Mapping - Retornando - SIN TOKEN 
+2024-01-15 12:16:50,680 [36] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-15 12:16:50,680 [36] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-15 12:16:50,704 [36] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-15 12:16:50,704 [36] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-15 12:16:50,704 [36] INFO  ProxyLupa - TraerListadoDeProvincias - Iniciando consulta - SIN TOKEN - 
+2024-01-15 12:16:50,704 [36] INFO  ProxyLupa - TraerListadoDeProvincias - Consultando SERVICIO - TraerListaProvincias - SIN HEADER 
+2024-01-15 12:16:50,744 [36] INFO  ProxyLupa - TraerListadoDeProvincias - Mapeando resultado - SIN TOKEN
+2024-01-15 12:16:50,744 [36] INFO  ProxyLupa - TraerListadoDeProvincias - Fin Mapping - Retornando - SIN TOKEN
+2024-01-15 12:16:50,744 [36] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Iniciando consulta - SIN TOKEN
+2024-01-15 12:16:50,744 [36] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Consultando SERVICIO - ListadoCodBancoInhibido - SIN HEADER - 
+2024-01-15 12:16:50,764 [36] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Retornando - SIN TOKEN
+2024-01-15 12:17:02,311 [36] INFO  CunaMiAnses.Controllers.HomeController - ENTRE CREATE: {"apellidoYNombre":null,"cuil":"23111111111","numDocumento":null,"nombreAgentePag":null,"fechaPresentacion":null,"codProvincia":null,"codLocalidad":null,"codAgencia":"6","idAgencia":null,"codBanco":"14","idBanco":null,"codPostal":"1424","idPostal":null,"tipoBocaPago":"CBU","CBU":"28505909-40090418135201","BilleteraVirtual":["007-001",""],"cbuInicio":"28505909","cbuFinal":"40090418135201","hdnCbuInicio":null,"hdnCbuFinal":null,"confirm":false,"numTramite":null,"idTramite":null,"descripcionUdai":null,"codUdai":null,"selectedAgPag":null,"listProvincias":[],"listLocalidades":null,"descAgencia":null,"descBanco":null,"descDomicilio":null,"periodoDesdeBDP":null,"periodoHastaBDP":null,"descripcionEstado":null,"operadorTramite":null,"codigoEstado":0,"mensajeError":null,"SoloCorreo":0,"SoloCBU":0,"esMenor":0,"btnAltaMedioPago":"notAuthorized","viewAlta":false,"ErrorCoelsa":"","ListadoBancosInhibidos":null}
+2024-01-15 12:17:02,311 [36] INFO  ProxyLupa - ConsultarUsuarioXCuil - Iniciando consulta - SIN TOKEN - 
+2024-01-15 12:17:02,311 [36] INFO  ProxyLupa - ConsultarUsuarioXCuil - Consultando SERVICIO - TraerUsuarioxCuil - SIN HEADER -> 
+2024-01-15 12:17:02,506 [36] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-15 12:17:02,506 [36] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-15 12:17:02,533 [36] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-15 12:17:02,533 [36] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-15 12:17:02,533 [36] INFO  ProxyLupa - {"CBUFinal":null,"CBUInicio":null,"CodAgencia":6,"CodBanco":14,"CodigoPostal":"1424","DesAgencia":"4018 - SUC 18 CABALLITO                 ","DesBanco":"BANCO DE LA PROVINCIA DE BUENOS AIRES   ","DomCalle":"RIVADAVIA 5025                ","Historial":true,"ModoPago":3,"PeDesde":"2023-11-01T00:00:00","PeHasta":null,"Tramite":685875}
+2024-01-15 12:17:02,533 [36] INFO  ProxyLupa - ConsultarUsuarioXCuil - Mapeando resultado - SIN TOKEN
+2024-01-15 12:17:02,533 [36] INFO  ProxyLupa - ConsultarUsuarioXCuil - Fin Mapping - Retornando - SIN TOKEN 
+2024-01-15 12:17:02,533 [36] INFO  ProxyLupa - TraerPeriodosCronoLiq - Iniciando consulta - SIN TOKEN - 
+2024-01-15 12:17:02,533 [36] INFO  ProxyLupa - TraerPeriodosCronoLiq - Consultando SERVICIO - TraerPeriodosCronoliq - SIN HEADER 
+2024-01-15 12:17:02,557 [36] INFO  ProxyLupa - TraerPeriodosCronoLiq - Retornando - SIN TOKEN
+2024-01-15 12:17:02,557 [36] DEBUG CunaMiAnses.Controllers.HomeController - EL FORMULARIO ES VALIDO
+2024-01-15 12:17:02,557 [36] DEBUG CunaMiAnses.Controllers.HomeController - LLAMO AL INSERT
+2024-01-15 12:17:02,557 [36] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - InsertarMedioDePago - Iniciando insert - SIN TOKEN
+2024-01-15 12:17:02,557 [36] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - InsertarMedioDePago - Consultando SERVICIO - MDPagoInsert - SIN HEADER -> 
+2024-01-15 12:17:02,557 [36] DEBUG CunaMiAnses.Proxies.ProxyBocaDePago - ALTA MEDIO DE PAGO -> {"CBU_Final":"40090418135201","CBU_Inicio":"28505909","Cod_Agencia":null,"Cod_Banco":null,"Cod_Cuenta_Judicial":0.0,"Cuil":23111111111.0,"Cuit":23111111111.0,"FechaPrensentacion":"2024-01-15T12:17:02.5579705-03:00","IpOrigen":null,"OperadorTramite":"MiAnses","Tramite":-1,"Udai":10000008.0}
+2024-01-15 12:17:02,610 [36] DEBUG CunaMiAnses.Proxies.ProxyBocaDePago - RESULT -> {"FechaFinPago":0.0,"FechaFinVigencia":null,"FechaInicioPago":202311.0,"FechaInicioVigencia":null,"HayErrores":false,"ID_tramite":685876,"Mensajes":[""],"Nro_tramite":11463}
+2024-01-15 12:17:02,610 [36] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - InsertarMedioDePago - Mapeando resultado - SIN TOKEN - 
+2024-01-15 12:17:02,610 [36] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-15 12:17:02,610 [36] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-15 12:17:02,638 [36] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-15 12:17:02,638 [36] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-15 12:17:02,638 [36] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - InsertarMedioDePago - Fin Mapping - Retornando - SIN TOKEN
+2024-01-15 12:17:02,638 [36] DEBUG CunaMiAnses.Controllers.HomeController - DEVUELVE EL INSERT

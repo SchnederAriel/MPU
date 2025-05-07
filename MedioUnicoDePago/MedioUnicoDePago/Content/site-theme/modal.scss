@@ -1,0 +1,83 @@
+﻿.modal {
+    text-align: center;
+
+    &:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+        margin-right: -4px;
+    }
+
+
+    .modal-dialog {
+        width: 980px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+
+    .modal-header {
+        border: none;
+        padding: 40px 20px;
+
+        .modal-title {
+            @extend .font--title-box;
+            text-transform: lowercase;
+            color: #000;
+
+            &:first-letter {
+                text-transform: uppercase;
+            }
+        }
+
+        .modal-close-button {
+            position: absolute;
+            background: none;
+            right: 20px;
+            top: 20px;
+            border: 2px solid #ccc;
+            color: #ccc;
+            @include circle(40px);
+            @include transition(300ms);
+
+            &:hover {
+                color: $colorBlue;
+                border-color: $colorBlue;
+            }
+        }
+    }
+
+    .modal-body {
+        padding: 0 20px;
+        @extend .font--button;
+ 
+    }
+
+    .modal-footer {
+        border: none;
+        padding: 40px 20px;
+
+        .button-container {
+            margin: 0 !important;
+            div[class^="button-"] {
+                &:first-child {
+                    margin-left: 0 !important;
+                }
+            }
+        }
+    }
+}
+
+// Comprobantes
+#cuerpoComprobante {
+    table {
+        margin: auto;
+        &.table-titular{
+            td{
+                padding-top:10px;
+            }
+        }
+    }
+}
+

@@ -1,0 +1,25 @@
+2024-08-24 01:57:13,945 [9] ERROR GestionMPU - Error al obtener el medio de pago vigente***   en WS.MPU.Negocio.GestionarMPUNeg.ObtenerMedioPagoVigente(String cuil) en C:\Users\E131676\Desktop\JUAN\WORK BENCH\WS.MPU\WS.MPU.Negocio\GestionarMPUNeg.cs:línea 39
+   en WS.MPU.GestionMPU.ObtenerMedioPagoVigente(String cuil) en C:\Users\E131676\Desktop\JUAN\WORK BENCH\WS.MPU\WS.MPU\GestionarMPU.asmx.cs:línea 54
+2024-08-24 01:57:18,543 [9] INFO  CunaMiAnses.Filtros.ErrorHandler - ---> ERROR controlado desde Error handler
+2024-08-24 01:57:21,974 [9] ERROR CunaMiAnses.Filtros.ErrorHandler - Error tipo EXCEPTION en Contolador: Home - Método: MDPActual : Error: Error al obtener el medio de pago vigente - StackTrace:    en WS.MPU.Negocio.GestionarMPUNeg.ObtenerMedioPagoVigente(String cuil) en C:\Users\E131676\Desktop\JUAN\WORK BENCH\WS.MPU\WS.MPU.Negocio\GestionarMPUNeg.cs:línea 39
+   en WS.MPU.GestionMPU.ObtenerMedioPagoVigente(String cuil) en C:\Users\E131676\Desktop\JUAN\WORK BENCH\WS.MPU\WS.MPU\GestionarMPU.asmx.cs:línea 64
+   en CunaMiAnses.Controllers.HomeController.<MDPActual>d__12.MoveNext() en C:\Users\E131676\Downloads\prueba\la-lupa-mianses-master\CunaMiAnses\Controllers\HomeController.cs:línea 89
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.Mvc.Async.TaskAsyncActionDescriptor.EndExecute(IAsyncResult asyncResult)
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass8_0.<BeginInvokeAsynchronousActionMethod>b__1(IAsyncResult asyncResult)
+   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__11_0()
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass11_1.<InvokeActionMethodFilterAsynchronouslyRecursive>b__2()
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass11_1.<InvokeActionMethodFilterAsynchronouslyRecursive>b__2()
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass7_0.<BeginInvokeActionMethodWithFilters>b__1(IAsyncResult asyncResult)
+   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_6.<BeginInvokeAction>b__3()
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__5(IAsyncResult asyncResult)
+2024-08-24 01:57:25,193 [14] INFO  CunaMiAnses.Controllers.ErrorController - --->  traking en error controller
+2024-08-24 01:57:25,193 [14] INFO  CunaMiAnses.Controllers.ErrorController - ---> ERROR: - Error al obtener el medio de pago vigente

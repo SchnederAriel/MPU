@@ -1,0 +1,205 @@
+﻿
+@{
+    ViewBag.Title = "Listado de Medios de Pago Disponibles - ANSES";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/Site.css" rel="stylesheet" />
+<style>
+    body {
+        background-color: #dcdcdc;
+        color: #333;
+        font-family: 'Arial', sans-serif;
+    }
+    .container {
+        max-width: 800px;
+        margin-top: 50px;
+    }
+
+    .card {
+        border: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-body {
+        padding: 30px;
+    }
+
+    h1 {
+        color: #0056b3;
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .subtitle {
+        color: #6c757d;
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .alert-info {
+        background-color: #e8f4f8;
+        border-color: #d6e9f0;
+        color: #0c5460;
+        font-size: 14px;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
+    .form-check {
+        margin-bottom: 10px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+</style>
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h1>Seleccione su Medio de Cobro para percibir todas sus prestaciones</h1>
+
+            <p class="subtitle">
+                <strong>Cambio de lugar de cobro.</strong><br>
+                Si quiere cambiar el lugar donde recibe su asignación familiar podrá elegir entre: acreditación en cuenta (CBU), banco por código postal o billetera virtual. Simplifique su trámite según sus preferencias. ¡La elección es comodidad!
+            </p>
+
+            <div class="alert alert-info" role="alert">
+                <strong>Forma de pago - Importante:</strong> Al elegir un nuevo medio, éste sustituirá permanentemente la opción anterior.
+            </div>
+
+            @if (Model.Count > 0)
+            {
+                <form id="formMedioPago">
+                    <div class="mb-4">
+                        <h5 class="mb-3">Medios de pago disponibles</h5>
+                        @foreach (var medioPago in Model)
+                        {
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="medioPagoSeleccionado"
+                                       id="@medioPago.TipoMedioPago-@(medioPago.CBU ?? medioPago.CodigoBanco)"
+                                       value="@medioPago.TipoMedioPago"
+                                       data-cbu="@medioPago.CBU"
+                                       data-codigo-banco="@medioPago.CodigoBanco"
+                                       data-codigo-agencia="@medioPago.CodigoAgencia"
+                                       data-nombre-banco="@medioPago.NombreBanco"
+                                       data-nombre-agencia="@medioPago.NombreAgencia">
+                                <label class="form-check-label" for="@medioPago.TipoMedioPago-@(medioPago.CBU ?? medioPago.CodigoBanco)">
+                                    @if (!string.IsNullOrEmpty(medioPago.NombreBanco) && medioPago.NombreBanco != "N/A")
+                                    {
+                                        @medioPago.NombreBanco
+                                        if (!string.IsNullOrEmpty(medioPago.NombreAgencia) && medioPago.NombreAgencia != "N/A")
+                                        {
+                                            <span> - @medioPago.NombreAgencia</span>
+                                        }
+                                    }
+                                    @if (!string.IsNullOrEmpty(medioPago.CBU) && medioPago.CBU != "N/A")
+                                    {
+                                        <span> - CBU: @medioPago.CBU</span>
+                                    }
+                                    @*@if (!string.IsNullOrEmpty(medioPago.MPago) && medioPago.MPago != "N/A")
+                                    {
+                                        <span> - Tipo: @medioPago.MPago</span>
+                                    }*@
+                                </label>
+                            </div>
+                        }
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="medioPagoSeleccionado" id="ninguno" value="ninguno">
+                            <label class="form-check-label" for="ninguno">
+                                Nuevo Medio de Cobro
+                            </label>
+                        </div>
+                    </div>
+
+
+                </form>
+            }
+            else
+            {
+                <div class="form-check" hidden>
+                    <input class="form-check-input" type="radio" name="medioPagoSeleccionado" id="ninguno" value="ninguno" checked>
+                    <label class="form-check-label" for="ninguno" checked>
+                        Nuevo Medio de Cobro
+                    </label>
+                </div>
+
+                <p>No se encontraron medios de pago disponibles.</p>
+
+            }
+            <div class="d-flex justify-content-start mt-4">
+                <button type="button" id="btnContinuar" class="btn btn-primary">Continuar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#btnContinuar').click(function (e) {
+                e.preventDefault();
+                var seleccion = $('input[name="medioPagoSeleccionado"]:checked');
+                if (seleccion.val() === "ninguno") {
+                    window.location.href = '@Url.Action("GuardarMDP", "Home")';
+                } else if (seleccion.length > 0) {
+                    var tipoMedioPago = seleccion.val();
+                    var data = {
+                        tipoMedioPago: tipoMedioPago,
+                        valor: ''
+                    };
+
+                    switch (tipoMedioPago) {
+                        case 'CBU':
+                            data.valor = seleccion.data('cbu');
+                            break;
+                        case 'CVU':
+                            data.valor = seleccion.data('cvu');
+                            break;
+                        case 'Banco':
+                            data.codigoBanco = seleccion.data('codigo-banco');
+                            data.codigoAgencia = seleccion.data('codigo-agencia');
+                            data.valor = data.codigoBanco + '/' + data.codigoAgencia;
+                            break;
+
+                    }
+
+                    //console.log("Datos a enviar:", data); // Para depuración
+
+
+
+                    if (1 == 1) {
+                    $.ajax({
+                        url: '@Url.Action("GuardarMedioDePago", "Home")',
+                        type: 'POST',
+                        data: data,
+                        success: function (response) {
+                            if (response.success) {
+                                window.location.href = '@Url.Action("MensajeFinal", "Home")';
+                            } else {
+                                alert('Error al guardar el medio de pago: ' + response.message);
+                            }
+                        },
+                        error: function () {
+                            alert('Error de conexión. Por favor, intente nuevamente más tarde.');
+                        }
+                    });
+                }
+                } else {
+                    alert('Por favor, seleccione un medio de pago.');
+                }
+            });
+        });
+    </script>
+}
+
+

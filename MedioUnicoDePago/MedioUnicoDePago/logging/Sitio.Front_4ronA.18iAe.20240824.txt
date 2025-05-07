@@ -1,0 +1,2 @@
+2024-08-24 01:58:21,599 [10] ERROR GestionMPU - Error al obtener el medio de pago vigente***   en WS.MPU.Negocio.GestionarMPUNeg.ObtenerMedioPagoVigente(String cuil) en C:\Users\E131676\Desktop\JUAN\WORK BENCH\WS.MPU\WS.MPU.Negocio\GestionarMPUNeg.cs:línea 39
+   en WS.MPU.GestionMPU.ObtenerMedioPagoVigente(String cuil) en C:\Users\E131676\Desktop\JUAN\WORK BENCH\WS.MPU\WS.MPU\GestionarMPU.asmx.cs:línea 54

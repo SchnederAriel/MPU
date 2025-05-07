@@ -1,0 +1,42 @@
+//-----------------------------
+//
+//    Form Mixins
+//
+//-----------------------------
+
+//__ Placeholder
+@mixin placeholder {
+    ::-webkit-input-placeholder {
+        @content
+    }
+
+    :-moz-placeholder {
+        @content
+    }
+
+    ::-moz-placeholder {
+        @content
+    }
+
+    :-ms-input-placeholder {
+        @content
+    }
+}
+
+//** Como aplicarla? @include placeholder {
+//    font-style:italic;
+//    color: white;
+//    font-weight:100;
+//   }
+//
+
+
+//__ Apparance
+@mixin appearance($data, $bgimage) {
+    -webkit-appearance: $data;
+    -moz-appearance: $data;
+    appearance: $data; /* remove default arrow */
+    background-image: ($bgimage) /* add custom arrow */
+}
+
+//** Como aplicarla? @include appearance(none, url('...'))

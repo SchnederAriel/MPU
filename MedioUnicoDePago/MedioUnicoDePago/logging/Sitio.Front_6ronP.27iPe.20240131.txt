@@ -1,0 +1,86 @@
+2024-01-31 13:12:27,969 [8] ERROR CunaMiAnses.Controllers.HomeController - Estoy en desa - No viene cuil por querystring
+2024-01-31 13:12:27,977 [8] INFO  ProxyLupa - ConsultarUsuarioXCuil - Iniciando consulta - SIN TOKEN - 
+2024-01-31 13:12:27,993 [8] INFO  ProxyLupa - ConsultarUsuarioXCuil - Consultando SERVICIO - TraerUsuarioxCuil - SIN HEADER -> 
+2024-01-31 13:12:29,889 [8] INFO  CunaMiAnses.Filtros.ErrorHandler - ---> ERROR controlado desde Error handler
+2024-01-31 13:12:29,892 [8] ERROR CunaMiAnses.Filtros.ErrorHandler - Error tipo FAULTEXCEPTION`1 en Contolador: Home - Método: Index : Error: Index was outside the bounds of the array. - StackTrace: 
+Server stack trace: 
+   en System.ServiceModel.Channels.ServiceChannel.ThrowIfFaultUnderstood(Message reply, MessageFault fault, String action, MessageVersion version, FaultConverter faultConverter)
+   en System.ServiceModel.Channels.ServiceChannel.HandleReply(ProxyOperationRuntime operation, ProxyRpc& rpc)
+   en System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   en System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   en System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   en System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   en System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   en CunaMiAnses.ServiceLupa.ILupaServicio.TraerUsuarioxCuil(Int64 cuil)
+   en CunaMiAnses.ServiceLupa.LupaServicioClient.TraerUsuarioxCuil(Int64 cuil) en C:\Proyectos\la-lupa-mianses\CunaMiAnses\Connected Services\ServiceLupa\Reference.cs:línea 6964
+   en CunaMiAnses.Proxies.ProxyLupa.ConsultarUsuarioXCuil(Int64 CUIL, DirectorMV director) en C:\Proyectos\la-lupa-mianses\CunaMiAnses\Proxies\ProxyLupa.cs:línea 77
+   en CunaMiAnses.Controllers.HomeController.Index() en C:\Proyectos\la-lupa-mianses\CunaMiAnses\Controllers\HomeController.cs:línea 80
+   en lambda_method(Closure , ControllerBase , Object[] )
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c.<BeginInvokeSynchronousActionMethod>b__9_0(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__11_0()
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass11_1.<InvokeActionMethodFilterAsynchronouslyRecursive>b__2()
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass11_1.<InvokeActionMethodFilterAsynchronouslyRecursive>b__2()
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_6.<BeginInvokeAction>b__3()
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__5(IAsyncResult asyncResult)
+2024-01-31 13:12:30,044 [8] INFO  CunaMiAnses.Controllers.ErrorController - --->  traking en error controller
+2024-01-31 13:12:30,044 [8] INFO  CunaMiAnses.Controllers.ErrorController - ---> ERROR: - Index was outside the bounds of the array.
+2024-01-31 13:12:32,865 [8] INFO  CunaMiAnses.Controllers.HomeController - Entro por cuil 23111111111
+2024-01-31 13:12:32,865 [8] INFO  ProxyLupa - ConsultarUsuarioXCuil - Iniciando consulta - SIN TOKEN - 
+2024-01-31 13:12:32,866 [8] INFO  ProxyLupa - ConsultarUsuarioXCuil - Consultando SERVICIO - TraerUsuarioxCuil - SIN HEADER -> 
+2024-01-31 13:12:33,051 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-31 13:12:33,052 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-31 13:12:33,104 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-31 13:12:33,104 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-31 13:12:33,202 [8] INFO  ProxyLupa - {"CBUFinal":null,"CBUInicio":null,"CodAgencia":494,"CodBanco":910,"CodigoPostal":"8353","DesAgencia":"BUTARRANQUIL                            ","DesBanco":"CORREO ARGENTINO S.A.                   ","DomCalle":"S/D                           ","Historial":true,"ModoPago":3,"PeDesde":"2023-11-01T00:00:00","PeHasta":null,"Tramite":685931}
+2024-01-31 13:12:33,202 [8] INFO  ProxyLupa - ConsultarUsuarioXCuil - Mapeando resultado - SIN TOKEN
+2024-01-31 13:12:33,203 [8] INFO  ProxyLupa - ConsultarUsuarioXCuil - Fin Mapping - Retornando - SIN TOKEN 
+2024-01-31 13:12:33,223 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-31 13:12:33,223 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-31 13:12:33,247 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-31 13:12:33,247 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-31 13:12:33,248 [8] INFO  ProxyLupa - TraerListadoDeProvincias - Iniciando consulta - SIN TOKEN - 
+2024-01-31 13:12:33,248 [8] INFO  ProxyLupa - TraerListadoDeProvincias - Consultando SERVICIO - TraerListaProvincias - SIN HEADER 
+2024-01-31 13:12:33,309 [8] INFO  ProxyLupa - TraerListadoDeProvincias - Mapeando resultado - SIN TOKEN
+2024-01-31 13:12:33,309 [8] INFO  ProxyLupa - TraerListadoDeProvincias - Fin Mapping - Retornando - SIN TOKEN
+2024-01-31 13:12:33,310 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Iniciando consulta - SIN TOKEN
+2024-01-31 13:12:33,310 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Consultando SERVICIO - ListadoCodBancoInhibido - SIN HEADER - 
+2024-01-31 13:12:33,333 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Retornando - SIN TOKEN
+2024-01-31 13:12:43,234 [16] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - BuscarAgentePagador - Iniciando consulta - SIN TOKEN - 
+2024-01-31 13:12:43,234 [16] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - BuscarAgentePagador - Consultando SERVICIO - BuscarMediosDP - SIN HEADER - 
+2024-01-31 13:12:43,280 [16] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - BuscarAgentePagador - Retornando - SIN TOKEN - 
+2024-01-31 13:12:47,559 [15] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - BuscarAgentePagador - Iniciando consulta - SIN TOKEN - 
+2024-01-31 13:12:47,559 [15] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - BuscarAgentePagador - Consultando SERVICIO - BuscarMediosDP - SIN HEADER - 
+2024-01-31 13:12:47,592 [15] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - BuscarAgentePagador - Retornando - SIN TOKEN - 
+2024-01-31 13:13:09,691 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - BuscarAgentePagador - Iniciando consulta - SIN TOKEN - 
+2024-01-31 13:13:09,691 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - BuscarAgentePagador - Consultando SERVICIO - BuscarMediosDP - SIN HEADER - 
+2024-01-31 13:13:09,745 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - BuscarAgentePagador - Retornando - SIN TOKEN - 
+2024-01-31 13:13:30,919 [8] INFO  CunaMiAnses.Controllers.HomeController - Entro por cuil 27021111150
+2024-01-31 13:13:30,919 [8] INFO  ProxyLupa - ConsultarUsuarioXCuil - Iniciando consulta - SIN TOKEN - 
+2024-01-31 13:13:30,919 [8] INFO  ProxyLupa - ConsultarUsuarioXCuil - Consultando SERVICIO - TraerUsuarioxCuil - SIN HEADER -> 
+2024-01-31 13:13:31,078 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-31 13:13:31,078 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-31 13:13:31,103 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-31 13:13:31,103 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-31 13:13:31,103 [8] INFO  ProxyLupa - {"CBUFinal":"00000000000048","CBUInicio":"00700009","CodAgencia":0,"CodBanco":0,"CodigoPostal":null,"DesAgencia":null,"DesBanco":null,"DomCalle":null,"Historial":true,"ModoPago":1,"PeDesde":"2022-05-01T00:00:00","PeHasta":null,"Tramite":681308}
+2024-01-31 13:13:31,103 [8] INFO  ProxyLupa - ConsultarUsuarioXCuil - Mapeando resultado - SIN TOKEN
+2024-01-31 13:13:31,103 [8] INFO  ProxyLupa - ConsultarUsuarioXCuil - Fin Mapping - Retornando - SIN TOKEN 
+2024-01-31 13:13:31,103 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-31 13:13:31,103 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-31 13:13:31,127 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-31 13:13:31,127 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-31 13:13:31,127 [8] INFO  ProxyLupa - TraerListadoDeProvincias - Iniciando consulta - SIN TOKEN - 
+2024-01-31 13:13:31,127 [8] INFO  ProxyLupa - TraerListadoDeProvincias - Consultando SERVICIO - TraerListaProvincias - SIN HEADER 
+2024-01-31 13:13:31,164 [8] INFO  ProxyLupa - TraerListadoDeProvincias - Mapeando resultado - SIN TOKEN
+2024-01-31 13:13:31,164 [8] INFO  ProxyLupa - TraerListadoDeProvincias - Fin Mapping - Retornando - SIN TOKEN
+2024-01-31 13:13:31,164 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Iniciando consulta - SIN TOKEN
+2024-01-31 13:13:31,164 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Consultando SERVICIO - ListadoCodBancoInhibido - SIN HEADER - 
+2024-01-31 13:13:31,183 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Retornando - SIN TOKEN
+2024-01-31 13:13:42,495 [17] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - BuscarAgentePagador - Iniciando consulta - SIN TOKEN - 
+2024-01-31 13:13:42,495 [17] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - BuscarAgentePagador - Consultando SERVICIO - BuscarMediosDP - SIN HEADER - 
+2024-01-31 13:13:42,532 [17] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - BuscarAgentePagador - Retornando - SIN TOKEN - 

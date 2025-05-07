@@ -1,0 +1,110 @@
+﻿.procedure-container {
+    width: 100%;
+    @extend .font--title-box;
+    text-align: center;
+    @include border-radius(3px);
+    padding: 0 20px;
+    height: 105px;
+    max-height: 105px;
+    cursor: pointer;
+    @include transition(300ms);
+    margin: 10px 0;
+    display: table;
+    --box-shadow-color: rgba(0,0,0,.1);
+
+    .procedure__content {
+        display: table-cell;
+        vertical-align: middle;
+
+        .procedure__title {
+            color: #fff;
+
+            &:first-letter {
+                text-transform: uppercase;
+            }
+        }
+
+        .procedure__text {
+            font-size: 14px;
+            line-height: 10px;
+            margin-top: 10px;
+            color: rgba(0,0,0,.5);
+
+            &:first-letter {
+                text-transform: uppercase;
+            }
+        }
+    }
+
+
+    &:hover {
+        opacity: .9;
+        @include box-shadow(0px 10px 30px 0px var(--box-shadow-color));
+    }
+}
+
+.procedure--disabled {
+    cursor: not-allowed;
+    background: #ccc !important;
+    position: relative;
+
+
+
+    .tooltip-container {
+        position: absolute;
+        right: 20px;
+        top: 10px;
+
+        .tooltip__element {
+            background: $colorYellow;
+            color: #fff;
+
+        }
+
+        .tooltip--top {
+            width: 450px;
+        }
+    }
+
+    &:hover {
+        opacity: 1 !important;
+
+        @extend .tooltip-container:hover;
+    }
+}
+
+.procedure--historial-tramites {
+    @extend .procedure-container;
+    background: $colorHistTramites;
+    --box-shadow-color: rgba(139,127,199,.5);
+}
+
+.procedure--apoderado {
+    @extend .procedure-container;
+    background: $colorApoderado;
+    --box-shadow-color: rgba(253,180,77,.5);
+}
+
+.procedure--deposito-judicial {
+    @extend .procedure-container;
+    background: $colorDepoJudicial;
+    --box-shadow-color: rgba(250,95,126,.5);
+}
+
+.procedure--derecho-habiente {
+    @extend .procedure-container;
+    background: $colorDerechoHabiente;
+    --box-shadow-color: rgba(168,210,107,.5);
+}
+
+.procedure--certificacion-negativa {
+    @extend .procedure-container;
+    background: $colorCertNegativa;
+    --box-shadow-color: rgba(255,133,77,.5);
+}
+
+.procedure--renuncia-cobro {
+    @extend .procedure-container;
+    background: $colorRenunciaCobro;
+    --box-shadow-color: rgba(72,134,254,.5);
+}

@@ -1,0 +1,156 @@
+2024-09-09 22:03:47,332 [6] INFO  MedioUnicoDePago.Controllers.HomeController - Procesando medio de pago: ID=11-24
+2024-09-09 22:03:47,413 [6] INFO  MedioUnicoDePago.Controllers.HomeController - PeEmision: 202306
+2024-09-09 22:03:47,413 [6] INFO  MedioUnicoDePago.Controllers.HomeController - PeLiquidado: 202305
+2024-09-09 22:03:47,413 [6] INFO  MedioUnicoDePago.Controllers.HomeController - NombreBanco: BANCO DE LA NACION ARGENTINA            
+2024-09-09 22:03:47,413 [6] INFO  MedioUnicoDePago.Controllers.HomeController - NombreAgencia: SUC. RECOLETA                           
+2024-09-09 22:03:47,487 [6] INFO  MedioUnicoDePago.Controllers.HomeController - CBU: N/A
+2024-09-09 22:03:47,487 [6] INFO  MedioUnicoDePago.Controllers.HomeController - MPago: N/A
+2024-09-09 22:03:47,487 [6] INFO  MedioUnicoDePago.Controllers.HomeController - Tipo de medio de pago determinado como Banco
+2024-09-09 22:03:47,487 [6] INFO  MedioUnicoDePago.Controllers.HomeController - TipoMedioPago: Banco
+2024-09-09 22:03:47,487 [6] INFO  MedioUnicoDePago.Controllers.HomeController - CodigoBanco: 11
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - CodigoAgencia: 24
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - ViewModel agregado a la lista
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - Procesando medio de pago: ID=11-24
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - PeEmision: 202306
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - PeLiquidado: 202305
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - NombreBanco: BANCO DE LA NACION ARGENTINA            
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - NombreAgencia: AG. MONSERRAT                           
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - CBU: N/A
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - MPago: N/A
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - Tipo de medio de pago determinado como Banco
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - TipoMedioPago: Banco
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - CodigoBanco: 11
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - CodigoAgencia: 24
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - ViewModel agregado a la lista
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - Procesando medio de pago: ID=11-24
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - PeEmision: 202306
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - PeLiquidado: 202305
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - NombreBanco: BANCO DE LA NACION ARGENTINA            
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - NombreAgencia: 047-AV MOSCONI                          
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - CBU: N/A
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - MPago: N/A
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - Tipo de medio de pago determinado como Banco
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - TipoMedioPago: Banco
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - CodigoBanco: 11
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - CodigoAgencia: 24
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - ViewModel agregado a la lista
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - Procesando medio de pago: ID=11-24
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - PeEmision: 202306
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - PeLiquidado: 202305
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - NombreBanco: BANCO DE LA NACION ARGENTINA            
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - NombreAgencia: 4009 - SUC 9 ABASTO                     
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - CBU: N/A
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - MPago: N/A
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - Tipo de medio de pago determinado como Banco
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - TipoMedioPago: Banco
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - CodigoBanco: 11
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - CodigoAgencia: 24
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - ViewModel agregado a la lista
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - Procesando medio de pago: ID=11-24
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - PeEmision: 202306
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - PeLiquidado: 202305
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - NombreBanco: BANCO DE LA NACION ARGENTINA            
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - NombreAgencia: SUC. LINIERS                            
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - CBU: N/A
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - MPago: N/A
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - Tipo de medio de pago determinado como Banco
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - TipoMedioPago: Banco
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - CodigoBanco: 11
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - CodigoAgencia: 24
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - ViewModel agregado a la lista
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - Procesando medio de pago: ID=11-24
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - PeEmision: 202306
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - PeLiquidado: 202305
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - NombreBanco: BANCO DE LA NACION ARGENTINA            
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - NombreAgencia: AGENCIA RECOLETA                        
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - CBU: N/A
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - MPago: N/A
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - Tipo de medio de pago determinado como Banco
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - TipoMedioPago: Banco
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - CodigoBanco: 11
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - CodigoAgencia: 24
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - ViewModel agregado a la lista
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - Procesando medio de pago: ID=11-24
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - PeEmision: 202306
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - PeLiquidado: 202305
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - NombreBanco: BANCO DE LA NACION ARGENTINA            
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - NombreAgencia: SUC. MONSERRAT                          
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - CBU: N/A
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - MPago: N/A
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - Tipo de medio de pago determinado como Banco
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - TipoMedioPago: Banco
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - CodigoBanco: 11
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - CodigoAgencia: 24
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - ViewModel agregado a la lista
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - Procesando medio de pago: ID=11-24
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - PeEmision: 202306
+2024-09-09 22:03:47,488 [6] INFO  MedioUnicoDePago.Controllers.HomeController - PeLiquidado: 202305
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - NombreBanco: BANCO DE LA NACION ARGENTINA            
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - NombreAgencia: SUC.042 RETIRO                          
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - CBU: N/A
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - MPago: N/A
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - Tipo de medio de pago determinado como Banco
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - TipoMedioPago: Banco
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - CodigoBanco: 11
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - CodigoAgencia: 24
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - ViewModel agregado a la lista
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - Procesando medio de pago: ID=11-24
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - PeEmision: 202306
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - PeLiquidado: 202305
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - NombreBanco: BANCO DE LA NACION ARGENTINA            
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - NombreAgencia: SUC.ESTADO DE ISRAEL                    
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - CBU: N/A
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - MPago: N/A
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - Tipo de medio de pago determinado como Banco
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - TipoMedioPago: Banco
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - CodigoBanco: 11
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - CodigoAgencia: 24
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - ViewModel agregado a la lista
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - Procesando medio de pago: ID=11-24
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - PeEmision: 202306
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - PeLiquidado: 202305
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - NombreBanco: BANCO DE LA NACION ARGENTINA            
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - NombreAgencia: SUC. 60 VILLA ORTUZAR                   
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - CBU: N/A
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - MPago: N/A
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - Tipo de medio de pago determinado como Banco
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - TipoMedioPago: Banco
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - CodigoBanco: 11
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - CodigoAgencia: 24
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - ViewModel agregado a la lista
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - Procesando medio de pago: ID=11-24
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - PeEmision: 202306
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - PeLiquidado: 202305
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - NombreBanco: BANCO DE LA NACION ARGENTINA            
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - NombreAgencia: SUC. NORTE                              
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - CBU: N/A
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - MPago: N/A
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - Tipo de medio de pago determinado como Banco
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - TipoMedioPago: Banco
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - CodigoBanco: 11
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - CodigoAgencia: 24
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - ViewModel agregado a la lista
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - Procesando medio de pago: ID=11-24
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - PeEmision: 202306
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - PeLiquidado: 202305
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - NombreBanco: BANCO DE LA NACION ARGENTINA            
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - NombreAgencia: CAJA NAC. DE PREV. TRAB. IND. COM Y A.C.
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - CBU: N/A
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - MPago: N/A
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - Tipo de medio de pago determinado como Banco
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - TipoMedioPago: Banco
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - CodigoBanco: 11
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - CodigoAgencia: 24
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - ViewModel agregado a la lista
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - Procesando medio de pago: ID=11-24
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - PeEmision: 202306
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - PeLiquidado: 202305
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - NombreBanco: BANCO DE LA NACION ARGENTINA            
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - NombreAgencia: CAJA DE SEGURIDAD SOCIAL PARA ABOGADOS  
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - CBU: N/A
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - MPago: N/A
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - Tipo de medio de pago determinado como Banco
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - TipoMedioPago: Banco
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - CodigoBanco: 11
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - CodigoAgencia: 24
+2024-09-09 22:03:47,489 [6] INFO  MedioUnicoDePago.Controllers.HomeController - ViewModel agregado a la lista

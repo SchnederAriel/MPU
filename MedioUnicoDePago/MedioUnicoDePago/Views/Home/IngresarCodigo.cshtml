@@ -1,0 +1,132 @@
+﻿@{
+    ViewBag.Title = "Medio de Pago Único - ANSES";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/Site.css" rel="stylesheet" />
+<style>
+    body {
+        background-color: #dcdcdc;
+        color: #333;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .container {
+        max-width: 800px;
+        margin-top: 50px;
+    }
+
+    .card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-body {
+        padding: 30px;
+    }
+
+    h1 {
+        color: #0056b3;
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .subtitle {
+        color: #6c757d;
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        border-color: #6c757d;
+    }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            border-color: #545b62;
+        }
+
+    #mensaje {
+        margin-top: 15px;
+        display: none;
+    }
+</style>
+
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h1>Seleccione su Medio de Cobro para percibir todas sus prestaciones</h1>
+
+            <div class="mb-4">
+                <h5 class="subtitle">Cambio de lugar de cobro.</h5>
+                <p>Si quiere cambiar el lugar donde recibe su asignación familiar podrá elegir entre: acreditación en cuenta (CBU), banco por código postal o billetera virtual. Simplifique su trámite según sus preferencias. ¡La elección es comodidad!</p>
+            </div>
+
+            <div class="alert alert-info" role="alert">
+                <strong>Forma de pago - Importante:</strong> Al elegir un nuevo medio, éste sustituirá permanentemente la opción anterior.
+            </div>
+
+            <div class="mb-4">
+                <h5 class="subtitle">Código de validación</h5>
+                <p>Ingresá el código de validación que recibiste en tu teléfono celular (SMS)</p>
+                <input type="text" id="codigoValidacion" class="form-control" placeholder="Ingrese el código">
+                <input type="hidden" id="idRegistro" value="@ViewBag.IdRegistro">
+            </div>
+
+            <div class="d-flex justify-content-end mt-4">
+                <button type="button" id="btnVolver" class="btn btn-secondary me-2">Volver</button>
+                <button type="button" id="btnContinuar" class="btn btn-primary">Continuar</button>
+            </div>
+
+            <div id="mensaje" class="alert mt-3" role="alert"></div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+        $(document).ready(function() {
+            $('#btnContinuar').click(function() {
+                var codigo = $('#codigoValidacion').val();
+                var idRegistro = $('#idRegistro').val();
+
+                $.ajax({
+                    url: '@Url.Action("ValidarCodigoSMS", "Home")',
+                    type: 'POST',
+                    data: { IdRegistro: idRegistro, codigoIngresado: codigo },
+                    success: function(response) {
+                        if (response.success) {
+                            $('#mensaje').removeClass('alert-danger').addClass('alert-success').text('Código validado correctamente.').show();
+
+
+                            setTimeout(function() {
+                                window.location.href = '@Url.Action("VerificarDNI", "Home")';
+                            }, 2000); // Espera 2 segundos antes de redirigir
+                        } else {
+                            $('#mensaje').removeClass('alert-success').addClass('alert-danger').text('El código de validación que ingresaste no es correcto.Por favor verificalo en tu celular y volvé a ingresarlo.').show();
+                        }
+                    },
+                    error: function() {
+                        $('#mensaje').removeClass('alert-success').addClass('alert-danger').text('Error de conexión. Por favor, intente nuevamente más tarde.').show();
+                    }
+                });
+            });
+
+            $('#btnVolver').click(function() {
+                window.history.back();
+            });
+        });
+</script>

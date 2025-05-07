@@ -1,0 +1,1403 @@
+---vista guardarMDP
+@{
+    ViewBag.Title = "Medio de Pago Único - ANSES";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/Site.css" rel="stylesheet" />
+<style>
+    body {
+        background-color: #f8f9fa;
+        color: #333;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .container {
+        max-width: 800px;
+        margin-top: 50px;
+    }
+
+    .card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-body {
+        padding: 30px;
+    }
+
+    h1 {
+        color: #0056b3;
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .subtitle {
+        color: #6c757d;
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    .alert-info {
+        background-color: #e8f4f8;
+        border-color: #d6e9f0;
+        color: #0c5460;
+        font-size: 14px;
+        border-radius: 5px;
+    }
+
+    .btn-group {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .btn-outline-primary {
+        border-color: #007bff;
+        color: #007bff;
+        background-color: transparent;
+        transition: all 0.3s ease;
+    }
+
+        .btn-outline-primary:hover, .btn-outline-primary:focus, .btn-outline-primary:active {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .btn-outline-primary.active {
+            background-color: #007bff;
+            color: white;
+        }
+
+    .form-control {
+        border-radius: 5px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+    .option-container {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    .option-button {
+        width: 30%;
+        padding: 10px;
+        text-align: center;
+        background-color: #f8f9fa;
+        border: 1px solid #007bff;
+        color: #007bff;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+        .option-button:hover, .option-button.active {
+            background-color: #007bff;
+            color: white;
+        }
+
+    #bancoOptions, #sucursalOptions {
+        display: none;
+        margin-top: 20px;
+    }
+</style>
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h1>Seleccione su Medio de Cobro para percibir todas sus prestaciones</h1>
+
+            <div class="mb-4">
+                <h5 class="subtitle">Cambio de lugar de cobro.</h5>
+                <p>Si quiere cambiar el lugar donde recibe su asignación familiar podrá elegir entre: acreditación en cuenta (CBU), banco por código postal o billetera virtual. Simplifique su trámite según sus preferencias. ¡La elección es comodidad!</p>
+            </div>
+
+            <div class="alert alert-info" role="alert">
+                <strong>Forma de pago - Importante:</strong> Al elegir un nuevo medio, éste sustituirá permanentemente la opción anterior.
+            </div>
+
+            <div class="option-container">
+                @if (ViewBag.Error == "0")
+                {
+
+
+                    <div class="option-button" id="btnBanco">SUCURSAL BANCARIA (AGENTE PAGADOR)</div>
+                    if (ViewBag.UDAI == false)
+                    {
+                        <div class="option-button" id="btnVirtual">VIRTUAL</div>
+                        <div class="option-button" id="btnCBU">ACREDITACIÓN EN CUENTA (CBU)</div>
+                    }
+                }
+                else
+                {
+                    <div class="alert alert-danger" role="alert">
+                        @ViewBag.Error
+                    </div>
+                }
+            </div>
+
+            <div id="virtualOptions" style="display: none;">
+                <h5>Seleccione el tipo de cuenta virtual:</h5>
+                <div class="option-container">
+                    <div class="option-button" id="btnBancoDigital">BANCO DIGITAL</div>
+                    <div class="option-button" id="btnBilleteraVirtual">BILLETERA VIRTUAL</div>
+                </div>
+            </div>
+
+            <div id="sucursalOptions" style="display: none;">
+                <div id="codigoPostalInput">
+                    <label for="codigoPostal">Código Postal:</label>
+                    <input type="text"
+                           id="codigoPostal"
+                           class="form-control"
+                           maxlength="4"
+                           pattern="\d{4}"
+                           onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                    <button id="btnBuscarSucursales" class="btn btn-primary mt-2">Buscar Sucursales</button>
+                </div>
+                <div id="listaSucursales" style="display: none;">
+                    <label for="sucursalSelect">Seleccione una sucursal:</label>
+                    <select id="sucursalSelect" class="form-control"></select>
+                </div>
+            </div>
+
+            <div id="cbuInput" style="display: none;">
+                <label for="cbu">CBU:</label>
+                <input type="text" id="cbu" class="form-control" maxlength="22">
+            </div>
+
+            <div id="listaVirtual" style="display: none;">
+                <label for="virtualSelect">Seleccione una opción:</label>
+                <select id="virtualSelect" class="form-control"></select>
+            </div>
+
+            <div id="cvuInput" style="display: none;">
+                <label for="cvu">CVU:</label>
+                <input type="text" id="cvu" class="form-control" maxlength="22">
+            </div>
+
+            <div class="mt-4">
+                <button id="btnGuardar" class="btn btn-primary" style="display: none;">Guardar</button>
+            </div>
+
+            <div id="mensajeError" class="alert alert-danger mt-3" style="display: none;"></div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+
+
+        var udai = @ViewBag.UDAI.ToString().ToLower();
+        var error = @ViewBag.Error.ToString().ToLower();
+        var cui = @ViewBag.cuil.ToString().ToLower();
+        console.log(error);
+        console.log(cui);
+        $(document).ready(function() {
+            $('.option-button').click(function() {
+                $('.option-button').removeClass('active');
+                $(this).addClass('active');
+                $('#virtualOptions, #sucursalOptions, #cbuInput, #listaVirtual').hide();
+                $('#btnGuardar').show();
+                $('#cvuInput').hide();
+                if (this.id === 'btnBanco') {
+                    $('#sucursalOptions').show();
+                } else if (this.id === 'btnVirtual') {
+                    $('#virtualOptions').show();
+                } else if (this.id === 'btnCBU') {
+                    $('#cbuInput').show();
+                }
+            });
+            let isCVU = 0;
+            $('#btnBancoDigital, #btnBilleteraVirtual').click(function() {
+                $('#listaVirtual').show();
+                if (this.id === 'btnBancoDigital') {
+                    cargarBancosVirtuales();
+                    isCVU = 0;
+                    $('#cvuInput').hide();
+                } else {
+                    cargarBilleterasVirtuales();
+                    isCVU = 1;
+                /*    $('#cvuInput').show();*/
+                }
+            });
+
+            $('#btnBuscarSucursales').click(function() {
+                var codigoPostal = $('#codigoPostal').val();
+                if (codigoPostal) {
+                    borrarError();
+                    cargarBancosFisicos(codigoPostal);
+                    
+                }
+            });
+
+            function cargarBancosFisicos(codigoPostal) {
+                $.ajax({
+                    url: '@Url.Action("TraerBancosFisicos", "Home")',
+                    type: 'GET',
+                    data: { codigoPostal: codigoPostal },
+                    success: function(bancos) {
+
+                        if (udai == true)
+                        {
+                            if (bancos && bancos.length > 0) {
+                                mostrarError('Existen bocas de pago bancarias, deberá realizar el trámite en MI ANSES');
+                                return;
+
+                            } else {
+                                borrarError();
+                                cargarBancosCorreo(codigoPostal);
+                            }
+
+                        }else
+                        {
+                            if (bancos && bancos.length > 0) {
+                                borrarError();
+                                llenarSelect('#sucursalSelect', bancos);
+                                $('#listaSucursales').show();
+                                
+                            } else {
+                                mostrarError('No se encontraron sucursales.');
+
+                            }
+                           
+                        }
+
+                    },
+                    error: function() {
+                        mostrarError("Error al cargar los bancos físicos.");
+                    }
+                });
+            }
+            function cargarBancosCorreo(codigoPostal) {
+                $.ajax({
+                    url: '@Url.Action("TraerBancosCorreo", "Home")',
+                    type: 'GET',
+                    data: { codigoPostal: codigoPostal },
+                    success: function(bancos) {
+
+                        if (bancos && bancos.length > 0) {
+                            borrarError();
+                            llenarSelect('#sucursalSelect', bancos);
+                            $('#listaSucursales').show();
+                        } else {
+                            mostrarError('No se encontraron sucursales.');
+
+                        }
+
+                    },
+                    error: function() {
+                        mostrarError("Error al cargar los bancos físicos.");
+                    }
+                });
+            }
+
+            function cargarBancosVirtuales() {
+                $.ajax({
+                    url: '@Url.Action("TraerBancosVirtuales", "Home")',
+                    type: 'GET',
+                    success: function (bancos) {
+                        borrarError();
+                        llenarSelect('#virtualSelect', bancos);
+                        
+                    },
+                    error: function() {
+                        mostrarError("Error al cargar los bancos virtuales.");
+                    }
+                });
+            }
+
+            function cargarBilleterasVirtuales() {
+                $.ajax({
+                    url: '@Url.Action("TraerBilleterasVirtuales", "Home")',
+                    type: 'GET',
+                    success: function (billeteras) {
+                        borrarError();
+                        llenarSelect('#virtualSelect', billeteras);
+                        
+                    },
+                    error: function() {
+                        mostrarError("Error al cargar las billeteras virtuales.");
+                    }
+                });
+            }
+
+            function llenarSelect(selectId, opciones) {
+                var select = $(selectId);
+                select.empty();
+                $.each(opciones, function(i, opcion) {
+                    select.append($('<option></option>')
+                        .val(opcion.Codigo + '-' + opcion.CodigoAgencia)
+                        .text(opcion.Nombre + ' - ' + opcion.NombreAgencia));
+                });
+            }
+
+            $('#btnGuardar').click(function() {
+                var tipoMedioPago = $('.option-button.active').attr('id');
+                var data = {
+                    tipoMedioPago: tipoMedioPago.replace('btn', ''),
+                    valor: ''
+                };
+                console.log(tipoMedioPago);
+                borrarError();
+                switch (tipoMedioPago) {
+                    case 'btnBanco':
+                        var sucursalSeleccionada = $('#sucursalSelect').val();
+                        if (!sucursalSeleccionada) {
+                            mostrarError("Por favor, seleccione una sucursal.");
+                            return;
+                        }
+                        var [codigoBanco, codigoAgencia] = sucursalSeleccionada.split('-');
+                        data.codigoBanco = codigoBanco;
+                        data.codigoAgencia = codigoAgencia;
+                        break;
+                    case 'btnBancoDigital':
+                        var virtualSeleccionado = $('#virtualSelect').val();
+                        if (!virtualSeleccionado) {
+                            mostrarError("Por favor, seleccione una opción virtual.");
+                            return;
+                        }
+                        var [codigoBanco, codigoAgencia] = virtualSeleccionado.split('-');
+                        data.codigoBanco = codigoBanco;
+                        data.codigoAgencia = codigoAgencia;
+                        //if (isCVU == 1) {
+                        //    data.valor = $('#cvu').val();
+                        //    if (!data.valor || data.valor.length !== 22) {
+                        //        mostrarError("Por favor, ingrese un CVU válido de 22 dígitos.");
+                        //        return;
+                        //    }
+                        //}
+
+                        console.log(data);
+                        break;
+                    case 'btnBilleteraVirtual':
+                        var virtualSeleccionado = $('#virtualSelect').val();
+                        if (!virtualSeleccionado) {
+                            mostrarError("Por favor, seleccione una opción virtual.");
+                            return;
+                        }
+                        var [codigoBanco, codigoAgencia] = virtualSeleccionado.split('-');
+                        data.codigoBanco = codigoBanco;
+                        data.codigoAgencia = codigoAgencia;
+                        //if (isCVU == 1) {
+                        //    data.valor = $('#cvu').val();
+                        //    if (!data.valor || data.valor.length !== 22) {
+                        //        mostrarError("Por favor, ingrese un CVU válido de 22 dígitos.");
+                        //        return;
+                        //    }
+                        //}
+
+                        console.log(data);
+                        break;
+                    case 'btnCBU':
+                        data.valor = $('#cbu').val();
+                        if (!data.valor || data.valor.length !== 22) {
+                            mostrarError("Por favor, ingrese un CBU válido de 22 dígitos.");
+                            return;
+                        }
+                        validarCBU(data.valor);
+                        return;
+                }
+
+                guardarMedioPago(data);
+            });
+
+            function validarCBU(cbu) {
+                $.ajax({
+                    url: '@Url.Action("ValidarCBU", "Home")',
+                    type: 'POST',
+                    data: { CBU: cbu },
+                    success: function(response) {
+                        if (response.isValid) {
+                            borrarError();
+                            guardarMedioPago({ tipoMedioPago: 'CBU', valor: cbu });
+                            
+                        } else {
+                            mostrarError("La CBU no es válida. Por favor verifica el número ingresado.");
+                        }
+                    },
+                    error: function() {
+                        mostrarError("Error al validar el CBU.");
+                    }
+                });
+            }
+
+            function guardarMedioPago(data) {
+                $.ajax({
+                    url: '@Url.Action("GuardarMedioDePago", "Home")',
+                    type: 'POST',
+                    data: data,
+                    success: function(response) {
+                        if (response.success) {
+                            window.location.href = '@Url.Action("MensajeFinal", "Home")';
+                            borrarError();
+                        } else {
+                            mostrarError(response.message || "Error al guardar el medio de pago.");
+                        }
+                    },
+                    error: function() {
+                        mostrarError("Error de conexión. Por favor, intente nuevamente más tarde.");
+                    }
+                });
+            }
+
+            function mostrarError(mensaje) {
+                $('#mensajeError').text(mensaje).show();
+            }
+            function borrarError() {
+                $('#mensajeError').hide();
+                $('#listaSucursales').hide();
+            }
+            if (error != "0") {
+                mostrarError("Necesitás designar a un apoderado para cambiar tu medio de cobro.Tu apoderado deberá presentarse en una oficina de ANSES para solicitar el cambio.");
+            }
+        });
+    </script>
+            }
+
+
+
+
+
+---CONTROLLER
+
+using Anses.Director.Session;
+using MedioUnicoDePago.Ayudante;
+using MedioUnicoDePago.Models;
+using log4net;
+using Newtonsoft.Json;
+using System.Configuration;
+using System;
+using System.Reflection;
+using System.Web;
+using System.Linq;
+using System.Web.Mvc;
+using System.Threading.Tasks;
+using MedioUnicoDePago.VerificarCelu;
+using MedioUnicoDePago.ArgentaCWS;
+using MedioUnicoDePago.GestionarMPU;
+using MedioUnicoDePago.DatosdePersonaporCuip;
+using MedioUnicoDePago.validarCBU;
+using System.Collections.Generic;
+using MedioUnicoDePago.Filtros;
+using System.IO;
+
+namespace MedioUnicoDePago.Controllers
+{
+    public class HomeController : ControladorBase
+    {
+        private static readonly ILog log = LogManager.GetLogger(typeof(HomeController));
+        
+        private DtoToken _token;
+        private string cuil = "";
+        private const string TITULO = "Método de Pago Único";
+        private bool UDAI = bool.Parse(ConfigurationManager.AppSettings["UDAI"]);
+        private bool ValidarPersona = bool.Parse(ConfigurationManager.AppSettings["ValidarPersona"]);
+        DirectorMV director = new DirectorMV();
+        VerificaMailCelular VC = new VerificaMailCelular();
+        ArgentaCWS.ArgentaCWS ACWS = new ArgentaCWS.ArgentaCWS();
+        DatosdePersonaporCuip.DatosdePersonaporCuip DPC = new DatosdePersonaporCuip.DatosdePersonaporCuip();
+        GestionarMPU.GestionMPU GMPU = new GestionarMPU.GestionMPU();
+        ValidarCBU VCBU = new ValidarCBU();
+        
+
+        private string GetProperty(string name, DtoToken token2)
+        {
+            FieldInfo[] fields = token2.GetType().GetFields(BindingFlags.DeclaredOnly | BindingFlags.Instance | BindingFlags.NonPublic);
+            for (int i = 0; i < fields.Length; i++)
+            {
+                FieldInfo fieldInfo = fields[i];
+                if (fieldInfo.Name == name)
+                {
+                    return (string)fieldInfo.GetValue(token2);
+                }
+            }
+
+            return null;
+        }
+
+        // GET: MedioPagoUnico
+        public async Task<ActionResult> GuardarMDP()
+        {
+           ViewBag.Error = "0";
+            string cuil = Session["CUIL"] as string;
+            if (string.IsNullOrEmpty(cuil))
+            {
+                // Para propósitos de prueba, usa un CUIL hardcodeado si no se proporciona uno
+                //cuil = "27026825917";
+                cuil = Request.Cookies["CUIL"]?.Value;
+            }
+            ViewBag.UDAI = UDAI;
+            
+            ViewBag.Title = TITULO;
+            
+            ViewBag.cuil = cuil;
+
+            RetornoDatosPersonaCuip datosPersona = DPC.ObtenerPersonaxCUIP(cuil);
+            log.Debug("Mayor 13 años: "+ EsMayorDe13Anios(Convert.ToDateTime(datosPersona.PersonaCuip.f_naci)));
+            log.Debug($"Fecha nacimiento: {datosPersona.PersonaCuip.f_naci}");
+
+            if (!EsMayorDe13Anios(Convert.ToDateTime(datosPersona.PersonaCuip.f_naci)))
+            {
+                decimal cuilApoderado = -1;
+                DTOApoderado apod = new DTOApoderado();
+                apod.cuil = cuil;
+                apod.p_pago = Convert.ToString(DateTime.Now.ToString("yyyyMM"));
+                cuilApoderado = GMPU.ObtenerApoderado(apod);
+                log.Debug($"CUIL Apoderado: {cuilApoderado}");
+                if (cuilApoderado==-1)
+                {
+                    log.Debug($"Menor de 13 años sin apoderado");
+                    ViewBag.Error = "Error. Menor de 13 años sin apoderado.";
+                    return View();
+                }
+                
+                
+            }
+
+
+            
+            return View();
+        }
+        [HttpPost]
+        public JsonResult ValidarCBU(string CBU)
+        {
+            string cuil = Session["CUIL"] as string;
+            validarCBU.Retorno ret = VCBU.Validar(cuil, CBU);
+            if(ret.CodigoRetorno!=0)
+            {
+                return Json(new { isValid = true });
+            }else
+            {
+                return Json(new { isValid = false });
+            }
+            
+        }
+
+        [HttpGet]
+        public JsonResult TraerBancosFisicos(string codigoPostal)
+        {
+            try
+            {
+                var bancosFisicos = GMPU.TraerBancosFisicos(short.Parse(codigoPostal));
+                return Json(bancosFisicos, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                log.Error("Error al obtener los bancos físicos", ex);
+                return Json(new { error = "Error al obtener los bancos físicos." }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        [HttpGet]
+        public JsonResult TraerBancosCorreo(string codigoPostal)
+        {
+            try
+            {
+                var bancosCorreo = GMPU.ListarBancosCorreo(short.Parse(codigoPostal));
+                return Json(bancosCorreo, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                log.Error("Error al obtener los bancos correo", ex);
+                return Json(new { error = "Error al obtener los bancos correo." }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        [HttpGet]
+        public JsonResult TraerBancosVirtuales()
+        {
+            try
+            {
+                var bancosVirtuales = GMPU.ListarBancosVirtuales();
+                return Json(bancosVirtuales, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                log.Error("Error al obtener los bancos virtuales", ex);
+                return Json(new { error = "Error al obtener los bancos virtuales." }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+
+        [HttpPost]
+        public ActionResult GuardarMedioDePago(string tipoMedioPago, string valor, string codigoBanco = null, string codigoAgencia = null)
+        {
+            try
+            {
+                string cuil = Session["CUIL"] as string;
+                if (string.IsNullOrEmpty(cuil))
+                {
+                    return Json(new { success = false, message = "CUIL no encontrado en la sesión." });
+                }
+                /*Session["CODUDAI"] = Helper.getTokenCodDependencia();
+                ccc = Request.UserHostAddress;
+                Session["OPE_TRAMITE"] = Helper.getTokenDependencia();*/
+                decimal? codUdai = 999999995;
+                if (UDAI)
+                {
+                    /*codUdai = Convert.ToDecimal(Response.Cookies["CODUDAI"].Value);
+                    log.Debug($"CodUdai: {codUdai}");
+                    log.Debug($"CodUdaiSession: {Response.Cookies["CODUDAI"].Value}");*/
+                    codUdai = Convert.ToDecimal(Session["CODUDAI"] as string);
+                    log.Debug($"CodUdai: {codUdai}");
+                    log.Debug($"CodUdaiSession: {Session["CODUDAI"]}");
+                }
+                var medioPago = new DTOMedioPago
+                {
+                    Cuil = decimal.Parse(cuil),
+                    TipoMedioPago = tipoMedioPago,
+                    PeInicioPago = decimal.Parse(DateTime.Now.ToString("yyyyMM")),
+                    IpOrigen = Session["IP_ORIGEN"] as string,
+                    Udai = codUdai,
+                    OpeTramite = Session["OPE_TRAMITE"] as string
+                };
+                
+                /*if(UDAI)
+                {
+                    medioPago.Udai = 111111111;
+                }else
+                {
+                    medioPago.Udai = 0;
+                }*/
+                switch (tipoMedioPago)
+                {
+                    case "CBU":
+                        if (valor.Length != 22)
+                        {
+                            return Json(new { success = false, message = "El CBU debe tener 22 dígitos." });
+                        }
+                        medioPago.CbuInicio = decimal.Parse(valor.Substring(0, 8));
+                        medioPago.CbuFinal = decimal.Parse(valor.Substring(8));
+                        break;
+                    case "BilleteraVirtual":
+                        /*if (valor.Length != 22)
+                        {
+                            return Json(new { success = false, message = "El CVU debe tener 22 dígitos." });
+                        }
+                        medioPago.Cvu1 = decimal.Parse(valor.Substring(0, 8));
+                        medioPago.Cvu2 = decimal.Parse(valor.Substring(8));*/
+
+                        if (string.IsNullOrEmpty(codigoBanco) || string.IsNullOrEmpty(codigoAgencia))
+                        {
+                            return Json(new { success = false, message = "Código de billetera y agencia son requeridos." });
+                        }
+                        medioPago.CBanco = short.Parse(codigoBanco);
+                        medioPago.CAgencia = short.Parse(codigoAgencia);
+                        break;
+                    case "Banco":
+                        if (string.IsNullOrEmpty(codigoBanco) || string.IsNullOrEmpty(codigoAgencia))
+                        {
+                            return Json(new { success = false, message = "Código de banco y agencia son requeridos." });
+                        }
+                        medioPago.CBanco = short.Parse(codigoBanco);
+                        medioPago.CAgencia = short.Parse(codigoAgencia);
+                        break;
+                    case "BancoDigital":
+                        if (string.IsNullOrEmpty(codigoBanco) || string.IsNullOrEmpty(codigoAgencia))
+                        {
+                            return Json(new { success = false, message = "Código de banco y agencia son requeridos." });
+                        }
+                        medioPago.CBanco = short.Parse(codigoBanco);
+                        medioPago.CAgencia = short.Parse(codigoAgencia);
+                        break;
+                    default:
+                        return Json(new { success = false, message = "Tipo de medio de pago no válido." });
+                }
+                // Loguear todas las propiedades de medioPago
+                log.Debug("Propiedades del objeto medioPago:");
+                log.Debug($"Cuil: {medioPago.Cuil}");
+                log.Debug($"TipoMedioPago: {medioPago.TipoMedioPago}");
+                log.Debug($"PeInicioPago: {medioPago.PeInicioPago}");
+                log.Debug($"IpOrigen: {medioPago.IpOrigen}");
+                log.Debug($"Udai: {medioPago.Udai}");
+                log.Debug($"OpeTramite: {medioPago.OpeTramite}");
+                log.Debug($"CbuInicio: {medioPago.CbuInicio}");
+                log.Debug($"CbuFinal: {medioPago.CbuFinal}");
+                log.Debug($"Cvu1: {medioPago.Cvu1}");
+                log.Debug($"Cvu2: {medioPago.Cvu2}");
+                log.Debug($"CBanco: {medioPago.CBanco}");
+                log.Debug($"CAgencia: {medioPago.CAgencia}");
+
+                int resultado = GMPU.GuardarMedioPagoUnico(medioPago);
+                log.Debug($"Resultado: {resultado}");
+
+                if (resultado > 0)
+                {
+                    return Json(new { success = true, message = "Medio de pago guardado exitosamente." });
+                }
+                else
+                {
+                    return Json(new { success = false, message = "No se pudo guardar el medio de pago." });
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error("Error al guardar el medio de pago", ex);
+                return Json(new { success = false, message = "Ocurrió un error al guardar el medio de pago. Por favor, intente nuevamente." });
+            }
+        }
+
+
+        [HttpGet]
+        public JsonResult TraerBilleterasVirtuales()
+        {
+            try
+            {
+                var billeterasVirtuales = GMPU.ListarBilleterasVirtuales();
+                return Json(billeterasVirtuales, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                log.Error("Error al obtener las billeteras virtuales", ex);
+                return Json(new { error = "Error al obtener las billeteras virtuales." }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+
+
+        public ActionResult MensajeFinal()
+        {
+            return View();
+        }
+ 
+
+    
+        public async Task<ActionResult> Index(string cuil)
+        //public async Task<ActionResult> Index()
+        {
+            //string cuil = "20150003521";
+            //Session["CUIL"] = cuil;
+            ViewBag.UDAI = UDAI;
+            try
+            {
+                //este bloque es solo para cuando se recibe el cuil por param
+                if (UDAI)
+                {
+                    if (string.IsNullOrEmpty(cuil))
+                    {
+                        // Intentar recuperar de la cookie
+                        cuil = Request.Cookies["CUIL"]?.Value;
+
+                        if (string.IsNullOrEmpty(cuil))
+                        {
+                            log.Error("No se proporcionó CUIL y no se pudo recuperar de la cookie.");
+                            return View("Error", new ErrorViewModel { Message = "CUIL no proporcionado." });
+                        }
+                        else
+                        {
+                            log.Info($"CUIL recuperado de la cookie: {cuil}");
+                            Session["CUIL"] = cuil;
+                        }
+                    }
+                    else
+                    {
+                        // Almacenar el CUIL en una cookie para futuras solicitudes
+                        Response.Cookies["CUIL"].Value = cuil;
+                        Response.Cookies["CUIL"].Expires = DateTime.Now.AddMinutes(30);
+                    }
+                }
+                    
+                //string cuil = "";
+                if (2==2)
+                {
+                    this._token = Credencial.ObtenerCredencial();
+
+                    log.Info("OBTUVE TOKEN");
+
+                    //Se crea una variable de tipo DirectorMV para guardar la cookie "token"
+                    director = new DirectorMV
+                    {
+                        token = GetProperty("strtoken", this._token),
+                        sign = GetProperty("strsign", this._token),
+                        userId = this._token.SSOToken.Operation.Login.UId
+                    };
+                    log.Info("USUARIO --> " + director.userId);
+                    if(!UDAI)
+                    {
+                        Cookie.GuardarCookie(Response, Request.RawUrl, "directorToken", director, DateTime.Now.AddMinutes(Convert.ToInt32(ConfigurationManager.AppSettings["datosUsuarioExpireTimeMintutes"])));
+                        cuil = director.userId;
+                        log.Error($"cuil recuperado de mianses " + cuil);
+                        Session["CUIL"] = cuil;
+                    }
+                    if (this._token == null || !this._token.credencialok)
+                    {
+                        
+                        /*Response.Cookies["CODUDAI"].Value = Helper.getTokenCodDependencia(); 
+                        Response.Cookies["CODUDAI"].Expires = DateTime.Now.AddMinutes(30);*/
+                        
+                        log.Debug("INDEX - Acceso denegado");
+
+                        throw new Exception("Acceso denegado");
+
+                    }
+                    else
+                    {
+
+                        /*ViewBag.OperadorNombre = Helper.getTokenNombreUsuario();
+
+                        ViewBag.OperadorLegajo = Helper.getUsrLegajo();
+
+                        ViewBag.OperadorUdai = 
+
+                        ViewBag.Udai = 
+
+                        ViewBag.OperadorRol = Helper.getTokenGroups();*/
+                        Response.Cookies["CODUDAI"].Value = Helper.getTokenCodDependencia();
+                        Response.Cookies["CODUDAI"].Expires = DateTime.Now.AddMinutes(30);
+                        Session["CODUDAI"] = Helper.getTokenCodDependencia();
+                        Session["IP_ORIGEN"] = Helper.GetIp();
+                        if(UDAI)
+                        {
+                            Session["OPE_TRAMITE"] = Helper.getUsrLegajo();
+                        }
+                        else
+                        {
+                            Session["OPE_TRAMITE"] = "MIANSES";
+                        }
+                        
+
+                        log.Debug("UDAI: "+ Session["CODUDAI"]);
+                        log.Debug("IP_ORIGEN: "+ Session["IP_ORIGEN"]);
+                        log.Debug("OPE_TRAMITE: "+ Session["OPE_TRAMITE"]);
+                    }
+
+
+                }
+               
+                try
+                {
+                    ViewBag.ValidarPersona = ValidarPersona;
+                    if (!string.IsNullOrEmpty(cuil))
+                    {
+                        var medioPagoVigente = GMPU.ObtenerMedioPagoVigente(cuil.ToString());
+
+                        if (medioPagoVigente != null)
+                        {
+                            ViewBag.MedioPagoActual = ObtenerDescripcionMedioPago(medioPagoVigente);
+                           if(UDAI)
+                            {
+                                //return RedirectToAction("GuardarMDP");
+                            }
+                        }
+                        else
+                        {
+                            if(UDAI)
+                            {
+                                return RedirectToAction("GuardarMDP");
+                                //return RedirectToAction("ListadoMDP");
+
+                            }
+                            else
+                            {
+                                if(ValidarPersona)
+                                {
+                                    return RedirectToAction("VerificarCelular");
+                                }else
+                                {
+                                    return RedirectToAction("ListadoMDP");
+                                }
+                                
+                            }
+
+                        }
+                    }
+                     
+                }
+                catch (Exception ex)
+                {
+                    log.Error($"Error al obtener el medio de pago vigente para el CUIL {cuil}", ex);
+                    ViewBag.MedioPagoActual = "Error al obtener el medio de pago vigente";
+                }
+
+            }
+            catch(Exception ex)
+            {
+                Session["CUIL"] = cuil;
+                log.Error($"2 Error al obtener las credenciales ", ex);
+                log.Error($"cuil con excepcion primera "+cuil);
+            }
+        
+            
+
+            ViewBag.Title = TITULO;
+            return View();
+        }
+
+        private string ObtenerDescripcionMedioPago(DTOMedioPagoVigente medioPago)
+        {
+            if (medioPago == null)
+            {
+                return "No se ha registrado un medio de pago";
+            }
+
+            if (!string.IsNullOrEmpty(medioPago.Cbu1) && !string.IsNullOrEmpty(medioPago.Cbu2))
+            {
+                return $"CBU: {medioPago.Cbu1}{medioPago.Cbu2}";
+            }
+            else if (!string.IsNullOrEmpty(medioPago.Cvu1) && !string.IsNullOrEmpty(medioPago.Cvu2))
+            {
+                return $"CVU: {medioPago.Cvu1}{medioPago.Cvu2}";
+            }
+            else if (!string.IsNullOrEmpty(medioPago.DBco) && !string.IsNullOrEmpty(medioPago.DAge))
+            {
+                return $"Banco/Agencia: {medioPago.DBco} - {medioPago.DAge}";
+            }
+            else if (!string.IsNullOrEmpty(medioPago.Alias))
+            {
+                return $"Alias: {medioPago.Alias}";
+            }
+            else
+            {
+                return "Medio de pago no especificado";
+            }
+        }
+
+
+
+
+        public bool EsMayorDe13Anios(DateTime fechaNacimiento)
+        {
+            DateTime fechaActual = DateTime.Today;
+            int edad = fechaActual.Year - fechaNacimiento.Year;
+
+            // Verificar si ya pasó el cumpleaños este año
+            if (fechaNacimiento > fechaActual.AddYears(-edad))
+            {
+                edad--;
+            }
+
+            return edad >= 13;
+        }
+        public ActionResult VerificarCelular()
+        {
+            
+            string cuil = Session["CUIL"] as string;
+
+            if (string.IsNullOrEmpty(cuil))
+            {
+                //return RedirectToAction("Index");
+                cuil = Request.Cookies["CUIL"]?.Value;
+                log.Info($"CUIL recuperado de la cookie: {cuil}");
+            }
+
+            try
+            {
+                if(1==1)
+                {
+                    if (UDAI)
+                    {
+                        var MPUActual = Session["MedoDePagoActual"] as string;
+                        if (MPUActual != null)
+                        {
+                            //return RedirectToAction("GuardarMDP");
+                        }
+                        else
+                        {
+                            //return RedirectToAction("ListadoMDP");
+                        }
+
+                    }
+                    log.Info($"CUIL antes de enviar al RETORNARPERSONA: {cuil}");
+                    RetornoDatosPersonaCuip datosPersona = DPC.ObtenerPersonaxCUIP(cuil);
+
+                    if (TieneError(datosPersona))
+                    {
+                        ViewBag.Error = $"Error al obtener datos de la persona: {datosPersona.error.desc_mensaje}";
+                        return View();
+                    }
+
+                    
+                  
+
+                        if (!TieneTelefono(datosPersona))
+                    {
+                        ViewBag.Error = "Actualice sus datos de contacto";
+                        return View();
+                    }
+                        string tel="+"+ datosPersona.PersonaCuip.telediscado_pais.ToString() + datosPersona.PersonaCuip.telediscado.ToString() + datosPersona.PersonaCuip.telefono.ToString();
+
+                    ViewBag.Telefono = tel;
+                    Session["Sexo"] = datosPersona.PersonaCuip.sexo;
+                    Session["Telefono"] = tel;
+                    Session["DNI"] = datosPersona.PersonaCuip.doc_nro;
+                    if(datosPersona.PersonaCuip.marca_cel.ToString()!="S")
+                    {
+                        log.Error($"No es celular, tiene marca celular = "+ datosPersona.PersonaCuip.marca_cel.ToString());
+                        ViewBag.Error = "El usuario no tiene celular";
+                    }
+                }
+                else
+                {
+                    //ViewBag.Telefono = 1141684887;
+                    //Session["Telefono"] = "1141684887";
+                    //Session["Sexo"] = "M";
+                    //Session["DNI"] = "40640653";
+                }
+
+                ViewBag.Cuil = cuil;
+
+                return View();
+            }
+            catch (Exception ex)
+            {
+                log.Error($"Error al obtener datos de la persona con CUIL {cuil}", ex);
+                ViewBag.Error = "Ocurrió un error al obtener los datos. Por favor, intente nuevamente más tarde.";
+                return View();
+            }
+        }
+
+        private bool TieneError(RetornoDatosPersonaCuip datosPersona)
+        {
+            return datosPersona.error != null && datosPersona.error.cod_retorno != 0;
+        }
+
+        private bool TieneTelefono(RetornoDatosPersonaCuip datosPersona)
+        {
+            return datosPersona.PersonaCuip.telefono != 0;
+        }
+
+
+
+        [HttpPost]
+        public ActionResult EnviarCodigo()
+        {
+            try
+            {
+                string cuil = Session["CUIL"] as string;
+                //string telefono = Session["Telefono"] as string;
+                /*if (string.IsNullOrEmpty(telefono))
+                {
+                    //RetornoDatosPersonaCuip datosPersona = DPC.ObtenerPersonaxCUIP(cuil);
+                    //telefono = "+" + datosPersona.PersonaCuip.telediscado_pais.ToString() + datosPersona.PersonaCuip.telediscado.ToString() + datosPersona.PersonaCuip.telefono.ToString();
+                }*/
+                RetornoDatosPersonaCuip datosPersona = DPC.ObtenerPersonaxCUIP(cuil);
+                string telefono = datosPersona.PersonaCuip.telediscado.ToString() + datosPersona.PersonaCuip.telefono.ToString();
+                log.Debug("Verificar celular");
+                log.Debug("Cuil:"+ cuil);
+                log.Debug("Celular:"+ telefono);
+                int idRegistroInt = VC.VerificarCelular(cuil,telefono,0);
+
+                Session["IdRegistro"] = idRegistroInt.ToString();
+
+                if (idRegistroInt > 0)
+                {
+                    return Json(new { success = true, idRegistro = idRegistroInt });
+                }
+                else
+                {
+                    return Json(new { success = false, message = "No se pudo enviar el código" });
+                }
+            }
+            catch (Exception ex)
+            {
+                // Loguear el error
+                return Json(new { success = false, message = "Error al procesar la solicitud" });
+            }
+        }
+
+        public ActionResult IngresarCodigo()
+        {
+            string IdRegistro=Session["IdRegistro"] as string;
+            ViewBag.IdRegistro = IdRegistro;
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ValidarCodigoSMS(string IdRegistro, string codigoIngresado)
+        {
+            try
+            {
+                int Response = VC.ConfirmarCelularxId(Convert.ToInt32(IdRegistro),codigoIngresado);
+                
+
+                if (Response>0)
+                {
+                   
+
+                    return Json(new { success = true });
+                }
+                else
+                {
+                    return Json(new { success = false, message = "Código inválido" });
+                }
+            }
+            catch (Exception ex)
+            {
+                // Loguear el error
+                return Json(new { success = false, message = "Error al procesar la solicitud" });
+            }
+        }
+        public ActionResult VerificarDNI()
+        {
+            string dni = Session["DNI"] as string;
+            //00478917569
+            ViewBag.DNI = dni;
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ValidarIDTramite(string DNI, long IdTramite)
+        {
+            try
+            {
+                
+                string sexo=Session["Sexo"] as string;
+                string dni = Session["DNI"] as string;
+
+                bool esValido = ACWS.ValidarDNI(DNI, sexo, IdTramite); ;
+
+                if (esValido)
+                {
+                    string MDPA=Session["MedoDePagoActual"] as string;
+                    ViewBag.MedioPagoActual = MDPA;
+                    
+                    // Aquí podrías guardar el estado de la validación en la sesión o en la base de datos
+                    Session["DNIValidado"] = true;
+                    string Val = Session["DNIValidado"].ToString();
+                    return Json(new { success = true });
+                }
+                else
+                {
+                    return Json(new { success = false, message = "El número de trámite no es válido para el DNI proporcionado." });
+                }
+            }
+            catch (Exception ex)
+            {
+                // Loguear el error
+                return Json(new { success = false, message = "Error al procesar la solicitud" });
+            }
+        }
+
+
+
+
+        private async Task<PersonaViewModel> ObtenerYValidarPersona(string cuil)
+        {
+            // Datos hardcodeados para pruebas
+            var persona = new PersonaViewModel
+            {
+                Cuil = cuil,
+                Nombre = "Juan",
+                Apellido = "Pérez",
+                FechaNacimiento = new DateTime(1990, 1, 1),
+                PaisResidencia = "Argentina",
+                Domicilio = new DomicilioViewModel
+                {
+                    Calle = "Av. Corrientes",
+                    Numero = "1234",
+                    CodigoPostal = "1043",
+                    Localidad = "Ciudad Autónoma de Buenos Aires",
+                    Provincia = "Buenos Aires",
+                    TipoZona = "Urbana"
+                }
+            };
+
+            // Validaciones
+            bool esMenorDe13 = (DateTime.Now.Year - persona.FechaNacimiento.Year) < 13;
+            bool esResidenteExterior = persona.PaisResidencia != "Argentina";
+            bool esDomicilioZonaAustralRural = persona.Domicilio.TipoZona == "Rural" ||
+                                               persona.Domicilio.Provincia == "Tierra del Fuego" ||
+                                               persona.Domicilio.Provincia == "Santa Cruz";
+
+            // Determinar si puede ingresar a la versión MiAnses
+            persona.PuedeIngresarMiAnses = !esMenorDe13 && !esResidenteExterior && !esDomicilioZonaAustralRural;
+
+            return persona;
+        }
+        public ActionResult ListadoMDP()
+        {
+            string cuil = Session["CUIL"] as string;
+            if (string.IsNullOrEmpty(cuil))
+            {
+                //return RedirectToAction("Index");
+                cuil = Request.Cookies["CUIL"]?.Value;
+            }
+
+            try
+            {
+                var mediosPagoDisponibles = GMPU.ListarMPDisponibles(cuil);
+                //log.Info($"Medios de pago disponibles obtenidos: {mediosPagoDisponibles.Count}");
+
+                var mediosPagoViewModel = new List<MedioPagoViewModel>();
+
+                foreach (var mp in mediosPagoDisponibles)
+                {
+                    log.Info($"Procesando medio de pago: ID={mp?.CBanco}-{mp?.CAgencia}");
+
+                    var viewModel = new MedioPagoViewModel();
+
+                    // PeEmision
+                    viewModel.PeEmision = mp?.PeEmision.ToString() ?? "N/A";
+                    log.Info($"PeEmision: {viewModel.PeEmision}");
+
+                    // PeLiquidado
+                    viewModel.PeLiquidado = mp?.PeLiquidado.ToString() ?? "N/A";
+                    log.Info($"PeLiquidado: {viewModel.PeLiquidado}");
+
+                    // NombreBanco
+                    viewModel.NombreBanco = mp?.NombreBanco ?? "N/A";
+                    log.Info($"NombreBanco: {viewModel.NombreBanco}");
+
+                    // NombreAgencia
+                    viewModel.NombreAgencia = mp?.NombreAgencia ?? "N/A";
+                    log.Info($"NombreAgencia: {viewModel.NombreAgencia}");
+
+                    // CBU
+                    if (mp?.Cbu1.HasValue == true && mp?.Cbu2.HasValue == true)
+                    {
+                        viewModel.CBU = $"{mp.Cbu1.Value:D8}{mp.Cbu2.Value:D14}";
+                    }
+                    else
+                    {
+                        viewModel.CBU = "N/A";
+                    }
+                    log.Info($"CBU: {viewModel.CBU}");
+
+                    // MPago
+                    viewModel.MPago = mp?.MPago ?? "N/A";
+                    log.Info($"MPago: {viewModel.MPago}");
+
+                    // TipoMedioPago
+                    viewModel.TipoMedioPago = DeterminarTipoMedioPago(mp);
+                    log.Info($"TipoMedioPago: {viewModel.TipoMedioPago}");
+
+                    // CodigoBanco
+                    viewModel.CodigoBanco = mp?.CBanco.ToString() ?? "N/A";
+                    log.Info($"CodigoBanco: {viewModel.CodigoBanco}");
+
+                    // CodigoAgencia
+                    viewModel.CodigoAgencia = mp?.CAgencia.ToString() ?? "N/A";
+                    log.Info($"CodigoAgencia: {viewModel.CodigoAgencia}");
+
+                    mediosPagoViewModel.Add(viewModel);
+                    log.Info("ViewModel agregado a la lista");
+                }
+
+                //log.Info($"Total de MediosPagoViewModel creados: {mediosPagoViewModel.Count}");
+
+                return View(mediosPagoViewModel);
+            }
+            catch (Exception ex)
+            {
+                log.Error($"Error al obtener los medios de pago disponibles para el CUIL {cuil}", ex);
+                ViewBag.Error = "Ocurrió un error al obtener los medios de pago disponibles. Por favor, intente nuevamente más tarde.";
+                return View(new List<MedioPagoViewModel>());
+            }
+        }
+
+        private string DeterminarTipoMedioPago(DTOMedioPagoDisponible mp)
+        {
+            if (mp == null)
+            {
+                log.Warn("DTOMedioPagoDisponible es null");
+                return "Desconocido";
+            }
+
+            if (mp.Cbu1.HasValue && mp.Cbu2.HasValue)
+            {
+                log.Info("Tipo de medio de pago determinado como CBU");
+                return "CBU";
+            }
+            if (mp.CBanco != 0 && mp.CAgencia != 0)
+            {
+                log.Info("Tipo de medio de pago determinado como Banco");
+                return "Banco";
+            }
+            if (!string.IsNullOrEmpty(mp.MPago))
+            {
+                log.Info($"Tipo de medio de pago determinado como {mp.MPago}");
+                return mp.MPago;
+            }
+
+            log.Warn("No se pudo determinar el tipo de medio de pago");
+            return "Otro";
+        }
+
+
+
+
+
+
+
+
+
+        private string ObtenerDescripcionMedioPago()
+        {
+            /*if (medioPago == null)
+            {
+                return "No se ha registrado un medio de pago";
+            }
+
+            switch (medioPago.CModoPago)
+            {
+                case 1: // Asumiendo que 1 es CBU
+                    return $"CBU: {medioPago.Cbu1}{medioPago.Cbu2}";
+                case 2: // Asumiendo que 2 es CVU
+                    return $"CVU: {medioPago.Cvu1}{medioPago.Cvu2}";
+                case 3: // Asumiendo que 3 es Banco/Agencia
+                    return $"Banco/Agencia: {medioPago.DBco} - {medioPago.DAge}";
+                case 4: // Asumiendo que 4 es Alias
+                    return $"Alias: {medioPago.Alias}";
+                default:
+                    return $"Medio de pago: {medioPago.CModoPago}";
+            }*/
+            return "No se ha registrado un medio de pago";
+        }
+
+        public short? convertVariable(string variable)
+        {
+            if (String.IsNullOrEmpty(variable) || variable == "-1")
+            {
+                return null;
+            }
+            else
+            {
+                return Convert.ToInt16(variable);
+            }
+        }
+
+        public decimal? convertVariableDecimal(string variable)
+        {
+            if (String.IsNullOrEmpty(variable))
+            {
+                return null;
+            }
+            else
+            {
+                return decimal.Parse(variable);
+            }
+        }
+
+        public DateTime? convertVariableDateTime(string variable)
+        {
+            if (String.IsNullOrEmpty(variable))
+            {
+                return null;
+            }
+            else
+            {
+                return Convert.ToDateTime(variable);
+            }
+        }
+
+    }
+
+    public class ErrorViewModel
+    {
+        public string Message { get; set; }
+    }
+}
+
+

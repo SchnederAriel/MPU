@@ -1,0 +1,20 @@
+2024-09-02 20:06:28,528 [6] INFO  MedioUnicoDePago.Filtros.ErrorHandler - ---> ERROR controlado desde Error handler
+2024-09-02 20:06:28,541 [6] ERROR MedioUnicoDePago.Filtros.ErrorHandler - Error tipo ARGUMENTEXCEPTION en Contolador: Home - Método: ValidarIDTramite : Error: El diccionario de parámetros contiene una entrada NULL para el parámetro 'IdTramite' del tipo que no acepta valores NULL 'System.Int64' del método 'System.Web.Mvc.ActionResult ValidarIDTramite(System.String, Int64)' en 'MedioUnicoDePago.Controllers.HomeController'. Un parámetro opcional debe ser un tipo de referencia, un tipo que acepte valores NULL o debe declararse como parámetro opcional.
+Nombre del parámetro: parameters - StackTrace:    en System.Web.Mvc.ActionDescriptor.ExtractParameterFromDictionary(ParameterInfo parameterInfo, IDictionary`2 parameters, MethodInfo methodInfo)
+   en System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c.<BeginInvokeSynchronousActionMethod>b__9_0(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__11_0()
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass11_1.<InvokeActionMethodFilterAsynchronouslyRecursive>b__2()
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass11_1.<InvokeActionMethodFilterAsynchronouslyRecursive>b__2()
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass7_0.<BeginInvokeActionMethodWithFilters>b__1(IAsyncResult asyncResult)
+   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_6.<BeginInvokeAction>b__3()
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__5(IAsyncResult asyncResult)
+2024-09-02 20:06:28,555 [8] INFO  MedioUnicoDePago.Controllers.ErrorController - --->  traking en error controller
+2024-09-02 20:06:28,555 [8] INFO  MedioUnicoDePago.Controllers.ErrorController - ---> ERROR: - El diccionario de parámetros contiene una entrada NULL para el parámetro 'IdTramite' del tipo que no acepta valores NULL 'System.Int64' del método 'System.Web.Mvc.ActionResult ValidarIDTramite(System.String, Int64)' en 'MedioUnicoDePago.Controllers.HomeController'. Un parámetro opcional debe ser un tipo de referencia, un tipo que acepte valores NULL o debe declararse como parámetro opcional.Nombre del parámetro: parameters

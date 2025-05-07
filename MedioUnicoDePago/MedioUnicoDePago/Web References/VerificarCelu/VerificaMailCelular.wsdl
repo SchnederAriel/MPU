@@ -1,0 +1,633 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://anses.gov.ar/arquitectura/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://anses.gov.ar/arquitectura/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://anses.gov.ar/arquitectura/">
+      <s:element name="VerificarMail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Cuil" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorreoElectronico" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerificarMailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="VerificarMailResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerificarMailconCuerpo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Cuil" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorreoElectronico" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CuerpoHTML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerificarMailconCuerpoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="VerificarMailconCuerpoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConfirmarMail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Cuil" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorreoElectronico" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConfirmarMailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ConfirmarMailResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConfirmarMailxId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdRegistro" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConfirmarMailxIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ConfirmarMailxIdResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerificarCelular">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Cuil" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Celular" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Prestador" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerificarCelularResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="VerificarCelularResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConfirmarCelular">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Cuil" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Celular" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConfirmarCelularResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ConfirmarCelularResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConfirmarCelularxId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdRegistro" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConfirmarCelularxIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ConfirmarCelularxIdResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="int" type="s:int" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="VerificarMailSoapIn">
+    <wsdl:part name="parameters" element="tns:VerificarMail" />
+  </wsdl:message>
+  <wsdl:message name="VerificarMailSoapOut">
+    <wsdl:part name="parameters" element="tns:VerificarMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="VerificarMailconCuerpoSoapIn">
+    <wsdl:part name="parameters" element="tns:VerificarMailconCuerpo" />
+  </wsdl:message>
+  <wsdl:message name="VerificarMailconCuerpoSoapOut">
+    <wsdl:part name="parameters" element="tns:VerificarMailconCuerpoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmarMailSoapIn">
+    <wsdl:part name="parameters" element="tns:ConfirmarMail" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmarMailSoapOut">
+    <wsdl:part name="parameters" element="tns:ConfirmarMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmarMailxIdSoapIn">
+    <wsdl:part name="parameters" element="tns:ConfirmarMailxId" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmarMailxIdSoapOut">
+    <wsdl:part name="parameters" element="tns:ConfirmarMailxIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="VerificarCelularSoapIn">
+    <wsdl:part name="parameters" element="tns:VerificarCelular" />
+  </wsdl:message>
+  <wsdl:message name="VerificarCelularSoapOut">
+    <wsdl:part name="parameters" element="tns:VerificarCelularResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmarCelularSoapIn">
+    <wsdl:part name="parameters" element="tns:ConfirmarCelular" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmarCelularSoapOut">
+    <wsdl:part name="parameters" element="tns:ConfirmarCelularResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmarCelularxIdSoapIn">
+    <wsdl:part name="parameters" element="tns:ConfirmarCelularxId" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmarCelularxIdSoapOut">
+    <wsdl:part name="parameters" element="tns:ConfirmarCelularxIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="VerificarMailHttpGetIn">
+    <wsdl:part name="Cuil" type="s:string" />
+    <wsdl:part name="CorreoElectronico" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="VerificarMailHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="VerificarMailconCuerpoHttpGetIn">
+    <wsdl:part name="Cuil" type="s:string" />
+    <wsdl:part name="CorreoElectronico" type="s:string" />
+    <wsdl:part name="CuerpoHTML" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="VerificarMailconCuerpoHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmarMailHttpGetIn">
+    <wsdl:part name="Cuil" type="s:string" />
+    <wsdl:part name="CorreoElectronico" type="s:string" />
+    <wsdl:part name="Code" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmarMailHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmarMailxIdHttpGetIn">
+    <wsdl:part name="IdRegistro" type="s:string" />
+    <wsdl:part name="Code" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmarMailxIdHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="VerificarCelularHttpGetIn">
+    <wsdl:part name="Cuil" type="s:string" />
+    <wsdl:part name="Celular" type="s:string" />
+    <wsdl:part name="Prestador" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="VerificarCelularHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmarCelularHttpGetIn">
+    <wsdl:part name="Cuil" type="s:string" />
+    <wsdl:part name="Celular" type="s:string" />
+    <wsdl:part name="Code" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmarCelularHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmarCelularxIdHttpGetIn">
+    <wsdl:part name="IdRegistro" type="s:string" />
+    <wsdl:part name="Code" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmarCelularxIdHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="VerificarMailHttpPostIn">
+    <wsdl:part name="Cuil" type="s:string" />
+    <wsdl:part name="CorreoElectronico" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="VerificarMailHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="VerificarMailconCuerpoHttpPostIn">
+    <wsdl:part name="Cuil" type="s:string" />
+    <wsdl:part name="CorreoElectronico" type="s:string" />
+    <wsdl:part name="CuerpoHTML" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="VerificarMailconCuerpoHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmarMailHttpPostIn">
+    <wsdl:part name="Cuil" type="s:string" />
+    <wsdl:part name="CorreoElectronico" type="s:string" />
+    <wsdl:part name="Code" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmarMailHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmarMailxIdHttpPostIn">
+    <wsdl:part name="IdRegistro" type="s:string" />
+    <wsdl:part name="Code" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmarMailxIdHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="VerificarCelularHttpPostIn">
+    <wsdl:part name="Cuil" type="s:string" />
+    <wsdl:part name="Celular" type="s:string" />
+    <wsdl:part name="Prestador" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="VerificarCelularHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmarCelularHttpPostIn">
+    <wsdl:part name="Cuil" type="s:string" />
+    <wsdl:part name="Celular" type="s:string" />
+    <wsdl:part name="Code" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmarCelularHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmarCelularxIdHttpPostIn">
+    <wsdl:part name="IdRegistro" type="s:string" />
+    <wsdl:part name="Code" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmarCelularxIdHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:portType name="VerificaMailCelularSoap">
+    <wsdl:operation name="VerificarMail">
+      <wsdl:input message="tns:VerificarMailSoapIn" />
+      <wsdl:output message="tns:VerificarMailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificarMailconCuerpo">
+      <wsdl:input message="tns:VerificarMailconCuerpoSoapIn" />
+      <wsdl:output message="tns:VerificarMailconCuerpoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarMail">
+      <wsdl:input message="tns:ConfirmarMailSoapIn" />
+      <wsdl:output message="tns:ConfirmarMailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarMailxId">
+      <wsdl:input message="tns:ConfirmarMailxIdSoapIn" />
+      <wsdl:output message="tns:ConfirmarMailxIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificarCelular">
+      <wsdl:input message="tns:VerificarCelularSoapIn" />
+      <wsdl:output message="tns:VerificarCelularSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarCelular">
+      <wsdl:input message="tns:ConfirmarCelularSoapIn" />
+      <wsdl:output message="tns:ConfirmarCelularSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarCelularxId">
+      <wsdl:input message="tns:ConfirmarCelularxIdSoapIn" />
+      <wsdl:output message="tns:ConfirmarCelularxIdSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="VerificaMailCelularHttpGet">
+    <wsdl:operation name="VerificarMail">
+      <wsdl:input message="tns:VerificarMailHttpGetIn" />
+      <wsdl:output message="tns:VerificarMailHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificarMailconCuerpo">
+      <wsdl:input message="tns:VerificarMailconCuerpoHttpGetIn" />
+      <wsdl:output message="tns:VerificarMailconCuerpoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarMail">
+      <wsdl:input message="tns:ConfirmarMailHttpGetIn" />
+      <wsdl:output message="tns:ConfirmarMailHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarMailxId">
+      <wsdl:input message="tns:ConfirmarMailxIdHttpGetIn" />
+      <wsdl:output message="tns:ConfirmarMailxIdHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificarCelular">
+      <wsdl:input message="tns:VerificarCelularHttpGetIn" />
+      <wsdl:output message="tns:VerificarCelularHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarCelular">
+      <wsdl:input message="tns:ConfirmarCelularHttpGetIn" />
+      <wsdl:output message="tns:ConfirmarCelularHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarCelularxId">
+      <wsdl:input message="tns:ConfirmarCelularxIdHttpGetIn" />
+      <wsdl:output message="tns:ConfirmarCelularxIdHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="VerificaMailCelularHttpPost">
+    <wsdl:operation name="VerificarMail">
+      <wsdl:input message="tns:VerificarMailHttpPostIn" />
+      <wsdl:output message="tns:VerificarMailHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificarMailconCuerpo">
+      <wsdl:input message="tns:VerificarMailconCuerpoHttpPostIn" />
+      <wsdl:output message="tns:VerificarMailconCuerpoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarMail">
+      <wsdl:input message="tns:ConfirmarMailHttpPostIn" />
+      <wsdl:output message="tns:ConfirmarMailHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarMailxId">
+      <wsdl:input message="tns:ConfirmarMailxIdHttpPostIn" />
+      <wsdl:output message="tns:ConfirmarMailxIdHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificarCelular">
+      <wsdl:input message="tns:VerificarCelularHttpPostIn" />
+      <wsdl:output message="tns:VerificarCelularHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarCelular">
+      <wsdl:input message="tns:ConfirmarCelularHttpPostIn" />
+      <wsdl:output message="tns:ConfirmarCelularHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarCelularxId">
+      <wsdl:input message="tns:ConfirmarCelularxIdHttpPostIn" />
+      <wsdl:output message="tns:ConfirmarCelularxIdHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="VerificaMailCelularSoap" type="tns:VerificaMailCelularSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="VerificarMail">
+      <soap:operation soapAction="http://anses.gov.ar/arquitectura/VerificarMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificarMailconCuerpo">
+      <soap:operation soapAction="http://anses.gov.ar/arquitectura/VerificarMailconCuerpo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarMail">
+      <soap:operation soapAction="http://anses.gov.ar/arquitectura/ConfirmarMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarMailxId">
+      <soap:operation soapAction="http://anses.gov.ar/arquitectura/ConfirmarMailxId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificarCelular">
+      <soap:operation soapAction="http://anses.gov.ar/arquitectura/VerificarCelular" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarCelular">
+      <soap:operation soapAction="http://anses.gov.ar/arquitectura/ConfirmarCelular" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarCelularxId">
+      <soap:operation soapAction="http://anses.gov.ar/arquitectura/ConfirmarCelularxId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="VerificaMailCelularSoap12" type="tns:VerificaMailCelularSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="VerificarMail">
+      <soap12:operation soapAction="http://anses.gov.ar/arquitectura/VerificarMail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificarMailconCuerpo">
+      <soap12:operation soapAction="http://anses.gov.ar/arquitectura/VerificarMailconCuerpo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarMail">
+      <soap12:operation soapAction="http://anses.gov.ar/arquitectura/ConfirmarMail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarMailxId">
+      <soap12:operation soapAction="http://anses.gov.ar/arquitectura/ConfirmarMailxId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificarCelular">
+      <soap12:operation soapAction="http://anses.gov.ar/arquitectura/VerificarCelular" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarCelular">
+      <soap12:operation soapAction="http://anses.gov.ar/arquitectura/ConfirmarCelular" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarCelularxId">
+      <soap12:operation soapAction="http://anses.gov.ar/arquitectura/ConfirmarCelularxId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="VerificaMailCelularHttpGet" type="tns:VerificaMailCelularHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="VerificarMail">
+      <http:operation location="/VerificarMail" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificarMailconCuerpo">
+      <http:operation location="/VerificarMailconCuerpo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarMail">
+      <http:operation location="/ConfirmarMail" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarMailxId">
+      <http:operation location="/ConfirmarMailxId" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificarCelular">
+      <http:operation location="/VerificarCelular" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarCelular">
+      <http:operation location="/ConfirmarCelular" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarCelularxId">
+      <http:operation location="/ConfirmarCelularxId" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="VerificaMailCelularHttpPost" type="tns:VerificaMailCelularHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="VerificarMail">
+      <http:operation location="/VerificarMail" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificarMailconCuerpo">
+      <http:operation location="/VerificarMailconCuerpo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarMail">
+      <http:operation location="/ConfirmarMail" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarMailxId">
+      <http:operation location="/ConfirmarMailxId" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificarCelular">
+      <http:operation location="/VerificarCelular" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarCelular">
+      <http:operation location="/ConfirmarCelular" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarCelularxId">
+      <http:operation location="/ConfirmarCelularxId" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="VerificaMailCelular">
+    <wsdl:port name="VerificaMailCelularSoap" binding="tns:VerificaMailCelularSoap">
+      <soap:address location="http://labprueba3.anses.gov.ar:8080/CheckMail/VerificaMailCelular.asmx" />
+    </wsdl:port>
+    <wsdl:port name="VerificaMailCelularSoap12" binding="tns:VerificaMailCelularSoap12">
+      <soap12:address location="http://labprueba3.anses.gov.ar:8080/CheckMail/VerificaMailCelular.asmx" />
+    </wsdl:port>
+    <wsdl:port name="VerificaMailCelularHttpGet" binding="tns:VerificaMailCelularHttpGet">
+      <http:address location="http://labprueba3.anses.gov.ar:8080/CheckMail/VerificaMailCelular.asmx" />
+    </wsdl:port>
+    <wsdl:port name="VerificaMailCelularHttpPost" binding="tns:VerificaMailCelularHttpPost">
+      <http:address location="http://labprueba3.anses.gov.ar:8080/CheckMail/VerificaMailCelular.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

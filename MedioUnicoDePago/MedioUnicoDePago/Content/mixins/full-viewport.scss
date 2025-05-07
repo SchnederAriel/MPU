@@ -1,0 +1,16 @@
+//-----------------------------
+//
+//   Full width Mixin
+//
+//-----------------------------
+
+//__ Cuadrados
+@mixin full-viewport() {
+  width: 99.5vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+//** Como aplicarlo? @include full-viewport; **

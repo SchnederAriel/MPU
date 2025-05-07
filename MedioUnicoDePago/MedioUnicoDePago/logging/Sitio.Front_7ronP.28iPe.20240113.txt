@@ -1,0 +1,627 @@
+2024-01-13 16:16:29,172 [6] ERROR CunaMiAnses.Controllers.HomeController - Estoy en desa - No viene cuil por querystring
+2024-01-13 16:16:29,181 [6] INFO  ProxyLupa - ConsultarUsuarioXCuil - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:16:29,196 [6] INFO  ProxyLupa - ConsultarUsuarioXCuil - Consultando SERVICIO - TraerUsuarioxCuil - SIN HEADER -> 
+2024-01-13 16:16:31,751 [6] INFO  CunaMiAnses.Filtros.ErrorHandler - ---> ERROR controlado desde Error handler
+2024-01-13 16:16:31,753 [6] ERROR CunaMiAnses.Filtros.ErrorHandler - Error tipo FAULTEXCEPTION`1 en Contolador: Home - Método: Index : Error: Index was outside the bounds of the array. - StackTrace: 
+Server stack trace: 
+   en System.ServiceModel.Channels.ServiceChannel.ThrowIfFaultUnderstood(Message reply, MessageFault fault, String action, MessageVersion version, FaultConverter faultConverter)
+   en System.ServiceModel.Channels.ServiceChannel.HandleReply(ProxyOperationRuntime operation, ProxyRpc& rpc)
+   en System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   en System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   en System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   en System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   en System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   en CunaMiAnses.ServiceLupa.ILupaServicio.TraerUsuarioxCuil(Int64 cuil)
+   en CunaMiAnses.ServiceLupa.LupaServicioClient.TraerUsuarioxCuil(Int64 cuil) en C:\Proyectos\la-lupa-mianses\CunaMiAnses\Connected Services\ServiceLupa\Reference.cs:línea 6949
+   en CunaMiAnses.Proxies.ProxyLupa.ConsultarUsuarioXCuil(Int64 CUIL, DirectorMV director) en C:\Proyectos\la-lupa-mianses\CunaMiAnses\Proxies\ProxyLupa.cs:línea 77
+   en CunaMiAnses.Controllers.HomeController.Index() en C:\Proyectos\la-lupa-mianses\CunaMiAnses\Controllers\HomeController.cs:línea 80
+   en lambda_method(Closure , ControllerBase , Object[] )
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c.<BeginInvokeSynchronousActionMethod>b__9_0(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__11_0()
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass11_1.<InvokeActionMethodFilterAsynchronouslyRecursive>b__2()
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass11_1.<InvokeActionMethodFilterAsynchronouslyRecursive>b__2()
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_6.<BeginInvokeAction>b__3()
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__5(IAsyncResult asyncResult)
+2024-01-13 16:16:31,965 [6] INFO  CunaMiAnses.Controllers.ErrorController - --->  traking en error controller
+2024-01-13 16:16:31,965 [6] INFO  CunaMiAnses.Controllers.ErrorController - ---> ERROR: - Index was outside the bounds of the array.
+2024-01-13 16:16:36,061 [6] INFO  CunaMiAnses.Controllers.HomeController - Entro por cuil 23111111111
+2024-01-13 16:16:36,061 [6] INFO  ProxyLupa - ConsultarUsuarioXCuil - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:16:36,062 [6] INFO  ProxyLupa - ConsultarUsuarioXCuil - Consultando SERVICIO - TraerUsuarioxCuil - SIN HEADER -> 
+2024-01-13 16:16:38,860 [6] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:16:38,861 [6] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-13 16:16:38,919 [6] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-13 16:16:38,919 [6] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:16:39,029 [6] INFO  ProxyLupa - {"CBUFinal":null,"CBUInicio":null,"CodAgencia":6,"CodBanco":14,"CodigoPostal":"1424","DesAgencia":"4018 - SUC 18 CABALLITO                 ","DesBanco":"BANCO DE LA PROVINCIA DE BUENOS AIRES   ","DomCalle":"RIVADAVIA 5025                ","Historial":true,"ModoPago":3,"PeDesde":"2023-11-01T00:00:00","PeHasta":null,"Tramite":685801}
+2024-01-13 16:16:39,029 [6] INFO  ProxyLupa - ConsultarUsuarioXCuil - Mapeando resultado - SIN TOKEN
+2024-01-13 16:16:39,030 [6] INFO  ProxyLupa - ConsultarUsuarioXCuil - Fin Mapping - Retornando - SIN TOKEN 
+2024-01-13 16:16:39,054 [6] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:16:39,055 [6] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-13 16:16:39,083 [6] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-13 16:16:39,083 [6] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:16:39,084 [6] INFO  ProxyLupa - TraerListadoDeProvincias - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:16:39,085 [6] INFO  ProxyLupa - TraerListadoDeProvincias - Consultando SERVICIO - TraerListaProvincias - SIN HEADER 
+2024-01-13 16:16:41,878 [6] INFO  ProxyLupa - TraerListadoDeProvincias - Mapeando resultado - SIN TOKEN
+2024-01-13 16:16:41,878 [6] INFO  ProxyLupa - TraerListadoDeProvincias - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:16:41,878 [6] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Iniciando consulta - SIN TOKEN
+2024-01-13 16:16:41,878 [6] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Consultando SERVICIO - ListadoCodBancoInhibido - SIN HEADER - 
+2024-01-13 16:16:41,911 [6] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Retornando - SIN TOKEN
+2024-01-13 16:16:52,812 [6] INFO  CunaMiAnses.Controllers.HomeController - validarCBU - MiAnses - RawUrl - /Home/validarCBU?cbu=2850590940090418135201&cuil=23111111111
+2024-01-13 16:16:52,812 [6] INFO  ProxyLupa - ValidarCBU - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:16:52,812 [6] INFO  ProxyLupa - ValidarCBU - Consultando SERVICIO - validarCBUxCuil - SIN HEADER - 
+2024-01-13 16:16:52,838 [6] INFO  ProxyLupa - COELSA: codigo Retorno -> 0 codigo Repuesta -> 0 codigo Mensaje -> CBU no validado en COELSA
+2024-01-13 16:16:52,838 [6] INFO  ProxyLupa - ValidarCBU - Fin consulta - Retornando - SIN TOKEN
+2024-01-13 16:16:54,039 [13] INFO  CunaMiAnses.Controllers.HomeController - validarCBU - MiAnses - RawUrl - /Home/validarCBU?cbu=2850590940090418135201&cuil=23111111111
+2024-01-13 16:16:54,039 [13] INFO  ProxyLupa - ValidarCBU - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:16:54,039 [13] INFO  ProxyLupa - ValidarCBU - Consultando SERVICIO - validarCBUxCuil - SIN HEADER - 
+2024-01-13 16:16:54,057 [13] INFO  ProxyLupa - COELSA: codigo Retorno -> 0 codigo Repuesta -> 0 codigo Mensaje -> CBU no validado en COELSA
+2024-01-13 16:16:54,057 [13] INFO  ProxyLupa - ValidarCBU - Fin consulta - Retornando - SIN TOKEN
+2024-01-13 16:16:55,232 [6] INFO  CunaMiAnses.Controllers.HomeController - validarCBU - MiAnses - RawUrl - /Home/validarCBU?cbu=2850590940090418135201&cuil=23111111111
+2024-01-13 16:16:55,232 [6] INFO  ProxyLupa - ValidarCBU - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:16:55,232 [6] INFO  ProxyLupa - ValidarCBU - Consultando SERVICIO - validarCBUxCuil - SIN HEADER - 
+2024-01-13 16:16:55,249 [6] INFO  ProxyLupa - COELSA: codigo Retorno -> 0 codigo Repuesta -> 0 codigo Mensaje -> CBU no validado en COELSA
+2024-01-13 16:16:55,249 [6] INFO  ProxyLupa - ValidarCBU - Fin consulta - Retornando - SIN TOKEN
+2024-01-13 16:17:29,157 [18] INFO  CunaMiAnses.Controllers.HomeController - Entro por cuil 23111111111
+2024-01-13 16:17:29,157 [18] INFO  ProxyLupa - ConsultarUsuarioXCuil - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:17:29,157 [18] INFO  ProxyLupa - ConsultarUsuarioXCuil - Consultando SERVICIO - TraerUsuarioxCuil - SIN HEADER -> 
+2024-01-13 16:17:29,358 [18] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:17:29,358 [18] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-13 16:17:29,382 [18] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-13 16:17:29,382 [18] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:17:29,382 [18] INFO  ProxyLupa - {"CBUFinal":null,"CBUInicio":null,"CodAgencia":6,"CodBanco":14,"CodigoPostal":"1424","DesAgencia":"4018 - SUC 18 CABALLITO                 ","DesBanco":"BANCO DE LA PROVINCIA DE BUENOS AIRES   ","DomCalle":"RIVADAVIA 5025                ","Historial":true,"ModoPago":3,"PeDesde":"2023-11-01T00:00:00","PeHasta":null,"Tramite":685801}
+2024-01-13 16:17:29,382 [18] INFO  ProxyLupa - ConsultarUsuarioXCuil - Mapeando resultado - SIN TOKEN
+2024-01-13 16:17:29,382 [18] INFO  ProxyLupa - ConsultarUsuarioXCuil - Fin Mapping - Retornando - SIN TOKEN 
+2024-01-13 16:17:29,382 [18] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:17:29,382 [18] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-13 16:17:29,409 [18] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-13 16:17:29,409 [18] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:17:29,409 [18] INFO  ProxyLupa - TraerListadoDeProvincias - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:17:29,409 [18] INFO  ProxyLupa - TraerListadoDeProvincias - Consultando SERVICIO - TraerListaProvincias - SIN HEADER 
+2024-01-13 16:17:29,453 [18] INFO  ProxyLupa - TraerListadoDeProvincias - Mapeando resultado - SIN TOKEN
+2024-01-13 16:17:29,453 [18] INFO  ProxyLupa - TraerListadoDeProvincias - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:17:29,453 [18] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Iniciando consulta - SIN TOKEN
+2024-01-13 16:17:29,453 [18] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Consultando SERVICIO - ListadoCodBancoInhibido - SIN HEADER - 
+2024-01-13 16:17:29,473 [18] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Retornando - SIN TOKEN
+2024-01-13 16:18:08,087 [6] INFO  CunaMiAnses.Controllers.HomeController - validarCBU - MiAnses - RawUrl - /Home/validarCBU?cbu=2850590940090418135201&cuil=23111111111
+2024-01-13 16:18:08,087 [6] INFO  ProxyLupa - ValidarCBU - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:18:08,087 [6] INFO  ProxyLupa - ValidarCBU - Consultando SERVICIO - validarCBUxCuil - SIN HEADER - 
+2024-01-13 16:18:08,103 [6] INFO  ProxyLupa - COELSA: codigo Retorno -> 0 codigo Repuesta -> 0 codigo Mensaje -> CBU no validado en COELSA
+2024-01-13 16:18:08,103 [6] INFO  ProxyLupa - ValidarCBU - Fin consulta - Retornando - SIN TOKEN
+2024-01-13 16:18:16,596 [6] INFO  CunaMiAnses.Controllers.HomeController - validarCBU - MiAnses - RawUrl - /Home/validarCBU?cbu=2850590940090418135201&cuil=23111111111
+2024-01-13 16:18:16,596 [6] INFO  ProxyLupa - ValidarCBU - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:18:16,596 [6] INFO  ProxyLupa - ValidarCBU - Consultando SERVICIO - validarCBUxCuil - SIN HEADER - 
+2024-01-13 16:18:16,613 [6] INFO  ProxyLupa - COELSA: codigo Retorno -> 0 codigo Repuesta -> 0 codigo Mensaje -> CBU no validado en COELSA
+2024-01-13 16:18:16,613 [6] INFO  ProxyLupa - ValidarCBU - Fin consulta - Retornando - SIN TOKEN
+2024-01-13 16:18:19,601 [13] INFO  CunaMiAnses.Controllers.HomeController - validarCBU - MiAnses - RawUrl - /Home/validarCBU?cbu=2850590940090418135201&cuil=23111111111
+2024-01-13 16:18:19,601 [13] INFO  ProxyLupa - ValidarCBU - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:18:19,601 [13] INFO  ProxyLupa - ValidarCBU - Consultando SERVICIO - validarCBUxCuil - SIN HEADER - 
+2024-01-13 16:18:19,617 [13] INFO  ProxyLupa - COELSA: codigo Retorno -> 0 codigo Repuesta -> 0 codigo Mensaje -> CBU no validado en COELSA
+2024-01-13 16:18:19,617 [13] INFO  ProxyLupa - ValidarCBU - Fin consulta - Retornando - SIN TOKEN
+2024-01-13 16:18:20,985 [6] INFO  CunaMiAnses.Controllers.HomeController - validarCBU - MiAnses - RawUrl - /Home/validarCBU?cbu=2850590940090418135201&cuil=23111111111
+2024-01-13 16:18:20,985 [6] INFO  ProxyLupa - ValidarCBU - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:18:20,985 [6] INFO  ProxyLupa - ValidarCBU - Consultando SERVICIO - validarCBUxCuil - SIN HEADER - 
+2024-01-13 16:18:21,001 [6] INFO  ProxyLupa - COELSA: codigo Retorno -> 0 codigo Repuesta -> 0 codigo Mensaje -> CBU no validado en COELSA
+2024-01-13 16:18:21,001 [6] INFO  ProxyLupa - ValidarCBU - Fin consulta - Retornando - SIN TOKEN
+2024-01-13 16:18:45,047 [12] INFO  CunaMiAnses.Controllers.HomeController - validarCBU - MiAnses - RawUrl - /Home/validarCBU?cbu=2850590940090418135201&cuil=23111111111
+2024-01-13 16:18:45,047 [12] INFO  ProxyLupa - ValidarCBU - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:18:45,047 [12] INFO  ProxyLupa - ValidarCBU - Consultando SERVICIO - validarCBUxCuil - SIN HEADER - 
+2024-01-13 16:18:45,065 [12] INFO  ProxyLupa - COELSA: codigo Retorno -> 0 codigo Repuesta -> 0 codigo Mensaje -> CBU no validado en COELSA
+2024-01-13 16:18:45,065 [12] INFO  ProxyLupa - ValidarCBU - Fin consulta - Retornando - SIN TOKEN
+2024-01-13 16:18:45,975 [14] INFO  CunaMiAnses.Controllers.HomeController - validarCBU - MiAnses - RawUrl - /Home/validarCBU?cbu=2850590940090418135201&cuil=23111111111
+2024-01-13 16:18:45,975 [14] INFO  ProxyLupa - ValidarCBU - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:18:45,975 [14] INFO  ProxyLupa - ValidarCBU - Consultando SERVICIO - validarCBUxCuil - SIN HEADER - 
+2024-01-13 16:18:45,993 [14] INFO  ProxyLupa - COELSA: codigo Retorno -> 0 codigo Repuesta -> 0 codigo Mensaje -> CBU no validado en COELSA
+2024-01-13 16:18:45,993 [14] INFO  ProxyLupa - ValidarCBU - Fin consulta - Retornando - SIN TOKEN
+2024-01-13 16:18:46,325 [13] INFO  CunaMiAnses.Controllers.HomeController - validarCBU - MiAnses - RawUrl - /Home/validarCBU?cbu=2850590940090418135201&cuil=23111111111
+2024-01-13 16:18:46,325 [13] INFO  ProxyLupa - ValidarCBU - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:18:46,325 [13] INFO  ProxyLupa - ValidarCBU - Consultando SERVICIO - validarCBUxCuil - SIN HEADER - 
+2024-01-13 16:18:46,345 [13] INFO  ProxyLupa - COELSA: codigo Retorno -> 0 codigo Repuesta -> 0 codigo Mensaje -> CBU no validado en COELSA
+2024-01-13 16:18:46,345 [13] INFO  ProxyLupa - ValidarCBU - Fin consulta - Retornando - SIN TOKEN
+2024-01-13 16:18:46,776 [16] INFO  CunaMiAnses.Controllers.HomeController - validarCBU - MiAnses - RawUrl - /Home/validarCBU?cbu=2850590940090418135201&cuil=23111111111
+2024-01-13 16:18:46,776 [16] INFO  ProxyLupa - ValidarCBU - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:18:46,776 [16] INFO  ProxyLupa - ValidarCBU - Consultando SERVICIO - validarCBUxCuil - SIN HEADER - 
+2024-01-13 16:18:46,793 [16] INFO  ProxyLupa - COELSA: codigo Retorno -> 0 codigo Repuesta -> 0 codigo Mensaje -> CBU no validado en COELSA
+2024-01-13 16:18:46,793 [16] INFO  ProxyLupa - ValidarCBU - Fin consulta - Retornando - SIN TOKEN
+2024-01-13 16:18:50,592 [12] INFO  CunaMiAnses.Controllers.HomeController - validarCBU - MiAnses - RawUrl - /Home/validarCBU?cbu=2850590940090418135201&cuil=23111111111
+2024-01-13 16:18:50,592 [12] INFO  ProxyLupa - ValidarCBU - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:18:50,592 [12] INFO  ProxyLupa - ValidarCBU - Consultando SERVICIO - validarCBUxCuil - SIN HEADER - 
+2024-01-13 16:18:50,607 [12] INFO  ProxyLupa - COELSA: codigo Retorno -> 0 codigo Repuesta -> 0 codigo Mensaje -> CBU no validado en COELSA
+2024-01-13 16:18:50,607 [12] INFO  ProxyLupa - ValidarCBU - Fin consulta - Retornando - SIN TOKEN
+2024-01-13 16:18:55,699 [12] INFO  CunaMiAnses.Controllers.HomeController - validarCBU - MiAnses - RawUrl - /Home/validarCBU?cbu=2850590940090418135201&cuil=23111111111
+2024-01-13 16:18:55,699 [12] INFO  ProxyLupa - ValidarCBU - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:18:55,699 [12] INFO  ProxyLupa - ValidarCBU - Consultando SERVICIO - validarCBUxCuil - SIN HEADER - 
+2024-01-13 16:18:55,717 [12] INFO  ProxyLupa - COELSA: codigo Retorno -> 0 codigo Repuesta -> 0 codigo Mensaje -> CBU no validado en COELSA
+2024-01-13 16:18:55,717 [12] INFO  ProxyLupa - ValidarCBU - Fin consulta - Retornando - SIN TOKEN
+2024-01-13 16:18:57,447 [12] INFO  CunaMiAnses.Controllers.HomeController - validarCBU - MiAnses - RawUrl - /Home/validarCBU?cbu=2850590940090418135201&cuil=23111111111
+2024-01-13 16:18:57,447 [12] INFO  ProxyLupa - ValidarCBU - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:18:57,447 [12] INFO  ProxyLupa - ValidarCBU - Consultando SERVICIO - validarCBUxCuil - SIN HEADER - 
+2024-01-13 16:18:57,464 [12] INFO  ProxyLupa - COELSA: codigo Retorno -> 0 codigo Repuesta -> 0 codigo Mensaje -> CBU no validado en COELSA
+2024-01-13 16:18:57,464 [12] INFO  ProxyLupa - ValidarCBU - Fin consulta - Retornando - SIN TOKEN
+2024-01-13 16:19:04,298 [12] INFO  CunaMiAnses.Controllers.HomeController - validarCBU - MiAnses - RawUrl - /Home/validarCBU?cbu=2850590940090418135201&cuil=23111111111
+2024-01-13 16:19:04,298 [12] INFO  ProxyLupa - ValidarCBU - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:19:04,298 [12] INFO  ProxyLupa - ValidarCBU - Consultando SERVICIO - validarCBUxCuil - SIN HEADER - 
+2024-01-13 16:19:04,317 [12] INFO  ProxyLupa - COELSA: codigo Retorno -> 0 codigo Repuesta -> 0 codigo Mensaje -> CBU no validado en COELSA
+2024-01-13 16:19:04,317 [12] INFO  ProxyLupa - ValidarCBU - Fin consulta - Retornando - SIN TOKEN
+2024-01-13 16:19:34,102 [12] INFO  CunaMiAnses.Controllers.HomeController - validarCBU - MiAnses - RawUrl - /Home/validarCBU?cbu=2850590940090418135201&cuil=23111111111
+2024-01-13 16:19:34,102 [12] INFO  ProxyLupa - ValidarCBU - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:19:34,102 [12] INFO  ProxyLupa - ValidarCBU - Consultando SERVICIO - validarCBUxCuil - SIN HEADER - 
+2024-01-13 16:19:34,120 [12] INFO  ProxyLupa - COELSA: codigo Retorno -> 0 codigo Repuesta -> 0 codigo Mensaje -> CBU no validado en COELSA
+2024-01-13 16:19:34,120 [12] INFO  ProxyLupa - ValidarCBU - Fin consulta - Retornando - SIN TOKEN
+2024-01-13 16:19:35,027 [14] INFO  CunaMiAnses.Controllers.HomeController - validarCBU - MiAnses - RawUrl - /Home/validarCBU?cbu=2850590940090418135201&cuil=23111111111
+2024-01-13 16:19:35,028 [14] INFO  ProxyLupa - ValidarCBU - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:19:35,028 [14] INFO  ProxyLupa - ValidarCBU - Consultando SERVICIO - validarCBUxCuil - SIN HEADER - 
+2024-01-13 16:19:35,044 [14] INFO  ProxyLupa - COELSA: codigo Retorno -> 0 codigo Repuesta -> 0 codigo Mensaje -> CBU no validado en COELSA
+2024-01-13 16:19:35,044 [14] INFO  ProxyLupa - ValidarCBU - Fin consulta - Retornando - SIN TOKEN
+2024-01-13 16:19:39,813 [14] INFO  CunaMiAnses.Controllers.HomeController - validarCBU - MiAnses - RawUrl - /Home/validarCBU?cbu=2850590940090418135201&cuil=23111111111
+2024-01-13 16:19:39,813 [14] INFO  ProxyLupa - ValidarCBU - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:19:39,813 [14] INFO  ProxyLupa - ValidarCBU - Consultando SERVICIO - validarCBUxCuil - SIN HEADER - 
+2024-01-13 16:19:39,829 [14] INFO  ProxyLupa - COELSA: codigo Retorno -> 0 codigo Repuesta -> 0 codigo Mensaje -> CBU no validado en COELSA
+2024-01-13 16:19:39,829 [14] INFO  ProxyLupa - ValidarCBU - Fin consulta - Retornando - SIN TOKEN
+2024-01-13 16:20:39,892 [12] INFO  CunaMiAnses.Controllers.HomeController - Entro por cuil 23111111111
+2024-01-13 16:20:39,892 [12] INFO  ProxyLupa - ConsultarUsuarioXCuil - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:20:39,892 [12] INFO  ProxyLupa - ConsultarUsuarioXCuil - Consultando SERVICIO - TraerUsuarioxCuil - SIN HEADER -> 
+2024-01-13 16:20:40,182 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:20:40,182 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-13 16:20:40,211 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-13 16:20:40,211 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:20:40,211 [12] INFO  ProxyLupa - {"CBUFinal":null,"CBUInicio":null,"CodAgencia":6,"CodBanco":14,"CodigoPostal":"1424","DesAgencia":"4018 - SUC 18 CABALLITO                 ","DesBanco":"BANCO DE LA PROVINCIA DE BUENOS AIRES   ","DomCalle":"RIVADAVIA 5025                ","Historial":true,"ModoPago":3,"PeDesde":"2023-11-01T00:00:00","PeHasta":null,"Tramite":685801}
+2024-01-13 16:20:40,211 [12] INFO  ProxyLupa - ConsultarUsuarioXCuil - Mapeando resultado - SIN TOKEN
+2024-01-13 16:20:40,211 [12] INFO  ProxyLupa - ConsultarUsuarioXCuil - Fin Mapping - Retornando - SIN TOKEN 
+2024-01-13 16:20:40,211 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:20:40,211 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-13 16:20:40,254 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-13 16:20:40,254 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:20:40,254 [12] INFO  ProxyLupa - TraerListadoDeProvincias - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:20:40,254 [12] INFO  ProxyLupa - TraerListadoDeProvincias - Consultando SERVICIO - TraerListaProvincias - SIN HEADER 
+2024-01-13 16:20:40,383 [12] INFO  ProxyLupa - TraerListadoDeProvincias - Mapeando resultado - SIN TOKEN
+2024-01-13 16:20:40,383 [12] INFO  ProxyLupa - TraerListadoDeProvincias - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:20:40,383 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Iniciando consulta - SIN TOKEN
+2024-01-13 16:20:40,383 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Consultando SERVICIO - ListadoCodBancoInhibido - SIN HEADER - 
+2024-01-13 16:20:40,404 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Retornando - SIN TOKEN
+2024-01-13 16:20:47,481 [12] INFO  CunaMiAnses.Controllers.HomeController - Entro por cuil 23111111111
+2024-01-13 16:20:47,481 [12] INFO  ProxyLupa - ConsultarUsuarioXCuil - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:20:47,481 [12] INFO  ProxyLupa - ConsultarUsuarioXCuil - Consultando SERVICIO - TraerUsuarioxCuil - SIN HEADER -> 
+2024-01-13 16:20:47,621 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:20:47,621 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-13 16:20:47,658 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-13 16:20:47,658 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:20:47,658 [12] INFO  ProxyLupa - {"CBUFinal":null,"CBUInicio":null,"CodAgencia":6,"CodBanco":14,"CodigoPostal":"1424","DesAgencia":"4018 - SUC 18 CABALLITO                 ","DesBanco":"BANCO DE LA PROVINCIA DE BUENOS AIRES   ","DomCalle":"RIVADAVIA 5025                ","Historial":true,"ModoPago":3,"PeDesde":"2023-11-01T00:00:00","PeHasta":null,"Tramite":685801}
+2024-01-13 16:20:47,658 [12] INFO  ProxyLupa - ConsultarUsuarioXCuil - Mapeando resultado - SIN TOKEN
+2024-01-13 16:20:47,658 [12] INFO  ProxyLupa - ConsultarUsuarioXCuil - Fin Mapping - Retornando - SIN TOKEN 
+2024-01-13 16:20:47,658 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:20:47,658 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-13 16:20:47,686 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-13 16:20:47,686 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:20:47,686 [12] INFO  ProxyLupa - TraerListadoDeProvincias - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:20:47,686 [12] INFO  ProxyLupa - TraerListadoDeProvincias - Consultando SERVICIO - TraerListaProvincias - SIN HEADER 
+2024-01-13 16:20:47,735 [12] INFO  ProxyLupa - TraerListadoDeProvincias - Mapeando resultado - SIN TOKEN
+2024-01-13 16:20:47,735 [12] INFO  ProxyLupa - TraerListadoDeProvincias - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:20:47,735 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Iniciando consulta - SIN TOKEN
+2024-01-13 16:20:47,735 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Consultando SERVICIO - ListadoCodBancoInhibido - SIN HEADER - 
+2024-01-13 16:20:47,769 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Retornando - SIN TOKEN
+2024-01-13 16:20:50,751 [12] INFO  CunaMiAnses.Controllers.HomeController - Entro por cuil 23111111111
+2024-01-13 16:20:50,751 [12] INFO  ProxyLupa - ConsultarUsuarioXCuil - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:20:50,751 [12] INFO  ProxyLupa - ConsultarUsuarioXCuil - Consultando SERVICIO - TraerUsuarioxCuil - SIN HEADER -> 
+2024-01-13 16:20:50,899 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:20:50,899 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-13 16:20:50,921 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-13 16:20:50,921 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:20:50,921 [12] INFO  ProxyLupa - {"CBUFinal":null,"CBUInicio":null,"CodAgencia":6,"CodBanco":14,"CodigoPostal":"1424","DesAgencia":"4018 - SUC 18 CABALLITO                 ","DesBanco":"BANCO DE LA PROVINCIA DE BUENOS AIRES   ","DomCalle":"RIVADAVIA 5025                ","Historial":true,"ModoPago":3,"PeDesde":"2023-11-01T00:00:00","PeHasta":null,"Tramite":685801}
+2024-01-13 16:20:50,921 [12] INFO  ProxyLupa - ConsultarUsuarioXCuil - Mapeando resultado - SIN TOKEN
+2024-01-13 16:20:50,921 [12] INFO  ProxyLupa - ConsultarUsuarioXCuil - Fin Mapping - Retornando - SIN TOKEN 
+2024-01-13 16:20:50,921 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:20:50,921 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-13 16:20:50,956 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-13 16:20:50,956 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:20:50,956 [12] INFO  ProxyLupa - TraerListadoDeProvincias - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:20:50,956 [12] INFO  ProxyLupa - TraerListadoDeProvincias - Consultando SERVICIO - TraerListaProvincias - SIN HEADER 
+2024-01-13 16:20:50,992 [12] INFO  ProxyLupa - TraerListadoDeProvincias - Mapeando resultado - SIN TOKEN
+2024-01-13 16:20:50,992 [12] INFO  ProxyLupa - TraerListadoDeProvincias - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:20:50,992 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Iniciando consulta - SIN TOKEN
+2024-01-13 16:20:50,992 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Consultando SERVICIO - ListadoCodBancoInhibido - SIN HEADER - 
+2024-01-13 16:20:51,010 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Retornando - SIN TOKEN
+2024-01-13 16:20:51,902 [14] INFO  CunaMiAnses.Controllers.HomeController - Entro por cuil 23111111111
+2024-01-13 16:20:51,902 [14] INFO  ProxyLupa - ConsultarUsuarioXCuil - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:20:51,902 [14] INFO  ProxyLupa - ConsultarUsuarioXCuil - Consultando SERVICIO - TraerUsuarioxCuil - SIN HEADER -> 
+2024-01-13 16:20:52,096 [14] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:20:52,096 [14] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-13 16:20:52,124 [14] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-13 16:20:52,124 [14] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:20:52,124 [14] INFO  ProxyLupa - {"CBUFinal":null,"CBUInicio":null,"CodAgencia":6,"CodBanco":14,"CodigoPostal":"1424","DesAgencia":"4018 - SUC 18 CABALLITO                 ","DesBanco":"BANCO DE LA PROVINCIA DE BUENOS AIRES   ","DomCalle":"RIVADAVIA 5025                ","Historial":true,"ModoPago":3,"PeDesde":"2023-11-01T00:00:00","PeHasta":null,"Tramite":685801}
+2024-01-13 16:20:52,124 [14] INFO  ProxyLupa - ConsultarUsuarioXCuil - Mapeando resultado - SIN TOKEN
+2024-01-13 16:20:52,124 [14] INFO  ProxyLupa - ConsultarUsuarioXCuil - Fin Mapping - Retornando - SIN TOKEN 
+2024-01-13 16:20:52,124 [14] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:20:52,124 [14] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-13 16:20:52,157 [14] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-13 16:20:52,157 [14] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:20:52,157 [14] INFO  ProxyLupa - TraerListadoDeProvincias - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:20:52,157 [14] INFO  ProxyLupa - TraerListadoDeProvincias - Consultando SERVICIO - TraerListaProvincias - SIN HEADER 
+2024-01-13 16:20:52,210 [14] INFO  ProxyLupa - TraerListadoDeProvincias - Mapeando resultado - SIN TOKEN
+2024-01-13 16:20:52,210 [14] INFO  ProxyLupa - TraerListadoDeProvincias - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:20:52,210 [14] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Iniciando consulta - SIN TOKEN
+2024-01-13 16:20:52,210 [14] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Consultando SERVICIO - ListadoCodBancoInhibido - SIN HEADER - 
+2024-01-13 16:20:52,232 [14] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Retornando - SIN TOKEN
+2024-01-13 16:20:52,969 [12] INFO  CunaMiAnses.Controllers.HomeController - Entro por cuil 23111111111
+2024-01-13 16:20:52,969 [12] INFO  ProxyLupa - ConsultarUsuarioXCuil - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:20:52,969 [12] INFO  ProxyLupa - ConsultarUsuarioXCuil - Consultando SERVICIO - TraerUsuarioxCuil - SIN HEADER -> 
+2024-01-13 16:20:53,154 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:20:53,154 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-13 16:20:53,199 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-13 16:20:53,199 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:20:53,199 [12] INFO  ProxyLupa - {"CBUFinal":null,"CBUInicio":null,"CodAgencia":6,"CodBanco":14,"CodigoPostal":"1424","DesAgencia":"4018 - SUC 18 CABALLITO                 ","DesBanco":"BANCO DE LA PROVINCIA DE BUENOS AIRES   ","DomCalle":"RIVADAVIA 5025                ","Historial":true,"ModoPago":3,"PeDesde":"2023-11-01T00:00:00","PeHasta":null,"Tramite":685801}
+2024-01-13 16:20:53,199 [12] INFO  ProxyLupa - ConsultarUsuarioXCuil - Mapeando resultado - SIN TOKEN
+2024-01-13 16:20:53,199 [12] INFO  ProxyLupa - ConsultarUsuarioXCuil - Fin Mapping - Retornando - SIN TOKEN 
+2024-01-13 16:20:53,199 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:20:53,199 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-13 16:20:53,242 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-13 16:20:53,242 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:20:53,242 [12] INFO  ProxyLupa - TraerListadoDeProvincias - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:20:53,242 [12] INFO  ProxyLupa - TraerListadoDeProvincias - Consultando SERVICIO - TraerListaProvincias - SIN HEADER 
+2024-01-13 16:20:53,302 [12] INFO  ProxyLupa - TraerListadoDeProvincias - Mapeando resultado - SIN TOKEN
+2024-01-13 16:20:53,302 [12] INFO  ProxyLupa - TraerListadoDeProvincias - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:20:53,302 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Iniciando consulta - SIN TOKEN
+2024-01-13 16:20:53,302 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Consultando SERVICIO - ListadoCodBancoInhibido - SIN HEADER - 
+2024-01-13 16:20:53,332 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Retornando - SIN TOKEN
+2024-01-13 16:20:53,942 [14] INFO  CunaMiAnses.Controllers.HomeController - Entro por cuil 23111111111
+2024-01-13 16:20:53,942 [14] INFO  ProxyLupa - ConsultarUsuarioXCuil - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:20:53,942 [14] INFO  ProxyLupa - ConsultarUsuarioXCuil - Consultando SERVICIO - TraerUsuarioxCuil - SIN HEADER -> 
+2024-01-13 16:20:54,075 [14] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:20:54,075 [14] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-13 16:20:54,101 [14] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-13 16:20:54,101 [14] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:20:54,101 [14] INFO  ProxyLupa - {"CBUFinal":null,"CBUInicio":null,"CodAgencia":6,"CodBanco":14,"CodigoPostal":"1424","DesAgencia":"4018 - SUC 18 CABALLITO                 ","DesBanco":"BANCO DE LA PROVINCIA DE BUENOS AIRES   ","DomCalle":"RIVADAVIA 5025                ","Historial":true,"ModoPago":3,"PeDesde":"2023-11-01T00:00:00","PeHasta":null,"Tramite":685801}
+2024-01-13 16:20:54,101 [14] INFO  ProxyLupa - ConsultarUsuarioXCuil - Mapeando resultado - SIN TOKEN
+2024-01-13 16:20:54,101 [14] INFO  ProxyLupa - ConsultarUsuarioXCuil - Fin Mapping - Retornando - SIN TOKEN 
+2024-01-13 16:20:54,101 [14] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:20:54,101 [14] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-13 16:20:54,124 [14] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-13 16:20:54,124 [14] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:20:54,124 [14] INFO  ProxyLupa - TraerListadoDeProvincias - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:20:54,124 [14] INFO  ProxyLupa - TraerListadoDeProvincias - Consultando SERVICIO - TraerListaProvincias - SIN HEADER 
+2024-01-13 16:20:54,170 [14] INFO  ProxyLupa - TraerListadoDeProvincias - Mapeando resultado - SIN TOKEN
+2024-01-13 16:20:54,170 [14] INFO  ProxyLupa - TraerListadoDeProvincias - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:20:54,170 [14] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Iniciando consulta - SIN TOKEN
+2024-01-13 16:20:54,170 [14] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Consultando SERVICIO - ListadoCodBancoInhibido - SIN HEADER - 
+2024-01-13 16:20:54,191 [14] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Retornando - SIN TOKEN
+2024-01-13 16:20:54,876 [16] INFO  CunaMiAnses.Controllers.HomeController - Entro por cuil 23111111111
+2024-01-13 16:20:54,876 [16] INFO  ProxyLupa - ConsultarUsuarioXCuil - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:20:54,876 [16] INFO  ProxyLupa - ConsultarUsuarioXCuil - Consultando SERVICIO - TraerUsuarioxCuil - SIN HEADER -> 
+2024-01-13 16:20:55,009 [16] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:20:55,009 [16] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-13 16:20:55,030 [16] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-13 16:20:55,030 [16] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:20:55,030 [16] INFO  ProxyLupa - {"CBUFinal":null,"CBUInicio":null,"CodAgencia":6,"CodBanco":14,"CodigoPostal":"1424","DesAgencia":"4018 - SUC 18 CABALLITO                 ","DesBanco":"BANCO DE LA PROVINCIA DE BUENOS AIRES   ","DomCalle":"RIVADAVIA 5025                ","Historial":true,"ModoPago":3,"PeDesde":"2023-11-01T00:00:00","PeHasta":null,"Tramite":685801}
+2024-01-13 16:20:55,030 [16] INFO  ProxyLupa - ConsultarUsuarioXCuil - Mapeando resultado - SIN TOKEN
+2024-01-13 16:20:55,030 [16] INFO  ProxyLupa - ConsultarUsuarioXCuil - Fin Mapping - Retornando - SIN TOKEN 
+2024-01-13 16:20:55,030 [16] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:20:55,030 [16] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-13 16:20:55,065 [16] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-13 16:20:55,065 [16] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:20:55,065 [16] INFO  ProxyLupa - TraerListadoDeProvincias - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:20:55,065 [16] INFO  ProxyLupa - TraerListadoDeProvincias - Consultando SERVICIO - TraerListaProvincias - SIN HEADER 
+2024-01-13 16:20:55,102 [16] INFO  ProxyLupa - TraerListadoDeProvincias - Mapeando resultado - SIN TOKEN
+2024-01-13 16:20:55,102 [16] INFO  ProxyLupa - TraerListadoDeProvincias - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:20:55,102 [16] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Iniciando consulta - SIN TOKEN
+2024-01-13 16:20:55,102 [16] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Consultando SERVICIO - ListadoCodBancoInhibido - SIN HEADER - 
+2024-01-13 16:20:55,122 [16] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Retornando - SIN TOKEN
+2024-01-13 16:20:55,740 [18] INFO  CunaMiAnses.Controllers.HomeController - Entro por cuil 23111111111
+2024-01-13 16:20:55,740 [18] INFO  ProxyLupa - ConsultarUsuarioXCuil - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:20:55,740 [18] INFO  ProxyLupa - ConsultarUsuarioXCuil - Consultando SERVICIO - TraerUsuarioxCuil - SIN HEADER -> 
+2024-01-13 16:20:55,871 [18] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:20:55,871 [18] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-13 16:20:55,893 [18] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-13 16:20:55,893 [18] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:20:55,893 [18] INFO  ProxyLupa - {"CBUFinal":null,"CBUInicio":null,"CodAgencia":6,"CodBanco":14,"CodigoPostal":"1424","DesAgencia":"4018 - SUC 18 CABALLITO                 ","DesBanco":"BANCO DE LA PROVINCIA DE BUENOS AIRES   ","DomCalle":"RIVADAVIA 5025                ","Historial":true,"ModoPago":3,"PeDesde":"2023-11-01T00:00:00","PeHasta":null,"Tramite":685801}
+2024-01-13 16:20:55,893 [18] INFO  ProxyLupa - ConsultarUsuarioXCuil - Mapeando resultado - SIN TOKEN
+2024-01-13 16:20:55,893 [18] INFO  ProxyLupa - ConsultarUsuarioXCuil - Fin Mapping - Retornando - SIN TOKEN 
+2024-01-13 16:20:55,893 [18] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:20:55,893 [18] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-13 16:20:55,915 [18] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-13 16:20:55,915 [18] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:20:55,915 [18] INFO  ProxyLupa - TraerListadoDeProvincias - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:20:55,915 [18] INFO  ProxyLupa - TraerListadoDeProvincias - Consultando SERVICIO - TraerListaProvincias - SIN HEADER 
+2024-01-13 16:20:55,951 [18] INFO  ProxyLupa - TraerListadoDeProvincias - Mapeando resultado - SIN TOKEN
+2024-01-13 16:20:55,951 [18] INFO  ProxyLupa - TraerListadoDeProvincias - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:20:55,951 [18] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Iniciando consulta - SIN TOKEN
+2024-01-13 16:20:55,951 [18] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Consultando SERVICIO - ListadoCodBancoInhibido - SIN HEADER - 
+2024-01-13 16:20:55,981 [18] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Retornando - SIN TOKEN
+2024-01-13 16:20:56,986 [12] INFO  CunaMiAnses.Controllers.HomeController - Entro por cuil 23111111111
+2024-01-13 16:20:56,986 [12] INFO  ProxyLupa - ConsultarUsuarioXCuil - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:20:56,987 [12] INFO  ProxyLupa - ConsultarUsuarioXCuil - Consultando SERVICIO - TraerUsuarioxCuil - SIN HEADER -> 
+2024-01-13 16:20:57,172 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:20:57,172 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-13 16:20:57,199 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-13 16:20:57,199 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:20:57,199 [12] INFO  ProxyLupa - {"CBUFinal":null,"CBUInicio":null,"CodAgencia":6,"CodBanco":14,"CodigoPostal":"1424","DesAgencia":"4018 - SUC 18 CABALLITO                 ","DesBanco":"BANCO DE LA PROVINCIA DE BUENOS AIRES   ","DomCalle":"RIVADAVIA 5025                ","Historial":true,"ModoPago":3,"PeDesde":"2023-11-01T00:00:00","PeHasta":null,"Tramite":685801}
+2024-01-13 16:20:57,199 [12] INFO  ProxyLupa - ConsultarUsuarioXCuil - Mapeando resultado - SIN TOKEN
+2024-01-13 16:20:57,199 [12] INFO  ProxyLupa - ConsultarUsuarioXCuil - Fin Mapping - Retornando - SIN TOKEN 
+2024-01-13 16:20:57,199 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:20:57,199 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-13 16:20:57,236 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-13 16:20:57,236 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:20:57,236 [12] INFO  ProxyLupa - TraerListadoDeProvincias - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:20:57,236 [12] INFO  ProxyLupa - TraerListadoDeProvincias - Consultando SERVICIO - TraerListaProvincias - SIN HEADER 
+2024-01-13 16:20:57,284 [12] INFO  ProxyLupa - TraerListadoDeProvincias - Mapeando resultado - SIN TOKEN
+2024-01-13 16:20:57,284 [12] INFO  ProxyLupa - TraerListadoDeProvincias - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:20:57,284 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Iniciando consulta - SIN TOKEN
+2024-01-13 16:20:57,284 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Consultando SERVICIO - ListadoCodBancoInhibido - SIN HEADER - 
+2024-01-13 16:20:57,304 [12] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Retornando - SIN TOKEN
+2024-01-13 16:20:57,926 [14] INFO  CunaMiAnses.Controllers.HomeController - Entro por cuil 23111111111
+2024-01-13 16:20:57,926 [14] INFO  ProxyLupa - ConsultarUsuarioXCuil - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:20:57,926 [14] INFO  ProxyLupa - ConsultarUsuarioXCuil - Consultando SERVICIO - TraerUsuarioxCuil - SIN HEADER -> 
+2024-01-13 16:20:58,110 [14] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:20:58,110 [14] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-13 16:20:58,147 [14] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-13 16:20:58,147 [14] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:20:58,147 [14] INFO  ProxyLupa - {"CBUFinal":null,"CBUInicio":null,"CodAgencia":6,"CodBanco":14,"CodigoPostal":"1424","DesAgencia":"4018 - SUC 18 CABALLITO                 ","DesBanco":"BANCO DE LA PROVINCIA DE BUENOS AIRES   ","DomCalle":"RIVADAVIA 5025                ","Historial":true,"ModoPago":3,"PeDesde":"2023-11-01T00:00:00","PeHasta":null,"Tramite":685801}
+2024-01-13 16:20:58,147 [14] INFO  ProxyLupa - ConsultarUsuarioXCuil - Mapeando resultado - SIN TOKEN
+2024-01-13 16:20:58,147 [14] INFO  ProxyLupa - ConsultarUsuarioXCuil - Fin Mapping - Retornando - SIN TOKEN 
+2024-01-13 16:20:58,147 [14] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:20:58,147 [14] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-13 16:20:58,179 [14] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-13 16:20:58,179 [14] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:20:58,179 [14] INFO  ProxyLupa - TraerListadoDeProvincias - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:20:58,179 [14] INFO  ProxyLupa - TraerListadoDeProvincias - Consultando SERVICIO - TraerListaProvincias - SIN HEADER 
+2024-01-13 16:20:58,226 [14] INFO  ProxyLupa - TraerListadoDeProvincias - Mapeando resultado - SIN TOKEN
+2024-01-13 16:20:58,226 [14] INFO  ProxyLupa - TraerListadoDeProvincias - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:20:58,226 [14] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Iniciando consulta - SIN TOKEN
+2024-01-13 16:20:58,226 [14] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Consultando SERVICIO - ListadoCodBancoInhibido - SIN HEADER - 
+2024-01-13 16:20:58,263 [14] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Retornando - SIN TOKEN
+2024-01-13 16:21:05,856 [13] INFO  CunaMiAnses.Controllers.HomeController - Entro por cuil 23111111111
+2024-01-13 16:21:05,857 [13] INFO  ProxyLupa - ConsultarUsuarioXCuil - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:21:05,857 [13] INFO  ProxyLupa - ConsultarUsuarioXCuil - Consultando SERVICIO - TraerUsuarioxCuil - SIN HEADER -> 
+2024-01-13 16:21:05,994 [13] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:21:05,994 [13] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-13 16:21:06,020 [13] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-13 16:21:06,020 [13] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:21:06,020 [13] INFO  ProxyLupa - {"CBUFinal":null,"CBUInicio":null,"CodAgencia":6,"CodBanco":14,"CodigoPostal":"1424","DesAgencia":"4018 - SUC 18 CABALLITO                 ","DesBanco":"BANCO DE LA PROVINCIA DE BUENOS AIRES   ","DomCalle":"RIVADAVIA 5025                ","Historial":true,"ModoPago":3,"PeDesde":"2023-11-01T00:00:00","PeHasta":null,"Tramite":685801}
+2024-01-13 16:21:06,020 [13] INFO  ProxyLupa - ConsultarUsuarioXCuil - Mapeando resultado - SIN TOKEN
+2024-01-13 16:21:06,020 [13] INFO  ProxyLupa - ConsultarUsuarioXCuil - Fin Mapping - Retornando - SIN TOKEN 
+2024-01-13 16:21:06,020 [13] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:21:06,020 [13] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-13 16:21:06,058 [13] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-13 16:21:06,058 [13] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:21:06,058 [13] INFO  ProxyLupa - TraerListadoDeProvincias - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:21:06,058 [13] INFO  ProxyLupa - TraerListadoDeProvincias - Consultando SERVICIO - TraerListaProvincias - SIN HEADER 
+2024-01-13 16:21:06,099 [13] INFO  ProxyLupa - TraerListadoDeProvincias - Mapeando resultado - SIN TOKEN
+2024-01-13 16:21:06,099 [13] INFO  ProxyLupa - TraerListadoDeProvincias - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:21:06,099 [13] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Iniciando consulta - SIN TOKEN
+2024-01-13 16:21:06,099 [13] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Consultando SERVICIO - ListadoCodBancoInhibido - SIN HEADER - 
+2024-01-13 16:21:06,119 [13] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Retornando - SIN TOKEN
+2024-01-13 16:21:16,996 [13] INFO  CunaMiAnses.Controllers.HomeController - validarCBU - MiAnses - RawUrl - /Home/validarCBU?cbu=2850590940090418135201&cuil=23111111111
+2024-01-13 16:21:16,996 [13] INFO  ProxyLupa - ValidarCBU - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:21:16,996 [13] INFO  ProxyLupa - ValidarCBU - Consultando SERVICIO - validarCBUxCuil - SIN HEADER - 
+2024-01-13 16:21:17,014 [13] INFO  ProxyLupa - COELSA: codigo Retorno -> 0 codigo Repuesta -> 0 codigo Mensaje -> CBU no validado en COELSA
+2024-01-13 16:21:17,014 [13] INFO  ProxyLupa - ValidarCBU - Fin consulta - Retornando - SIN TOKEN
+2024-01-13 16:21:20,163 [14] INFO  CunaMiAnses.Controllers.HomeController - validarCBU - MiAnses - RawUrl - /Home/validarCBU?cbu=2850590940090418135201&cuil=23111111111
+2024-01-13 16:21:20,163 [14] INFO  ProxyLupa - ValidarCBU - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:21:20,163 [14] INFO  ProxyLupa - ValidarCBU - Consultando SERVICIO - validarCBUxCuil - SIN HEADER - 
+2024-01-13 16:21:20,180 [14] INFO  ProxyLupa - COELSA: codigo Retorno -> 0 codigo Repuesta -> 0 codigo Mensaje -> CBU no validado en COELSA
+2024-01-13 16:21:20,180 [14] INFO  ProxyLupa - ValidarCBU - Fin consulta - Retornando - SIN TOKEN
+2024-01-13 16:21:26,864 [13] INFO  CunaMiAnses.Controllers.HomeController - Entro por cuil 23111111111
+2024-01-13 16:21:26,864 [13] INFO  ProxyLupa - ConsultarUsuarioXCuil - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:21:26,864 [13] INFO  ProxyLupa - ConsultarUsuarioXCuil - Consultando SERVICIO - TraerUsuarioxCuil - SIN HEADER -> 
+2024-01-13 16:21:27,062 [13] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:21:27,062 [13] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-13 16:21:27,090 [13] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-13 16:21:27,090 [13] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:21:27,090 [13] INFO  ProxyLupa - {"CBUFinal":null,"CBUInicio":null,"CodAgencia":6,"CodBanco":14,"CodigoPostal":"1424","DesAgencia":"4018 - SUC 18 CABALLITO                 ","DesBanco":"BANCO DE LA PROVINCIA DE BUENOS AIRES   ","DomCalle":"RIVADAVIA 5025                ","Historial":true,"ModoPago":3,"PeDesde":"2023-11-01T00:00:00","PeHasta":null,"Tramite":685801}
+2024-01-13 16:21:27,090 [13] INFO  ProxyLupa - ConsultarUsuarioXCuil - Mapeando resultado - SIN TOKEN
+2024-01-13 16:21:27,090 [13] INFO  ProxyLupa - ConsultarUsuarioXCuil - Fin Mapping - Retornando - SIN TOKEN 
+2024-01-13 16:21:27,090 [13] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:21:27,090 [13] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-13 16:21:27,125 [13] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-13 16:21:27,125 [13] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:21:27,125 [13] INFO  ProxyLupa - TraerListadoDeProvincias - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:21:27,125 [13] INFO  ProxyLupa - TraerListadoDeProvincias - Consultando SERVICIO - TraerListaProvincias - SIN HEADER 
+2024-01-13 16:21:27,175 [13] INFO  ProxyLupa - TraerListadoDeProvincias - Mapeando resultado - SIN TOKEN
+2024-01-13 16:21:27,175 [13] INFO  ProxyLupa - TraerListadoDeProvincias - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:21:27,175 [13] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Iniciando consulta - SIN TOKEN
+2024-01-13 16:21:27,175 [13] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Consultando SERVICIO - ListadoCodBancoInhibido - SIN HEADER - 
+2024-01-13 16:21:27,195 [13] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Retornando - SIN TOKEN
+2024-01-13 16:21:51,073 [13] INFO  CunaMiAnses.Controllers.HomeController - validarCBU - MiAnses - RawUrl - /Home/validarCBU?cbu=2850590940090418135201&cuil=23111111111
+2024-01-13 16:21:51,073 [13] INFO  ProxyLupa - ValidarCBU - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:21:51,073 [13] INFO  ProxyLupa - ValidarCBU - Consultando SERVICIO - validarCBUxCuil - SIN HEADER - 
+2024-01-13 16:21:51,089 [13] INFO  ProxyLupa - COELSA: codigo Retorno -> 0 codigo Repuesta -> 0 codigo Mensaje -> CBU no validado en COELSA
+2024-01-13 16:21:51,089 [13] INFO  ProxyLupa - ValidarCBU - Fin consulta - Retornando - SIN TOKEN
+2024-01-13 16:21:52,831 [13] INFO  CunaMiAnses.Controllers.HomeController - validarCBU - MiAnses - RawUrl - /Home/validarCBU?cbu=2850590940090418135201&cuil=23111111111
+2024-01-13 16:21:52,831 [13] INFO  ProxyLupa - ValidarCBU - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:21:52,831 [13] INFO  ProxyLupa - ValidarCBU - Consultando SERVICIO - validarCBUxCuil - SIN HEADER - 
+2024-01-13 16:21:52,849 [13] INFO  ProxyLupa - COELSA: codigo Retorno -> 0 codigo Repuesta -> 0 codigo Mensaje -> CBU no validado en COELSA
+2024-01-13 16:21:52,849 [13] INFO  ProxyLupa - ValidarCBU - Fin consulta - Retornando - SIN TOKEN
+2024-01-13 16:22:01,948 [13] INFO  CunaMiAnses.Controllers.HomeController - validarCBU - MiAnses - RawUrl - /Home/validarCBU?cbu=2850590940090418135201&cuil=23111111111
+2024-01-13 16:22:01,948 [13] INFO  ProxyLupa - ValidarCBU - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:22:01,948 [13] INFO  ProxyLupa - ValidarCBU - Consultando SERVICIO - validarCBUxCuil - SIN HEADER - 
+2024-01-13 16:22:01,964 [13] INFO  ProxyLupa - COELSA: codigo Retorno -> 0 codigo Repuesta -> 0 codigo Mensaje -> CBU no validado en COELSA
+2024-01-13 16:22:01,964 [13] INFO  ProxyLupa - ValidarCBU - Fin consulta - Retornando - SIN TOKEN
+2024-01-13 16:22:44,913 [13] INFO  CunaMiAnses.Controllers.HomeController - Entro por cuil 23111111111
+2024-01-13 16:22:44,913 [13] INFO  ProxyLupa - ConsultarUsuarioXCuil - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:22:44,913 [13] INFO  ProxyLupa - ConsultarUsuarioXCuil - Consultando SERVICIO - TraerUsuarioxCuil - SIN HEADER -> 
+2024-01-13 16:22:45,113 [13] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:22:45,113 [13] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-13 16:22:45,146 [13] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-13 16:22:45,146 [13] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:22:45,146 [13] INFO  ProxyLupa - {"CBUFinal":null,"CBUInicio":null,"CodAgencia":6,"CodBanco":14,"CodigoPostal":"1424","DesAgencia":"4018 - SUC 18 CABALLITO                 ","DesBanco":"BANCO DE LA PROVINCIA DE BUENOS AIRES   ","DomCalle":"RIVADAVIA 5025                ","Historial":true,"ModoPago":3,"PeDesde":"2023-11-01T00:00:00","PeHasta":null,"Tramite":685801}
+2024-01-13 16:22:45,146 [13] INFO  ProxyLupa - ConsultarUsuarioXCuil - Mapeando resultado - SIN TOKEN
+2024-01-13 16:22:45,146 [13] INFO  ProxyLupa - ConsultarUsuarioXCuil - Fin Mapping - Retornando - SIN TOKEN 
+2024-01-13 16:22:45,146 [13] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:22:45,146 [13] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-13 16:22:45,173 [13] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-13 16:22:45,173 [13] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:22:45,173 [13] INFO  ProxyLupa - TraerListadoDeProvincias - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:22:45,173 [13] INFO  ProxyLupa - TraerListadoDeProvincias - Consultando SERVICIO - TraerListaProvincias - SIN HEADER 
+2024-01-13 16:22:45,213 [13] INFO  ProxyLupa - TraerListadoDeProvincias - Mapeando resultado - SIN TOKEN
+2024-01-13 16:22:45,213 [13] INFO  ProxyLupa - TraerListadoDeProvincias - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:22:45,213 [13] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Iniciando consulta - SIN TOKEN
+2024-01-13 16:22:45,213 [13] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Consultando SERVICIO - ListadoCodBancoInhibido - SIN HEADER - 
+2024-01-13 16:22:45,232 [13] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Retornando - SIN TOKEN
+2024-01-13 16:22:53,280 [13] INFO  CunaMiAnses.Controllers.HomeController - validarCBU - MiAnses - RawUrl - /Home/validarCBU?cbu=2850590940090418135201&cuil=23111111111
+2024-01-13 16:22:53,280 [13] INFO  ProxyLupa - ValidarCBU - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:22:53,280 [13] INFO  ProxyLupa - ValidarCBU - Consultando SERVICIO - validarCBUxCuil - SIN HEADER - 
+2024-01-13 16:22:53,299 [13] INFO  ProxyLupa - COELSA: codigo Retorno -> 0 codigo Repuesta -> 0 codigo Mensaje -> CBU no validado en COELSA
+2024-01-13 16:22:53,299 [13] INFO  ProxyLupa - ValidarCBU - Fin consulta - Retornando - SIN TOKEN
+2024-01-13 16:22:54,496 [15] INFO  CunaMiAnses.Controllers.HomeController - validarCBU - MiAnses - RawUrl - /Home/validarCBU?cbu=2850590940090418135201&cuil=23111111111
+2024-01-13 16:22:54,496 [15] INFO  ProxyLupa - ValidarCBU - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:22:54,496 [15] INFO  ProxyLupa - ValidarCBU - Consultando SERVICIO - validarCBUxCuil - SIN HEADER - 
+2024-01-13 16:22:54,514 [15] INFO  ProxyLupa - COELSA: codigo Retorno -> 0 codigo Repuesta -> 0 codigo Mensaje -> CBU no validado en COELSA
+2024-01-13 16:22:54,514 [15] INFO  ProxyLupa - ValidarCBU - Fin consulta - Retornando - SIN TOKEN
+2024-01-13 16:22:55,712 [13] INFO  CunaMiAnses.Controllers.HomeController - validarCBU - MiAnses - RawUrl - /Home/validarCBU?cbu=2850590940090418135201&cuil=23111111111
+2024-01-13 16:22:55,712 [13] INFO  ProxyLupa - ValidarCBU - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:22:55,712 [13] INFO  ProxyLupa - ValidarCBU - Consultando SERVICIO - validarCBUxCuil - SIN HEADER - 
+2024-01-13 16:22:55,728 [13] INFO  ProxyLupa - COELSA: codigo Retorno -> 0 codigo Repuesta -> 0 codigo Mensaje -> CBU no validado en COELSA
+2024-01-13 16:22:55,728 [13] INFO  ProxyLupa - ValidarCBU - Fin consulta - Retornando - SIN TOKEN
+2024-01-13 16:22:56,264 [15] INFO  CunaMiAnses.Controllers.HomeController - validarCBU - MiAnses - RawUrl - /Home/validarCBU?cbu=2850590940090418135201&cuil=23111111111
+2024-01-13 16:22:56,264 [15] INFO  ProxyLupa - ValidarCBU - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:22:56,264 [15] INFO  ProxyLupa - ValidarCBU - Consultando SERVICIO - validarCBUxCuil - SIN HEADER - 
+2024-01-13 16:22:56,279 [15] INFO  ProxyLupa - COELSA: codigo Retorno -> 0 codigo Repuesta -> 0 codigo Mensaje -> CBU no validado en COELSA
+2024-01-13 16:22:56,279 [15] INFO  ProxyLupa - ValidarCBU - Fin consulta - Retornando - SIN TOKEN
+2024-01-13 16:22:56,935 [17] INFO  CunaMiAnses.Controllers.HomeController - validarCBU - MiAnses - RawUrl - /Home/validarCBU?cbu=2850590940090418135201&cuil=23111111111
+2024-01-13 16:22:56,935 [17] INFO  ProxyLupa - ValidarCBU - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:22:56,935 [17] INFO  ProxyLupa - ValidarCBU - Consultando SERVICIO - validarCBUxCuil - SIN HEADER - 
+2024-01-13 16:22:56,951 [17] INFO  ProxyLupa - COELSA: codigo Retorno -> 0 codigo Repuesta -> 0 codigo Mensaje -> CBU no validado en COELSA
+2024-01-13 16:22:56,951 [17] INFO  ProxyLupa - ValidarCBU - Fin consulta - Retornando - SIN TOKEN
+2024-01-13 16:23:16,787 [13] INFO  CunaMiAnses.Controllers.HomeController - Entro por cuil 23111111111
+2024-01-13 16:23:16,787 [13] INFO  ProxyLupa - ConsultarUsuarioXCuil - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:23:16,787 [13] INFO  ProxyLupa - ConsultarUsuarioXCuil - Consultando SERVICIO - TraerUsuarioxCuil - SIN HEADER -> 
+2024-01-13 16:23:16,921 [13] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:23:16,921 [13] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-13 16:23:16,952 [13] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-13 16:23:16,952 [13] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:23:16,952 [13] INFO  ProxyLupa - {"CBUFinal":null,"CBUInicio":null,"CodAgencia":6,"CodBanco":14,"CodigoPostal":"1424","DesAgencia":"4018 - SUC 18 CABALLITO                 ","DesBanco":"BANCO DE LA PROVINCIA DE BUENOS AIRES   ","DomCalle":"RIVADAVIA 5025                ","Historial":true,"ModoPago":3,"PeDesde":"2023-11-01T00:00:00","PeHasta":null,"Tramite":685801}
+2024-01-13 16:23:16,952 [13] INFO  ProxyLupa - ConsultarUsuarioXCuil - Mapeando resultado - SIN TOKEN
+2024-01-13 16:23:16,952 [13] INFO  ProxyLupa - ConsultarUsuarioXCuil - Fin Mapping - Retornando - SIN TOKEN 
+2024-01-13 16:23:16,952 [13] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:23:16,952 [13] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-13 16:23:16,984 [13] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-13 16:23:16,984 [13] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:23:16,984 [13] INFO  ProxyLupa - TraerListadoDeProvincias - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:23:16,984 [13] INFO  ProxyLupa - TraerListadoDeProvincias - Consultando SERVICIO - TraerListaProvincias - SIN HEADER 
+2024-01-13 16:23:17,019 [13] INFO  ProxyLupa - TraerListadoDeProvincias - Mapeando resultado - SIN TOKEN
+2024-01-13 16:23:17,019 [13] INFO  ProxyLupa - TraerListadoDeProvincias - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:23:17,019 [13] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Iniciando consulta - SIN TOKEN
+2024-01-13 16:23:17,019 [13] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Consultando SERVICIO - ListadoCodBancoInhibido - SIN HEADER - 
+2024-01-13 16:23:17,039 [13] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Retornando - SIN TOKEN
+2024-01-13 16:23:25,358 [13] INFO  CunaMiAnses.Controllers.HomeController - validarCBU - MiAnses - RawUrl - /Home/validarCBU?cbu=2850590940090418135201&cuil=23111111111
+2024-01-13 16:23:25,358 [13] INFO  ProxyLupa - ValidarCBU - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:23:25,358 [13] INFO  ProxyLupa - ValidarCBU - Consultando SERVICIO - validarCBUxCuil - SIN HEADER - 
+2024-01-13 16:23:25,374 [13] INFO  ProxyLupa - COELSA: codigo Retorno -> 0 codigo Repuesta -> 0 codigo Mensaje -> CBU no validado en COELSA
+2024-01-13 16:23:25,374 [13] INFO  ProxyLupa - ValidarCBU - Fin consulta - Retornando - SIN TOKEN
+2024-01-13 16:23:26,467 [16] INFO  CunaMiAnses.Controllers.HomeController - validarCBU - MiAnses - RawUrl - /Home/validarCBU?cbu=2850590940090418135201&cuil=23111111111
+2024-01-13 16:23:26,467 [16] INFO  ProxyLupa - ValidarCBU - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:23:26,467 [16] INFO  ProxyLupa - ValidarCBU - Consultando SERVICIO - validarCBUxCuil - SIN HEADER - 
+2024-01-13 16:23:26,483 [16] INFO  ProxyLupa - COELSA: codigo Retorno -> 0 codigo Repuesta -> 0 codigo Mensaje -> CBU no validado en COELSA
+2024-01-13 16:23:26,483 [16] INFO  ProxyLupa - ValidarCBU - Fin consulta - Retornando - SIN TOKEN
+2024-01-13 16:23:27,300 [18] INFO  CunaMiAnses.Controllers.HomeController - validarCBU - MiAnses - RawUrl - /Home/validarCBU?cbu=2850590940090418135201&cuil=23111111111
+2024-01-13 16:23:27,300 [18] INFO  ProxyLupa - ValidarCBU - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:23:27,300 [18] INFO  ProxyLupa - ValidarCBU - Consultando SERVICIO - validarCBUxCuil - SIN HEADER - 
+2024-01-13 16:23:27,318 [18] INFO  ProxyLupa - COELSA: codigo Retorno -> 0 codigo Repuesta -> 0 codigo Mensaje -> CBU no validado en COELSA
+2024-01-13 16:23:27,318 [18] INFO  ProxyLupa - ValidarCBU - Fin consulta - Retornando - SIN TOKEN
+2024-01-13 16:23:27,572 [28] INFO  CunaMiAnses.Controllers.HomeController - validarCBU - MiAnses - RawUrl - /Home/validarCBU?cbu=2850590940090418135201&cuil=23111111111
+2024-01-13 16:23:27,572 [28] INFO  ProxyLupa - ValidarCBU - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:23:27,572 [28] INFO  ProxyLupa - ValidarCBU - Consultando SERVICIO - validarCBUxCuil - SIN HEADER - 
+2024-01-13 16:23:27,588 [28] INFO  ProxyLupa - COELSA: codigo Retorno -> 0 codigo Repuesta -> 0 codigo Mensaje -> CBU no validado en COELSA
+2024-01-13 16:23:27,588 [28] INFO  ProxyLupa - ValidarCBU - Fin consulta - Retornando - SIN TOKEN
+2024-01-13 16:40:34,431 [8] INFO  CunaMiAnses.Controllers.HomeController - Entro por cuil 23111111111
+2024-01-13 16:40:34,431 [8] INFO  ProxyLupa - ConsultarUsuarioXCuil - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:40:34,431 [8] INFO  ProxyLupa - ConsultarUsuarioXCuil - Consultando SERVICIO - TraerUsuarioxCuil - SIN HEADER -> 
+2024-01-13 16:40:34,660 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:40:34,660 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-13 16:40:34,694 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-13 16:40:34,694 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:40:34,694 [8] INFO  ProxyLupa - {"CBUFinal":null,"CBUInicio":null,"CodAgencia":6,"CodBanco":14,"CodigoPostal":"1424","DesAgencia":"4018 - SUC 18 CABALLITO                 ","DesBanco":"BANCO DE LA PROVINCIA DE BUENOS AIRES   ","DomCalle":"RIVADAVIA 5025                ","Historial":true,"ModoPago":3,"PeDesde":"2023-11-01T00:00:00","PeHasta":null,"Tramite":685801}
+2024-01-13 16:40:34,694 [8] INFO  ProxyLupa - ConsultarUsuarioXCuil - Mapeando resultado - SIN TOKEN
+2024-01-13 16:40:34,694 [8] INFO  ProxyLupa - ConsultarUsuarioXCuil - Fin Mapping - Retornando - SIN TOKEN 
+2024-01-13 16:40:34,694 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:40:34,694 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-13 16:40:34,727 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-13 16:40:34,727 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:40:34,727 [8] INFO  ProxyLupa - TraerListadoDeProvincias - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:40:34,727 [8] INFO  ProxyLupa - TraerListadoDeProvincias - Consultando SERVICIO - TraerListaProvincias - SIN HEADER 
+2024-01-13 16:40:34,851 [8] INFO  ProxyLupa - TraerListadoDeProvincias - Mapeando resultado - SIN TOKEN
+2024-01-13 16:40:34,851 [8] INFO  ProxyLupa - TraerListadoDeProvincias - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:40:34,851 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Iniciando consulta - SIN TOKEN
+2024-01-13 16:40:34,851 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Consultando SERVICIO - ListadoCodBancoInhibido - SIN HEADER - 
+2024-01-13 16:40:34,873 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Retornando - SIN TOKEN
+2024-01-13 16:40:43,121 [8] INFO  CunaMiAnses.Controllers.HomeController - validarCBU - MiAnses - RawUrl - /Home/validarCBU?cbu=2850590940090418135201&cuil=23111111111
+2024-01-13 16:40:43,121 [8] INFO  ProxyLupa - ValidarCBU - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:40:43,121 [8] INFO  ProxyLupa - ValidarCBU - Consultando SERVICIO - validarCBUxCuil - SIN HEADER - 
+2024-01-13 16:40:43,138 [8] INFO  ProxyLupa - COELSA: codigo Retorno -> 0 codigo Repuesta -> 0 codigo Mensaje -> CBU no validado en COELSA
+2024-01-13 16:40:43,138 [8] INFO  ProxyLupa - ValidarCBU - Fin consulta - Retornando - SIN TOKEN
+2024-01-13 16:40:45,806 [8] INFO  CunaMiAnses.Controllers.HomeController - validarCBU - MiAnses - RawUrl - /Home/validarCBU?cbu=2850590940090418135201&cuil=23111111111
+2024-01-13 16:40:45,806 [8] INFO  ProxyLupa - ValidarCBU - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:40:45,806 [8] INFO  ProxyLupa - ValidarCBU - Consultando SERVICIO - validarCBUxCuil - SIN HEADER - 
+2024-01-13 16:40:45,822 [8] INFO  ProxyLupa - COELSA: codigo Retorno -> 0 codigo Repuesta -> 0 codigo Mensaje -> CBU no validado en COELSA
+2024-01-13 16:40:45,822 [8] INFO  ProxyLupa - ValidarCBU - Fin consulta - Retornando - SIN TOKEN
+2024-01-13 16:41:49,641 [8] INFO  CunaMiAnses.Controllers.HomeController - Entro por cuil 23111111111
+2024-01-13 16:41:49,641 [8] INFO  ProxyLupa - ConsultarUsuarioXCuil - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:41:49,641 [8] INFO  ProxyLupa - ConsultarUsuarioXCuil - Consultando SERVICIO - TraerUsuarioxCuil - SIN HEADER -> 
+2024-01-13 16:41:49,902 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:41:49,902 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-13 16:41:49,940 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-13 16:41:49,940 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:41:49,940 [8] INFO  ProxyLupa - {"CBUFinal":null,"CBUInicio":null,"CodAgencia":6,"CodBanco":14,"CodigoPostal":"1424","DesAgencia":"4018 - SUC 18 CABALLITO                 ","DesBanco":"BANCO DE LA PROVINCIA DE BUENOS AIRES   ","DomCalle":"RIVADAVIA 5025                ","Historial":true,"ModoPago":3,"PeDesde":"2023-11-01T00:00:00","PeHasta":null,"Tramite":685801}
+2024-01-13 16:41:49,940 [8] INFO  ProxyLupa - ConsultarUsuarioXCuil - Mapeando resultado - SIN TOKEN
+2024-01-13 16:41:49,940 [8] INFO  ProxyLupa - ConsultarUsuarioXCuil - Fin Mapping - Retornando - SIN TOKEN 
+2024-01-13 16:41:49,940 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:41:49,940 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-13 16:41:49,970 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-13 16:41:49,970 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:41:49,970 [8] INFO  ProxyLupa - TraerListadoDeProvincias - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:41:49,970 [8] INFO  ProxyLupa - TraerListadoDeProvincias - Consultando SERVICIO - TraerListaProvincias - SIN HEADER 
+2024-01-13 16:41:50,014 [8] INFO  ProxyLupa - TraerListadoDeProvincias - Mapeando resultado - SIN TOKEN
+2024-01-13 16:41:50,014 [8] INFO  ProxyLupa - TraerListadoDeProvincias - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:41:50,014 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Iniciando consulta - SIN TOKEN
+2024-01-13 16:41:50,014 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Consultando SERVICIO - ListadoCodBancoInhibido - SIN HEADER - 
+2024-01-13 16:41:50,035 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Retornando - SIN TOKEN
+2024-01-13 16:41:54,742 [8] INFO  CunaMiAnses.Controllers.HomeController - ENTRE CREATE: {"apellidoYNombre":null,"cuil":"23111111111","numDocumento":null,"nombreAgentePag":null,"fechaPresentacion":null,"codProvincia":null,"codLocalidad":null,"codAgencia":null,"idAgencia":null,"codBanco":null,"idBanco":null,"codPostal":null,"idPostal":null,"tipoBocaPago":null,"CBU":null,"cbuInicio":null,"cbuFinal":null,"hdnCbuInicio":null,"hdnCbuFinal":null,"confirm":false,"numTramite":null,"idTramite":null,"descripcionUdai":null,"codUdai":null,"selectedAgPag":null,"listProvincias":[],"listLocalidades":null,"descAgencia":null,"descBanco":null,"descDomicilio":null,"periodoDesdeBDP":null,"periodoHastaBDP":null,"descripcionEstado":null,"operadorTramite":null,"codigoEstado":0,"mensajeError":null,"SoloCorreo":0,"SoloCBU":0,"esMenor":0,"btnAltaMedioPago":"notAuthorized","viewAlta":false,"ErrorCoelsa":"","ListadoBancosInhibidos":null}
+2024-01-13 16:41:54,744 [8] INFO  ProxyLupa - ConsultarUsuarioXCuil - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:41:54,744 [8] INFO  ProxyLupa - ConsultarUsuarioXCuil - Consultando SERVICIO - TraerUsuarioxCuil - SIN HEADER -> 
+2024-01-13 16:41:54,885 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:41:54,885 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-13 16:41:54,920 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-13 16:41:54,920 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:41:54,920 [8] INFO  ProxyLupa - {"CBUFinal":null,"CBUInicio":null,"CodAgencia":6,"CodBanco":14,"CodigoPostal":"1424","DesAgencia":"4018 - SUC 18 CABALLITO                 ","DesBanco":"BANCO DE LA PROVINCIA DE BUENOS AIRES   ","DomCalle":"RIVADAVIA 5025                ","Historial":true,"ModoPago":3,"PeDesde":"2023-11-01T00:00:00","PeHasta":null,"Tramite":685801}
+2024-01-13 16:41:54,920 [8] INFO  ProxyLupa - ConsultarUsuarioXCuil - Mapeando resultado - SIN TOKEN
+2024-01-13 16:41:54,920 [8] INFO  ProxyLupa - ConsultarUsuarioXCuil - Fin Mapping - Retornando - SIN TOKEN 
+2024-01-13 16:41:54,920 [8] INFO  ProxyLupa - TraerPeriodosCronoLiq - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:41:54,921 [8] INFO  ProxyLupa - TraerPeriodosCronoLiq - Consultando SERVICIO - TraerPeriodosCronoliq - SIN HEADER 
+2024-01-13 16:41:54,957 [8] INFO  ProxyLupa - TraerPeriodosCronoLiq - Retornando - SIN TOKEN
+2024-01-13 16:41:54,959 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:41:54,959 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-13 16:41:54,981 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-13 16:41:54,981 [8] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:41:54,981 [8] INFO  ProxyLupa - TraerListadoDeProvincias - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:41:54,981 [8] INFO  ProxyLupa - TraerListadoDeProvincias - Consultando SERVICIO - TraerListaProvincias - SIN HEADER 
+2024-01-13 16:41:55,034 [8] INFO  ProxyLupa - TraerListadoDeProvincias - Mapeando resultado - SIN TOKEN
+2024-01-13 16:41:55,034 [8] INFO  ProxyLupa - TraerListadoDeProvincias - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:44:06,392 [53] INFO  CunaMiAnses.Controllers.HomeController - ENTRE CREATE: {"apellidoYNombre":null,"cuil":"23111111111","numDocumento":null,"nombreAgentePag":null,"fechaPresentacion":null,"codProvincia":null,"codLocalidad":null,"codAgencia":null,"idAgencia":null,"codBanco":null,"idBanco":null,"codPostal":null,"idPostal":null,"tipoBocaPago":null,"CBU":null,"cbuInicio":null,"cbuFinal":null,"hdnCbuInicio":null,"hdnCbuFinal":null,"confirm":false,"numTramite":null,"idTramite":null,"descripcionUdai":null,"codUdai":null,"selectedAgPag":null,"listProvincias":[],"listLocalidades":null,"descAgencia":null,"descBanco":null,"descDomicilio":null,"periodoDesdeBDP":null,"periodoHastaBDP":null,"descripcionEstado":null,"operadorTramite":null,"codigoEstado":0,"mensajeError":null,"SoloCorreo":0,"SoloCBU":0,"esMenor":0,"btnAltaMedioPago":"notAuthorized","viewAlta":false,"ErrorCoelsa":"","ListadoBancosInhibidos":null}
+2024-01-13 16:44:06,392 [53] INFO  ProxyLupa - ConsultarUsuarioXCuil - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:44:06,392 [53] INFO  ProxyLupa - ConsultarUsuarioXCuil - Consultando SERVICIO - TraerUsuarioxCuil - SIN HEADER -> 
+2024-01-13 16:44:06,668 [53] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:44:06,668 [53] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-13 16:44:06,708 [53] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-13 16:44:06,708 [53] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:44:06,708 [53] INFO  ProxyLupa - {"CBUFinal":null,"CBUInicio":null,"CodAgencia":6,"CodBanco":14,"CodigoPostal":"1424","DesAgencia":"4018 - SUC 18 CABALLITO                 ","DesBanco":"BANCO DE LA PROVINCIA DE BUENOS AIRES   ","DomCalle":"RIVADAVIA 5025                ","Historial":true,"ModoPago":3,"PeDesde":"2023-11-01T00:00:00","PeHasta":null,"Tramite":685801}
+2024-01-13 16:44:06,708 [53] INFO  ProxyLupa - ConsultarUsuarioXCuil - Mapeando resultado - SIN TOKEN
+2024-01-13 16:44:06,708 [53] INFO  ProxyLupa - ConsultarUsuarioXCuil - Fin Mapping - Retornando - SIN TOKEN 
+2024-01-13 16:44:06,708 [53] INFO  ProxyLupa - TraerPeriodosCronoLiq - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:44:06,708 [53] INFO  ProxyLupa - TraerPeriodosCronoLiq - Consultando SERVICIO - TraerPeriodosCronoliq - SIN HEADER 
+2024-01-13 16:44:06,735 [53] INFO  ProxyLupa - TraerPeriodosCronoLiq - Retornando - SIN TOKEN
+2024-01-13 16:44:06,735 [53] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:44:06,735 [53] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-13 16:44:06,769 [53] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-13 16:44:06,769 [53] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:44:06,769 [53] INFO  ProxyLupa - TraerListadoDeProvincias - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:44:06,769 [53] INFO  ProxyLupa - TraerListadoDeProvincias - Consultando SERVICIO - TraerListaProvincias - SIN HEADER 
+2024-01-13 16:44:06,855 [53] INFO  ProxyLupa - TraerListadoDeProvincias - Mapeando resultado - SIN TOKEN
+2024-01-13 16:44:06,855 [53] INFO  ProxyLupa - TraerListadoDeProvincias - Fin Mapping - Retornando - SIN TOKEN
+2024-01-13 16:44:34,208 [53] INFO  CunaMiAnses.Controllers.HomeController - validarCBU - MiAnses - RawUrl - /Home/validarCBU?cbu=2850590940090418135201&cuil=23111111111
+2024-01-13 16:44:54,035 [53] INFO  ProxyLupa - ValidarCBU - Iniciando consulta - SIN TOKEN - 
+2024-01-13 16:44:54,035 [53] INFO  ProxyLupa - ValidarCBU - Consultando SERVICIO - validarCBUxCuil - SIN HEADER - 
+2024-01-13 16:44:54,053 [53] INFO  ProxyLupa - COELSA: codigo Retorno -> 0 codigo Repuesta -> 0 codigo Mensaje -> CBU no validado en COELSA
+2024-01-13 16:44:54,053 [53] INFO  ProxyLupa - ValidarCBU - Fin consulta - Retornando - SIN TOKEN

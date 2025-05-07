@@ -1,0 +1,216 @@
+﻿// Box
+.box__main-title {
+    @extend .font--title-box;
+
+    &:first-letter {
+        text-transform: uppercase;
+    }
+}
+
+.box {
+    background: #fff;
+    padding: 20px 40px; /*momentáneo para remoto*/
+    margin-bottom: 25px;
+    @include box-shadow(0px 10px 30px 0px rgba(0,0,0,0.1));
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    &.box--small {
+        padding: 0;
+        @include border-radius(5px);
+        border: 1px solid $colorBlue;
+
+        .box__header {
+            padding: 20px 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f2f2f2;
+        }
+
+        .box__body {
+            text-transform: uppercase;
+            padding: 30px;
+            min-height: 172px;
+            max-height: 172px;
+            display: table;
+            width: 100%;
+            // se aplica en box-body__container
+            .text--empty-data {
+                display: table-cell !important;
+                vertical-align: middle;
+                text-align: center;
+                @extend .text--important;
+            }
+
+            .box-body__container {
+                display: table-cell;
+                vertical-align: middle;
+
+                .body__text {
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+
+        .box__footer {
+            text-align: center;
+            border-top: 1px solid #ccc;
+            padding: 25px 0;
+            height: 68px;
+
+            &.message--warning {
+                @extend .message;
+                background: rgba(253, 180, 77, .3);
+                border-color: $colorYellow;
+                text-transform: uppercase;
+                color: rgba(0,0,0,.5)
+            }
+
+            .link {
+                margin: 0 15px;
+            }
+        }
+    }
+
+    .details-container {
+        text-transform: uppercase;
+        margin-bottom: 30px;
+
+        .col-md-6 {
+            @extend .display-flex
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        .details__title {
+            @extend .font--label;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .row:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .details__text {
+            display: inline-block;
+            //margin-bottom: 15px;
+            padding: 10px 0;
+            @extend .font--button;
+            max-width: 330px;
+
+            p {
+                margin: 0;
+            }
+        }
+
+        .details__label {
+            @extend .details__text;
+            width: 180px;
+        }
+
+        .button-container {
+            margin-top: 25px;
+        }
+    }
+}
+
+.box--list {
+
+    .box__header {
+        margin-bottom: 45px;
+    }
+
+    .list__container {
+        display: inline-block;
+
+        .list__item {
+            display: inline-block;
+            list-style: none;
+            margin-right: 90px;
+            text-align: center;
+            position: relative;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            &:after {
+                content: " ";
+                display: inline-block;
+                border-bottom: 2px solid $colorBlue;
+                padding: 0px 20px;
+                position: absolute;
+                top: 31px;
+                right: -68px;
+            }
+
+            &:before {
+                content: " ";
+                @include circle(15px);
+                border: 2px solid $colorBlue;
+                background: #fff;
+                position: absolute;
+                display: inline-block;
+                left: 163px;
+                top: 25px;
+                z-index: 1;
+            }
+
+            p {
+                margin-bottom: 5px;
+            }
+
+            .list__data {
+                display: inline-block;
+
+                .date {
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                    @extend .font--button;
+                    @extend .text--important;
+                }
+
+                .text-activity {
+                    &:first-letter {
+                        text-transform: uppercase;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.box--slide{
+    overflow:hidden;
+}
+
+.box-title-container {
+    margin-bottom: 20px;
+
+    .form__cronoliq {
+        position: absolute;
+        top: 22px;
+        right: 15px;
+        text-transform: lowercase;
+        color: rgba(0,0,0,.5);
+        font-size: 12px;
+        text-transform: uppercase;
+
+        span {
+            font-weight: 600;
+            color: $colorBlue;
+            font-size: 13px;
+        }
+
+
+        &:first-letter {
+            text-transform: uppercase;
+        }
+    }
+}

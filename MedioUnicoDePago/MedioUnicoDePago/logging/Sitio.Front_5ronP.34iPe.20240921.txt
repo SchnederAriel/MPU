@@ -1,0 +1,14 @@
+2024-09-21 12:58:35,758 [6] ERROR MedioUnicoDePago.Controllers.HomeController - Error al obtener el medio de pago vigente para el CUIL 23050488519
+System.Web.Services.Protocols.SoapException: Server was unable to process request. ---> Error al obtener el medio de pago vigente ---> ERROR [08001] [IBM] SQL30082N  El proceso de seguridad ha fallado y ha devuelto la razón "15" ("PROCESSING FAILURE").  SQLSTATE=08001
+
+   en System.Web.Services.Protocols.SoapHttpClientProtocol.ReadResponse(SoapClientMessage message, WebResponse response, Stream responseStream, Boolean asyncCall)
+   en System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   en MedioUnicoDePago.GestionarMPU.GestionMPU.ObtenerMedioPagoVigente(String cuil) en C:\Users\E131676\Downloads\prueba\MedioUnicoDePago\MedioUnicoDePago\Web References\GestionarMPU\Reference.cs:línea 132
+   en MedioUnicoDePago.Controllers.HomeController.<MPUApp>d__18.MoveNext() en C:\Users\E131676\Downloads\prueba\MedioUnicoDePago\MedioUnicoDePago\Controllers\HomeController.cs:línea 217
+2024-09-21 13:00:09,693 [8] ERROR MedioUnicoDePago.Controllers.HomeController - Error al obtener el medio de pago vigente para el CUIL 23050488519
+System.Web.Services.Protocols.SoapException: Server was unable to process request. ---> Error al obtener el medio de pago vigente ---> ERROR [08001] [IBM] SQL30082N  El proceso de seguridad ha fallado y ha devuelto la razón "15" ("PROCESSING FAILURE").  SQLSTATE=08001
+
+   en System.Web.Services.Protocols.SoapHttpClientProtocol.ReadResponse(SoapClientMessage message, WebResponse response, Stream responseStream, Boolean asyncCall)
+   en System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   en MedioUnicoDePago.GestionarMPU.GestionMPU.ObtenerMedioPagoVigente(String cuil) en C:\Users\E131676\Downloads\prueba\MedioUnicoDePago\MedioUnicoDePago\Web References\GestionarMPU\Reference.cs:línea 132
+   en MedioUnicoDePago.Controllers.HomeController.<MPUApp>d__18.MoveNext() en C:\Users\E131676\Downloads\prueba\MedioUnicoDePago\MedioUnicoDePago\Controllers\HomeController.cs:línea 217

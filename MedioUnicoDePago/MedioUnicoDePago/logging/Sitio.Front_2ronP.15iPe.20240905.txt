@@ -1,0 +1,16 @@
+2024-09-05 19:54:07,030 [6] INFO  MedioUnicoDePago.Filtros.ErrorHandler - ---> ERROR controlado desde Error handler
+2024-09-05 19:54:07,050 [6] ERROR MedioUnicoDePago.Filtros.ErrorHandler - Error tipo INVALIDOPERATIONEXCEPTION en Contolador: Home - Método: ListadoMDP : Error: El elemento de modelo pasado al diccionario es de tipo 'System.Collections.Generic.List`1[MedioUnicoDePago.Models.DTOMedioPagoDisponible]', pero este diccionario requiere un elemento de modelo de tipo 'System.Collections.Generic.List`1[MedioUnicoDePago.Models.DTOMedioPago]'. - StackTrace:    en System.Web.Mvc.ViewDataDictionary`1.SetModel(Object value)
+   en System.Web.Mvc.ViewDataDictionary..ctor(ViewDataDictionary dictionary)
+   en System.Web.Mvc.WebViewPage`1.SetViewData(ViewDataDictionary viewData)
+   en System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   en System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   en System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_6.<BeginInvokeAction>b__3()
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__5(IAsyncResult asyncResult)
+2024-09-05 19:54:07,071 [8] INFO  MedioUnicoDePago.Controllers.ErrorController - --->  traking en error controller
+2024-09-05 19:54:07,071 [8] INFO  MedioUnicoDePago.Controllers.ErrorController - ---> ERROR: - El elemento de modelo pasado al diccionario es de tipo 'System.Collections.Generic.List`1[MedioUnicoDePago.Models.DTOMedioPagoDisponible]', pero este diccionario requiere un elemento de modelo de tipo 'System.Collections.Generic.List`1[MedioUnicoDePago.Models.DTOMedioPago]'.

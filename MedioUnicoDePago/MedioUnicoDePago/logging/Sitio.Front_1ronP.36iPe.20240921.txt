@@ -1,0 +1,21 @@
+2024-09-21 13:37:37,208 [6] ERROR MedioUnicoDePago.Controllers.HomeController - Error al obtener el medio de pago vigente para el CUIL 23050488519
+System.Web.Services.Protocols.SoapException: Server was unable to process request. ---> Error al obtener el medio de pago vigente ---> ERROR [08001] [IBM] SQL30082N  El proceso de seguridad ha fallado y ha devuelto la razón "15" ("PROCESSING FAILURE").  SQLSTATE=08001
+
+   en System.Web.Services.Protocols.SoapHttpClientProtocol.ReadResponse(SoapClientMessage message, WebResponse response, Stream responseStream, Boolean asyncCall)
+   en System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   en MedioUnicoDePago.GestionarMPU.GestionMPU.ObtenerMedioPagoVigente(String cuil) en C:\Users\E131676\Downloads\prueba\MedioUnicoDePago\MedioUnicoDePago\Web References\GestionarMPU\Reference.cs:línea 132
+   en MedioUnicoDePago.Controllers.HomeController.<MPUApp>d__19.MoveNext() en C:\Users\E131676\Downloads\prueba\MedioUnicoDePago\MedioUnicoDePago\Controllers\HomeController.cs:línea 231
+2024-09-21 13:37:39,672 [6] ERROR MedioUnicoDePago.Controllers.HomeController - Error al obtener los medios de pago disponibles para el CUIL 23050488519
+System.Web.Services.Protocols.SoapException: Server was unable to process request. ---> ERROR [08001] [IBM] SQL30082N  El proceso de seguridad ha fallado y ha devuelto la razón "15" ("PROCESSING FAILURE").  SQLSTATE=08001
+
+   en System.Web.Services.Protocols.SoapHttpClientProtocol.ReadResponse(SoapClientMessage message, WebResponse response, Stream responseStream, Boolean asyncCall)
+   en System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   en MedioUnicoDePago.GestionarMPU.GestionMPU.ListarMPDisponibles(String cuil) en C:\Users\E131676\Downloads\prueba\MedioUnicoDePago\MedioUnicoDePago\Web References\GestionarMPU\Reference.cs:línea 190
+   en MedioUnicoDePago.Controllers.HomeController.ListadoMDP() en C:\Users\E131676\Downloads\prueba\MedioUnicoDePago\MedioUnicoDePago\Controllers\HomeController.cs:línea 570
+2024-09-21 13:37:43,775 [6] ERROR MedioUnicoDePago.Controllers.HomeController - Error al obtener los bancos virtuales
+System.Web.Services.Protocols.SoapException: Server was unable to process request. ---> ERROR [08001] [IBM] SQL30082N  El proceso de seguridad ha fallado y ha devuelto la razón "15" ("PROCESSING FAILURE").  SQLSTATE=08001
+
+   en System.Web.Services.Protocols.SoapHttpClientProtocol.ReadResponse(SoapClientMessage message, WebResponse response, Stream responseStream, Boolean asyncCall)
+   en System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   en MedioUnicoDePago.GestionarMPU.GestionMPU.ListarBancosVirtuales() en C:\Users\E131676\Downloads\prueba\MedioUnicoDePago\MedioUnicoDePago\Web References\GestionarMPU\Reference.cs:línea 248
+   en MedioUnicoDePago.Controllers.HomeController.TraerBancosVirtuales() en C:\Users\E131676\Downloads\prueba\MedioUnicoDePago\MedioUnicoDePago\Controllers\HomeController.cs:línea 115

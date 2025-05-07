@@ -1,0 +1,11 @@
+2024-09-30 23:01:39,461 [6] ERROR MedioUnicoDePago.Filtros.RequiereAutenticacionAttribute - !!!!!!!!!!!!!ERROR AL OBTENER LOS DATOS DE LAS CREDENCIALES
+2024-09-30 23:01:39,468 [6] INFO  MedioUnicoDePago.Filtros.RequiereAutenticacionAttribute - ERROR AL OBTENER LOS DATOS DE LAS CREDENCIALES
+2024-09-30 23:01:55,602 [6] ERROR MedioUnicoDePago.Controllers.HomeController - Error al obtener el medio de pago vigente para el CUIL 23406406539
+System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en Anses.Director.Session.Credencial.ObtenerCredencial()
+   en Anses.Director.Session.DirectorExtension.ProcessMessage(SoapMessage message)
+   en System.Web.Services.Protocols.SoapMessage.RunExtensions(SoapExtension[] extensions, Boolean throwOnException)
+   en System.Web.Services.Protocols.SoapHttpClientProtocol.BeforeSerialize(WebRequest request, String methodName, Object[] parameters)
+   en System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   en MedioUnicoDePago.GestionarMPU.GestionMPU.ObtenerMedioPagoVigente(String cuil) en C:\Users\E131676\Downloads\prueba\MedioUnicoDePago\MedioUnicoDePago\Web References\GestionarMPU\Reference.cs:línea 137
+   en MedioUnicoDePago.Controllers.HomeController.<MPUApp>d__19.MoveNext() en C:\Users\E131676\Downloads\prueba\MedioUnicoDePago\MedioUnicoDePago\Controllers\HomeController.cs:línea 234

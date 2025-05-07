@@ -1,0 +1,59 @@
+2024-01-25 13:54:46,011 [10] DEBUG CunaMiAnses.Areas.misLiqui.Controllers.MisLiquiController - Entro por token
+2024-01-25 13:54:46,021 [10] INFO  ProxyLupa - ObtenerUltimoPeriodoLiqui - Iniciando consulta - SIN TOKEN - 
+2024-01-25 13:54:46,157 [10] INFO  ProxyLupa - ObtenerUltimoPeriodoLiqui - Consultando SERVICIO - ObtenerUltimoPeriodoLiqui - SIN HEADER 
+2024-01-25 13:54:47,255 [10] INFO  ProxyLupa - ObtenerUltimoPeriodoLiqui - Retornando - SIN TOKEN
+2024-01-25 13:54:50,708 [10] INFO  CunaMiAnses.Filtros.ErrorHandler - ---> ERROR controlado desde Error handler
+2024-01-25 13:54:50,728 [10] ERROR CunaMiAnses.Filtros.ErrorHandler - Error tipo EXCEPTION en Contolador: MisLiqui - Método: Index : Error: No hay cuil de titular. - StackTrace:    en CunaMiAnses.Areas.misLiqui.Controllers.MisLiquiController.Index() en C:\Proyectos\la-lupa-mianses\CunaMiAnses\Areas\misLiqui\Controllers\MisLiquiController.cs:línea 150
+   en lambda_method(Closure , ControllerBase , Object[] )
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c.<BeginInvokeSynchronousActionMethod>b__9_0(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__11_0()
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass11_1.<InvokeActionMethodFilterAsynchronouslyRecursive>b__2()
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass11_1.<InvokeActionMethodFilterAsynchronouslyRecursive>b__2()
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_6.<BeginInvokeAction>b__3()
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__5(IAsyncResult asyncResult)
+2024-01-25 13:54:54,326 [10] INFO  CunaMiAnses.Controllers.HomeController - Entro por cuil 23111111111
+2024-01-25 13:54:54,327 [10] INFO  ProxyLupa - ConsultarUsuarioXCuil - Iniciando consulta - SIN TOKEN - 
+2024-01-25 13:54:54,327 [10] INFO  ProxyLupa - ConsultarUsuarioXCuil - Consultando SERVICIO - TraerUsuarioxCuil - SIN HEADER -> 
+2024-01-25 13:54:54,714 [10] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-25 13:54:54,716 [10] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-25 13:54:54,774 [10] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-25 13:54:54,774 [10] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-25 13:54:54,865 [10] INFO  ProxyLupa - {"CBUFinal":null,"CBUInicio":null,"CodAgencia":68,"CodBanco":7,"CodigoPostal":"1424","DesAgencia":"SUC N 136 CABALLITO                     ","DesBanco":"BANCO DE GALICIA Y BUENOS               ","DomCalle":"AV RIVADAVIA 5306             ","Historial":true,"ModoPago":3,"PeDesde":"2023-11-01T00:00:00","PeHasta":null,"Tramite":685925}
+2024-01-25 13:54:54,865 [10] INFO  ProxyLupa - ConsultarUsuarioXCuil - Mapeando resultado - SIN TOKEN
+2024-01-25 13:54:54,866 [10] INFO  ProxyLupa - ConsultarUsuarioXCuil - Fin Mapping - Retornando - SIN TOKEN 
+2024-01-25 13:54:54,871 [10] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-25 13:54:54,871 [10] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-25 13:54:54,895 [10] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-25 13:54:54,895 [10] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-25 13:54:54,896 [10] INFO  ProxyLupa - TraerListadoDeProvincias - Iniciando consulta - SIN TOKEN - 
+2024-01-25 13:54:54,896 [10] INFO  ProxyLupa - TraerListadoDeProvincias - Consultando SERVICIO - TraerListaProvincias - SIN HEADER 
+2024-01-25 13:54:56,107 [10] INFO  ProxyLupa - TraerListadoDeProvincias - Mapeando resultado - SIN TOKEN
+2024-01-25 13:54:56,107 [10] INFO  ProxyLupa - TraerListadoDeProvincias - Fin Mapping - Retornando - SIN TOKEN
+2024-01-25 13:54:56,108 [10] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Iniciando consulta - SIN TOKEN
+2024-01-25 13:54:56,108 [10] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Consultando SERVICIO - ListadoCodBancoInhibido - SIN HEADER - 
+2024-01-25 13:54:56,137 [10] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Retornando - SIN TOKEN
+2024-01-25 13:55:15,224 [10] INFO  CunaMiAnses.Controllers.HomeController - Entro por cuil 20044444446
+2024-01-25 13:55:15,224 [10] INFO  ProxyLupa - ConsultarUsuarioXCuil - Iniciando consulta - SIN TOKEN - 
+2024-01-25 13:55:15,224 [10] INFO  ProxyLupa - ConsultarUsuarioXCuil - Consultando SERVICIO - TraerUsuarioxCuil - SIN HEADER -> 
+2024-01-25 13:55:15,321 [10] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-25 13:55:15,321 [10] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-25 13:55:15,345 [10] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-25 13:55:15,345 [10] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-25 13:55:15,345 [10] INFO  ProxyLupa - {"CBUFinal":null,"CBUInicio":null,"CodAgencia":79,"CodBanco":911,"CodigoPostal":"1686","DesAgencia":"W.C.MORRIS                              ","DesBanco":"CORASA -SCF                             ","DomCalle":"VILLEGAS GRAL CONRADO         ","Historial":true,"ModoPago":3,"PeDesde":"2022-04-01T00:00:00","PeHasta":null,"Tramite":680573}
+2024-01-25 13:55:15,345 [10] INFO  ProxyLupa - ConsultarUsuarioXCuil - Mapeando resultado - SIN TOKEN
+2024-01-25 13:55:15,345 [10] INFO  ProxyLupa - ConsultarUsuarioXCuil - Fin Mapping - Retornando - SIN TOKEN 
+2024-01-25 13:55:15,345 [10] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Iniciando consulta - SIN TOKEN - 
+2024-01-25 13:55:15,345 [10] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Consultando SERVICIO - MDPVigente - SIN HEADER 
+2024-01-25 13:55:15,366 [10] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Mapeando resultado - SIN TOKEN - 
+2024-01-25 13:55:15,366 [10] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerMedioPagoVigente - Fin Mapping - Retornando - SIN TOKEN
+2024-01-25 13:55:15,366 [10] INFO  ProxyLupa - TraerListadoDeProvincias - Iniciando consulta - SIN TOKEN - 
+2024-01-25 13:55:15,366 [10] INFO  ProxyLupa - TraerListadoDeProvincias - Consultando SERVICIO - TraerListaProvincias - SIN HEADER 
+2024-01-25 13:55:15,424 [10] INFO  ProxyLupa - TraerListadoDeProvincias - Mapeando resultado - SIN TOKEN
+2024-01-25 13:55:15,424 [10] INFO  ProxyLupa - TraerListadoDeProvincias - Fin Mapping - Retornando - SIN TOKEN
+2024-01-25 13:55:15,424 [10] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Iniciando consulta - SIN TOKEN
+2024-01-25 13:55:15,424 [10] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Consultando SERVICIO - ListadoCodBancoInhibido - SIN HEADER - 
+2024-01-25 13:55:15,462 [10] INFO  CunaMiAnses.Proxies.ProxyBocaDePago - TraerListadoBancosInhibidos - Retornando - SIN TOKEN

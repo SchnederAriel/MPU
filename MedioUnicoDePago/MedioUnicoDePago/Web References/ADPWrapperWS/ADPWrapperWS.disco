@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://presdesabper19/ADPWrapper/ADPWrapperWS.asmx?wsdl" docRef="http://presdesabper19/ADPWrapper/ADPWrapperWS.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://presdesabper19/ADPWrapper/ADPWrapperWS.asmx" xmlns:q1="http://adp.anses.gov.ar" binding="q1:ADPWrapperWSSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://presdesabper19/ADPWrapper/ADPWrapperWS.asmx" xmlns:q2="http://adp.anses.gov.ar" binding="q2:ADPWrapperWSSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

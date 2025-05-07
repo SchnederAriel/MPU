@@ -1,0 +1,3 @@
+2024-09-06 16:14:03,633 [32] ERROR MedioUnicoDePago.Controllers.HomeController - Error al guardar el medio de pago
+System.IndexOutOfRangeException: Índice fuera de los límites de la matriz.
+   en MedioUnicoDePago.Controllers.HomeController.GuardarMedioDePago() en C:\Users\E131676\Downloads\prueba\la-lupa-mianses-master\MedioUnicoDePago\Controllers\HomeController.cs:línea 194

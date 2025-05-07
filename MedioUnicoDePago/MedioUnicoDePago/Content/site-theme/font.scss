@@ -1,0 +1,119 @@
+﻿// Light
+@font-face {
+    font-family: "Open Sans";
+    src: url("../fonts/opensans-light-webfont.woff") format('woff'),
+         url("../fonts/opensans-light-webfont.woff2") format('woff2');
+    font-weight: 300;
+}
+
+// Regular
+@font-face {
+    font-family: "Open Sans";
+    src: url("../fonts/opensans-regular-webfont.woff") format('woff'),
+         url("../fonts/opensans-regular-webfont.woff2") format('woff2');
+    font-weight: 400;
+}
+
+// Semi Bold
+@font-face {
+    font-family: "Open Sans";
+    src: url("../fonts/opensans-semibold-webfont.woff") format('woff'),
+         url("../fonts/opensans-semibold-webfont.woff2") format('woff2');
+    font-weight: 500;
+}
+
+// Bold
+@font-face {
+    font-family: "Open Sans";
+    src: url("../fonts/opensans-bold-webfont.woff") format('woff'),
+         url("../fonts/opensans-bold-webfont.woff2") format('woff2');
+    font-weight: 600;
+}
+
+// Iconos
+@font-face {
+    font-family: 'Lupa Icons';
+    src: url("../fonts/lupa-icons.eot") format('eot'),
+       url("../fonts/lupa-icons.svg") format('svg'),
+       url("../fonts/lupa-icons.ttf") format('ttf'),
+       url("../fonts/lupa-icons.woff") format('woff');
+   font-weight: normal;
+    font-style: normal;
+}
+
+
+// Titulo principal de la sección
+.font--section-title{
+    font-weight:400;
+    color: #fff;
+    font-size:30px;
+    text-transform: capitalize;
+}
+
+// Titulo secundario 
+.font--title-box {
+    font-weight: 500;
+    font-size: 18px;
+    color: $colorSubtitle;
+}
+
+.font--form-title {
+    font-size: 20px;
+    font-weight: 300;
+    color: $ColorTitle;
+}
+
+.font--form-subtitle {
+    font-size: 15px;
+    font-weight: 400;
+    color: $colorSubtitle;
+}
+
+// Texto destacado
+.font--important{
+    font-weight:600;
+    font-size: 16px;
+}
+
+//Texto Destacado sin Negrita
+.font--not--important {
+    font-weight: 400;
+    font-size: 14px;
+}
+
+// Botones
+.font--button {
+    font-weight: 400 !important;
+    font-size: 14px;
+}
+
+// Links
+.font--link{
+    font-weight:400;
+    font-size:12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+// Titulo tablas
+.font--table-title {
+    font-weight: 500;
+    font-size: 13px;
+    color: $ColorTitle;
+    text-transform: uppercase;
+}
+
+// Texto general
+.font--text{
+    font-weight:400;
+    font-size:12px;
+    color:#000;
+}
+
+// Texto label
+.font--label{
+    font-weight:600;
+    font-size:10px;
+    letter-spacing:1px;
+    text-transform: uppercase;
+}

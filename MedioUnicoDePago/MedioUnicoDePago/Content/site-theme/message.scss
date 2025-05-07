@@ -1,0 +1,134 @@
+﻿.message-container {
+
+    .message {
+        padding: 20px;
+        margin-bottom: 20px;
+        display: inline-block;
+        width: 100%;
+        font-weight: 500;
+        @include border-radius(3px);
+        border: 2px solid;
+        color: rgba(0,0,0,.5);
+        text-align: left;
+    }
+
+    .message__title {
+        margin-bottom: 10px;
+        font-weight: 600;
+        text-transform: uppercase;
+
+        &:before {
+            display: inline-block;
+            margin-right: 10px;
+            @extend [class^="icon--"];
+            @extend [class*=" icon--"];
+        }
+    }
+
+    .message__text {
+        display: inline-block;
+    }
+
+    .list__group {
+        display: inline-block;
+        margin-bottom: 0;
+        margin-left: 15px;
+        text-transform: lowercase;
+
+        .list__item {
+            margin-bottom: 5px;
+
+            &:first-letter {
+                text-transform: uppercase;
+            }
+        }
+    }
+    // Mensaje de éxito
+    .message--success {
+        @extend .message;
+        background: rgba(168, 210, 107, .3);
+        border-color: $colorGreen;
+        color: $colorTextSuccess;
+
+        .message__title {
+            letter-spacing: 1px;
+
+            &:before {
+                content: $icon-ok;
+            }
+        }
+    }
+    //Mensaje de éxito de Dec614 mi anses
+    .message--success--dec614 {
+        color: $colorTextSuccess614;
+    }
+
+    // Mensaje de error
+    .message--error {
+        @extend .message;
+        background: rgba(251, 96, 127, .3);
+        border-color: $colorRed;
+        color: $colorTextError;
+
+        .message__title {
+            letter-spacing: 1px;
+
+            &:before {
+                content: $icon-error;
+            }
+        }
+
+        .message__text {
+            color: #fff;
+        }
+    }
+    // Mensaje de error
+    .message--warning {
+        @extend .message;
+        background: rgba(253, 180, 77, .3);
+        border-color: $colorYellow;
+        color: $colorTextWarning;
+
+        .message__title {
+            letter-spacing: 1px;
+
+            &:before {
+                content: $icon-warning;
+            }
+        }
+    }
+}
+
+
+.input__message {
+    display: block;
+    margin-top: 5px;
+    text-transform: lowercase;
+    visibility: hidden;
+
+    &:first-letter {
+        text-transform: uppercase;
+    }
+
+    &::first-letter {
+        text-transform: uppercase;
+    }
+
+    &.message--info {
+        visibility: visible;
+    }
+
+    &.message--error {
+        color: $colorRed;
+    }
+}
+
+.text--warning {
+    color: $colorTextWarning;
+}
+.text--success {
+    color: $colorTextSuccess;
+}
+.text--error {
+    color: $colorTextError;
+}

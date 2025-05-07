@@ -1,0 +1,37 @@
+﻿
+<div class="container">
+    <div class="message"></div>
+
+    <div class="text-align--right button-container-alta ">
+        @*@if (Aplicacion.Ambiente.Equals("DESA") || Aplicacion.Ambiente.Equals("TEST"))
+        {
+            <button type="submit" class="button--blue-border" onclick="location.href='@Url.Action("Index", "IngresoCuil", new { area = "Desa" })'">Inicio</button>
+        }
+        <button type="submit" id="btnSend" class="button--blue" onclick="location.href='@Url.Action("Index", "Dashboard", new { area= ""})'">volver al panel principal</button>*@
+    </div>
+
+</div>
+
+@section Scripts {
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            if (@Html.Raw(ViewData["denegado"]).ToString().ToLower()) {
+                oMessage.alert.show({
+                    id: ".message",
+                    messages: [],
+                    title: "@Html.Raw(ViewData["mensaje"].ToString())",
+                    status: "error"
+                })
+            } else {
+                oMessage.alert.show({
+                    id: ".message",
+                    messages: ["La excepción se notificará automáticamente para solucionarla a la brevedad.", "descripción técnica: @Html.Raw(ViewData["mensaje"].ToString())"  ],
+                    title: "Ocurrió un error en la aplicación",
+                    status: "error"
+                })
+            }
+        });
+    </script>
+}

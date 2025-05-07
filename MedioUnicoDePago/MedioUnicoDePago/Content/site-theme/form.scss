@@ -1,0 +1,375 @@
+﻿
+.form-group {
+    padding: 0px;
+    text-align: left;
+
+
+    &.form--error {
+        .form__label {
+            color: $colorRed;
+        }
+
+        .form__input {
+            border-color: $colorRed;
+        }
+    }
+
+    .form__label {
+        @extend .font--label;
+        margin-bottom: 5px;
+        display: block;
+
+        small {
+            opacity: .7;
+            font-style: italic;
+        }
+    }
+    // Input
+    .form__input {
+        @include border-radius(3px);
+        border: 1px solid $colorTextInput;
+        width: 100%;
+        display: inline-block;
+        padding: 15px 20px;
+        outline: 0;
+        @include transition(300ms);
+        @extend .font--button;
+        @include appearance(none,"");
+
+        @include placeholder {
+            color: $colorTextInput;
+            @extend .font--button;
+        }
+
+        &:focus {
+            border-color: $colorBlue;
+            @include box-shadow(0px 10px 10px 0px rgba(0,0,0,0.1));
+        }
+
+        &::-webkit-input-placeholder {
+            //text-transform: lowercase;
+            &:first-letter {
+                text-transform: uppercase;
+            }
+        }
+    }
+    // Select
+    .form__select {
+        @extend .form__input;
+        @include transition(none);
+        background-image: linear-gradient(45deg,transparent 50%,gray 50%),linear-gradient(135deg,gray 50%,transparent 50%),linear-gradient(to right,#ccc,#ccc);
+        background-position: calc(100% - 33px) calc(1em + 10px),calc(100% - 28px) calc(1em + 10px),calc(100% - -0.5em) .5em;
+        background-size: 5px 5px,5px 5px,1px;
+        background-repeat: no-repeat;
+
+        &:focus {
+            background-image: linear-gradient(45deg,#ccc 50%,transparent 50%), linear-gradient(135deg,transparent 50%,#ccc 50%), linear-gradient(to right,#ccc,#ccc);
+            background-position: calc(100% - 28px) calc(1em + 10px), calc(100% - 33px) calc(1em + 10px), calc(100% - -0.5em) .5em;
+        }
+
+        &::-ms-expand {
+            display: none; /* hide the default arrow in ie10 and ie11 */
+        }
+
+        
+    }
+
+    .form__radio-button {
+    }
+
+    &.form-group--error {
+        .form__message {
+            visibility: visible;
+        }
+
+        .form__input {
+            border-color: $colorRed;
+        }
+    }
+
+    .form__message {
+        //visibility: hidden;
+        display: block;
+        margin-top: 5px;
+        color: $colorRed;
+        height: 17px;
+
+        &::first-letter {
+            text-transform: uppercase;
+        }
+    }
+
+
+    .form__list {
+        margin-bottom: 0;
+
+        .form__item-list {
+            margin-left: 16px;
+            margin-bottom: 5px;
+            text-transform: capitalize;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            &:first-letter {
+            }
+        }
+    }
+}
+
+.form-container {
+    margin-bottom: 15px;
+    &:last-child{
+        margin-bottom: 0;
+    }
+    .button-container {
+        margin-top: 20px;
+    }
+}
+
+
+.form__header {
+    margin-bottom: 15px;
+    border: 1px dashed rgba(0,0,0,.3);
+    padding: 20px;
+
+    .satus-container {
+        margin-top: 12px;
+        display: flex;
+        align-items: center;
+
+        .status-text {
+            display: inline-block;
+            @extend .font--title-box;
+            margin-left: 15px;
+            text-transform: lowercase;
+
+            &:first-letter {
+                text-transform: uppercase;
+            }
+        }
+
+        [class*="status-color"] {
+            @include square(15px);
+            display: inline-block;
+        }
+    }
+
+    .form-group {
+        margin-bottom: 0;
+
+        .label__periodo {
+            color: #00519a;
+            text-align: right;
+        }
+    }
+
+    .info__text {
+        display: block;
+        margin-bottom: 5px;
+
+        .text--important {
+            margin-left: 5px;
+        }
+
+        &:first-letter {
+            text-transform: uppercase;
+        }
+    }
+
+    .button-container {
+        [class*="button-"] {
+            margin-left: 20px !important;
+        }
+    }
+}
+
+
+//Radio button
+.form-group-option {
+    margin-top: 16px;
+
+    .form-group__item {
+        display: inline-block;
+        list-style: none;
+        margin-right: 40px;
+
+        .form__input--radio,
+        .form__input--checkbox {
+            opacity: 0;
+            position: absolute;
+            z-index: 2;
+            width: 30px;
+            height: 25PX;
+
+            &:focus ~ .input-radio-button,
+            &:focus ~ .input-check-button {
+                @include box-shadow(0px 10px 10px 0px rgba(0,0,0,0.1));
+                transform: scale(1.2, 1.2);
+            }
+
+            &:checked ~ .input-radio-button,
+            &:checked ~ .input-check-button {
+                border-color: $colorBlue;
+            }
+
+            &:checked ~ .input-radio-button:before,
+            &:checked ~ .input-check-button:before {
+                background-color: $colorBlue;
+            }
+        }
+
+        .form__label {
+            @extend .font--text;
+            display: inline-block !important;
+            position: relative;
+            margin: 0;
+            cursor: pointer;
+            position: relative;
+            top: -8px;
+            left: 10px;
+        }
+
+        .input-radio-button {
+            display: inline-block !important;
+            @include circle(30px);
+            border: 2px solid #ccc;
+            position: relative;
+            @include transition(300ms)
+
+            &:before {
+                @include circle(10px);
+                position: absolute;
+                content: '';
+                top: 8px;
+                left: 8px;
+            }
+        }
+
+        .input-check-button {
+            border: 2px solid #ccc;
+            position: relative;
+            display: inline-block !important;
+            @include square(30px);
+            @include border-radius(5px);
+
+
+            &:before {
+                @include square(22px);
+                @include border-radius(3px);
+                position: absolute;
+                content: '';
+                top: 2px;
+                left: 2px;
+            }
+        }
+    }
+}
+
+
+
+
+.form__title {
+    @extend .font--form-title;
+    text-transform: lowercase;
+    margin: 20px;
+    margin-left: 0;
+    display: inline-block;
+
+    &:first-letter {
+        text-transform: uppercase;
+    }
+}
+
+
+.form__subtitle {
+    @extend .font--form-subtitle;
+    text-transform: lowercase;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    position: relative;
+
+    &:first-letter {
+        text-transform: uppercase;
+    }
+
+    &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 20px;
+        height: 2px;
+        background: $colorSubtitle;
+    }
+}
+
+
+// Input Datepicker
+input[type="datetime"] {
+    background-image: url(../assets/calendar.svg);
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: 96% center;
+}
+
+.section__header {
+    .form-group {
+        margin-bottom: 0;
+
+        .form__label {
+            margin-right: 10px;
+            margin-bottom: 0;
+            display: inline-block;
+        }
+
+        .form-group-option {
+            display: inline-block;
+            margin: 0 !important;
+
+            .form-group__item {
+                margin: 0 !important;
+
+                .form__input--radio {
+                    &:checked ~ .form__label {
+                        color: $colorBlue;
+                        background-color: #dee9f5;
+                        border-color: $colorBlue;
+
+                        &:hover {
+                            @include box-shadow(none);
+                        }
+                    }
+                }
+
+                .form__label {
+                    @extend .font--button;
+                    text-transform: lowercase;
+                    top: 0;
+                    left: 0;
+                    margin: 0;
+                    border: 1px solid $colorTextInput;
+                    padding: 14px 20px;
+                    @include transition(300ms);
+                    //@include border-radius(5px);
+                    &:hover {
+                        @include box-shadow(0px 3px 15px 1px rgba(155,155,155,0.5));
+                    }
+
+                    &:first-letter {
+                        text-transform: uppercase;
+                    }
+                }
+
+                &:first-child .form__label {
+                    @include border-radius(5px 0 0 5px);
+                }
+
+                &:last-child .form__label {
+                    @include border-radius(0px 5px 5px 0px);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,20 @@
+2024-08-26 23:21:39,682 [8] INFO  CunaMiAnses.Filtros.ErrorHandler - ---> ERROR controlado desde Error handler
+2024-08-26 23:21:39,690 [8] ERROR CunaMiAnses.Filtros.ErrorHandler - Error tipo INVALIDOPERATIONEXCEPTION en Contolador: Home - Método: ValidarDNI : Error: No se encuentra la vista 'ValidarDNI' ni su vista maestra o no hay un motor de búsqueda que admita las ubicaciones de búsqueda. Se buscó en las siguientes ubicaciones: 
+~/Views/Home/ValidarDNI.aspx
+~/Views/Home/ValidarDNI.ascx
+~/Views/Shared/ValidarDNI.aspx
+~/Views/Shared/ValidarDNI.ascx
+~/Views/Home/ValidarDNI.cshtml
+~/Views/Home/ValidarDNI.vbhtml
+~/Views/Shared/ValidarDNI.cshtml
+~/Views/Shared/ValidarDNI.vbhtml - StackTrace:    en System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   en System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_6.<BeginInvokeAction>b__3()
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__5(IAsyncResult asyncResult)
+2024-08-26 23:21:39,779 [13] INFO  CunaMiAnses.Controllers.ErrorController - --->  traking en error controller
+2024-08-26 23:21:39,779 [13] INFO  CunaMiAnses.Controllers.ErrorController - ---> ERROR: - No se encuentra la vista 'ValidarDNI' ni su vista maestra o no hay un motor de búsqueda que admita las ubicaciones de búsqueda. Se buscó en las siguientes ubicaciones: ~/Views/Home/ValidarDNI.aspx~/Views/Home/ValidarDNI.ascx~/Views/Shared/ValidarDNI.aspx~/Views/Shared/ValidarDNI.ascx~/Views/Home/ValidarDNI.cshtml~/Views/Home/ValidarDNI.vbhtml~/Views/Shared/ValidarDNI.cshtml~/Views/Shared/ValidarDNI.vbhtml

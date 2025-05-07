@@ -1,0 +1,10 @@
+2024-09-09 19:35:29,414 [6] ERROR MedioUnicoDePago.Controllers.HomeController - Error al obtener el medio de pago vigente para el CUIL 23406406539
+System.Net.WebException: No es posible conectar con el servidor remoto ---> System.Net.Sockets.SocketException: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión 127.0.0.1:52682
+   en System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   en System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   en System.Net.HttpWebRequest.GetRequestStream()
+   en System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   en MedioUnicoDePago.GestionarMPU.GestionMPU.ObtenerMedioPagoVigente(String cuil) en C:\Users\E131676\Downloads\prueba\la-lupa-mianses-master\MedioUnicoDePago\Web References\GestionarMPU\Reference.cs:línea 132
+   en MedioUnicoDePago.Controllers.HomeController.<MPUApp>d__17.MoveNext() en C:\Users\E131676\Downloads\prueba\la-lupa-mianses-master\MedioUnicoDePago\Controllers\HomeController.cs:línea 216

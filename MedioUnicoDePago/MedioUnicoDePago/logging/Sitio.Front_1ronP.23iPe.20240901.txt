@@ -1,0 +1,4 @@
+2024-09-01 17:45:23,368 [6] ERROR MedioUnicoDePago.Controllers.HomeController - Error al obtener datos de la persona con CUIL '23406406539'
+System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en MedioUnicoDePago.Controllers.HomeController.TieneTelefono(RetornoDatosPersonaCuip datosPersona) en C:\Users\E131676\Downloads\prueba\la-lupa-mianses-master\MedioUnicoDePago\Controllers\HomeController.cs:línea 160
+   en MedioUnicoDePago.Controllers.HomeController.VerificarCelular() en C:\Users\E131676\Downloads\prueba\la-lupa-mianses-master\MedioUnicoDePago\Controllers\HomeController.cs:línea 134

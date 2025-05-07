@@ -1,0 +1,3237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://ArgentaCWS.Anses.Gov.Ar/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://ArgentaCWS.Anses.Gov.Ar/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ArgentaCWS.Anses.Gov.Ar/">
+      <s:import namespace="http://tempuri.org/" />
+      <s:element name="Persona_Guardar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_unaPersonaGlobal" type="tns:Persona" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Persona">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Cuil" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Documento_Tipo" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Documento_Nro" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DNI_Nro_Tramite_Renaper" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sexo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreApellido" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Fecha_Nacimiento" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Fecha_Fallecimiento" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Fecha_Alta" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Contacto" type="tns:Contacto" />
+          <s:element minOccurs="0" maxOccurs="1" name="Domicilio" type="tns:Domicilio" />
+          <s:element minOccurs="0" maxOccurs="1" name="CBU" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsCbuPim" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Banco" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="codBanco" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="Agencia" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="codAgencia" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="TieneAltaTemprana" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="TienePrestacionJubilatoria" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="TieneTramiteAnme" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="TieneRiesgoBCRA" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsPresoConSentenciaFirme" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsEmancipado" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="TieneHuella" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Deudas" type="tns:ArrayOfDeuda" />
+          <s:element minOccurs="0" maxOccurs="1" name="BeneficiosRelacionados" type="tns:ArrayOfBeneficio" />
+          <s:element minOccurs="0" maxOccurs="1" name="Productos" type="tns:ArrayOfProducto" />
+          <s:element minOccurs="0" maxOccurs="1" name="Errores" type="tns:ArrayOfMensaje" />
+          <s:element minOccurs="1" maxOccurs="1" name="SalidaPreacuerdoOK" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="MensajesBDD" type="tns:ArrayOfMensajeBDD" />
+          <s:element minOccurs="0" maxOccurs="1" name="Novedades" type="tns:ArrayOfNovedad" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdSistema" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImposibilidadDeFirmar" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Neteo" type="tns:Neteo" />
+          <s:element minOccurs="1" maxOccurs="1" name="Refinancia" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Refinanciacion" type="tns:Refinanciacion" />
+          <s:element minOccurs="0" maxOccurs="1" name="cbu" type="tns:CBU" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Contacto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Mail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TelefonoFijo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TelefonoCelular" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Domicilio">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Calle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Numero" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Piso" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Depto" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Codigo_Postal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Localidad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Provincia" type="tns:Tipo" />
+          <s:element minOccurs="1" maxOccurs="1" name="Codigo_Domicilio" type="s:short" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Tipo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDeuda">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Deuda" nillable="true" type="tns:Deuda" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Deuda">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idSistema" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sistema" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImporteDeuda" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBeneficio">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Beneficio" nillable="true" type="tns:Beneficio" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Beneficio">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Cuil" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="NroBeneficio" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApellidoNombre" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TipoDoc" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="NroDoc" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sexo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FecNacimiento" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FecFallecimiento" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="SueldoBruto" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="SueldoNeto" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="AfectacionDisponible" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="CBU" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodBanco" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodAgencia" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PeriodoAlta" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodPrestacion" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RelCuil" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsDiscapacitado" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsDiscapacitadoPermanente" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaVtoDiscapacidad" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="AnioUltimaLiquidacion" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AnioUltimaLibretaPresentada" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="importeEnMutuo" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoConceptoLiquidacion" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescripcionConceptoLiquidacion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CuilDeLaMadre" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="MadreFallecida" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="MadreCondenada" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="EstaEnPeun" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfProducto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Producto" nillable="true" type="tns:Producto" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Producto">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantCuotas" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Monto_Minimo" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Monto_Maximo" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="TNA" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="CFTEA" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="CFTNA" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsRestrictivo" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cuotas" type="tns:ArrayOfCuota" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaximoDepositable" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConRefinanciacion" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCuota">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Cuota" nillable="true" type="tns:Cuota" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Cuota">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID_Prestamo" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="NroCuota" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Intereses" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Amortizacion" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Total_Amortizado" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Amortizacion_Remamente" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cuota_Pura" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Gastos_Operativos" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cuota_Total" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cuota_Pagada" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cuota_Impaga" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Seguro_De_Vida" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="CuilTitular" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="CuilRelacionado" nillable="true" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mensual" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Interes_Cuota_Cero" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="EstadoId" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="EstadoDescripcion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MensualEmision" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoLiquidacion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ID_Cuota" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cod_Concepto_Liq" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Periodo_Liq" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Estado_Rub" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaVigencia" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="idReferencia" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CuilCobro" nillable="true" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfMensaje">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Mensaje" nillable="true" type="tns:Mensaje" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Mensaje">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfMensajeBDD">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MensajeBDD" nillable="true" type="tns:MensajeBDD" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MensajeBDD">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CuilRelacionado" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mensaje" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Salvable" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfNovedad">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Novedad" nillable="true" type="tns:Novedad" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Novedad">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdNovedad" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cuil" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdProducto" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImporteTotal" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrimerMensual" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cantidad_Cuotas" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Importe" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaNovedad" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Turno" type="tns:Turno" />
+          <s:element minOccurs="1" maxOccurs="1" name="Estado" type="tns:enum_TipoEstadoNovedad" />
+          <s:element minOccurs="0" maxOccurs="1" name="DEstado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mensaje" type="tns:Mensaje" />
+          <s:element minOccurs="1" maxOccurs="1" name="VersionMutuo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodConceptoLiq" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImposibilidadFirma" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Saldo_Amortizado" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Saldo_No_Amortizado" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="TNA" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cuotas" type="tns:ArrayOfCuota" />
+          <s:element minOccurs="1" maxOccurs="1" name="CuotasVencidas" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CuotasAVencer" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CuotasPagadas" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SistemaGenerador" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Encuesta" type="tns:Encuesta" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescTipoRecupero" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="idTipoRecupero" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Saldo_Reestructuracion" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="TieneCTVigente" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CancelacionAnticipada" type="tns:CancelacionAnticipada" />
+          <s:element minOccurs="0" maxOccurs="1" name="SiniestroCobrado" type="tns:ArrayOfSiniestroCobrado" />
+          <s:element minOccurs="0" maxOccurs="1" name="TieneRJVigente" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Turno">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Fecha" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdOficina" nillable="true" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="RespuestaTurno" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="enum_TipoEstadoNovedad">
+        <s:restriction base="s:string">
+          <s:enumeration value="Indeterminado" />
+          <s:enumeration value="Pre_Acuerdo" />
+          <s:enumeration value="Prestamo_Generado" />
+          <s:enumeration value="Prestamo_Supervisado" />
+          <s:enumeration value="Cancelado_Por_Vto_Turno" />
+          <s:enumeration value="Cancelado_Por_Inaccion_Sup" />
+          <s:enumeration value="Cancelado_Por_Modificacion" />
+          <s:enumeration value="Baja" />
+          <s:enumeration value="Puesto_En_Observacion" />
+          <s:enumeration value="Cancelado_Por_Excepcion" />
+          <s:enumeration value="Acreditado_en_CBU" />
+          <s:enumeration value="Devolucion_Bancaria" />
+          <s:enumeration value="Credito_Confirmado_MiAnses" />
+          <s:enumeration value="Rendido_Para_Transferencia" />
+          <s:enumeration value="Cancelado_Por_DOA" />
+          <s:enumeration value="Baja_Por_Fallecido" />
+          <s:enumeration value="Baja_Error_Operativo" />
+          <s:enumeration value="Baja_Desistimiento" />
+          <s:enumeration value="Baja_Fraude" />
+          <s:enumeration value="Baja_Orden_Judicial" />
+          <s:enumeration value="Baja_Cancelación_Anticipada" />
+          <s:enumeration value="Suspendido" />
+          <s:enumeration value="Cancelado_Normal" />
+          <s:enumeration value="Cancelado_Anormal" />
+          <s:enumeration value="Cancelado_Parcial" />
+          <s:enumeration value="Cancelado_Parcial_Con_Deuda" />
+          <s:enumeration value="Cancelado_Total" />
+          <s:enumeration value="Cancelado_Total_Con_Deuda" />
+          <s:enumeration value="Devolucion_Bancaria_Diferida" />
+          <s:enumeration value="Cancelado_Por_Reestructuracion" />
+          <s:enumeration value="Desistimiento_Reestructuracion" />
+          <s:enumeration value="Reestructuracion_Revertida" />
+          <s:enumeration value="Reestructuracion_Con_Deuda" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="Encuesta">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdNovedad" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ListaItems" type="tns:ArrayOfEncuestaItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEncuestaItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EncuestaItem" nillable="true" type="tns:EncuestaItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EncuestaItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CancelacionAnticipada">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdNovedad" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaCobro" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Importe" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSiniestroCobrado">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SiniestroCobrado" nillable="true" type="tns:SiniestroCobrado" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SiniestroCobrado">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdNovedad" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cuil" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Lote" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Importe" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaSolicitudCobro" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaCobro" nillable="true" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Neteo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MontoNeteo" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="DesgloseNeteo" type="tns:ArrayOfDetalleNeteo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDetalleNeteo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DetalleNeteo" nillable="true" type="tns:DetalleNeteo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DetalleNeteo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdNovedad" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantidadCuotasAdeudadas" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoCuotas" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantidadCuotasCredito" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdTipoRecupero" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Refinanciacion">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MontoRefinanciacion" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="DesgloseRefinanciacion" type="tns:ArrayOfDetalleRefinanciacion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDetalleRefinanciacion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DetalleRefinanciacion" nillable="true" type="tns:DetalleRefinanciacion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DetalleRefinanciacion">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdNovedad" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantidadCuotasAdeudadas" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoCuotas" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantidadCuotasCredito" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoPrestamo" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="PlazoPago" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Capital" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Gastos" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="DebitoCuotasHastaMensual" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdTipoRecupero" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CBU">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Banco" type="tns:Tipo" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sucursal" type="tns:Tipo" />
+          <s:element minOccurs="0" maxOccurs="1" name="_CBU" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TipoCBUID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoCBUDescripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="esValido" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Persona_GuardarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Persona_GuardarResult" type="tns:Persona" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CalcularCredito">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_unaPersonaGlobal" type="tns:Persona" />
+            <s:element minOccurs="1" maxOccurs="1" name="_contexto" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CalcularCreditoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CalcularCreditoResult" type="tns:Persona" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CalcularCuotas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="persona" type="tns:Persona" />
+            <s:element minOccurs="0" maxOccurs="1" name="producto" type="tns:Producto" />
+            <s:element minOccurs="1" maxOccurs="1" name="monto" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CalcularCuotasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CalcularCuotasResult" type="tns:Persona" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Preacuerdo_Guardar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_persona" type="tns:Persona" />
+            <s:element minOccurs="0" maxOccurs="1" name="_novedad" type="tns:Novedad" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Preacuerdo_GuardarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Preacuerdo_GuardarResult" type="tns:Persona" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerNovedades">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_persona" type="tns:Persona" />
+            <s:element minOccurs="1" maxOccurs="1" name="estado" type="tns:enum_TipoEstadoNovedad" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerNovedadesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerNovedadesResult" type="tns:Persona" />
+            <s:element minOccurs="0" maxOccurs="1" name="cbu" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerNominaNovedades">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cuil" nillable="true" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="estado" nillable="true" type="tns:enum_TipoEstadoNovedad" />
+            <s:element minOccurs="1" maxOccurs="1" name="oficina" nillable="true" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerNominaNovedadesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerNominaNovedadesResult" type="tns:ArrayOfNovedad" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Novedad_CambiarEstado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_novedad" type="tns:Novedad" />
+            <s:element minOccurs="1" maxOccurs="1" name="_idEstadoDestino" type="tns:enum_TipoEstadoNovedad" />
+            <s:element minOccurs="1" maxOccurs="1" name="_idProducto" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="_montoSolicitado" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="_refinancia" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Novedad_CambiarEstadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Novedad_CambiarEstadoResult" type="tns:Novedad" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NovedadesConsulta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idNovedad" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cuil" nillable="true" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="estado" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="desde" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="hasta" nillable="true" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NovedadesConsultaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NovedadesConsultaResult" type="tns:ArrayOfDatosDeConsultaDeNovedad" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDatosDeConsultaDeNovedad">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DatosDeConsultaDeNovedad" nillable="true" type="tns:DatosDeConsultaDeNovedad" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DatosDeConsultaDeNovedad">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdNovedad" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cuil" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="FecNovedad" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FecAprobacion" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImporteTotal" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrimerMensual" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EstadoNovedad" type="tns:enum_TipoEstadoNovedad" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdProducto" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Oficina" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreYApellido" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CBU" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Banco" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Agencia" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantidadDeCuotas" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UsuarioAlta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UsuarioSupervision" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaUltimaModificacion" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodConceptoLiq" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoRecupero" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="obtenerDatosMutuo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="novedad" type="tns:Novedad" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="obtenerDatosMutuoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obtenerDatosMutuoResult" type="tns:Mutuo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Mutuo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="NombreYApellido" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CuilTomador" nillable="true" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="DNI_Nro_Tramite_Renaper" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CBU" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Banco" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Agencia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Provincia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Calle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Altura" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Piso" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Depto" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoPostal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Localidad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TelefonoFijo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TelefonoCelular" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mail" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImporteTotal" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantCuotas" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CFTEA" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="TNA" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaCredito" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdProducto" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdNovedad" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdVersionMutuo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdEstadoNovedad" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Oficina" nillable="true" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="BeneficiosAfectadosMutuo" type="tns:ArrayOfBeneficio" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImposibilidadFirma" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoDeDescuento" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsCbuPim" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ConfirmarCreditosGenerados">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="listaNovedades" type="tns:ArrayOfNovedad" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConfirmarCreditosGeneradosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ConfirmarCreditosGeneradosResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PNC_PUAM_Existe">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cuil" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PNC_PUAM_ExisteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PNC_PUAM_ExisteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="obtenerVersionActualMutuo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idOrigen" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="fechaVersion" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="obtenerVersionActualMutuoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="obtenerVersionActualMutuoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidarDNI">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DNI" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Sexo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="NroTramiteDNI" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidarDNIResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ValidarDNIResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="validarCBU">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cuil" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cbu" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idsistema" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="validarCBUResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="validarCBUResult" type="s1:Retorno" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerSistemasHabilitados">
+        <s:complexType />
+      </s:element>
+      <s:element name="ObtenerSistemasHabilitadosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerSistemasHabilitadosResult" type="tns:ArrayOfTipo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTipo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Tipo" nillable="true" type="tns:Tipo" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TieneDeudaEnArgentaC">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cuil" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TieneDeudaEnArgentaCResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TieneDeudaEnArgentaCResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerCBUPim">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cuil" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerCBUPimResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ObtenerCBUPimResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="cbu" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TieneCodPostalValidoEnPim">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codPostal" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TieneCodPostalValidoEnPimResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TieneCodPostalValidoEnPimResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HijoTieneMadrePresaOFallecida">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cuilHijo" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="cuilPadre" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HijoTieneMadrePresaOFallecidaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="HijoTieneMadrePresaOFallecidaResult" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="cuilDeLaMadre" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="madrePresa" nillable="true" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="madreFallecida" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PersonaEstaEnUvhiSuaf">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cuil" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PersonaEstaEnUvhiSuafResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PersonaEstaEnUvhiSuafResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="mensaje" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerItemsParaEncuesta">
+        <s:complexType />
+      </s:element>
+      <s:element name="ObtenerItemsParaEncuestaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerItemsParaEncuestaResult" type="tns:ArrayOfEncuestaItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EncuestaGuardar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idNovedad" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="listaItems" type="tns:ArrayOfEncuestaItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EncuestaGuardarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EncuestaGuardarResult" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="codError" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="mensajeError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="obtenerNeteo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cuil" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="obtenerNeteoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obtenerNeteoResult" type="tns:Neteo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="obtenerRefinanciacion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cuil" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="obtenerRefinanciacionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obtenerRefinanciacionResult" type="tns:Refinanciacion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NovedadNeteo_Obtener">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idnovedad" nillable="true" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NovedadNeteo_ObtenerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NovedadNeteo_ObtenerResult" type="tns:Neteo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NovedadRefinanciacion_Obtener">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idnovedad" nillable="true" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NovedadRefinanciacion_ObtenerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NovedadRefinanciacion_ObtenerResult" type="tns:Refinanciacion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Parametros_Buscar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="batch" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="variable" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Parametros_BuscarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Parametros_BuscarResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TblDTSVariables_Buscar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="batch" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="variable" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TblDTSVariables_BuscarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TblDTSVariables_BuscarResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidacionEmbargo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idSistema" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cuilTitular" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="cuilRelacionado" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidacionEmbargoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ValidacionEmbargoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerarCredito">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_novedad" type="tns:Novedad" />
+            <s:element minOccurs="0" maxOccurs="1" name="_turno" type="tns:Turno" />
+            <s:element minOccurs="1" maxOccurs="1" name="_idProducto" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="_montoSolicitado" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="_refinancia" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerarCreditoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GenerarCreditoResult" type="tns:Novedad" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CuilHijoEnPadronPeun">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cuil" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CuilHijoEnPadronPeunResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CuilHijoEnPadronPeunResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EstadosNovedadTraer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idPropositoEstados" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EstadosNovedadTraerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EstadosNovedadTraerResult" type="tns:ArrayOfTipo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Parametros_SitioHabilitado">
+        <s:complexType />
+      </s:element>
+      <s:element name="Parametros_SitioHabilitadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Parametros_SitioHabilitadoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Turno_Hardcoded">
+        <s:complexType />
+      </s:element>
+      <s:element name="Turno_HardcodedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Turno_HardcodedResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Renaper_Habilitado">
+        <s:complexType />
+      </s:element>
+      <s:element name="Renaper_HabilitadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Renaper_HabilitadoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="validaCBUSinCoelsa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cuil" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="cbu" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="validaCBUSinCoelsaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="validaCBUSinCoelsaResult" type="tns:ValidacionCuilCBU" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ValidacionCuilCBU">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Cuil" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="CBU" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaRegistro" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodRetorno" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodRespuesta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mensaje" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdOrigen" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdSistema" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ASYNC_MuestroBeneficios">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_unaPersonaGlobal" type="tns:Persona" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ASYNC_MuestroBeneficiosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ASYNC_MuestroBeneficiosResult" type="tns:Persona" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ASYNC_AnmeYRub">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_unaPersonaGlobal" type="tns:Persona" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ASYNC_AnmeYRubResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ASYNC_AnmeYRubResult" type="tns:Persona" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ASYNC_TraerResto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_unaPersonaGlobal" type="tns:Persona" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ASYNC_TraerRestoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ASYNC_TraerRestoResult" type="tns:Persona" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PV_ObtenerNovedades">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cuil" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PV_ObtenerNovedadesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PV_ObtenerNovedadesResult" type="tns:ArrayOfNovedad" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PV_ObtenerDetalleCuotas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idNovedad" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PV_ObtenerDetalleCuotasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PV_ObtenerDetalleCuotasResult" type="tns:ArrayOfCuota" />
+            <s:element minOccurs="0" maxOccurs="1" name="detalleCuotas" type="tns:ArrayOfCuota" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PV_RegistrarSolicitudCobro">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="solicitudCobro">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PV_RegistrarSolicitudCobroResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PV_RegistrarSolicitudCobroResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PV_NovedadBaja">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdObligacion" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OficinaGeneral" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DireccionIP" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PV_NovedadBajaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PV_NovedadBajaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="boolean" type="s:boolean" />
+      <s:element name="int" type="s:int" />
+      <s:element name="Retorno" nillable="true" type="s1:Retorno" />
+      <s:element name="ArrayOfTipo" nillable="true" type="tns:ArrayOfTipo" />
+      <s:element name="ArrayOfEncuestaItem" nillable="true" type="tns:ArrayOfEncuestaItem" />
+      <s:element name="Neteo" nillable="true" type="tns:Neteo" />
+      <s:element name="Refinanciacion" nillable="true" type="tns:Refinanciacion" />
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="ValidacionCuilCBU" nillable="true" type="tns:ValidacionCuilCBU" />
+      <s:element name="ArrayOfNovedad" nillable="true" type="tns:ArrayOfNovedad" />
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:complexType name="Retorno">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoRespuesta" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoRetorno" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescripcionMensaje" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="Persona_GuardarSoapIn">
+    <wsdl:part name="parameters" element="tns:Persona_Guardar" />
+  </wsdl:message>
+  <wsdl:message name="Persona_GuardarSoapOut">
+    <wsdl:part name="parameters" element="tns:Persona_GuardarResponse" />
+  </wsdl:message>
+  <wsdl:message name="CalcularCreditoSoapIn">
+    <wsdl:part name="parameters" element="tns:CalcularCredito" />
+  </wsdl:message>
+  <wsdl:message name="CalcularCreditoSoapOut">
+    <wsdl:part name="parameters" element="tns:CalcularCreditoResponse" />
+  </wsdl:message>
+  <wsdl:message name="CalcularCuotasSoapIn">
+    <wsdl:part name="parameters" element="tns:CalcularCuotas" />
+  </wsdl:message>
+  <wsdl:message name="CalcularCuotasSoapOut">
+    <wsdl:part name="parameters" element="tns:CalcularCuotasResponse" />
+  </wsdl:message>
+  <wsdl:message name="Preacuerdo_GuardarSoapIn">
+    <wsdl:part name="parameters" element="tns:Preacuerdo_Guardar" />
+  </wsdl:message>
+  <wsdl:message name="Preacuerdo_GuardarSoapOut">
+    <wsdl:part name="parameters" element="tns:Preacuerdo_GuardarResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerNovedadesSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerNovedades" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerNovedadesSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerNovedadesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerNominaNovedadesSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerNominaNovedades" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerNominaNovedadesSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerNominaNovedadesResponse" />
+  </wsdl:message>
+  <wsdl:message name="Novedad_CambiarEstadoSoapIn">
+    <wsdl:part name="parameters" element="tns:Novedad_CambiarEstado" />
+  </wsdl:message>
+  <wsdl:message name="Novedad_CambiarEstadoSoapOut">
+    <wsdl:part name="parameters" element="tns:Novedad_CambiarEstadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="NovedadesConsultaSoapIn">
+    <wsdl:part name="parameters" element="tns:NovedadesConsulta" />
+  </wsdl:message>
+  <wsdl:message name="NovedadesConsultaSoapOut">
+    <wsdl:part name="parameters" element="tns:NovedadesConsultaResponse" />
+  </wsdl:message>
+  <wsdl:message name="obtenerDatosMutuoSoapIn">
+    <wsdl:part name="parameters" element="tns:obtenerDatosMutuo" />
+  </wsdl:message>
+  <wsdl:message name="obtenerDatosMutuoSoapOut">
+    <wsdl:part name="parameters" element="tns:obtenerDatosMutuoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmarCreditosGeneradosSoapIn">
+    <wsdl:part name="parameters" element="tns:ConfirmarCreditosGenerados" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmarCreditosGeneradosSoapOut">
+    <wsdl:part name="parameters" element="tns:ConfirmarCreditosGeneradosResponse" />
+  </wsdl:message>
+  <wsdl:message name="PNC_PUAM_ExisteSoapIn">
+    <wsdl:part name="parameters" element="tns:PNC_PUAM_Existe" />
+  </wsdl:message>
+  <wsdl:message name="PNC_PUAM_ExisteSoapOut">
+    <wsdl:part name="parameters" element="tns:PNC_PUAM_ExisteResponse" />
+  </wsdl:message>
+  <wsdl:message name="obtenerVersionActualMutuoSoapIn">
+    <wsdl:part name="parameters" element="tns:obtenerVersionActualMutuo" />
+  </wsdl:message>
+  <wsdl:message name="obtenerVersionActualMutuoSoapOut">
+    <wsdl:part name="parameters" element="tns:obtenerVersionActualMutuoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidarDNISoapIn">
+    <wsdl:part name="parameters" element="tns:ValidarDNI" />
+  </wsdl:message>
+  <wsdl:message name="ValidarDNISoapOut">
+    <wsdl:part name="parameters" element="tns:ValidarDNIResponse" />
+  </wsdl:message>
+  <wsdl:message name="validarCBUSoapIn">
+    <wsdl:part name="parameters" element="tns:validarCBU" />
+  </wsdl:message>
+  <wsdl:message name="validarCBUSoapOut">
+    <wsdl:part name="parameters" element="tns:validarCBUResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerSistemasHabilitadosSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerSistemasHabilitados" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerSistemasHabilitadosSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerSistemasHabilitadosResponse" />
+  </wsdl:message>
+  <wsdl:message name="TieneDeudaEnArgentaCSoapIn">
+    <wsdl:part name="parameters" element="tns:TieneDeudaEnArgentaC" />
+  </wsdl:message>
+  <wsdl:message name="TieneDeudaEnArgentaCSoapOut">
+    <wsdl:part name="parameters" element="tns:TieneDeudaEnArgentaCResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerCBUPimSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerCBUPim" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerCBUPimSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerCBUPimResponse" />
+  </wsdl:message>
+  <wsdl:message name="TieneCodPostalValidoEnPimSoapIn">
+    <wsdl:part name="parameters" element="tns:TieneCodPostalValidoEnPim" />
+  </wsdl:message>
+  <wsdl:message name="TieneCodPostalValidoEnPimSoapOut">
+    <wsdl:part name="parameters" element="tns:TieneCodPostalValidoEnPimResponse" />
+  </wsdl:message>
+  <wsdl:message name="HijoTieneMadrePresaOFallecidaSoapIn">
+    <wsdl:part name="parameters" element="tns:HijoTieneMadrePresaOFallecida" />
+  </wsdl:message>
+  <wsdl:message name="HijoTieneMadrePresaOFallecidaSoapOut">
+    <wsdl:part name="parameters" element="tns:HijoTieneMadrePresaOFallecidaResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonaEstaEnUvhiSuafSoapIn">
+    <wsdl:part name="parameters" element="tns:PersonaEstaEnUvhiSuaf" />
+  </wsdl:message>
+  <wsdl:message name="PersonaEstaEnUvhiSuafSoapOut">
+    <wsdl:part name="parameters" element="tns:PersonaEstaEnUvhiSuafResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerItemsParaEncuestaSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerItemsParaEncuesta" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerItemsParaEncuestaSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerItemsParaEncuestaResponse" />
+  </wsdl:message>
+  <wsdl:message name="EncuestaGuardarSoapIn">
+    <wsdl:part name="parameters" element="tns:EncuestaGuardar" />
+  </wsdl:message>
+  <wsdl:message name="EncuestaGuardarSoapOut">
+    <wsdl:part name="parameters" element="tns:EncuestaGuardarResponse" />
+  </wsdl:message>
+  <wsdl:message name="obtenerNeteoSoapIn">
+    <wsdl:part name="parameters" element="tns:obtenerNeteo" />
+  </wsdl:message>
+  <wsdl:message name="obtenerNeteoSoapOut">
+    <wsdl:part name="parameters" element="tns:obtenerNeteoResponse" />
+  </wsdl:message>
+  <wsdl:message name="obtenerRefinanciacionSoapIn">
+    <wsdl:part name="parameters" element="tns:obtenerRefinanciacion" />
+  </wsdl:message>
+  <wsdl:message name="obtenerRefinanciacionSoapOut">
+    <wsdl:part name="parameters" element="tns:obtenerRefinanciacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="NovedadNeteo_ObtenerSoapIn">
+    <wsdl:part name="parameters" element="tns:NovedadNeteo_Obtener" />
+  </wsdl:message>
+  <wsdl:message name="NovedadNeteo_ObtenerSoapOut">
+    <wsdl:part name="parameters" element="tns:NovedadNeteo_ObtenerResponse" />
+  </wsdl:message>
+  <wsdl:message name="NovedadRefinanciacion_ObtenerSoapIn">
+    <wsdl:part name="parameters" element="tns:NovedadRefinanciacion_Obtener" />
+  </wsdl:message>
+  <wsdl:message name="NovedadRefinanciacion_ObtenerSoapOut">
+    <wsdl:part name="parameters" element="tns:NovedadRefinanciacion_ObtenerResponse" />
+  </wsdl:message>
+  <wsdl:message name="Parametros_BuscarSoapIn">
+    <wsdl:part name="parameters" element="tns:Parametros_Buscar" />
+  </wsdl:message>
+  <wsdl:message name="Parametros_BuscarSoapOut">
+    <wsdl:part name="parameters" element="tns:Parametros_BuscarResponse" />
+  </wsdl:message>
+  <wsdl:message name="TblDTSVariables_BuscarSoapIn">
+    <wsdl:part name="parameters" element="tns:TblDTSVariables_Buscar" />
+  </wsdl:message>
+  <wsdl:message name="TblDTSVariables_BuscarSoapOut">
+    <wsdl:part name="parameters" element="tns:TblDTSVariables_BuscarResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidacionEmbargoSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidacionEmbargo" />
+  </wsdl:message>
+  <wsdl:message name="ValidacionEmbargoSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidacionEmbargoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenerarCreditoSoapIn">
+    <wsdl:part name="parameters" element="tns:GenerarCredito" />
+  </wsdl:message>
+  <wsdl:message name="GenerarCreditoSoapOut">
+    <wsdl:part name="parameters" element="tns:GenerarCreditoResponse" />
+  </wsdl:message>
+  <wsdl:message name="CuilHijoEnPadronPeunSoapIn">
+    <wsdl:part name="parameters" element="tns:CuilHijoEnPadronPeun" />
+  </wsdl:message>
+  <wsdl:message name="CuilHijoEnPadronPeunSoapOut">
+    <wsdl:part name="parameters" element="tns:CuilHijoEnPadronPeunResponse" />
+  </wsdl:message>
+  <wsdl:message name="EstadosNovedadTraerSoapIn">
+    <wsdl:part name="parameters" element="tns:EstadosNovedadTraer" />
+  </wsdl:message>
+  <wsdl:message name="EstadosNovedadTraerSoapOut">
+    <wsdl:part name="parameters" element="tns:EstadosNovedadTraerResponse" />
+  </wsdl:message>
+  <wsdl:message name="Parametros_SitioHabilitadoSoapIn">
+    <wsdl:part name="parameters" element="tns:Parametros_SitioHabilitado" />
+  </wsdl:message>
+  <wsdl:message name="Parametros_SitioHabilitadoSoapOut">
+    <wsdl:part name="parameters" element="tns:Parametros_SitioHabilitadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Turno_HardcodedSoapIn">
+    <wsdl:part name="parameters" element="tns:Turno_Hardcoded" />
+  </wsdl:message>
+  <wsdl:message name="Turno_HardcodedSoapOut">
+    <wsdl:part name="parameters" element="tns:Turno_HardcodedResponse" />
+  </wsdl:message>
+  <wsdl:message name="Renaper_HabilitadoSoapIn">
+    <wsdl:part name="parameters" element="tns:Renaper_Habilitado" />
+  </wsdl:message>
+  <wsdl:message name="Renaper_HabilitadoSoapOut">
+    <wsdl:part name="parameters" element="tns:Renaper_HabilitadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="validaCBUSinCoelsaSoapIn">
+    <wsdl:part name="parameters" element="tns:validaCBUSinCoelsa" />
+  </wsdl:message>
+  <wsdl:message name="validaCBUSinCoelsaSoapOut">
+    <wsdl:part name="parameters" element="tns:validaCBUSinCoelsaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ASYNC_MuestroBeneficiosSoapIn">
+    <wsdl:part name="parameters" element="tns:ASYNC_MuestroBeneficios" />
+  </wsdl:message>
+  <wsdl:message name="ASYNC_MuestroBeneficiosSoapOut">
+    <wsdl:part name="parameters" element="tns:ASYNC_MuestroBeneficiosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ASYNC_AnmeYRubSoapIn">
+    <wsdl:part name="parameters" element="tns:ASYNC_AnmeYRub" />
+  </wsdl:message>
+  <wsdl:message name="ASYNC_AnmeYRubSoapOut">
+    <wsdl:part name="parameters" element="tns:ASYNC_AnmeYRubResponse" />
+  </wsdl:message>
+  <wsdl:message name="ASYNC_TraerRestoSoapIn">
+    <wsdl:part name="parameters" element="tns:ASYNC_TraerResto" />
+  </wsdl:message>
+  <wsdl:message name="ASYNC_TraerRestoSoapOut">
+    <wsdl:part name="parameters" element="tns:ASYNC_TraerRestoResponse" />
+  </wsdl:message>
+  <wsdl:message name="PV_ObtenerNovedadesSoapIn">
+    <wsdl:part name="parameters" element="tns:PV_ObtenerNovedades" />
+  </wsdl:message>
+  <wsdl:message name="PV_ObtenerNovedadesSoapOut">
+    <wsdl:part name="parameters" element="tns:PV_ObtenerNovedadesResponse" />
+  </wsdl:message>
+  <wsdl:message name="PV_ObtenerDetalleCuotasSoapIn">
+    <wsdl:part name="parameters" element="tns:PV_ObtenerDetalleCuotas" />
+  </wsdl:message>
+  <wsdl:message name="PV_ObtenerDetalleCuotasSoapOut">
+    <wsdl:part name="parameters" element="tns:PV_ObtenerDetalleCuotasResponse" />
+  </wsdl:message>
+  <wsdl:message name="PV_RegistrarSolicitudCobroSoapIn">
+    <wsdl:part name="parameters" element="tns:PV_RegistrarSolicitudCobro" />
+  </wsdl:message>
+  <wsdl:message name="PV_RegistrarSolicitudCobroSoapOut">
+    <wsdl:part name="parameters" element="tns:PV_RegistrarSolicitudCobroResponse" />
+  </wsdl:message>
+  <wsdl:message name="PV_NovedadBajaSoapIn">
+    <wsdl:part name="parameters" element="tns:PV_NovedadBaja" />
+  </wsdl:message>
+  <wsdl:message name="PV_NovedadBajaSoapOut">
+    <wsdl:part name="parameters" element="tns:PV_NovedadBajaResponse" />
+  </wsdl:message>
+  <wsdl:message name="PNC_PUAM_ExisteHttpGetIn">
+    <wsdl:part name="cuil" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PNC_PUAM_ExisteHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="obtenerVersionActualMutuoHttpGetIn">
+    <wsdl:part name="idOrigen" type="s:string" />
+    <wsdl:part name="fechaVersion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="obtenerVersionActualMutuoHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="ValidarDNIHttpGetIn">
+    <wsdl:part name="DNI" type="s:string" />
+    <wsdl:part name="Sexo" type="s:string" />
+    <wsdl:part name="NroTramiteDNI" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ValidarDNIHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="validarCBUHttpGetIn">
+    <wsdl:part name="cuil" type="s:string" />
+    <wsdl:part name="cbu" type="s:string" />
+    <wsdl:part name="idsistema" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="validarCBUHttpGetOut">
+    <wsdl:part name="Body" element="tns:Retorno" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerSistemasHabilitadosHttpGetIn" />
+  <wsdl:message name="ObtenerSistemasHabilitadosHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTipo" />
+  </wsdl:message>
+  <wsdl:message name="TieneDeudaEnArgentaCHttpGetIn">
+    <wsdl:part name="cuil" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TieneDeudaEnArgentaCHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="TieneCodPostalValidoEnPimHttpGetIn">
+    <wsdl:part name="codPostal" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TieneCodPostalValidoEnPimHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerItemsParaEncuestaHttpGetIn" />
+  <wsdl:message name="ObtenerItemsParaEncuestaHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfEncuestaItem" />
+  </wsdl:message>
+  <wsdl:message name="obtenerNeteoHttpGetIn">
+    <wsdl:part name="cuil" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="obtenerNeteoHttpGetOut">
+    <wsdl:part name="Body" element="tns:Neteo" />
+  </wsdl:message>
+  <wsdl:message name="obtenerRefinanciacionHttpGetIn">
+    <wsdl:part name="cuil" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="obtenerRefinanciacionHttpGetOut">
+    <wsdl:part name="Body" element="tns:Refinanciacion" />
+  </wsdl:message>
+  <wsdl:message name="Parametros_BuscarHttpGetIn">
+    <wsdl:part name="batch" type="s:string" />
+    <wsdl:part name="variable" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Parametros_BuscarHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="TblDTSVariables_BuscarHttpGetIn">
+    <wsdl:part name="batch" type="s:string" />
+    <wsdl:part name="variable" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TblDTSVariables_BuscarHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ValidacionEmbargoHttpGetIn">
+    <wsdl:part name="idSistema" type="s:string" />
+    <wsdl:part name="cuilTitular" type="s:string" />
+    <wsdl:part name="cuilRelacionado" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ValidacionEmbargoHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="CuilHijoEnPadronPeunHttpGetIn">
+    <wsdl:part name="cuil" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CuilHijoEnPadronPeunHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="EstadosNovedadTraerHttpGetIn">
+    <wsdl:part name="idPropositoEstados" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EstadosNovedadTraerHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTipo" />
+  </wsdl:message>
+  <wsdl:message name="Parametros_SitioHabilitadoHttpGetIn" />
+  <wsdl:message name="Parametros_SitioHabilitadoHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="Turno_HardcodedHttpGetIn" />
+  <wsdl:message name="Turno_HardcodedHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="Renaper_HabilitadoHttpGetIn" />
+  <wsdl:message name="Renaper_HabilitadoHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="validaCBUSinCoelsaHttpGetIn">
+    <wsdl:part name="cuil" type="s:string" />
+    <wsdl:part name="cbu" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="validaCBUSinCoelsaHttpGetOut">
+    <wsdl:part name="Body" element="tns:ValidacionCuilCBU" />
+  </wsdl:message>
+  <wsdl:message name="PV_ObtenerNovedadesHttpGetIn">
+    <wsdl:part name="cuil" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PV_ObtenerNovedadesHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfNovedad" />
+  </wsdl:message>
+  <wsdl:message name="PV_NovedadBajaHttpGetIn">
+    <wsdl:part name="IdObligacion" type="s:string" />
+    <wsdl:part name="Usuario" type="s:string" />
+    <wsdl:part name="OficinaGeneral" type="s:string" />
+    <wsdl:part name="DireccionIP" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PV_NovedadBajaHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="PNC_PUAM_ExisteHttpPostIn">
+    <wsdl:part name="cuil" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PNC_PUAM_ExisteHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="obtenerVersionActualMutuoHttpPostIn">
+    <wsdl:part name="idOrigen" type="s:string" />
+    <wsdl:part name="fechaVersion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="obtenerVersionActualMutuoHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="ValidarDNIHttpPostIn">
+    <wsdl:part name="DNI" type="s:string" />
+    <wsdl:part name="Sexo" type="s:string" />
+    <wsdl:part name="NroTramiteDNI" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ValidarDNIHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="validarCBUHttpPostIn">
+    <wsdl:part name="cuil" type="s:string" />
+    <wsdl:part name="cbu" type="s:string" />
+    <wsdl:part name="idsistema" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="validarCBUHttpPostOut">
+    <wsdl:part name="Body" element="tns:Retorno" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerSistemasHabilitadosHttpPostIn" />
+  <wsdl:message name="ObtenerSistemasHabilitadosHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTipo" />
+  </wsdl:message>
+  <wsdl:message name="TieneDeudaEnArgentaCHttpPostIn">
+    <wsdl:part name="cuil" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TieneDeudaEnArgentaCHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="TieneCodPostalValidoEnPimHttpPostIn">
+    <wsdl:part name="codPostal" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TieneCodPostalValidoEnPimHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerItemsParaEncuestaHttpPostIn" />
+  <wsdl:message name="ObtenerItemsParaEncuestaHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfEncuestaItem" />
+  </wsdl:message>
+  <wsdl:message name="obtenerNeteoHttpPostIn">
+    <wsdl:part name="cuil" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="obtenerNeteoHttpPostOut">
+    <wsdl:part name="Body" element="tns:Neteo" />
+  </wsdl:message>
+  <wsdl:message name="obtenerRefinanciacionHttpPostIn">
+    <wsdl:part name="cuil" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="obtenerRefinanciacionHttpPostOut">
+    <wsdl:part name="Body" element="tns:Refinanciacion" />
+  </wsdl:message>
+  <wsdl:message name="Parametros_BuscarHttpPostIn">
+    <wsdl:part name="batch" type="s:string" />
+    <wsdl:part name="variable" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Parametros_BuscarHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="TblDTSVariables_BuscarHttpPostIn">
+    <wsdl:part name="batch" type="s:string" />
+    <wsdl:part name="variable" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TblDTSVariables_BuscarHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ValidacionEmbargoHttpPostIn">
+    <wsdl:part name="idSistema" type="s:string" />
+    <wsdl:part name="cuilTitular" type="s:string" />
+    <wsdl:part name="cuilRelacionado" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ValidacionEmbargoHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="CuilHijoEnPadronPeunHttpPostIn">
+    <wsdl:part name="cuil" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CuilHijoEnPadronPeunHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="EstadosNovedadTraerHttpPostIn">
+    <wsdl:part name="idPropositoEstados" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EstadosNovedadTraerHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTipo" />
+  </wsdl:message>
+  <wsdl:message name="Parametros_SitioHabilitadoHttpPostIn" />
+  <wsdl:message name="Parametros_SitioHabilitadoHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="Turno_HardcodedHttpPostIn" />
+  <wsdl:message name="Turno_HardcodedHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="Renaper_HabilitadoHttpPostIn" />
+  <wsdl:message name="Renaper_HabilitadoHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="validaCBUSinCoelsaHttpPostIn">
+    <wsdl:part name="cuil" type="s:string" />
+    <wsdl:part name="cbu" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="validaCBUSinCoelsaHttpPostOut">
+    <wsdl:part name="Body" element="tns:ValidacionCuilCBU" />
+  </wsdl:message>
+  <wsdl:message name="PV_ObtenerNovedadesHttpPostIn">
+    <wsdl:part name="cuil" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PV_ObtenerNovedadesHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfNovedad" />
+  </wsdl:message>
+  <wsdl:message name="PV_NovedadBajaHttpPostIn">
+    <wsdl:part name="IdObligacion" type="s:string" />
+    <wsdl:part name="Usuario" type="s:string" />
+    <wsdl:part name="OficinaGeneral" type="s:string" />
+    <wsdl:part name="DireccionIP" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PV_NovedadBajaHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:portType name="ArgentaCWSSoap">
+    <wsdl:operation name="Persona_Guardar">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Guarda en la capa de datos la información del titular y sus derechohabientes.</wsdl:documentation>
+      <wsdl:input message="tns:Persona_GuardarSoapIn" />
+      <wsdl:output message="tns:Persona_GuardarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CalcularCredito">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve los posibles planes de cuotas según la información recopilada.</wsdl:documentation>
+      <wsdl:input message="tns:CalcularCreditoSoapIn" />
+      <wsdl:output message="tns:CalcularCreditoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CalcularCuotas">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve un plan de cuotas específico que haya elegido el usuario de entre los disponibles.</wsdl:documentation>
+      <wsdl:input message="tns:CalcularCuotasSoapIn" />
+      <wsdl:output message="tns:CalcularCuotasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Preacuerdo_Guardar">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Guarda en la capa de datos el plan de cuotas preaprobado y su detalle.</wsdl:documentation>
+      <wsdl:input message="tns:Preacuerdo_GuardarSoapIn" />
+      <wsdl:output message="tns:Preacuerdo_GuardarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNovedades">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene los preacuerdos de una persona.</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerNovedadesSoapIn" />
+      <wsdl:output message="tns:ObtenerNovedadesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNominaNovedades">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene los novedades por cuil, estado u oficina.</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerNominaNovedadesSoapIn" />
+      <wsdl:output message="tns:ObtenerNominaNovedadesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Novedad_CambiarEstado">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Cambia de Estado una Novedad.</wsdl:documentation>
+      <wsdl:input message="tns:Novedad_CambiarEstadoSoapIn" />
+      <wsdl:output message="tns:Novedad_CambiarEstadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NovedadesConsulta">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta de Novedades</wsdl:documentation>
+      <wsdl:input message="tns:NovedadesConsultaSoapIn" />
+      <wsdl:output message="tns:NovedadesConsultaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerDatosMutuo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene los datos del mutuo de una novedad.</wsdl:documentation>
+      <wsdl:input message="tns:obtenerDatosMutuoSoapIn" />
+      <wsdl:output message="tns:obtenerDatosMutuoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarCreditosGenerados">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Aprobacion de Creditos</wsdl:documentation>
+      <wsdl:input message="tns:ConfirmarCreditosGeneradosSoapIn" />
+      <wsdl:output message="tns:ConfirmarCreditosGeneradosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PNC_PUAM_Existe">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Puam existe? Si/No</wsdl:documentation>
+      <wsdl:input message="tns:PNC_PUAM_ExisteSoapIn" />
+      <wsdl:output message="tns:PNC_PUAM_ExisteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerVersionActualMutuo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve la version del mutuo correspondiente a una novedad por grabarse en preacuerdo.</wsdl:documentation>
+      <wsdl:input message="tns:obtenerVersionActualMutuoSoapIn" />
+      <wsdl:output message="tns:obtenerVersionActualMutuoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidarDNI">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Valida el DNI en el servicio del RENAPER</wsdl:documentation>
+      <wsdl:input message="tns:ValidarDNISoapIn" />
+      <wsdl:output message="tns:ValidarDNISoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="validarCBU">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Valida CBU</wsdl:documentation>
+      <wsdl:input message="tns:validarCBUSoapIn" />
+      <wsdl:output message="tns:validarCBUSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerSistemasHabilitados">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve la lista de sistemas habilitados para solicitar créditos.</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerSistemasHabilitadosSoapIn" />
+      <wsdl:output message="tns:ObtenerSistemasHabilitadosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TieneDeudaEnArgentaC">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Valida el DNI en el servicio del RENAPER</wsdl:documentation>
+      <wsdl:input message="tns:TieneDeudaEnArgentaCSoapIn" />
+      <wsdl:output message="tns:TieneDeudaEnArgentaCSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCBUPim">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve una respuesta que indica si tiene CBU Pim y el CBU en cuestión.</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerCBUPimSoapIn" />
+      <wsdl:output message="tns:ObtenerCBUPimSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TieneCodPostalValidoEnPim">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve una respuesta que indica si tiene CBU Pim y el CBU en cuestión.</wsdl:documentation>
+      <wsdl:input message="tns:TieneCodPostalValidoEnPimSoapIn" />
+      <wsdl:output message="tns:TieneCodPostalValidoEnPimSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HijoTieneMadrePresaOFallecida">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Valida que siendo sexo masculino se pueda solicitar crédito</wsdl:documentation>
+      <wsdl:input message="tns:HijoTieneMadrePresaOFallecidaSoapIn" />
+      <wsdl:output message="tns:HijoTieneMadrePresaOFallecidaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PersonaEstaEnUvhiSuaf">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Valida que un cuil se encuentre dentro del universo de UVHI o SUAF</wsdl:documentation>
+      <wsdl:input message="tns:PersonaEstaEnUvhiSuafSoapIn" />
+      <wsdl:output message="tns:PersonaEstaEnUvhiSuafSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerItemsParaEncuesta">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve los items de la encuesta sobre destinos del dinero del crédito.</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerItemsParaEncuestaSoapIn" />
+      <wsdl:output message="tns:ObtenerItemsParaEncuestaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EncuestaGuardar">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Guarda los datos de la encuesta completada</wsdl:documentation>
+      <wsdl:input message="tns:EncuestaGuardarSoapIn" />
+      <wsdl:output message="tns:EncuestaGuardarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerNeteo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene el neteo para un cuil</wsdl:documentation>
+      <wsdl:input message="tns:obtenerNeteoSoapIn" />
+      <wsdl:output message="tns:obtenerNeteoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerRefinanciacion">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene la refinanciacion para un cuil</wsdl:documentation>
+      <wsdl:input message="tns:obtenerRefinanciacionSoapIn" />
+      <wsdl:output message="tns:obtenerRefinanciacionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NovedadNeteo_Obtener">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene el neteo aplicado para una novedad</wsdl:documentation>
+      <wsdl:input message="tns:NovedadNeteo_ObtenerSoapIn" />
+      <wsdl:output message="tns:NovedadNeteo_ObtenerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NovedadRefinanciacion_Obtener">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene la refinanciacion aplicada para una novedad</wsdl:documentation>
+      <wsdl:input message="tns:NovedadRefinanciacion_ObtenerSoapIn" />
+      <wsdl:output message="tns:NovedadRefinanciacion_ObtenerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_Buscar">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna parametro variable de la tabla Parametros</wsdl:documentation>
+      <wsdl:input message="tns:Parametros_BuscarSoapIn" />
+      <wsdl:output message="tns:Parametros_BuscarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TblDTSVariables_Buscar">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna el valor de la tabla de variables segun los parametros ingresados</wsdl:documentation>
+      <wsdl:input message="tns:TblDTSVariables_BuscarSoapIn" />
+      <wsdl:output message="tns:TblDTSVariables_BuscarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidacionEmbargo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Valida embargos</wsdl:documentation>
+      <wsdl:input message="tns:ValidacionEmbargoSoapIn" />
+      <wsdl:output message="tns:ValidacionEmbargoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerarCredito">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Genera un credito, dando por eliminado el concepto de preacuerdo</wsdl:documentation>
+      <wsdl:input message="tns:GenerarCreditoSoapIn" />
+      <wsdl:output message="tns:GenerarCreditoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CuilHijoEnPadronPeun">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Valida que un cuil se encuentre dentro del universo de UVHI o SUAF</wsdl:documentation>
+      <wsdl:input message="tns:CuilHijoEnPadronPeunSoapIn" />
+      <wsdl:output message="tns:CuilHijoEnPadronPeunSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EstadosNovedadTraer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna estados de la novedad para el proposito requerido</wsdl:documentation>
+      <wsdl:input message="tns:EstadosNovedadTraerSoapIn" />
+      <wsdl:output message="tns:EstadosNovedadTraerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_SitioHabilitado">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene si el sitio esta se encuentra habilitado o en mantenimiento.</wsdl:documentation>
+      <wsdl:input message="tns:Parametros_SitioHabilitadoSoapIn" />
+      <wsdl:output message="tns:Parametros_SitioHabilitadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Turno_Hardcoded">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve si el servicio de turnos está hardcodeado o se está llamando al servicio productivo.</wsdl:documentation>
+      <wsdl:input message="tns:Turno_HardcodedSoapIn" />
+      <wsdl:output message="tns:Turno_HardcodedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Renaper_Habilitado">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve si esta habilidatada la validación con el Renaper.</wsdl:documentation>
+      <wsdl:input message="tns:Renaper_HabilitadoSoapIn" />
+      <wsdl:output message="tns:Renaper_HabilitadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="validaCBUSinCoelsa">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Valida CBU en tabla interna</wsdl:documentation>
+      <wsdl:input message="tns:validaCBUSinCoelsaSoapIn" />
+      <wsdl:output message="tns:validaCBUSinCoelsaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ASYNC_MuestroBeneficios">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consume los servicios de ADP y UVHI, para poder mostrar los beneficios del titular que solicita el crédito.</wsdl:documentation>
+      <wsdl:input message="tns:ASYNC_MuestroBeneficiosSoapIn" />
+      <wsdl:output message="tns:ASYNC_MuestroBeneficiosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ASYNC_AnmeYRub">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consume los servicios de Anme y Rub</wsdl:documentation>
+      <wsdl:input message="tns:ASYNC_AnmeYRubSoapIn" />
+      <wsdl:output message="tns:ASYNC_AnmeYRubSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ASYNC_TraerResto">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consume los servicios externos y devuelve una persona con todos los datos necesarios para solicitar un crédito.</wsdl:documentation>
+      <wsdl:input message="tns:ASYNC_TraerRestoSoapIn" />
+      <wsdl:output message="tns:ASYNC_TraerRestoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PV_ObtenerNovedades">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene los novedades Pago Voluntario por cuil.</wsdl:documentation>
+      <wsdl:input message="tns:PV_ObtenerNovedadesSoapIn" />
+      <wsdl:output message="tns:PV_ObtenerNovedadesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PV_ObtenerDetalleCuotas">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene detalle de las cuotas.</wsdl:documentation>
+      <wsdl:input message="tns:PV_ObtenerDetalleCuotasSoapIn" />
+      <wsdl:output message="tns:PV_ObtenerDetalleCuotasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PV_RegistrarSolicitudCobro">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Guarda un registro de la solicitud de pago voluntario</wsdl:documentation>
+      <wsdl:input message="tns:PV_RegistrarSolicitudCobroSoapIn" />
+      <wsdl:output message="tns:PV_RegistrarSolicitudCobroSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PV_NovedadBaja">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Da de baja una novedad de pago voluntario</wsdl:documentation>
+      <wsdl:input message="tns:PV_NovedadBajaSoapIn" />
+      <wsdl:output message="tns:PV_NovedadBajaSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ArgentaCWSHttpGet">
+    <wsdl:operation name="PNC_PUAM_Existe">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Puam existe? Si/No</wsdl:documentation>
+      <wsdl:input message="tns:PNC_PUAM_ExisteHttpGetIn" />
+      <wsdl:output message="tns:PNC_PUAM_ExisteHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerVersionActualMutuo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve la version del mutuo correspondiente a una novedad por grabarse en preacuerdo.</wsdl:documentation>
+      <wsdl:input message="tns:obtenerVersionActualMutuoHttpGetIn" />
+      <wsdl:output message="tns:obtenerVersionActualMutuoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidarDNI">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Valida el DNI en el servicio del RENAPER</wsdl:documentation>
+      <wsdl:input message="tns:ValidarDNIHttpGetIn" />
+      <wsdl:output message="tns:ValidarDNIHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="validarCBU">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Valida CBU</wsdl:documentation>
+      <wsdl:input message="tns:validarCBUHttpGetIn" />
+      <wsdl:output message="tns:validarCBUHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerSistemasHabilitados">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve la lista de sistemas habilitados para solicitar créditos.</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerSistemasHabilitadosHttpGetIn" />
+      <wsdl:output message="tns:ObtenerSistemasHabilitadosHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TieneDeudaEnArgentaC">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Valida el DNI en el servicio del RENAPER</wsdl:documentation>
+      <wsdl:input message="tns:TieneDeudaEnArgentaCHttpGetIn" />
+      <wsdl:output message="tns:TieneDeudaEnArgentaCHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TieneCodPostalValidoEnPim">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve una respuesta que indica si tiene CBU Pim y el CBU en cuestión.</wsdl:documentation>
+      <wsdl:input message="tns:TieneCodPostalValidoEnPimHttpGetIn" />
+      <wsdl:output message="tns:TieneCodPostalValidoEnPimHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerItemsParaEncuesta">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve los items de la encuesta sobre destinos del dinero del crédito.</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerItemsParaEncuestaHttpGetIn" />
+      <wsdl:output message="tns:ObtenerItemsParaEncuestaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerNeteo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene el neteo para un cuil</wsdl:documentation>
+      <wsdl:input message="tns:obtenerNeteoHttpGetIn" />
+      <wsdl:output message="tns:obtenerNeteoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerRefinanciacion">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene la refinanciacion para un cuil</wsdl:documentation>
+      <wsdl:input message="tns:obtenerRefinanciacionHttpGetIn" />
+      <wsdl:output message="tns:obtenerRefinanciacionHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_Buscar">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna parametro variable de la tabla Parametros</wsdl:documentation>
+      <wsdl:input message="tns:Parametros_BuscarHttpGetIn" />
+      <wsdl:output message="tns:Parametros_BuscarHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TblDTSVariables_Buscar">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna el valor de la tabla de variables segun los parametros ingresados</wsdl:documentation>
+      <wsdl:input message="tns:TblDTSVariables_BuscarHttpGetIn" />
+      <wsdl:output message="tns:TblDTSVariables_BuscarHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidacionEmbargo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Valida embargos</wsdl:documentation>
+      <wsdl:input message="tns:ValidacionEmbargoHttpGetIn" />
+      <wsdl:output message="tns:ValidacionEmbargoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CuilHijoEnPadronPeun">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Valida que un cuil se encuentre dentro del universo de UVHI o SUAF</wsdl:documentation>
+      <wsdl:input message="tns:CuilHijoEnPadronPeunHttpGetIn" />
+      <wsdl:output message="tns:CuilHijoEnPadronPeunHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EstadosNovedadTraer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna estados de la novedad para el proposito requerido</wsdl:documentation>
+      <wsdl:input message="tns:EstadosNovedadTraerHttpGetIn" />
+      <wsdl:output message="tns:EstadosNovedadTraerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_SitioHabilitado">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene si el sitio esta se encuentra habilitado o en mantenimiento.</wsdl:documentation>
+      <wsdl:input message="tns:Parametros_SitioHabilitadoHttpGetIn" />
+      <wsdl:output message="tns:Parametros_SitioHabilitadoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Turno_Hardcoded">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve si el servicio de turnos está hardcodeado o se está llamando al servicio productivo.</wsdl:documentation>
+      <wsdl:input message="tns:Turno_HardcodedHttpGetIn" />
+      <wsdl:output message="tns:Turno_HardcodedHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Renaper_Habilitado">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve si esta habilidatada la validación con el Renaper.</wsdl:documentation>
+      <wsdl:input message="tns:Renaper_HabilitadoHttpGetIn" />
+      <wsdl:output message="tns:Renaper_HabilitadoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="validaCBUSinCoelsa">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Valida CBU en tabla interna</wsdl:documentation>
+      <wsdl:input message="tns:validaCBUSinCoelsaHttpGetIn" />
+      <wsdl:output message="tns:validaCBUSinCoelsaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PV_ObtenerNovedades">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene los novedades Pago Voluntario por cuil.</wsdl:documentation>
+      <wsdl:input message="tns:PV_ObtenerNovedadesHttpGetIn" />
+      <wsdl:output message="tns:PV_ObtenerNovedadesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PV_NovedadBaja">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Da de baja una novedad de pago voluntario</wsdl:documentation>
+      <wsdl:input message="tns:PV_NovedadBajaHttpGetIn" />
+      <wsdl:output message="tns:PV_NovedadBajaHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ArgentaCWSHttpPost">
+    <wsdl:operation name="PNC_PUAM_Existe">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Puam existe? Si/No</wsdl:documentation>
+      <wsdl:input message="tns:PNC_PUAM_ExisteHttpPostIn" />
+      <wsdl:output message="tns:PNC_PUAM_ExisteHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerVersionActualMutuo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve la version del mutuo correspondiente a una novedad por grabarse en preacuerdo.</wsdl:documentation>
+      <wsdl:input message="tns:obtenerVersionActualMutuoHttpPostIn" />
+      <wsdl:output message="tns:obtenerVersionActualMutuoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidarDNI">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Valida el DNI en el servicio del RENAPER</wsdl:documentation>
+      <wsdl:input message="tns:ValidarDNIHttpPostIn" />
+      <wsdl:output message="tns:ValidarDNIHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="validarCBU">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Valida CBU</wsdl:documentation>
+      <wsdl:input message="tns:validarCBUHttpPostIn" />
+      <wsdl:output message="tns:validarCBUHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerSistemasHabilitados">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve la lista de sistemas habilitados para solicitar créditos.</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerSistemasHabilitadosHttpPostIn" />
+      <wsdl:output message="tns:ObtenerSistemasHabilitadosHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TieneDeudaEnArgentaC">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Valida el DNI en el servicio del RENAPER</wsdl:documentation>
+      <wsdl:input message="tns:TieneDeudaEnArgentaCHttpPostIn" />
+      <wsdl:output message="tns:TieneDeudaEnArgentaCHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TieneCodPostalValidoEnPim">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve una respuesta que indica si tiene CBU Pim y el CBU en cuestión.</wsdl:documentation>
+      <wsdl:input message="tns:TieneCodPostalValidoEnPimHttpPostIn" />
+      <wsdl:output message="tns:TieneCodPostalValidoEnPimHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerItemsParaEncuesta">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve los items de la encuesta sobre destinos del dinero del crédito.</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerItemsParaEncuestaHttpPostIn" />
+      <wsdl:output message="tns:ObtenerItemsParaEncuestaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerNeteo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene el neteo para un cuil</wsdl:documentation>
+      <wsdl:input message="tns:obtenerNeteoHttpPostIn" />
+      <wsdl:output message="tns:obtenerNeteoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerRefinanciacion">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene la refinanciacion para un cuil</wsdl:documentation>
+      <wsdl:input message="tns:obtenerRefinanciacionHttpPostIn" />
+      <wsdl:output message="tns:obtenerRefinanciacionHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_Buscar">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna parametro variable de la tabla Parametros</wsdl:documentation>
+      <wsdl:input message="tns:Parametros_BuscarHttpPostIn" />
+      <wsdl:output message="tns:Parametros_BuscarHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TblDTSVariables_Buscar">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna el valor de la tabla de variables segun los parametros ingresados</wsdl:documentation>
+      <wsdl:input message="tns:TblDTSVariables_BuscarHttpPostIn" />
+      <wsdl:output message="tns:TblDTSVariables_BuscarHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidacionEmbargo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Valida embargos</wsdl:documentation>
+      <wsdl:input message="tns:ValidacionEmbargoHttpPostIn" />
+      <wsdl:output message="tns:ValidacionEmbargoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CuilHijoEnPadronPeun">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Valida que un cuil se encuentre dentro del universo de UVHI o SUAF</wsdl:documentation>
+      <wsdl:input message="tns:CuilHijoEnPadronPeunHttpPostIn" />
+      <wsdl:output message="tns:CuilHijoEnPadronPeunHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EstadosNovedadTraer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna estados de la novedad para el proposito requerido</wsdl:documentation>
+      <wsdl:input message="tns:EstadosNovedadTraerHttpPostIn" />
+      <wsdl:output message="tns:EstadosNovedadTraerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_SitioHabilitado">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene si el sitio esta se encuentra habilitado o en mantenimiento.</wsdl:documentation>
+      <wsdl:input message="tns:Parametros_SitioHabilitadoHttpPostIn" />
+      <wsdl:output message="tns:Parametros_SitioHabilitadoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Turno_Hardcoded">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve si el servicio de turnos está hardcodeado o se está llamando al servicio productivo.</wsdl:documentation>
+      <wsdl:input message="tns:Turno_HardcodedHttpPostIn" />
+      <wsdl:output message="tns:Turno_HardcodedHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Renaper_Habilitado">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve si esta habilidatada la validación con el Renaper.</wsdl:documentation>
+      <wsdl:input message="tns:Renaper_HabilitadoHttpPostIn" />
+      <wsdl:output message="tns:Renaper_HabilitadoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="validaCBUSinCoelsa">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Valida CBU en tabla interna</wsdl:documentation>
+      <wsdl:input message="tns:validaCBUSinCoelsaHttpPostIn" />
+      <wsdl:output message="tns:validaCBUSinCoelsaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PV_ObtenerNovedades">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene los novedades Pago Voluntario por cuil.</wsdl:documentation>
+      <wsdl:input message="tns:PV_ObtenerNovedadesHttpPostIn" />
+      <wsdl:output message="tns:PV_ObtenerNovedadesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PV_NovedadBaja">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Da de baja una novedad de pago voluntario</wsdl:documentation>
+      <wsdl:input message="tns:PV_NovedadBajaHttpPostIn" />
+      <wsdl:output message="tns:PV_NovedadBajaHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ArgentaCWSSoap" type="tns:ArgentaCWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Persona_Guardar">
+      <soap:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/Persona_Guardar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalcularCredito">
+      <soap:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/CalcularCredito" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalcularCuotas">
+      <soap:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/CalcularCuotas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Preacuerdo_Guardar">
+      <soap:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/Preacuerdo_Guardar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNovedades">
+      <soap:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/ObtenerNovedades" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNominaNovedades">
+      <soap:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/ObtenerNominaNovedades" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Novedad_CambiarEstado">
+      <soap:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/Novedad_CambiarEstado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadesConsulta">
+      <soap:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/NovedadesConsulta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerDatosMutuo">
+      <soap:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/obtenerDatosMutuo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarCreditosGenerados">
+      <soap:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/ConfirmarCreditosGenerados" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PNC_PUAM_Existe">
+      <soap:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/PNC_PUAM_Existe" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerVersionActualMutuo">
+      <soap:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/obtenerVersionActualMutuo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarDNI">
+      <soap:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/ValidarDNI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validarCBU">
+      <soap:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/validarCBU" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerSistemasHabilitados">
+      <soap:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/ObtenerSistemasHabilitados" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TieneDeudaEnArgentaC">
+      <soap:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/TieneDeudaEnArgentaC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCBUPim">
+      <soap:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/ObtenerCBUPim" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TieneCodPostalValidoEnPim">
+      <soap:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/TieneCodPostalValidoEnPim" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HijoTieneMadrePresaOFallecida">
+      <soap:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/HijoTieneMadrePresaOFallecida" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PersonaEstaEnUvhiSuaf">
+      <soap:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/PersonaEstaEnUvhiSuaf" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerItemsParaEncuesta">
+      <soap:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/ObtenerItemsParaEncuesta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EncuestaGuardar">
+      <soap:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/EncuestaGuardar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerNeteo">
+      <soap:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/obtenerNeteo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerRefinanciacion">
+      <soap:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/obtenerRefinanciacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadNeteo_Obtener">
+      <soap:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/NovedadNeteo_Obtener" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadRefinanciacion_Obtener">
+      <soap:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/NovedadRefinanciacion_Obtener" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_Buscar">
+      <soap:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/Parametros_Buscar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TblDTSVariables_Buscar">
+      <soap:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/TblDTSVariables_Buscar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidacionEmbargo">
+      <soap:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/ValidacionEmbargo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerarCredito">
+      <soap:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/GenerarCredito" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CuilHijoEnPadronPeun">
+      <soap:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/CuilHijoEnPadronPeun" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EstadosNovedadTraer">
+      <soap:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/EstadosNovedadTraer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_SitioHabilitado">
+      <soap:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/Parametros_SitioHabilitado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Turno_Hardcoded">
+      <soap:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/Turno_Hardcoded" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Renaper_Habilitado">
+      <soap:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/Renaper_Habilitado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validaCBUSinCoelsa">
+      <soap:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/validaCBUSinCoelsa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ASYNC_MuestroBeneficios">
+      <soap:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/ASYNC_MuestroBeneficios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ASYNC_AnmeYRub">
+      <soap:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/ASYNC_AnmeYRub" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ASYNC_TraerResto">
+      <soap:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/ASYNC_TraerResto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PV_ObtenerNovedades">
+      <soap:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/PV_ObtenerNovedades" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PV_ObtenerDetalleCuotas">
+      <soap:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/PV_ObtenerDetalleCuotas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PV_RegistrarSolicitudCobro">
+      <soap:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/PV_RegistrarSolicitudCobro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PV_NovedadBaja">
+      <soap:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/PV_NovedadBaja" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ArgentaCWSSoap12" type="tns:ArgentaCWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Persona_Guardar">
+      <soap12:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/Persona_Guardar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalcularCredito">
+      <soap12:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/CalcularCredito" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalcularCuotas">
+      <soap12:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/CalcularCuotas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Preacuerdo_Guardar">
+      <soap12:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/Preacuerdo_Guardar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNovedades">
+      <soap12:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/ObtenerNovedades" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNominaNovedades">
+      <soap12:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/ObtenerNominaNovedades" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Novedad_CambiarEstado">
+      <soap12:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/Novedad_CambiarEstado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadesConsulta">
+      <soap12:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/NovedadesConsulta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerDatosMutuo">
+      <soap12:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/obtenerDatosMutuo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarCreditosGenerados">
+      <soap12:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/ConfirmarCreditosGenerados" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PNC_PUAM_Existe">
+      <soap12:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/PNC_PUAM_Existe" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerVersionActualMutuo">
+      <soap12:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/obtenerVersionActualMutuo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarDNI">
+      <soap12:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/ValidarDNI" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validarCBU">
+      <soap12:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/validarCBU" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerSistemasHabilitados">
+      <soap12:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/ObtenerSistemasHabilitados" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TieneDeudaEnArgentaC">
+      <soap12:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/TieneDeudaEnArgentaC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCBUPim">
+      <soap12:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/ObtenerCBUPim" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TieneCodPostalValidoEnPim">
+      <soap12:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/TieneCodPostalValidoEnPim" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HijoTieneMadrePresaOFallecida">
+      <soap12:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/HijoTieneMadrePresaOFallecida" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PersonaEstaEnUvhiSuaf">
+      <soap12:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/PersonaEstaEnUvhiSuaf" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerItemsParaEncuesta">
+      <soap12:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/ObtenerItemsParaEncuesta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EncuestaGuardar">
+      <soap12:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/EncuestaGuardar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerNeteo">
+      <soap12:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/obtenerNeteo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerRefinanciacion">
+      <soap12:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/obtenerRefinanciacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadNeteo_Obtener">
+      <soap12:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/NovedadNeteo_Obtener" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadRefinanciacion_Obtener">
+      <soap12:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/NovedadRefinanciacion_Obtener" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_Buscar">
+      <soap12:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/Parametros_Buscar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TblDTSVariables_Buscar">
+      <soap12:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/TblDTSVariables_Buscar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidacionEmbargo">
+      <soap12:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/ValidacionEmbargo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerarCredito">
+      <soap12:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/GenerarCredito" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CuilHijoEnPadronPeun">
+      <soap12:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/CuilHijoEnPadronPeun" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EstadosNovedadTraer">
+      <soap12:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/EstadosNovedadTraer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_SitioHabilitado">
+      <soap12:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/Parametros_SitioHabilitado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Turno_Hardcoded">
+      <soap12:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/Turno_Hardcoded" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Renaper_Habilitado">
+      <soap12:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/Renaper_Habilitado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validaCBUSinCoelsa">
+      <soap12:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/validaCBUSinCoelsa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ASYNC_MuestroBeneficios">
+      <soap12:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/ASYNC_MuestroBeneficios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ASYNC_AnmeYRub">
+      <soap12:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/ASYNC_AnmeYRub" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ASYNC_TraerResto">
+      <soap12:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/ASYNC_TraerResto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PV_ObtenerNovedades">
+      <soap12:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/PV_ObtenerNovedades" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PV_ObtenerDetalleCuotas">
+      <soap12:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/PV_ObtenerDetalleCuotas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PV_RegistrarSolicitudCobro">
+      <soap12:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/PV_RegistrarSolicitudCobro" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PV_NovedadBaja">
+      <soap12:operation soapAction="http://ArgentaCWS.Anses.Gov.Ar/PV_NovedadBaja" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ArgentaCWSHttpGet" type="tns:ArgentaCWSHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="PNC_PUAM_Existe">
+      <http:operation location="/PNC_PUAM_Existe" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerVersionActualMutuo">
+      <http:operation location="/obtenerVersionActualMutuo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarDNI">
+      <http:operation location="/ValidarDNI" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validarCBU">
+      <http:operation location="/validarCBU" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerSistemasHabilitados">
+      <http:operation location="/ObtenerSistemasHabilitados" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TieneDeudaEnArgentaC">
+      <http:operation location="/TieneDeudaEnArgentaC" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TieneCodPostalValidoEnPim">
+      <http:operation location="/TieneCodPostalValidoEnPim" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerItemsParaEncuesta">
+      <http:operation location="/ObtenerItemsParaEncuesta" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerNeteo">
+      <http:operation location="/obtenerNeteo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerRefinanciacion">
+      <http:operation location="/obtenerRefinanciacion" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_Buscar">
+      <http:operation location="/Parametros_Buscar" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TblDTSVariables_Buscar">
+      <http:operation location="/TblDTSVariables_Buscar" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidacionEmbargo">
+      <http:operation location="/ValidacionEmbargo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CuilHijoEnPadronPeun">
+      <http:operation location="/CuilHijoEnPadronPeun" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EstadosNovedadTraer">
+      <http:operation location="/EstadosNovedadTraer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_SitioHabilitado">
+      <http:operation location="/Parametros_SitioHabilitado" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Turno_Hardcoded">
+      <http:operation location="/Turno_Hardcoded" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Renaper_Habilitado">
+      <http:operation location="/Renaper_Habilitado" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validaCBUSinCoelsa">
+      <http:operation location="/validaCBUSinCoelsa" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PV_ObtenerNovedades">
+      <http:operation location="/PV_ObtenerNovedades" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PV_NovedadBaja">
+      <http:operation location="/PV_NovedadBaja" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ArgentaCWSHttpPost" type="tns:ArgentaCWSHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="PNC_PUAM_Existe">
+      <http:operation location="/PNC_PUAM_Existe" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerVersionActualMutuo">
+      <http:operation location="/obtenerVersionActualMutuo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarDNI">
+      <http:operation location="/ValidarDNI" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validarCBU">
+      <http:operation location="/validarCBU" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerSistemasHabilitados">
+      <http:operation location="/ObtenerSistemasHabilitados" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TieneDeudaEnArgentaC">
+      <http:operation location="/TieneDeudaEnArgentaC" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TieneCodPostalValidoEnPim">
+      <http:operation location="/TieneCodPostalValidoEnPim" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerItemsParaEncuesta">
+      <http:operation location="/ObtenerItemsParaEncuesta" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerNeteo">
+      <http:operation location="/obtenerNeteo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerRefinanciacion">
+      <http:operation location="/obtenerRefinanciacion" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_Buscar">
+      <http:operation location="/Parametros_Buscar" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TblDTSVariables_Buscar">
+      <http:operation location="/TblDTSVariables_Buscar" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidacionEmbargo">
+      <http:operation location="/ValidacionEmbargo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CuilHijoEnPadronPeun">
+      <http:operation location="/CuilHijoEnPadronPeun" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EstadosNovedadTraer">
+      <http:operation location="/EstadosNovedadTraer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_SitioHabilitado">
+      <http:operation location="/Parametros_SitioHabilitado" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Turno_Hardcoded">
+      <http:operation location="/Turno_Hardcoded" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Renaper_Habilitado">
+      <http:operation location="/Renaper_Habilitado" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validaCBUSinCoelsa">
+      <http:operation location="/validaCBUSinCoelsa" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PV_ObtenerNovedades">
+      <http:operation location="/PV_ObtenerNovedades" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PV_NovedadBaja">
+      <http:operation location="/PV_NovedadBaja" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ArgentaCWS">
+    <wsdl:port name="ArgentaCWSSoap" binding="tns:ArgentaCWSSoap">
+      <soap:address location="http://ansesnegodesa19/ArgentaCWS/ArgentaCWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ArgentaCWSSoap12" binding="tns:ArgentaCWSSoap12">
+      <soap12:address location="http://ansesnegodesa19/ArgentaCWS/ArgentaCWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ArgentaCWSHttpGet" binding="tns:ArgentaCWSHttpGet">
+      <http:address location="http://ansesnegodesa19/ArgentaCWS/ArgentaCWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ArgentaCWSHttpPost" binding="tns:ArgentaCWSHttpPost">
+      <http:address location="http://ansesnegodesa19/ArgentaCWS/ArgentaCWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

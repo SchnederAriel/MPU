@@ -1,0 +1,49 @@
+//-----------------------------
+//
+//   Media Queries Mixin
+//
+//-----------------------------
+$breakpoints: (
+  xs: $screen-xs,
+  sm: $screen-sm,
+  md: $screen-md,
+  lg: $screen-lg
+);
+
+@mixin minWidth($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+    @media (min-width: $breakpoint-value) {
+      @content;
+    }
+  }
+}
+@mixin maxWidth($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+    @media (max-width: ($breakpoint-value - 1)) {
+      @content;
+    }
+  }
+}
+@mixin minWidth-maxWidth($lower, $upper) {
+  @if map-has-key($breakpoints, $lower) and map-has-key($breakpoints, $upper) {
+    $lower-breakpoint: map-get($breakpoints, $lower);
+    $upper-breakpoint: map-get($breakpoints, $upper);
+    @media (min-width: $lower-breakpoint) and (max-width: ($upper-breakpoint - 1)) {
+      @content;
+    }
+  }
+}
+//** Como aplicarlo?
+/*
+@include minWidth-maxWidth(sm, md) {
+  ...
+}
+@include maxWidth(lg){
+  ...
+}
+@include minWidth(xs){
+  ...
+}
+*/

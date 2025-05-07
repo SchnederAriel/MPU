@@ -1,0 +1,48 @@
+﻿// Links
+.link {
+    @extend .font--link;
+    @include transition(300ms);
+    cursor: pointer;
+    text-decoration: none;
+    color: #818181;
+
+
+    &:hover {
+        opacity: .5;
+        text-decoration: none;
+    }
+
+    &:focus {
+        text-decoration: none;
+    }
+
+
+    &.link--primary {
+        color: $colorBlue;
+    }
+
+    &.link--active {
+        color: $colorBlue;
+        position: relative;
+        padding-bottom: 8px;
+
+        &::after {
+            display: block;
+            content: '';
+            width: 100%;
+            height: 2px;
+            background: $colorBlue;
+            position: absolute;
+            bottom: -16px;
+            left: 0;
+            margin: 0 auto;
+            right: 0;
+            //padding-top: 3px;
+        }
+    }
+}
+
+a:hover,
+a:visited {
+text-decoration:none;
+}

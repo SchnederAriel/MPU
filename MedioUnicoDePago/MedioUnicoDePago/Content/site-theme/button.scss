@@ -1,0 +1,204 @@
+﻿.button-container {
+    .button {
+        display: inline-block;
+        @include border-radius(3px);
+        @include transition(300ms);
+        //@include box-shadow(1px 5px 15px 3px rgba(0,0,0,0.3));
+        @extend .font--button;
+        @extend .text-align--center;
+        padding: 15px 20px;
+        cursor: pointer;
+        min-width: 125px;
+        margin-left: 20px;
+        border: 0;
+        outline: 0;
+        text-transform: lowercase !important;
+        &:first-letter {
+            text-transform: uppercase !important;
+        }
+
+        &:hover,
+        &:focus{
+            //@include box-shadow(1px 5px 15px 3px rgba(0,0,0,.1));
+            opacity: .7;
+        }
+    }
+
+    &.text-align--right {
+        & > div:first-child {
+            margin-left: 0;
+        }
+    }
+}
+
+.button--white {
+    @extend .button;
+    color: $colorBlue;
+    background: #fff;
+    border: 1px solid #fff !important;
+}
+
+.button--blue {
+    @extend .button;
+    color: #fff;
+    background: $colorBlue;
+
+    &:hover {
+        @include box-shadow(1px 5px 15px 3px rgba(0,81,154,.1) !important);
+    }
+}
+
+
+.button-border {
+    @extend .button;
+    background: transparent;
+    padding: 14px 20px !important;
+    border: 1px solid !important;
+
+}
+
+.button--blue-border {
+    @extend .button-border;
+    border-color: $colorBlue !important;
+    color: $colorBlue;
+
+    &:hover,
+    &:focus {
+        background: $colorBlue;
+        color: #fff;
+    }
+}
+
+.button--red-border {
+    @extend .button-border;
+    border-color: $colorRed !important;
+    color: $colorRed;
+
+    &:hover,
+    &:focus{
+        background: $colorRed;
+        color: #fff;
+    }
+}
+
+.button--azul-errores-614{
+    padding: 10px 20px;
+    background-color: #005296;
+    color: white;
+    border: none;
+    border-radius: 5px 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.button--azul-errores-614:hover {
+    opacity: 0.7;
+}
+
+.button-text {
+    @extend .button;
+    @include box-shadow(none !important);
+    padding: 0 !important;
+    display: inline-block;
+    transition: 300ms;
+    &:first-letter {
+        text-transform: uppercase;
+    }
+
+    &:hover {
+        opacity: .7;
+    }
+}
+
+.button--text-red {
+    @extend .button-text;
+    color: $colorRed;
+
+    &:hover {
+    color: $colorRed;
+    }
+}
+
+.button--text-blue {
+    @extend .button-text;
+    color: $colorBlue;
+
+    &:hover {
+        color: $colorBlue;
+    }
+}
+
+.button--text-gray {
+    @extend .button;
+    border-right: 1px solid #ccc !important;
+    border-radius: 0 !important;
+    color: rgba(0,0,0,.7);
+
+    &:before {
+        content: "limpiar formulario";
+    }
+}
+
+//Boton para limpiar formularios
+//<div class="button--clean-form"></div>
+.button--clean-form {
+    @extend .button;
+    border-right: 1px solid #ccc !important;
+    border-radius: 0 !important;
+    color: rgba(0,0,0,.7);
+
+    &:before {
+        content: "limpiar formulario";
+    }
+}
+
+.button-container-alta{
+    @extend .button-container;
+    margin-top: 50px;
+}
+
+.button-container-bottom {
+    @extend .button-container;
+    margin: 50px 0;
+}
+
+.button--disabled {
+    cursor: not-allowed !important;
+    background: #ccc !important;
+    border: 1px solid #ccc !important;
+    color: rgba(0,0,0,.5);
+
+    &:hover {
+        opacity: 1 !important;
+        @include box-shadow(none !important);
+    }
+}
+
+.button--disabled--ddjj {
+    cursor: not-allowed !important;
+    background: $colorBlue !important;
+    border: 1px solid #ccc !important;
+    color: rgba(0,0,0,.5);
+    opacity: 0.5;
+
+    &:hover {
+        opacity: 1 !important;
+        @include box-shadow(none !important);
+    }
+    
+}
+
+.button-container {
+    margin-top: 50px;
+
+    .form-group-message {
+        display: inline-block;
+    }
+}
+
+.section__header,
+.form__header {
+    .button-container {
+        margin-top: 0px;
+    }
+}

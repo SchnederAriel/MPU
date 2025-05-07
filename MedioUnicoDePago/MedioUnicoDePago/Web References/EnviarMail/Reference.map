@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://labprueba3.anses.gov.ar:8080/checkmail/enviarmail.asmx?wsdl" filename="enviarmail.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://labprueba3.anses.gov.ar:8080/checkmail/enviarmail.asmx?disco" filename="enviarmail.disco" />
+  </Results>
+</DiscoveryClientResultsFile>

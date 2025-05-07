@@ -1,0 +1,22 @@
+2024-08-06 15:52:44,951 [9] INFO  CunaMiAnses.Filtros.ErrorHandler - ---> ERROR controlado desde Error handler
+2024-08-06 15:52:44,967 [9] ERROR CunaMiAnses.Filtros.ErrorHandler - Error tipo HTTPEXCEPTION en Contolador: Home - Método: Index : Error: Las siguientes secciones se han definido, pero no se han presentado para la página de diseño "~/Views/Shared/_Layout.cshtml": "Styles". - StackTrace:    en System.Web.WebPages.WebPageBase.VerifyRenderedBodyOrSections()
+   en System.Web.WebPages.WebPageBase.PopContext()
+   en System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   en System.Web.WebPages.WebPageBase.<>c__DisplayClass40_0.<RenderPageCore>b__0(TextWriter writer)
+   en System.Web.WebPages.HelperResult.WriteTo(TextWriter writer)
+   en System.Web.WebPages.WebPageBase.Write(HelperResult result)
+   en System.Web.WebPages.WebPageBase.RenderSurrounding(String partialViewName, Action`1 body)
+   en System.Web.WebPages.WebPageBase.PopContext()
+   en System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   en System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   en System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   en System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   en System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_6.<BeginInvokeAction>b__3()
+   en System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__5(IAsyncResult asyncResult)
+2024-08-06 15:52:45,014 [19] INFO  CunaMiAnses.Controllers.ErrorController - --->  traking en error controller
+2024-08-06 15:52:45,014 [19] INFO  CunaMiAnses.Controllers.ErrorController - ---> ERROR: - Las siguientes secciones se han definido, pero no se han presentado para la página de diseño "~/Views/Shared/_Layout.cshtml": "Styles".

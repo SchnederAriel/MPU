@@ -1,0 +1,55 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error - CUNA</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/moment")
+    @Scripts.Render("~/bundles/moment")
+    <script src="~/Scripts/Componentes/GlobalFn.js"></script>
+    <style>
+        .message {
+            margin-top: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="message"></div>
+
+
+
+        @*<div class="text-align--right button-container-alta ">
+            @if (Aplicacion.Ambiente.Equals("DESA") || Aplicacion.Ambiente.Equals("TEST"))
+            {
+                <button type="submit" class="button--blue-border" onclick="location.href='@Url.Action("Index", "IngresoCuil", new { area = "Desa" })'">Inicio</button>
+            }
+            <button type="submit" id="btnSend" class="button--blue" onclick="location.href='@Url.Action("Index", "Dashboard", new { area= "", cuil = @Model.cuil})'">volver al panel principal</button>
+        </div>*@
+
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            oMessage.alert.show({
+                id: ".message",
+                messages: ["Por favor vuelva a ingresar a la aplicación.", "descripción técnica: " @ViewData["mensaje"].ToString() ],
+                title: "Caducó la sesión de usuario",
+                status: "warning"
+            })
+
+        });
+    </script>
+
+</body>
+</html>
+

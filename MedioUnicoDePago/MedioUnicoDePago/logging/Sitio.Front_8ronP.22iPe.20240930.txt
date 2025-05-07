@@ -1,0 +1,1 @@
+2024-09-30 22:29:37,141 [5] ERROR MedioUnicoDePago.Filtros.RequiereAutenticacionAttribute - !!!!!!!!!!!!!ERROR AL OBTENER LOS DATOS DE LAS CREDENCIALES

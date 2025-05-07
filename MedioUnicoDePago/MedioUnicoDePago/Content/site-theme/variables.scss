@@ -1,0 +1,56 @@
+//-----------------------------
+//
+//    Variables
+//
+//-----------------------------
+$screen-xs: 480px !default;
+$screen-sm: 768px !default;
+$screen-md: 992px !default;
+$screen-lg: 1200px !default;
+
+// __COLORES
+$colorBlue: #00519a;
+$colorTextInput: #ccc;
+$colorRed: #fb607f;
+$colorGreen: #a8d26b;
+$colorYellow: #fdb44d;
+$colorGray: #D7D7D7;
+$ColorTitle: #1f2532;
+$colorSubtitle: #7e8890;
+$colorLink: #656565;
+$colorTextSuccess: #006100;
+$colorTextError: #BE0006;
+$colorTextWarning: #9C653E;
+$colorTextSuccess614: #35BF5A; 
+
+// Modulos
+$colorHistTramites: #8b7fc7;
+$colorApoderado: #fdb44d;
+$colorDepoJudicial: #fa5f7e;
+$colorDerechoHabiente: #a8d26b;
+$colorCertNegativa: #ff854d;
+$colorRenunciaCobro: #4886fe;
+
+
+//Iconos
+
+$icon-error: "\e900";
+$icon-ok: "\e901";
+$icon-warning: "\e902";
+$icon-help: "\e903";
+$icon-left-arrow: "\e904";
+$icon-right-arrow: "\e905";
+$icon-home: "\e906";
+$icon-search: "\e907";
+$icon-edit: "\e908";
+$icon-trash: "\e909";
+
+//Menu-Admin
+$default-font: arial, sans-serif;
+$text: rgba(0, 0, 0, 0.87);
+$defaulImagePath: "../Content/Images/";
+$white: #fff;
+$shadowColor: rgba(0, 0, 0, 0.2);
+
+//Variable para Espaciado
+$spacing: 10px;

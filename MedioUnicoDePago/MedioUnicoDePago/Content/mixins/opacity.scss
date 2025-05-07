@@ -1,0 +1,13 @@
+//-----------------------------
+//
+//    Opacity Mixins
+//
+//-----------------------------
+
+@mixin opacity ($opacity) {
+  -webkit-opacity:  $opacity;
+  -moz-opacity:     $opacity;
+  opacity:          $opacity;
+}
+
+//** Como aplicarlo? @include opacity(0.5); **

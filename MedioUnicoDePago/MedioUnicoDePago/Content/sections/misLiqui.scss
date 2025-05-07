@@ -1,0 +1,48 @@
+﻿.message-container .message--error
+{
+ 
+    color: #f44336;
+    border: 1px solid #f44336;
+    font-size: 15px;
+    width: 100%;
+    font-weight: 800;
+    text-align: left;
+    margin-bottom: 5px;
+    background-color: #f8d7da;
+    margin-top: 32px;
+ 
+}
+ 
+  
+ 
+@media only screen and (max-width: 840px) {
+
+    .tabla-datos tr {
+        border: 1px solid #dee2e6;
+    }
+
+    table.dataTable thead th, table.dataTable thead td {
+        padding: 2px;
+        border-bottom: 1px solid #111;
+    }
+
+    table.dataTable tbody th, table.dataTable tbody td {
+        padding: 4px 4px;
+    }
+
+    .font--text, body, .table-container .table .table__body .table__row .table__column, .table-container .table .table__body .table__row td, .table-container .table .table__body tr .table__column, .table-container .table .table__body tr td, .table-container .table tbody .table__row .table__column, .table-container .table tbody .table__row td, .table-container .table tbody tr .table__column, .table-container .table tbody tr td, .form-group-option .form-group__item .form__label {
+        font-weight: 400;
+        font-size: 9px;
+        color: #000;
+    }
+    table.dataTable.no-footer {
+        border-bottom: 1px solid #111;
+        width:unset!important;
+    }
+ 
+    table__title sorting_disabled{
+    width:unset!important;
+    }
+
+}
+
