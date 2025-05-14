@@ -81,57 +81,61 @@
             <h1>Seleccione su Medio de Cobro para percibir todas sus prestaciones</h1>
 
             <div class="mb-4">
-                <h5 class="section-title">Cambio de lugar de cobro.</h5>
-                <p class="subtitle">Si quiere cambiar el lugar donde recibe su asignación familiar podrá elegir entre: acreditación en cuenta (CBU), banco por código postal o billetera virtual. Simplifique su trámite según sus preferencias. ¡La elección es comodidad!</p>
+                <!-- AS - 20250514 - MEJORA A6) Debe decir: Para cobrar tus asignaciones familiares  y otras prestaciones (Asignacion Universal, Voucher educativo, etc. ) podés elegir entre: acreditación en cuenta (CBU), banco digital o billetera virtual, o banco por código postal (si elegís esta opción, al ir cobrar por primera vez, tenés que firmar la apertura de la cuenta).   -->
+                <!-- <h5 class="section-title">Cambio de lugar de cobro.</h5> -->
+                <p class="subtitle">Para cobrar tus asignaciones familiares  y otras prestaciones (Asignacion Universal, Voucher educativo, etc. ) podés elegir entre: acreditación en cuenta (CBU), banco digital o billetera virtual, o banco por código postal (si elegís esta opción, al ir cobrar por primera vez, tenés que firmar la apertura de la cuenta). </p>
             </div>
 
             <div class="alert alert-info" role="alert">
-                <strong>Forma de pago - Importante:</strong> Al elegir un nuevo medio, éste sustituirá permanentemente la opción anterior.
+                <!-- AS - 20250514 - MEJORA A7) Sugiere eliminar "Forma de pago", Debe decir: al seleccionar un nuevo medio de cobro reemplazás en forma permanente el medio donde actualmente cobrás tus asignaciones familiares y otras prestaciones (Asignacion Universal, Voucher educativo, etc. ).   -->
+                <strong>Importante:</strong> al seleccionar un nuevo medio de cobro reemplazás en forma permanente el medio donde actualmente cobrás tus asignaciones familiares y otras prestaciones (Asignacion Universal, Voucher educativo, etc. ).
             </div>
 
-            <div class="mb-4">
-                <h5 class="section-title">Medio de pago actual</h5>
-                <div class="blue-bg">
-                    <strong>Medio de pago</strong>
+                <div class="mb-4">
+                    <!-- AS - 20250514 - MEJORA A22) Debe decir: Medio de cobro actual -->
+                    <h5 class="section-title">Medio de cobro actual</h5>
+                    <div class="blue-bg">
+                        <!-- AS - 20250514 - MEJORA A22) Debe decir: Medio de cobro -->
+                        <strong>Medio de cobro</strong>
+                    </div>
+                    <p class="mt-2">@(ViewBag.MedioPagoActual != null && !string.IsNullOrEmpty(ViewBag.MedioPagoActual) ? ViewBag.MedioPagoActual : "No tiene MPU ")</p>
                 </div>
-                <p class="mt-2">@(ViewBag.MedioPagoActual != null && !string.IsNullOrEmpty(ViewBag.MedioPagoActual) ? ViewBag.MedioPagoActual : "No tiene MPU ")</p>
-            </div>
 
-            <div class="d-flex justify-content-end mt-4">
-                @if (ViewBag.UDAI != null && (bool)ViewBag.UDAI)
-                {
-                    <a href="@Url.Action("GuardarMDP", "Home")" class="btn btn-primary">Modificar</a> }
-                else
-                {
-                    if ((bool)ViewBag.NoModificar==false)
+                <div class="d-flex justify-content-end mt-4">
+                    @if (ViewBag.UDAI != null && (bool)ViewBag.UDAI)
                     {
-                        if (ViewBag.ValidarPersona != null && (bool)ViewBag.ValidarPersona)
+                        <a href="@Url.Action("GuardarMDP", "Home")" class="btn btn-primary">Modificar</a> }
+                    else
+                    {
+                        if ((bool)ViewBag.NoModificar==false)
                         {
-                            <a href="@Url.Action("VerificarCelular", "Home")" class="btn btn-primary">Modificar</a>
+                            if (ViewBag.ValidarPersona != null && (bool)ViewBag.ValidarPersona)
+                            {
+                                <a href="@Url.Action("VerificarCelular", "Home")" class="btn btn-primary">Modificar</a>
 
 
+                            }
+                            else
+                            {
+                                <a href="@Url.Action("GuardarMDP", "Home")" class="btn btn-primary">Modificar</a>
+                            }
                         }
                         else
                         {
-                            <a href="@Url.Action("GuardarMDP", "Home")" class="btn btn-primary">Modificar</a>
-                        }
-                    }
-                    else
-                    {
-            <p class="danger">
-                Es necesario que mantengas tu medio de cobro actual por al menos @ViewBag.DiasNoDejaCargarMDP días. Luego podrás realizar el cambio.
-            </p>
+                <p class="danger">
+                    Es necesario que mantengas tu medio de cobro actual por al menos @ViewBag.DiasNoDejaCargarMDP días. Luego podrás realizar el cambio.
+                </p>
+                                            }
+
                                         }
 
-                                    }
+
+                </div>
 
 
             </div>
-
-
         </div>
     </div>
-</div>
 
 
 

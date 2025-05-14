@@ -198,10 +198,11 @@ namespace MedioUnicoDePago.Controllers
                         log.Error("Es zona austral: " + EsZonaAustral);
                         if(EsZonaAustral)
                         {
-                            return "ATENCION: si vivís en una Zona Austral, " +
-                               "antes de seleccionar un nuevo medio de cobro " +
-                               "acreditá tu domicilio en una oficina de ANSES para " +
-                               "mantener el pago adicional por zona";
+                            // AS - 20250514 - MEJORA A8) Debe decir: IMPORTANTE: Si vivís en una zona austral y elegís como medio de cobro billetera virtual o CBU no nos será posible identificar tu zona geográfica y, en consecuencia, no recibirás el diferencial por zona
+                            return "IMPORTANTE: Si vivís en una zona austral " +
+                               "y elegís como medio de cobro billetera virtual " +
+                               "o CBU no nos será posible identificar tu zona geográfica " +
+                               "y, en consecuencia, no recibirás el diferencial por zona";
                         }
 
                         }
@@ -741,7 +742,7 @@ namespace MedioUnicoDePago.Controllers
                     this._token = Credencial.ObtenerCredencial();
 
                     log.Info("OBTUVE TOKEN");
-
+                    
                     //Se crea una variable de tipo DirectorMV para guardar la cookie "token"
                     director = new DirectorMV
                     {

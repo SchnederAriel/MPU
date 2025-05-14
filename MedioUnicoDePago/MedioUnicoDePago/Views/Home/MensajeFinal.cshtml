@@ -53,50 +53,56 @@
 <div class="container">
     <div class="card">
         <div class="card-body">
-            <h1>Seleccione su Medio de Cobro para percibir todas sus prestaciones</h1>
+            <!-- AS - 20250514 - MEJORA A2) Debe decir:  Seleccioná tu medio de cobro para recibir tus asignaciones y otras prestaciones  -->
+            <h1>Seleccioná tu medio de cobro para recibir tus asignaciones y otras prestaciones </h1>
 
             <div class="mb-4">
-                <h5 class="subtitle">Cambio de lugar de cobro.</h5>
-                <p>Si quiere cambiar el lugar donde recibe su asignación familiar podrá elegir entre: acreditación en cuenta (CBU), banco por código postal o billetera virtual. Simplifique su trámite según sus preferencias. ¡La elección es comodidad!</p>
+                <!-- AS - 20250514 - MEJORA A3) Sugiere eliminar el subtitulo y debe decir: Para cobrar tus asignaciones familiares y otras prestaciones (Asignacion Universal, Vouchers Educativos, etc. ) podés elegir entre: acreditación en cuenta (CBU), banco digital o billetera virtual, o banco por código postal (si elegís esta opción, al ir cobrar por primera vez, tenés que firmar la apertura de la cuenta).   -->
+                <!-- <h5 class="subtitle">Cambio de lugar de cobro.</h5> -->
+                <p>Para cobrar tus asignaciones familiares y otras prestaciones (Asignacion Universal, Vouchers Educativos, etc. ) podés elegir entre: acreditación en cuenta (CBU), banco digital o billetera virtual, o banco por código postal (si elegís esta opción, al ir cobrar por primera vez, tenés que firmar la apertura de la cuenta). </p>
             </div>
 
-            <div class="alert alert-success" role="alert">
-                Tu solicitud para cambiar el medio de cobro se envió correctamente.
+    <div class="alert alert-success" role="alert">
+        Tu solicitud para cambiar el medio de cobro se envió correctamente.
+    </div>
+
+    <!-- Comprobante de datos -->
+                <div class="datos-tramite" id="comprobante">
+                    <!-- AS - 20250514 - MEJORA A13) Debe decir: Comprobante de trámite -->
+                    <h3>Comprobante de trámite</h3>
+                    <p>
+                        <strong>TITULAR:</strong> @ViewBag.Titular | @ViewBag.Cuil
+                    </p>
+
+                    <p>
+                        <strong>DATOS DEL TRÁMITE</strong><br />
+                        Fecha presentación: @ViewBag.Fecha<br />
+                        Estado del trámite: @ViewBag.Estado<br />
+                        <!-- AS - 20250514 - MEJORA A14) Debe decir: Trámite realizado: Medio de cobro -->
+                        Trámite realizado: Medio de cobro<br />
+                        Tipo de trámite: @ViewBag.Tramite
+                    </p>
+
+                    <p>
+                        <!-- AS - 20250514 - MEJORA A15) Debe decir: El solicitante, CUIL: 27318564588 realizó un alta de medio de cobro con vigencia desde 04/2025 -->
+                        El solicitante <strong>@ViewBag.Titular</strong>, CUIL: <strong>@ViewBag.Cuil</strong>
+                        realizó un alta de medio de cobro con vigencia desde <strong>@ViewBag.Vigencia</strong>.
+                    </p>
+
+                    <p>
+                        <!-- AS - 20250514 - MEJORA A16) Debe decir: Banco, Agencia, CBU -->
+                        <strong>Datos del medio de Cobro</strong><br />
+                        Banco: @ViewBag.Banco<br />
+                        Agencia: @ViewBag.Agencia<br />
+                        CBU: @ViewBag.CBU
+                    </p>
+                </div>
+
+                <div class="btn-imprimir">
+                    <!-- Botón que abre el cuadro de diálogo de impresión (el usuario puede "Guardar como PDF") -->
+                    <button class="btn btn-primary" onclick="imprimirComprobante();">Imprimir comprobante</button>
+                </div>
             </div>
-
-            <!-- Comprobante de datos -->
-            <div class="datos-tramite" id="comprobante">
-                <h3>Comprobante de Trámite</h3>
-                <p>
-                    <strong>TITULAR:</strong> @ViewBag.Titular | @ViewBag.Cuil
-                </p>
-
-                <p>
-                    <strong>DATOS DEL TRÁMITE</strong><br />
-                    Fecha presentación: @ViewBag.Fecha<br />
-                    Estado del trámite: @ViewBag.Estado<br />
-                    Trámite realizado: Medio De Pago<br />
-                    Tipo de trámite: @ViewBag.Tramite
-                </p>
-
-                <p>
-                    El solicitante <strong>@ViewBag.Titular</strong>, CUIL: <strong>@ViewBag.Cuil</strong>
-                    realizó un Alta de Medio De Cobro con vigencia desde <strong>@ViewBag.Vigencia</strong>.
-                </p>
-
-                <p>
-                    <strong>Datos del medio de Cobro</strong><br />
-                    Bco: @ViewBag.Banco<br />
-                    Age: @ViewBag.Agencia<br />
-                    CBU: @ViewBag.CBU
-                </p>
-            </div>
-
-            <div class="btn-imprimir">
-                <!-- Botón que abre el cuadro de diálogo de impresión (el usuario puede "Guardar como PDF") -->
-                <button class="btn btn-primary" onclick="imprimirComprobante();">Imprimir comprobante</button>
-            </div>
-        </div>
     </div>
 </div>
 

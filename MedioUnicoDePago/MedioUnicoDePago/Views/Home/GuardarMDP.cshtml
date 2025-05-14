@@ -119,7 +119,8 @@
 <div class="container">
     <div class="card">
         <div class="card-body">
-            <h1>Seleccione su Medio de Cobro para percibir todas sus prestaciones</h1>
+            <!-- AS - 20250514 - MEJORA A5) Debe decir: Seleccioná tu medio de cobro para recibir tus asignaciones familiares y prestaciones  -->
+            <h1>Seleccioná tu medio de cobro para recibir tus asignaciones familiares y prestaciones </h1>
 
             <div class="mb-4">
                 <h5 class="subtitle">Cambio de lugar de cobro.</h5>
@@ -127,7 +128,8 @@
             </div>
 
             <div class="alert alert-info" role="alert">
-                <strong>Forma de pago - Importante:</strong> Al elegir un nuevo medio, éste sustituirá permanentemente la opción anterior.
+                <!-- AS - 20250514 - MEJORA A4) Elimina "Forma de pago" Debe decir: al seleccionar un nuevo medio de cobro reemplazás en forma permanente el medio donde actualmente cobrás tus asignaciones familiares y prestaciones  -->
+                <strong>Importante:</strong> al seleccionar un nuevo medio de cobro reemplazás en forma permanente el medio donde actualmente cobrás tus asignaciones familiares y prestaciones
             </div>
 
             <!-- 1) Mensaje de Zona Austral, solo si ViewBag.MensajeZonaAustral no está vacío -->
@@ -158,7 +160,8 @@
             </div>
 
             <div id="virtualOptions" style="display: none;">
-                <h5>Seleccione el tipo de cuenta virtual:</h5>
+                <!-- AS - 20250514 - MEJORA A24) Debe decir: Seleccioná el tipo de medio de cobro virtual -->
+                <h5>Seleccioná el tipo de medio de cobro virtual</h5>
                 <div class="option-container">
                     <div class="option-button" id="btnBancoDigital">BANCO DIGITAL</div>
                     <div class="option-button" id="btnBilleteraVirtual">BILLETERA VIRTUAL</div>
@@ -174,7 +177,8 @@
                            maxlength="4"
                            pattern="\d{4}"
                            onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-                    <button id="btnBuscarSucursales" class="btn btn-primary mt-2">Buscar Sucursales</button>
+                    <button id="btnBuscarSucursales" class="btn btn-primary mt-2">Buscar sucursales</button>
+                    <!-- AS - 20250514 - MEJORA A11) Debe decir: Buscar sucursales -->
                 </div>
                 <div id="listaSucursales" style="display: none;">
                     <label for="sucursalSelect">Seleccione una sucursal:</label>
@@ -188,7 +192,8 @@
             </div>
 
             <div id="listaVirtual" style="display: none;">
-                <label for="virtualSelect">Seleccione una opción:</label>
+                <!-- AS - 20250514 - MEJORA A25) Debe decir: Seleccioná una opción -->
+                <label for="virtualSelect">Seleccioná una opción:</label>
                 <select id="virtualSelect" class="form-control"></select>
             </div>
 
@@ -202,12 +207,13 @@
             </div>
             @if (!string.IsNullOrEmpty(ViewBag.MensajeGenericoZonaAustral))
             {
-                <div id="msgGenAustral" class="alert alert-warning" role="alert"  style="display: none;">
+                <div id="msgGenAustral" class="alert alert-warning" role="alert" style="display: none;">
                     @ViewBag.MensajeGenericoZonaAustral
                 </div>
             }
+            <!-- AS - 20250514 - MEJORA A10) Debe decir: Tené en cuenta que en este nuevo medio de cobro vas a recibir todas las asignaciones y prestaciones de ANSES (excepto las de jubilación o pensión).  -->
             <p class="danger">
-                Tené en cuenta que en este nuevo medio de cobro vas a percibir todas las prestaciones de ANSES, con excepción de las previsionales.
+                Tené en cuenta que en este nuevo medio de cobro vas a recibir todas las asignaciones y prestaciones de ANSES (excepto las de jubilación o pensión).
             </p>
 
 
@@ -304,12 +310,14 @@
                         } else {
                             if (bancos && bancos.length > 0) {
                                 borrarError();
-                                mostrarError('ATENCIÓN: si vivís a más de 40 km del banco y queres cobrar en el correo tenes que hacer el trámite en una oficina de ANSES.');
+                                // AS - 20250514 - MEJORA A28) Debe decir: ATENCIÓN: si para el código postal que ingresaste no hay bancos o están a más de 40 km de donde vivís, y no tenés una billetera virtual o CBU, acercate a una oficina de ANSES con la documentación que acredite tu domicilio para hacer el cambio de medio de cobro
+                                mostrarError('ATENCIÓN: si para el código postal que ingresaste no hay bancos o están a más de 40 km de donde vivís, y no tenés una billetera virtual o CBU, acercate a una oficina de ANSES con la documentación que acredite tu domicilio para hacer el cambio de medio de cobro.');
 
                                 llenarSelect('#sucursalSelect', bancos);
                                 $('#listaSucursales').show();
                             } else {
-                                mostrarError('ATENCIÓN: No existen bancos físicos para el código postal ingresado. Para el código postal que ingresaste el cambio de medio de cobro se realiza en una oficina de ANSES.');
+                                // AS - 20250514 - MEJORA A27) Debe decir: ATENCIÓN: no hay una sucursal bancaria para el código postal ingresado. Acercate a una oficina de ANSES para hacer el cambio de medio de cobro
+                                mostrarError('ATENCIÓN: no hay una sucursal bancaria para el código postal ingresado. Acercate a una oficina de ANSES para hacer el cambio de medio de cobro.');
                             }
                         }
                     },
@@ -429,7 +437,8 @@
                     case 'btnCBU':
                         data.valor = $('#cbu').val();
                         if (!data.valor || data.valor.length !== 22) {
-                            mostrarError("Por favor, ingrese un CBU válido de 22 dígitos.");
+                            // AS - 20250514 - MEJORA A26) Debe decir: Por favor, ingresá una CBU válida de 22 dígitos
+                            mostrarError("Por favor, ingresá una CBU válida de 22 dígitos.");
                             return;
                         }
                         validarCBU(data.valor);
