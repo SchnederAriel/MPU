@@ -144,11 +144,24 @@
             <div class="option-container">
                 @if (ViewBag.Error == "0")
                 {
-                    <div class="option-button" id="btnBanco">SUCURSAL BANCARIA (AGENTE PAGADOR)</div>
+                    <!-- Opción: Sucursal Bancaria -->
+                    <div class="form-check">
+                        <input class="form-check-input option-button" type="radio" name="medioPago" id="btnBanco" />
+                        <label class="form-check-label" for="btnBanco">SUCURSAL BANCARIA (AGENTE PAGADOR)</label>
+                    </div>
+
+                    @* Opción: Virtual *@
                     if (ViewBag.UDAI == false)
                     {
-                        <div class="option-button" id="btnVirtual">VIRTUAL</div>
-                        <div class="option-button" id="btnCBU">ACREDITACIÓN EN CUENTA (CBU)</div>
+                        <div class="form-check">
+                            <input class="form-check-input option-button" type="radio" name="medioPago" id="btnVirtual" />
+                            <label class="form-check-label" for="btnVirtual">VIRTUAL</label>
+                        </div>
+                        <!-- Opción: CBU -->
+                        <div class="form-check">
+                            <input class="form-check-input option-button" type="radio" name="medioPago" id="btnCBU" />
+                            <label class="form-check-label" for="btnCBU">ACREDITACIÓN EN CUENTA (CBU)</label>
+                        </div>
                     }
                 }
                 else
@@ -159,15 +172,23 @@
                 }
             </div>
 
+            <!-- Bloque de opciones virtuales -->
             <div id="virtualOptions" style="display: none;">
                 <!-- AS - 20250514 - MEJORA A24) Debe decir: Seleccioná el tipo de medio de cobro virtual -->
                 <h5>Seleccioná el tipo de medio de cobro virtual</h5>
                 <div class="option-container">
-                    <div class="option-button" id="btnBancoDigital">BANCO DIGITAL</div>
-                    <div class="option-button" id="btnBilleteraVirtual">BILLETERA VIRTUAL</div>
+                    <!-- Opción: Banco Digital -->
+                    <div class="form-check">
+                        <input class="form-check-input option-button" type="radio" name="medioVirtual" id="btnBancoDigital" />
+                        <label class="form-check-label" for="btnBancoDigital">BANCO DIGITAL</label>
+                    </div>
+                    <!-- Opción: Billetera Virtual -->
+                    <div class="form-check">
+                        <input class="form-check-input option-button" type="radio" name="medioVirtual" id="btnBilleteraVirtual" />
+                        <label class="form-check-label" for="btnBilleteraVirtual">BILLETERA VIRTUAL</label>
+                    </div>
                 </div>
             </div>
-
             <div id="sucursalOptions" style="display: none;">
                 <div id="codigoPostalInput">
                     <label for="codigoPostal">Código Postal:</label>
@@ -242,25 +263,26 @@
         $(document).ready(function() {
 
             // ----------------------------
-            // 1) Lógica original
+	// 1) Lógica original adaptada a radio buttons
             // ----------------------------
             $('.option-button').click(function() {
                 $('.option-button').removeClass('active');
                 $(this).addClass('active');
                 $('#virtualOptions, #sucursalOptions, #cbuInput, #listaVirtual, #cvuInput, #msgGenAustral').hide();
-                
 
-                if (this.id === 'btnBanco') {
+                var selectedId = $(this).attr('id');
+                if (selectedId === 'btnBanco') {
                     $('#sucursalOptions').show();
                     $('#btnGuardar').show();
-                } else if (this.id === 'btnVirtual') {
+                } else if (selectedId === 'btnVirtual') {
                     $('#virtualOptions').show();
                     $('#msgGenAustral').show();
-                } else if (this.id === 'btnCBU') {
+                } else if (selectedId === 'btnCBU') {
                     $('#cbuInput').show();
                     $('#msgGenAustral').show();
                     $('#btnGuardar').show();
                 }
+                $('input[type=radio][name=medioPago]:checked, input[type=radio][name=medioVirtual]:checked').prop('checked', true);
             });
 
             let isCVU = 0;
@@ -278,14 +300,9 @@
                 }
             });
             $('#btnVirtual').click(function () {
-                
                 $('#btnGuardar').hide();
-                
-
-               
             });
-
-            $('#btnBuscarSucursales').click(function() {
+	$('#btnBuscarSucursales').click(function() {
                 var codigoPostal = $('#codigoPostal').val();
                 if (codigoPostal) {
                     borrarError();
@@ -301,7 +318,8 @@
                     success: function(bancos) {
                         if (udai == "true") {
                             if (bancos && bancos.length > 0) {
-                                mostrarError('Existen bocas de pago bancarias, deberá realizar el trámite en MI ANSES');
+                                // AS - 20250514 - MEJORA A31) Debe decir: Existen bocas de pago bancarias. Deberá realizar el trámite en mi ANSES
+                                mostrarError('Existen bocas de pago bancarias. Deberá realizar el trámite en mi ANSES');
                                 return;
                             } else {
                                 borrarError();
@@ -552,7 +570,7 @@
             }
             //AS - 20250407 - Mejora 370. - Ver de ocultar la opción de Bancos Virtuales
             $('#btnBancoDigital').hide();
-            
+
             // ----------------------------
             // 3) Si error != "0", mostrar mensaje
             // ----------------------------
