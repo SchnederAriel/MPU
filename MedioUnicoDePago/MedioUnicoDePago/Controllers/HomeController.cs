@@ -20,6 +20,7 @@ using MedioUnicoDePago.EnviarMail;
 using System.Collections.Generic;
 using MedioUnicoDePago.Filtros;
 using System.IO;
+using System.Web.UI.WebControls.WebParts;
 
 namespace MedioUnicoDePago.Controllers
 {
@@ -180,10 +181,22 @@ namespace MedioUnicoDePago.Controllers
 
                     if (response.Retorno.CodigoRetorno == 99)
                     {
-                        return "ATENCION: si vivís en una Zona Austral, " +
-                               "antes de seleccionar un nuevo medio de cobro " +
-                               "acreditá tu domicilio en una oficina de ANSES para " +
-                               "mantener el pago adicional por zona";
+                    // AS - 20250516 - MEJORA B4) Debe decir: ATENCIÓN: Verificá si corresponde solicitar la documentación del domicilio para que la persona pueda cobrar el adicional por zona austral. 
+                        if (ViewBag.UDAI != null && (bool)ViewBag.UDAI)
+                        {
+                            return "ATENCION: Verificá si corresponde solicitar " +
+                                   "la documentación del domicilio para que " +
+                                   "la persona pueda cobrar el adicional " +
+                                   "por zona austral";
+                        }
+                        else
+                        {
+                            return "ATENCION: si vivís en una Zona Austral, " +
+                                   "antes de seleccionar un nuevo medio de cobro " +
+                                   "acreditá tu domicilio en una oficina de ANSES para " +
+                                   "mantener el pago adicional por zona";
+                        }
+                    
                     }else if (response.Retorno.CodigoRetorno != 99 &&
                          response.DatosZonaAustral.domicilio.c_comprobante_domicilio_1 == 0 &&
                          response.DatosZonaAustral.domicilio.c_comprobante_domicilio_2 == 0)

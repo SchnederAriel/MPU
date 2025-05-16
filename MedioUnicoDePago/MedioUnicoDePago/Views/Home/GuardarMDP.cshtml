@@ -124,7 +124,16 @@
 
             <div class="mb-4">
                 <h5 class="subtitle">Cambio de lugar de cobro.</h5>
-                <p>Si quiere cambiar el lugar donde recibe su asignación familiar podrá elegir entre: acreditación en cuenta (CBU), banco por código postal o billetera virtual. Simplifique su trámite según sus preferencias. ¡La elección es comodidad!</p>
+                <!-- AS - 20250516 - MEJORA B3) Debe Decir: Desde esta pantalla seleccioná el medio de cobro correspondiente a correo/zona rural  -->
+                @if (ViewBag.UDAI != null && (bool)ViewBag.UDAI)
+                {
+                    <p>Desde esta pantalla seleccioná el medio de cobro correspondiente a correo/zona rural </p>
+                }
+                else
+                {
+                    <p>Si quiere cambiar el lugar donde recibe su asignación familiar podrá elegir entre: acreditación en cuenta (CBU), banco por código postal o billetera virtual. Simplifique su trámite según sus preferencias. ¡La elección es comodidad!</p>
+                }
+
             </div>
 
             <div class="alert alert-info" role="alert">
@@ -233,9 +242,19 @@
                 </div>
             }
             <!-- AS - 20250514 - MEJORA A10) Debe decir: Tené en cuenta que en este nuevo medio de cobro vas a recibir todas las asignaciones y prestaciones de ANSES (excepto las de jubilación o pensión).  -->
-            <p class="danger">
-                Tené en cuenta que en este nuevo medio de cobro vas a recibir todas las asignaciones y prestaciones de ANSES (excepto las de jubilación o pensión).
-            </p>
+            <!-- AS - 20250516 - MEJORA B5) Debe decir: En el nuevo medio de cobro informado la persona va a empezar a cobrar todas sus asignaciones familiares y otras prestaciones (excepto jubilación o pensión).  -->
+            @if (ViewBag.UDAI != null && (bool)ViewBag.UDAI)
+            {
+                <p class="danger">
+                    En el nuevo medio de cobro informado la persona va a empezar a cobrar todas sus asignaciones familiares y otras prestaciones (excepto jubilación o pensión).
+                </p>
+            }
+            else
+            {
+                <p class="danger">
+                    Tené en cuenta que en este nuevo medio de cobro vas a percibir todas las prestaciones de ANSES, con excepción de las previsionales.
+                </p>
+            }
 
 
             <div id="mensajeError" class="alert alert-danger mt-3" style="display: none;"></div>
@@ -319,7 +338,8 @@
                         if (udai == "true") {
                             if (bancos && bancos.length > 0) {
                                 // AS - 20250514 - MEJORA A31) Debe decir: Existen bocas de pago bancarias. Deberá realizar el trámite en mi ANSES
-                                mostrarError('Existen bocas de pago bancarias. Deberá realizar el trámite en mi ANSES');
+                                // AS - 20250516 - MEJORA B6) Debe decir: Existen sucursales bancarias para el código postal ingresado. La persona debe realizar el trámite de cambio de medio de cobro a través de mi ANSES
+                                mostrarError('Existen sucursales bancarias para el código postal ingresado. La persona debe realizar el trámite de cambio de medio de cobro a través de mi ANSES');
                                 return;
                             } else {
                                 borrarError();
