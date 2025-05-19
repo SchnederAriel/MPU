@@ -94,6 +94,11 @@
     .form-control {
         border-radius: 5px;
     }
+
+    /* Separar más el botón Guardar */
+    .btn-guardar-container {
+        margin-top: 30px;
+    }
 </style>
 
 <div class="container">
@@ -207,7 +212,7 @@
                 <input type="text" id="cvu" class="form-control" maxlength="22">
             </div>
 
-            <div class="mt-4">
+            <div class="btn-guardar-container">
                 <button id="btnGuardar" class="btn btn-primary" style="display: none;">Guardar</button>
             </div>
 
@@ -266,6 +271,8 @@
                     $('#btnGuardar').show();
                 } else if (selectedId === 'btnVirtual') {
                     $('#virtualOptions').show();
+                    // mostrar siempre Banco Digital debajo
+                    $('#btnBancoDigital').closest('.form-check').show();
                     $('#msgGenAustral').show();
                 } else if (selectedId === 'btnCBU') {
                     $('#cbuInput').show();
@@ -278,7 +285,7 @@
             let isCVU = 0;
             $('#btnBancoDigital, #btnBilleteraVirtual').click(function() {
                 $('#listaVirtual').show();
-                $('#btnGuardar').show();
+                $('.btn-guardar-container button').show();
                 if (this.id === 'btnBancoDigital') {
                     cargarBancosVirtuales();
                     isCVU = 0;
@@ -289,7 +296,7 @@
                 }
             });
             $('#btnVirtual').click(function () {
-                $('#btnGuardar').hide();
+                $('.btn-guardar-container button').hide();
             });
             $('#btnBuscarSucursales').click(function() {
                 var codigoPostal = $('#codigoPostal').val();
@@ -299,7 +306,7 @@
                 }
             });
 
-            function cargarBancosFisicos(codigoPostal) {
+			function cargarBancosFisicos(codigoPostal) {
                 $.ajax({
                     url: '@Url.Action("TraerBancosFisicos", "Home")',
                     type: 'GET',
@@ -502,7 +509,7 @@
                 $('#listaSucursales').hide();
             }
 
-            // ----------------------------
+			// ----------------------------
             // 2) Lógica extra: Edad & Apoderado
             //    Ocultar/mostrar botones (#btnBanco, #btnVirtual, #btnCBU)
             // ----------------------------
