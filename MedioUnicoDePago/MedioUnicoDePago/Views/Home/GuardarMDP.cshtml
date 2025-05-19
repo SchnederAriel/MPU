@@ -2,6 +2,7 @@
     ViewBag.Title = "Medio de Pago Único - ANSES";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 <link href="~/Content/Site.css" rel="stylesheet" />
 <style>
@@ -47,32 +48,37 @@
         border-radius: 5px;
     }
 
-    .btn-group {
-        width: 100%;
+    .option-container {
+        display: flex;
+        justify-content: space-between;
         margin-bottom: 20px;
     }
 
-    .btn-outline-primary {
-        border-color: #007bff;
-        color: #007bff;
-        background-color: transparent;
-        transition: all 0.3s ease;
+    /* Alineación inline de radio y texto */
+    .form-check {
+        display: flex;
+        align-items: center;
+        width: 30%;
+        cursor: pointer;
     }
 
-        .btn-outline-primary:hover,
-        .btn-outline-primary:focus,
-        .btn-outline-primary:active {
-            background-color: #007bff;
-            color: white;
-        }
+    .form-check-input.option-button {
+        margin: 0;
+        margin-right: 8px;
+        cursor: pointer;
+    }
 
-        .btn-outline-primary.active {
-            background-color: #007bff;
-            color: white;
-        }
+    .form-check-label {
+        margin: 0;
+        font-size: 14px;
+        cursor: pointer;
+        color: #007bff;
+    }
 
-    .form-control {
-        border-radius: 5px;
+    .form-check-input.option-button:hover,
+    .form-check-input.option-button.active {
+        background-color: #007bff;
+        color: #fff;
     }
 
     .btn-primary {
@@ -84,35 +90,9 @@
             background-color: #0056b3;
             border-color: #0056b3;
         }
-    /* Ajuste para lista vertical */
-    .option-container {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 20px;
-    }
 
-    .option-button {
-        width: 100%;
-        padding: 10px;
-        text-align: center;
-        background-color: #f8f9fa;
-        border: 1px solid #007bff;
-        color: #007bff;
-        cursor: pointer;
-        transition: all 0.3s;
-        margin-bottom: 10px;
-    }
-
-        .option-button:hover,
-        .option-button.active {
-            background-color: #007bff;
-            color: white;
-        }
-
-    #bancoOptions,
-    #sucursalOptions {
-        display: none;
-        margin-top: 20px;
+    .form-control {
+        border-radius: 5px;
     }
 </style>
 
@@ -120,13 +100,14 @@
     <div class="card">
         <div class="card-body">
             <!-- AS - 20250514 - MEJORA A5) Debe decir: Seleccioná tu medio de cobro para recibir tus asignaciones familiares y prestaciones  -->
-            <h1>Seleccioná tu medio de cobro para recibir tus asignaciones familiares y prestaciones </h1>
+            <h1>Seleccioná tu medio de cobro para recibir tus asignaciones familiares y prestaciones</h1>
+
             <div class="mb-4">
                 <h5 class="subtitle">Cambio de lugar de cobro.</h5>
                 <!-- AS - 20250516 - MEJORA B3) Debe Decir: Desde esta pantalla seleccioná el medio de cobro correspondiente a correo/zona rural  -->
                 @if (ViewBag.UDAI != null && (bool)ViewBag.UDAI)
                 {
-                    <p>Desde esta pantalla seleccioná el medio de cobro correspondiente a correo/zona rural </p>
+                    <p>Desde esta pantalla seleccioná el medio de cobro correspondiente a correo/zona rural</p>
                 }
                 else
                 {
@@ -156,6 +137,7 @@
                         <input class="form-check-input option-button" type="radio" name="medioPago" id="btnBanco" />
                         <label class="form-check-label" for="btnBanco">SUCURSAL BANCARIA (AGENTE PAGADOR)</label>
                     </div>
+
                     @* Opción: Virtual *@
                     if (ViewBag.UDAI == false)
                     {
@@ -196,15 +178,10 @@
                 </div>
             </div>
 
-            <div id="sucursalOptions" style="display: none;">
+            <div id="sucursalOptions" style="display: none; margin-top:20px;">
                 <div id="codigoPostalInput">
                     <label for="codigoPostal">Código Postal:</label>
-                    <input type="text"
-                           id="codigoPostal"
-                           class="form-control"
-                           maxlength="4"
-                           pattern="\d{4}"
-                           onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                    <input type="text" id="codigoPostal" class="form-control" maxlength="4" pattern="\d{4}" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                     <!-- AS - 20250514 - MEJORA A11) Debe decir: Buscar sucursales -->
                     <button id="btnBuscarSucursales" class="btn btn-primary mt-2">Buscar sucursales</button>
                 </div>
@@ -213,68 +190,76 @@
                     <select id="sucursalSelect" class="form-control"></select>
                 </div>
             </div>
-            <div id="cbuInput" style="display: none;">
+
+            <div id="cbuInput" style="display: none; margin-top:20px;">
                 <label for="cbu">CBU:</label>
                 <input type="text" id="cbu" class="form-control" maxlength="22">
             </div>
-            <div id="listaVirtual" style="display: none;">
+
+            <div id="listaVirtual" style="display: none; margin-top:20px;">
                 <!-- AS - 20250514 - MEJORA A25) Debe decir: Seleccioná una opción -->
                 <label for="virtualSelect">Seleccioná una opción:</label>
                 <select id="virtualSelect" class="form-control"></select>
             </div>
-            <div id="cvuInput" style="display: none;">
+
+            <div id="cvuInput" style="display: none; margin-top:20px;">
                 <label for="cvu">CVU:</label>
                 <input type="text" id="cvu" class="form-control" maxlength="22">
             </div>
+
             <div class="mt-4">
                 <button id="btnGuardar" class="btn btn-primary" style="display: none;">Guardar</button>
             </div>
+
             @if (!string.IsNullOrEmpty(ViewBag.MensajeGenericoZonaAustral))
             {
-                <div id="msgGenAustral" class="alert alert-warning" role="alert" style="display: none;">
+                <div id="msgGenAustral" class="alert alert-warning" role="alert" style="display: none; margin-top:20px;">
                     @ViewBag.MensajeGenericoZonaAustral
                 </div>
             }
+
             <!-- AS - 20250514 - MEJORA A10) Debe decir: Tené en cuenta que en este nuevo medio de cobro vas a recibir todas las asignaciones y prestaciones de ANSES (excepto las de jubilación o pensión).  -->
             <!-- AS - 20250516 - MEJORA B5) Debe decir: En el nuevo medio de cobro informado la persona va a empezar a cobrar todas sus asignaciones familiares y otras prestaciones (excepto jubilación o pensión).  -->
             @if (ViewBag.UDAI != null && (bool)ViewBag.UDAI)
             {
-                <p class="danger">
+                <p class="danger" style="margin-top:20px;">
                     En el nuevo medio de cobro informado la persona va a empezar a cobrar todas sus asignaciones familiares y otras prestaciones (excepto jubilación o pensión).
                 </p>
             }
             else
             {
-                <p class="danger">
+                <p class="danger" style="margin-top:20px;">
                     Tené en cuenta que en este nuevo medio de cobro vas a percibir todas las prestaciones de ANSES, con excepción de las previsionales.
                 </p>
             }
+
             <div id="mensajeError" class="alert alert-danger mt-3" style="display: none;"></div>
         </div>
     </div>
 </div>
+
 @section Scripts {
     <script>
         // ===== Variables traídas de ViewBag para uso en JavaScript =====
         var udai  = '@ViewBag.UDAI'.toLowerCase();
         var error = '@ViewBag.Error'.toLowerCase();
         var cui   = '@ViewBag.cuil'.toLowerCase();
+
         // 3) Restricciones de Edad & Apoderado (booleans)
-        //    Estas variables las setea el Controller y las enviamos por ViewBag:
         var esMenor13       = ('@ViewBag.EsMenor13'       === 'True');
         var esEntre13y18    = ('@ViewBag.EsEntre13y18'    === 'True');
         var esMayorIgual18  = ('@ViewBag.EsMayorIgual18'  === 'True');
         var tieneApoderado2 = ('@ViewBag.TieneApoderado2' === 'True');
-        console.log("error:", error);
-        console.log("cui:", cui);
+
         $(document).ready(function() {
             // ----------------------------
-	        // 1) Lógica original adaptada a radio buttons
+            // 1) Lógica original adaptada a radio buttons
             // ----------------------------
             $('.option-button').click(function() {
                 $('.option-button').removeClass('active');
                 $(this).addClass('active');
                 $('#virtualOptions, #sucursalOptions, #cbuInput, #listaVirtual, #cvuInput, #msgGenAustral').hide();
+
                 var selectedId = $(this).attr('id');
                 if (selectedId === 'btnBanco') {
                     $('#sucursalOptions').show();
@@ -282,15 +267,38 @@
                 } else if (selectedId === 'btnVirtual') {
                     $('#virtualOptions').show();
                     $('#msgGenAustral').show();
-		// AL SELECCIONAR VIRTUAL, mostramos ambas opciones virtuales
-                    $('#btnBancoDigital').show();
-                    $('#btnBilleteraVirtual').show();
-	}
-                else if (selectedId === 'btnCBU') {
+                } else if (selectedId === 'btnCBU') {
                     $('#cbuInput').show();
                     $('#msgGenAustral').show();
                     $('#btnGuardar').show();
                 }
+                $('input[type=radio][name=medioPago]:checked, input[type=radio][name=medioVirtual]:checked').prop('checked', true);
+            });
+
+            let isCVU = 0;
+            $('#btnBancoDigital, #btnBilleteraVirtual').click(function() {
+                $('#listaVirtual').show();
+                $('#btnGuardar').show();
+                if (this.id === 'btnBancoDigital') {
+                    cargarBancosVirtuales();
+                    isCVU = 0;
+                    $('#cvuInput').hide();
+                } else {
+                    cargarBilleterasVirtuales();
+                    isCVU = 1;
+                }
+            });
+            $('#btnVirtual').click(function () {
+                $('#btnGuardar').hide();
+            });
+            $('#btnBuscarSucursales').click(function() {
+                var codigoPostal = $('#codigoPostal').val();
+                if (codigoPostal) {
+                    borrarError();
+                    cargarBancosFisicos(codigoPostal);
+                }
+            });
+
             function cargarBancosFisicos(codigoPostal) {
                 $.ajax({
                     url: '@Url.Action("TraerBancosFisicos", "Home")',
@@ -325,6 +333,7 @@
                     }
                 });
             }
+
             function cargarBancosCorreo(codigoPostal) {
                 $.ajax({
                     url: '@Url.Action("TraerBancosCorreo", "Home")',
@@ -344,7 +353,8 @@
                     }
                 });
             }
-            function cargarBancosVirtuales() {
+
+			function cargarBancosVirtuales() {
                 $.ajax({
                     url: '@Url.Action("TraerBancosVirtuales", "Home")',
                     type: 'GET',
@@ -357,6 +367,7 @@
                     }
                 });
             }
+
             function cargarBilleterasVirtuales() {
                 $.ajax({
                     url: '@Url.Action("TraerBilleterasVirtuales", "Home")',
@@ -370,6 +381,7 @@
                     }
                 });
             }
+
             function llenarSelect(selectId, opciones) {
                 var select = $(selectId);
                 select.empty();
@@ -379,7 +391,9 @@
                         .text(opcion.Nombre + ' - ' + opcion.NombreAgencia));
                 });
             }
+
             $('#btnGuardar').click(function () {
+
                 if (!confirm("Confirma guardar su medio de cobro?")) {
                     return;
                 }
@@ -390,6 +404,7 @@
                 };
                 console.log(tipoMedioPago);
                 borrarError();
+
                 switch (tipoMedioPago) {
                     case 'btnBanco':
                         var sucursalSeleccionada = $('#sucursalSelect').val();
@@ -401,6 +416,7 @@
                         data.codigoBanco = codigoBanco;
                         data.codigoAgencia = codigoAgencia;
                         break;
+
                     case 'btnBancoDigital':
                         var virtualSeleccionado = $('#virtualSelect').val();
                         if (!virtualSeleccionado) {
@@ -412,6 +428,7 @@
                         data.codigoAgencia = agDig;
                         // if (isCVU == 1) { ... }
                         break;
+
                     case 'btnBilleteraVirtual':
                         var virtualSeleccionado2 = $('#virtualSelect').val();
                         if (!virtualSeleccionado2) {
@@ -423,6 +440,7 @@
                         data.codigoAgencia = agBil;
                         // if (isCVU == 1) { ... }
                         break;
+
                     case 'btnCBU':
                         data.valor = $('#cbu').val();
                         if (!data.valor || data.valor.length !== 22) {
@@ -433,8 +451,10 @@
                         validarCBU(data.valor);
                         return;
                 }
+
                 guardarMedioPago(data);
             });
+
             function validarCBU(cbu) {
                 $.ajax({
                     url: '@Url.Action("ValidarCBU", "Home")',
@@ -453,6 +473,7 @@
                     }
                 });
             }
+
             function guardarMedioPago(data) {
                 $.ajax({
                     url: '@Url.Action("GuardarMedioDePago", "Home")',
@@ -471,21 +492,26 @@
                     }
                 });
             }
+
             function mostrarError(mensaje) {
                 $('#mensajeError').text(mensaje).show();
             }
+
             function borrarError() {
                 $('#mensajeError').hide();
                 $('#listaSucursales').hide();
             }
+
             // ----------------------------
             // 2) Lógica extra: Edad & Apoderado
             //    Ocultar/mostrar botones (#btnBanco, #btnVirtual, #btnCBU)
             // ----------------------------
+
             // Primero los ocultamos todos
             $('#btnBanco').hide();
             $('#btnVirtual').hide();
             $('#btnCBU').hide();
+
             // Menor de 13
             if (esMenor13) {
                 if (tieneApoderado2) {
@@ -513,6 +539,7 @@
                     // 13..17 sin apoderado -> Virtual (si UDAI==false), CBU
                     if (udai === "false") {
                         $('#btnVirtual').show(); // solo billetera virtual
+
                         //AS - 20250407 - Bug 373. Menor entre 13 y 17 Sin apoderado no debe mostrar Banco Digital (MIANSES)
                         $('#btnBilleteraVirtual').show();
                         $('#btnBancoDigital').hide();
@@ -532,6 +559,7 @@
             }
             //AS - 20250407 - Mejora 370. - Ver de ocultar la opción de Bancos Virtuales
             $('#btnBancoDigital').hide();
+
             // ----------------------------
             // 3) Si error != "0", mostrar mensaje
             // ----------------------------
