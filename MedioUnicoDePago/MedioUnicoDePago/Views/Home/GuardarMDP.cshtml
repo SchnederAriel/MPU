@@ -565,7 +565,8 @@
                 $('#btnCBU').show();
             }
             //AS - 20250407 - Mejora 370. - Ver de ocultar la opción de Bancos Virtuales
-            $('#btnBancoDigital').hide();
+            //$('#btnBancoDigital').hide();
+            $('#btnBancoDigital').closest('.form-check').show();
 
             // ----------------------------
             // 3) Si error != "0", mostrar mensaje
