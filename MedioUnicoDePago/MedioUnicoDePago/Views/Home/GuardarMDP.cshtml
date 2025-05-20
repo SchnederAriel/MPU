@@ -273,6 +273,9 @@
                     $('#virtualOptions').show();
                     // mostrar siempre Banco Digital debajo
                     $('#btnBancoDigital').closest('.form-check').show();
+                    $('#btnBancoDigital').show(); 
+                    $('#btnBilleteraVirtual').closest('.form-check').show();
+                    $('#btnBilleteraVirtual').show();
                     $('#msgGenAustral').show();
                 } else if (selectedId === 'btnCBU') {
                     $('#cbuInput').show();
@@ -515,18 +518,19 @@
             // ----------------------------
 
             // Primero los ocultamos todos
-            $('#btnBanco').hide();
-            $('#btnVirtual').hide();
-            $('#btnCBU').hide();
+            //$('#btnBanco').hide();
+            //$('#btnVirtual').hide();
+            //$('#btnCBU').hide();
+            $('#btnBanco, #btnVirtual, #btnCBU, #btnBancoDigital').closest('.form-check').hide();
 
             // Menor de 13
             if (esMenor13) {
                 if (tieneApoderado2) {
                     // Menor de 13 con apoderado -> Banco y CBU
-                    $('#btnCBU').show();
-                    $('#btnBanco').show();
-                    $('#btnVirtual').show(); //se debe mostrar solo banco digital
-                    $('#btnBilleteraVirtual').hide();
+                    $('#btnCBU').closest('.form-check').show();
+                    $('#btnBanco').closest('.form-check').show();
+                    $('#btnVirtual').closest('.form-check').show(); //se debe mostrar solo banco digital
+                    $('#btnBilleteraVirtual').closest('.form-check').hide();
                     //$('#btnBancoDigital').hide();
                     //$('#btnCBU').show();
                 }
@@ -536,37 +540,37 @@
             else if (esEntre13y18) {
                 if (tieneApoderado2) {
                     // 13..17 con apoderado -> Banco, Virtual, CBU
-                    $('#btnBanco').show();
+                    $('#btnBanco').closest('.form-check').show();
                     if (udai === "false") {
-                        $('#btnVirtual').show();
+                        $('#btnVirtual').closest('.form-check').show();
                     }
-                    $('#btnCBU').show();
+                    $('#btnCBU').closest('.form-check').show();
                 }
                 else { // NO TIENE APODERADO
                     // 13..17 sin apoderado -> Virtual (si UDAI==false), CBU
                     if (udai === "false") {
-                        $('#btnVirtual').show(); // solo billetera virtual
+                        $('#btnVirtual').closest('.form-check').show(); // solo billetera virtual
 
                         //AS - 20250407 - Bug 373. Menor entre 13 y 17 Sin apoderado no debe mostrar Banco Digital (MIANSES)
-                        $('#btnBilleteraVirtual').show();
-                        $('#btnBancoDigital').hide();
+                        $('#btnBilleteraVirtual').closest('.form-check').show();
+                        $('#btnBancoDigital').closest('.form-check').hide();
                     }
                     //JLS  - BUG 366 - Debería mostrar las opciones “BILLETERA VIRTUAL” y “ACREDITACION EN CUENTA (CBU)”. Muestra todas
-                    $('#btnBanco').hide();
-                    $('#btnCBU').show();
+                    $('#btnBanco').closest('.form-check').hide();
+                    $('#btnCBU').closest('.form-check').show();
                 }
             }
             // Mayor o igual a 18
             else if (esMayorIgual18) {
-                $('#btnBanco').show();
+                $('#btnBanco').closest('.form-check').show();
                 if (udai === "false") {
-                    $('#btnVirtual').show();
+                    $('#btnVirtual').closest('.form-check').show();
                 }
-                $('#btnCBU').show();
+                $('#btnCBU').closest('.form-check').show();
             }
             //AS - 20250407 - Mejora 370. - Ver de ocultar la opción de Bancos Virtuales
             //$('#btnBancoDigital').hide();
-            $('#btnBancoDigital').closest('.form-check').show();
+            $('#btnBancoDigital').closest('.form-check').hide();
 
             // ----------------------------
             // 3) Si error != "0", mostrar mensaje
