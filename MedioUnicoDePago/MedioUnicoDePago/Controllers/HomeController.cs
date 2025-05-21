@@ -215,7 +215,7 @@ namespace MedioUnicoDePago.Controllers
                             return "IMPORTANTE: Si vivís en una zona austral " +
                                "y elegís como medio de cobro billetera virtual " +
                                "o CBU no nos será posible identificar tu zona geográfica " +
-                               "y, en consecuencia, no recibirás el diferencial por zona";
+                               "y, en consecuencia, <strong>no recibirás el diferencial por zona</strong>";
                         }
 
                         }
@@ -839,7 +839,7 @@ namespace MedioUnicoDePago.Controllers
                             log.Debug($"fechaAlta MDP: {fechaAlta}");
                             DateTime hoy = DateTime.Now;
                             int totalDias = (hoy - fechaAlta).Days;
-                            log.Debug($"Total dias ddiferencia entre fecha alta y parametrizacion: {totalDias}");
+                            log.Debug($"Total dias diferencia entre fecha alta y parametrizacion: {totalDias}");
                             if (totalDias >= DiasNoDejaCargarMDP)
                             {
                                 ViewBag.NoModificar = false;

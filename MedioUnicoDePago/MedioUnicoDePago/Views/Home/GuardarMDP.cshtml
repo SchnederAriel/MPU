@@ -104,8 +104,8 @@
 <div class="container">
     <div class="card">
         <div class="card-body">
-            <!-- AS - 20250514 - MEJORA A5) Debe decir: Seleccioná tu medio de cobro para recibir tus asignaciones familiares y prestaciones  -->
-            <h1>Seleccioná tu medio de cobro para recibir tus asignaciones familiares y prestaciones</h1>
+            <!-- AS - 20250514 - MEJORA A5) Debe decir: Seleccioná tu medio de cobro para recibir tus asignaciones familiares y otras prestaciones  -->
+            <h1>Seleccioná tu medio de cobro para recibir tus asignaciones familiares y otras prestaciones</h1>
 
             <div class="mb-4">
                 <h5 class="subtitle">Cambio de lugar de cobro.</h5>
@@ -121,8 +121,8 @@
             </div>
 
             <div class="alert alert-info" role="alert">
-                <!-- AS - 20250514 - MEJORA A4) Elimina "Forma de pago" Debe decir: al seleccionar un nuevo medio de cobro reemplazás en forma permanente el medio donde actualmente cobrás tus asignaciones familiares y prestaciones  -->
-                <strong>Importante:</strong> al seleccionar un nuevo medio de cobro reemplazás en forma permanente el medio donde actualmente cobrás tus asignaciones familiares y prestaciones
+                <!-- AS - 20250514 - MEJORA A4) Elimina "Forma de pago" Debe decir: al seleccionar un nuevo medio de cobro reemplazás en forma permanente el medio donde actualmente cobrás tus asignaciones familiares y otras prestaciones  -->
+                <strong>Importante:</strong> al seleccionar un nuevo medio de cobro reemplazás en forma permanente el medio donde actualmente cobrás tus asignaciones familiares y otras prestaciones
             </div>
 
             <!-- 1) Mensaje de Zona Austral, solo si ViewBag.MensajeZonaAustral no está vacío -->
@@ -140,7 +140,8 @@
                     <!-- Opción: Sucursal Bancaria -->
                     <div class="form-check">
                         <input class="form-check-input option-button" type="radio" name="medioPago" id="btnBanco" />
-                        <label class="form-check-label" for="btnBanco">SUCURSAL BANCARIA (AGENTE PAGADOR)</label>
+                        <!-- AS - 20250521 - MEJORA A9) Debe decir: Banco por código postal -->
+                        <label class="form-check-label" for="btnBanco">Banco por código postal</label>
                     </div>
 
                     @* Opción: Virtual *@
@@ -148,12 +149,14 @@
                     {
                         <div class="form-check">
                             <input class="form-check-input option-button" type="radio" name="medioPago" id="btnVirtual" />
-                            <label class="form-check-label" for="btnVirtual">VIRTUAL</label>
+                            <!-- AS - 20250521 - MEJORA A9) Debe decir: Billetera virtual o banco digital -->
+                            <label class="form-check-label" for="btnVirtual">Billetera virtual o banco digital</label>
                         </div>
                         <!-- Opción: CBU -->
                         <div class="form-check">
                             <input class="form-check-input option-button" type="radio" name="medioPago" id="btnCBU" />
-                            <label class="form-check-label" for="btnCBU">ACREDITACIÓN EN CUENTA (CBU)</label>
+                            <!-- AS - 20250521 - MEJORA A9) Debe decir: Acreditación en cuenta (CBU) -->
+                            <label class="form-check-label" for="btnCBU">Acreditación en cuenta (CBU)</label>
                         </div>
                     }
                 }
@@ -204,7 +207,9 @@
             <div id="listaVirtual" style="display: none; margin-top:20px;">
                 <!-- AS - 20250514 - MEJORA A25) Debe decir: Seleccioná una opción -->
                 <label for="virtualSelect">Seleccioná una opción:</label>
-                <select id="virtualSelect" class="form-control"></select>
+                <select id="virtualSelect" class="form-control">
+                    <option value="" disabled selected>Seleccione una opción</option>
+                </select>
             </div>
 
             <div id="cvuInput" style="display: none; margin-top:20px;">
@@ -223,7 +228,7 @@
                 </div>
             }
 
-            <!-- AS - 20250514 - MEJORA A10) Debe decir: Tené en cuenta que en este nuevo medio de cobro vas a recibir todas las asignaciones y prestaciones de ANSES (excepto las de jubilación o pensión).  -->
+            <!-- AS - 20250514 - MEJORA A10) Debe decir: Tené en cuenta que en este nuevo medio de cobro vas a recibir todas las asignaciones familiares y otras prestaciones de ANSES (excepto las de jubilación o pensión).   -->
             <!-- AS - 20250516 - MEJORA B5) Debe decir: En el nuevo medio de cobro informado la persona va a empezar a cobrar todas sus asignaciones familiares y otras prestaciones (excepto jubilación o pensión).  -->
             @if (ViewBag.UDAI != null && (bool)ViewBag.UDAI)
             {
@@ -234,7 +239,7 @@
             else
             {
                 <p class="danger" style="margin-top:20px;">
-                    Tené en cuenta que en este nuevo medio de cobro vas a percibir todas las prestaciones de ANSES, con excepción de las previsionales.
+                            Tené en cuenta que en este nuevo medio de cobro vas a recibir todas las asignaciones familiares y otras prestaciones de ANSES (excepto las de jubilación o pensión).
                 </p>
             }
 
@@ -272,8 +277,8 @@
                 } else if (selectedId === 'btnVirtual') {
                     $('#virtualOptions').show();
                     // mostrar siempre Banco Digital debajo
-                    $('#btnBancoDigital').closest('.form-check').show();
-                    $('#btnBancoDigital').show(); 
+                    //$('#btnBancoDigital').closest('.form-check').hide();
+                    //$('#btnBancoDigital').hide(); 
                     $('#btnBilleteraVirtual').closest('.form-check').show();
                     $('#btnBilleteraVirtual').show();
                     $('#msgGenAustral').show();
