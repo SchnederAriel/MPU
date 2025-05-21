@@ -207,9 +207,7 @@
             <div id="listaVirtual" style="display: none; margin-top:20px;">
                 <!-- AS - 20250514 - MEJORA A25) Debe decir: Seleccioná una opción -->
                 <label for="virtualSelect">Seleccioná una opción:</label>
-                <select id="virtualSelect" class="form-control">
-                    <option value="" disabled selected>Seleccione una opción</option>
-                </select>
+                <select id="virtualSelect" class="form-control"></select>
             </div>
 
             <div id="cvuInput" style="display: none; margin-top:20px;">
@@ -239,7 +237,7 @@
             else
             {
                 <p class="danger" style="margin-top:20px;">
-                            Tené en cuenta que en este nuevo medio de cobro vas a recibir todas las asignaciones familiares y otras prestaciones de ANSES (excepto las de jubilación o pensión).
+                    Tené en cuenta que en este nuevo medio de cobro vas a recibir todas las asignaciones familiares y otras prestaciones de ANSES (excepto las de jubilación o pensión).
                 </p>
             }
 
@@ -400,6 +398,7 @@
             function llenarSelect(selectId, opciones) {
                 var select = $(selectId);
                 select.empty();
+                select.append('<option value="" disabled selected>Seleccione una opción</option>');
                 $.each(opciones, function(i, opcion) {
                     select.append($('<option></option>')
                         .val(opcion.Codigo + '-' + opcion.CodigoAgencia)
