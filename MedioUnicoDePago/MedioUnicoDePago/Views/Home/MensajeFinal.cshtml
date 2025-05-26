@@ -6,23 +6,17 @@
 <link href="~/Content/Site.css" rel="stylesheet" />
 <style>
     body {
-        background-color: #dcdcdc;
-        color: #333;
-        font-family: 'Arial', sans-serif;
+        font-family: Arial, sans-serif;
+        background-color: #f5f6f7;
+        margin: 0 auto;
+        padding: 40px;
+        max-width: 720px;
+        color: #212529;
     }
 
     .container {
         max-width: 800px;
         margin-top: 50px;
-    }
-
-    .card {
-        border: none;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .card-body {
-        padding: 30px;
     }
 
     h1 {
@@ -45,16 +39,38 @@
         margin-top: 20px;
     }
 
+    hr {
+        margin: 20px 0;
+        border: none;
+        border-top: 1px solid #ccc;
+    }
+
+    p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border: none;
+        color: white;
+        padding: 8px 16px;
+        font-size: 14px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
     .btn-imprimir {
         margin-top: 20px;
     }
 </style>
 
 <div class="container">
-    <div class="card">
-        <div class="card-body">
+    <div>
+        <div>
             <!-- AS - 20250514 - MEJORA A2) Debe decir:  Seleccioná tu medio de cobro para recibir tus asignaciones y otras prestaciones  -->
             <h1>Seleccioná tu medio de cobro para recibir tus asignaciones y otras prestaciones </h1>
+            <hr />
 
             <div class="mb-4">
                 <!-- AS - 20250514 - MEJORA A3) Sugiere eliminar el subtitulo y debe decir: Para cobrar tus asignaciones familiares y otras prestaciones (Asignacion Universal, Vouchers Educativos, etc. ) podés elegir entre: acreditación en cuenta (CBU), banco digital o billetera virtual, o banco por código postal (si elegís esta opción, al ir cobrar por primera vez, tenés que firmar la apertura de la cuenta).   -->
@@ -62,52 +78,53 @@
                 <p>Para cobrar tus asignaciones familiares y otras prestaciones (Asignacion Universal, Vouchers Educativos, etc. ) podés elegir entre: acreditación en cuenta (CBU), banco digital o billetera virtual, o banco por código postal (si elegís esta opción, al ir cobrar por primera vez, tenés que firmar la apertura de la cuenta). </p>
             </div>
 
-    <div class="alert alert-success" role="alert">
-        Tu solicitud para cambiar el medio de cobro se envió correctamente.
-    </div>
-
-    <!-- Comprobante de datos -->
-                <div class="datos-tramite" id="comprobante">
-                    <!-- AS - 20250514 - MEJORA A13) Debe decir: Comprobante de trámite -->
-                    <h3>Comprobante de trámite</h3>
-                    <p>
-                        <strong>TITULAR:</strong> @ViewBag.Titular | @ViewBag.Cuil
-                    </p>
-
-                    <p>
-                        <strong>DATOS DEL TRÁMITE</strong><br />
-                        Fecha presentación: @ViewBag.Fecha<br />
-                        Estado del trámite: @ViewBag.Estado<br />
-                        <!-- AS - 20250514 - MEJORA A14) Debe decir: Trámite realizado: Medio de cobro -->
-                        Trámite realizado: Medio de cobro<br />
-                        Tipo de trámite: @ViewBag.Tramite
-                    </p>
-
-                    <p>
-                        <!-- AS - 20250514 - MEJORA A15) Debe decir: El solicitante, CUIL: 27318564588 realizó un alta de medio de cobro con vigencia desde 04/2025 -->
-                        El solicitante <strong>@ViewBag.Titular</strong>, CUIL: <strong>@ViewBag.Cuil</strong>
-                        realizó un alta de medio de cobro con vigencia desde <strong>@ViewBag.Vigencia</strong>.
-                    </p>
-
-                    <p>
-                        <!-- AS - 20250514 - MEJORA A16) Debe decir: Banco, Agencia, CBU -->
-                        <strong>Datos del medio de Cobro</strong><br />
-                        Banco: @ViewBag.Banco<br />
-                        Agencia: @ViewBag.Agencia<br />
-                        CBU: @ViewBag.CBU
-                    </p>
-                    <!-- Logo al final -->
-                    <div class="logo-print-only" style="text-align:center; margin-top: 30px;">
-                        <img src="/Content/Images/ANSES-01.png" alt="Logo ANSES" style="max-height: 80px;" />
-                    </div>
-
-                </div>
-
-                <div class="btn-imprimir">
-                    <!-- Botón que abre el cuadro de diálogo de impresión (el usuario puede "Guardar como PDF") -->
-                    <button class="btn btn-primary" onclick="imprimirComprobante();">Imprimir comprobante</button>
-                </div>
+            <div class="alert alert-success" role="alert">
+                Tu solicitud para cambiar el medio de cobro se envió correctamente.
             </div>
+
+            <!-- Comprobante de datos -->
+            <div class="datos-tramite" id="comprobante">
+                <!-- AS - 20250514 - MEJORA A13) Debe decir: Comprobante de trámite -->
+                <h3>Comprobante de trámite</h3>
+                <p>
+                    <strong>TITULAR:</strong> @ViewBag.Titular | @ViewBag.Cuil
+                </p>
+
+                <p>
+                    <strong>DATOS DEL TRÁMITE</strong><br />
+                    Fecha presentación: @ViewBag.Fecha<br />
+                    Estado del trámite: @ViewBag.Estado<br />
+                    <!-- AS - 20250514 - MEJORA A14) Debe decir: Trámite realizado: Medio de cobro -->
+                    Trámite realizado: Medio de cobro<br />
+                    Tipo de trámite: @ViewBag.Tramite
+                </p>
+
+                <p>
+                    <!-- AS - 20250514 - MEJORA A15) Debe decir: El solicitante, CUIL: 27318564588 realizó un alta de medio de cobro con vigencia desde 04/2025 -->
+                    El solicitante <strong>@ViewBag.Titular</strong>, CUIL: <strong>@ViewBag.Cuil</strong>
+                    realizó un alta de medio de cobro con vigencia desde <strong>@ViewBag.Vigencia</strong>.
+                </p>
+
+                <p>
+                    <!-- AS - 20250514 - MEJORA A16) Debe decir: Banco, Agencia, CBU -->
+                    <strong>Datos del medio de Cobro</strong><br />
+                    Banco: @ViewBag.Banco<br />
+                    Agencia: @ViewBag.Agencia<br />
+                    CBU: @ViewBag.CBU
+                </p>
+                <!-- Logo al final -->
+                <div class="logo-print-only" style="text-align:center; margin-top: 30px;">
+                    <img src="@Url.Content("~/Content/Images/ANSES.svg")" alt="Logo ANSES" style="max-height: 80px;" />
+                </div>
+
+            </div>
+            <hr />
+
+            <div class="btn-imprimir">
+                <!-- Botón que abre el cuadro de diálogo de impresión (el usuario puede "Guardar como PDF") -->
+                <button class="btn btn-primary" onclick="imprimirComprobante();">Imprimir comprobante</button>
+            </div>
+        </div>
     </div>
 </div>
 
