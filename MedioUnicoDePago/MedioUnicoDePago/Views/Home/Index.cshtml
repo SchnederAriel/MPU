@@ -8,9 +8,12 @@
 <link href="~/Content/Site.css" rel="stylesheet" />
 <style>
     body {
-        background-color: #dcdcdc;
-        color: #333;
-        font-family: 'Arial', sans-serif;
+        font-family: Arial, sans-serif;
+        background-color: #f5f6f7;
+        margin: 0 auto;
+        padding: 40px;
+        max-width: 720px;
+        color: #212529;
     }
 
     .container {
@@ -18,14 +21,9 @@
         margin-top: 50px;
     }
 
-    .card {
-        border: none;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .card-body {
-        padding: 30px;
+    p {
+        font-size: 14px;
+        line-height: 1.5;
     }
 
     h1 {
@@ -42,13 +40,21 @@
     }
 
     .alert-info {
-        background-color: #e8f4f8;
-        border-color: #d6e9f0;
-        color: #0c5460;
+        background-color: #fff4e5;
+        color: #b26c00;
+        border: 1px solid #ffcc80;
+        padding: 12px 15px;
+        margin: 20px 0;
+        border-radius: 4px;
         font-size: 14px;
-        border-radius: 5px;
-        padding: 15px;
+    }
+
+    .mb-4 {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 4px;
         margin-bottom: 20px;
+        overflow: hidden;
     }
 
     .section-title {
@@ -58,26 +64,48 @@
     }
 
     .blue-bg {
+        padding: 10px 15px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .badge-actual {
         background-color: #007bff;
         color: white;
-        padding: 10px;
-        margin-bottom: 10px;
+        font-size: 10px;
+        padding: 3px 6px;
+        border-radius: 10px;
+        margin-left: 10px;
+        white-space: nowrap;
     }
 
     .btn-primary {
         background-color: #007bff;
-        border-color: #007bff;
+        border: none;
+        color: white;
+        padding: 8px 16px;
+        font-size: 14px;
+        border-radius: 4px;
+        cursor: pointer;
     }
 
         .btn-primary:hover {
             background-color: #0056b3;
             border-color: #0056b3;
         }
+
+    hr {
+        margin: 20px 0;
+        border: none;
+        border-top: 1px solid #ccc;
+    }
 </style>
 
 <div class="container">
-    <div class="card">
-        <div class="card-body">
+    <div>
+        <div>
             <!-- AS - 20250515 - MEJORA B2) Debe Decir: Medio de cobro para recibir las asignaciones familiares y otras prestaciones -->
             @if (ViewBag.UDAI != null && (bool)ViewBag.UDAI)
             {
@@ -87,6 +115,7 @@
             {
                 <h1>Seleccione su Medio de Cobro para percibir todas sus prestaciones</h1>
             }
+            <hr>
 
             <div class="mb-4">
                 <!-- AS - 20250514 - MEJORA A6) Debe decir: Para cobrar tus asignaciones familiares  y otras prestaciones (Asignacion Universal, Voucher educativo, etc. ) podés elegir entre: acreditación en cuenta (CBU), banco digital o billetera virtual, o banco por código postal (si elegís esta opción, al ir cobrar por primera vez, tenés que firmar la apertura de la cuenta).   -->
@@ -96,18 +125,19 @@
 
             <div class="alert alert-info" role="alert">
                 <!-- AS - 20250514 - MEJORA A7) Sugiere eliminar "Forma de pago", Debe decir: al seleccionar un nuevo medio de cobro reemplazás en forma permanente el medio donde actualmente cobrás tus asignaciones familiares y otras prestaciones (Asignacion Universal, Voucher educativo, etc. ).   -->
-                <strong>Importante:</strong> al seleccionar un nuevo medio de cobro reemplazás en forma permanente el medio donde actualmente cobrás tus asignaciones familiares y otras prestaciones (Asignacion Universal, Voucher educativo, etc. ).
+                <strong>⚠ Importante:</strong> al seleccionar un nuevo medio de cobro reemplazás en forma permanente el medio donde actualmente cobrás tus asignaciones familiares y otras prestaciones (Asignacion Universal, Voucher educativo, etc. ).
             </div>
 
             <div class="mb-4">
                 <!-- AS - 20250514 - MEJORA A22) Debe decir: Medio de cobro actual -->
-                <h5 class="section-title">Medio de cobro actual</h5>
+                <h5 class="section-title">Medio de cobro</h5>
                 <div class="blue-bg">
                     <!-- AS - 20250514 - MEJORA A23) Debe decir: Medio de cobro -->
-                    <strong>Medio de cobro</strong>
                 </div>
                 <p class="mt-2">@(ViewBag.MedioPagoActual != null && !string.IsNullOrEmpty(ViewBag.MedioPagoActual) ? ViewBag.MedioPagoActual : "No tiene MPU ")</p>
+                <span class="badge-actual">ACTUAL</span>
             </div>
+            <hr>
 
             <div class="d-flex justify-content-end mt-4">
                 @if (ViewBag.UDAI != null && (bool)ViewBag.UDAI)
