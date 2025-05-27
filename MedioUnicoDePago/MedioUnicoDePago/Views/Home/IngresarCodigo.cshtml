@@ -6,9 +6,12 @@
 <link href="~/Content/Site.css" rel="stylesheet" />
 <style>
     body {
-        background-color: #dcdcdc;
-        color: #333;
-        font-family: 'Arial', sans-serif;
+        font-family: Arial, sans-serif;
+        background-color: #f5f6f7;
+        margin: 0 auto;
+        padding: 40px;
+        max-width: 720px;
+        color: #212529;
     }
 
     .container {
@@ -16,14 +19,9 @@
         margin-top: 50px;
     }
 
-    .card {
-        border: none;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .card-body {
-        padding: 30px;
+    p {
+        font-size: 14px;
+        line-height: 1.5;
     }
 
     h1 {
@@ -39,9 +37,30 @@
         margin-bottom: 20px;
     }
 
+    hr {
+        margin: 20px 0;
+        border: none;
+        border-top: 1px solid #ccc;
+    }
+
+    .alert-info {
+        background-color: #fff4e5;
+        color: #b26c00;
+        border: 1px solid #ffcc80;
+        padding: 12px 15px;
+        margin: 20px 0;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+
     .btn-primary {
         background-color: #007bff;
-        border-color: #007bff;
+        border: none;
+        color: white;
+        padding: 8px 16px;
+        font-size: 14px;
+        border-radius: 4px;
+        cursor: pointer;
     }
 
         .btn-primary:hover {
@@ -66,9 +85,10 @@
 </style>
 
 <div class="container">
-    <div class="card">
-        <div class="card-body">
+    <div>
+        <div>
             <h1>Seleccione su Medio de Cobro para percibir todas sus prestaciones</h1>
+            <hr />
 
             <div class="mb-4">
                 <h5 class="subtitle">Cambio de lugar de cobro.</h5>
@@ -85,6 +105,7 @@
                 <input type="text" id="codigoValidacion" class="form-control" placeholder="Ingrese el código">
                 <input type="hidden" id="idRegistro" value="@ViewBag.IdRegistro">
             </div>
+            <hr />
 
             <div class="d-flex justify-content-end mt-4">
                 <button type="button" id="btnVolver" class="btn btn-secondary me-2">Volver</button>
