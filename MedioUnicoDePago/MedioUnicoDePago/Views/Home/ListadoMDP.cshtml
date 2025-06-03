@@ -44,13 +44,13 @@
     }
 
     .alert-info {
-        background-color: #fff4e5;
-        color: #b26c00;
-        border: 1px solid #ffcc80;
-        padding: 12px 15px;
-        margin: 20px 0;
-        border-radius: 4px;
+        background-color: #f1f9fc;
+        border: 1px solid #7bc0df;
+        color: #0c5460;
         font-size: 14px;
+        border-radius: 4px;
+        padding: 12px 15px;
+        margin-bottom: 25px;
     }
 
     .form-check {
@@ -75,16 +75,17 @@
 <div class="container">
     <div>
         <div>
-            <h1>Seleccione su Medio de Cobro para percibir todas sus prestaciones</h1>
+            <!-- AS - 20250602 - BUG 396 Debe decir : Seleccioná tu medio de cobro para recibir tus asignaciones familiares y otras prestaciones -->
+            <h1>Seleccioná tu medio de cobro para recibir tus asignaciones familiares y otras prestaciones</h1>
             <hr />
 
             <p class="subtitle">
-                <strong>Cambio de lugar de cobro.</strong><br>
+                <strong>Cambio de lugar de cobro</strong><br>
                 Si quiere cambiar el lugar donde recibe su asignación familiar podrá elegir entre: acreditación en cuenta (CBU), banco por código postal o billetera virtual. Simplifique su trámite según sus preferencias. ¡La elección es comodidad!
             </p>
-
+            <!-- AS - 20250602 - BUG 396 Debe decir: al seleccionar un nuevo medio de cobro reemplazás en forma permanente el medio donde actualmente cobrás tus asignaciones familiares y otras prestaciones (Asignacion Universal, Voucher educativo, etc.). -->
             <div class="alert alert-info" role="alert">
-                <strong>Forma de pago - Importante:</strong> Al elegir un nuevo medio, éste sustituirá permanentemente la opción anterior.
+                <strong>Importante: </strong> al seleccionar un nuevo medio de cobro reemplazás en forma permanente el medio donde actualmente cobrás tus asignaciones familiares y otras prestaciones (Asignacion Universal, Voucher educativo, etc.).
             </div>
 
             @if (Model.Count > 0)

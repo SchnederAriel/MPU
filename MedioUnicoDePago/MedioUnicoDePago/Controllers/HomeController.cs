@@ -332,7 +332,7 @@ namespace MedioUnicoDePago.Controllers
                             return Json(new { success = false, message = "El CBU debe tener 22 dígitos." });
 
                         }
-
+                        
                         medioPago.CbuInicio = decimal.Parse(valor.Substring(0, 8));
                         medioPago.CbuFinal = decimal.Parse(valor.Substring(8));
                         break;
@@ -949,7 +949,7 @@ namespace MedioUnicoDePago.Controllers
                 {
                     if (UDAI)
                     {
-                        var MPUActual = Session["MedoDePagoActual"] as string;
+                        var MPUActual = Session["MedioDePagoActual"] as string;
                         if (MPUActual != null)
                         {
                             //return RedirectToAction("GuardarMDP");
@@ -1350,5 +1350,3 @@ namespace MedioUnicoDePago.Controllers
         public string Message { get; set; }
     }
 }
-
-
