@@ -3,8 +3,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@* Si quieres forzar la carga de Bootstrap.css y Site.css en esta vista, pero normalmente ya lo trae el bundle de Layout *@
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 <link href="~/Content/Site.css" rel="stylesheet" />
+
 <style>
     body {
         background-color: #f5f6f7;
@@ -50,28 +52,20 @@
 
     .option-container {
         display: flex;
-        flex-wrap: wrap; /* permite que las opciones “envuelvan” cuando no quepan en una sola fila */
+        flex-wrap: wrap;
         justify-content: space-between;
-        gap: 12px; /* espacio horizontal y vertical entre .form-check */
+        gap: 12px;
         margin-bottom: 20px;
     }
 
-    /* AS - 20250603 - Bug 401 - MDPU Mobile - Los check box se ven desalineados (MI ANSES) */
-
-    /* Alineación inline de radio y texto */
+    /* AS - 20250603 - Bug 401 - MDPU Mobile - Los radio buttons se ven desalineados */
     .form-check {
         display: flex;
         align-items: center;
-        /* 
-       El “flex: 1 1 calc(33.33% - 8px)” indica:
-       - puede crecer (1) si sobra espacio
-       - puede encoger (1) si hace falta
-       - ancho base cercano a un tercio del contenedor menos un pequeño ajuste de gap 
-        */
         flex: 1 1 calc(33.33% - 8px);
-        min-width: 140px; /* opcional: un ancho mínimo para que no queden muy comprimidos */
+        min-width: 140px;
         cursor: pointer;
-        margin-bottom: 10px; /* un poco de separación vertical extra */
+        margin-bottom: 10px;
     }
 
     .form-check-input.option-button {
@@ -118,7 +112,6 @@
         border-top: 1px solid #ccc;
     }
 
-    /* Separar más el botón Guardar */
     .btn-guardar-container {
         margin-top: 30px;
     }
@@ -127,15 +120,15 @@
 <div class="container">
     <div>
         <div>
-            <!-- AS - 20250514 - MEJORA A5) Debe decir: Seleccioná tu medio de cobro para recibir tus asignaciones familiares y otras prestaciones  -->
+            <!-- AS - 20250514 - MEJORA A5) Debe decir: Seleccioná tu medio de cobro para recibir tus asignaciones familiares y otras prestaciones -->
             <h1>Seleccioná tu medio de cobro para recibir tus asignaciones familiares y otras prestaciones</h1>
             <hr />
 
             <div class="mb-4">
                 <h5 class="subtitle">Cambio de lugar de cobro</h5>
-                <!-- AS - 20250516 - MEJORA B3) Debe Decir: Desde esta pantalla seleccioná el medio de cobro correspondiente a correo/zona rural  -->
                 @if (ViewBag.UDAI != null && (bool)ViewBag.UDAI)
                 {
+                    <!-- AS - 20250516 - MEJORA B3) Debe decir: Desde esta pantalla seleccioná el medio de cobro correspondiente a correo/zona rural -->
                     <p>Desde esta pantalla seleccioná el medio de cobro correspondiente a correo/zona rural</p>
                 }
                 else
@@ -145,11 +138,11 @@
             </div>
 
             <div class="alert alert-info" role="alert">
-                <!-- AS - 20250514 - MEJORA A4) Elimina "Forma de pago" Debe decir: al seleccionar un nuevo medio de cobro reemplazás en forma permanente el medio donde actualmente cobrás tus asignaciones familiares y otras prestaciones  -->
+                <!-- AS - 20250514 - MEJORA A4) Elimina "Forma de pago" Debe decir: al seleccionar un nuevo medio de cobro reemplazás en forma permanente el medio donde actualmente cobrás tus asignaciones familiares y otras prestaciones -->
                 <strong>Importante:</strong> al seleccionar un nuevo medio de cobro reemplazás en forma permanente el medio donde actualmente cobrás tus asignaciones familiares y otras prestaciones
             </div>
 
-            <!-- 1) Mensaje de Zona Austral, solo si ViewBag.MensajeZonaAustral no está vacío -->
+            @* 1) Mensaje de Zona Austral, solo si ViewBag.MensajeZonaAustral no está vacío *@
             @if (!string.IsNullOrEmpty(ViewBag.MensajeZonaAustral))
             {
                 <div class="alert alert-warning" role="alert">
@@ -157,11 +150,11 @@
                 </div>
             }
 
-            <!-- 2) Bloque original de opciones -->
+            @* 2) Bloque original de opciones *@
             <div class="option-container">
                 @if (ViewBag.Error == "0")
                 {
-                    <!-- Opción: Sucursal Bancaria -->
+                    @* Opción: Sucursal Bancaria *@
                     <div class="form-check">
                         <input class="form-check-input option-button" type="radio" name="medioPago" id="btnBanco" />
                         <!-- AS - 20250521 - MEJORA A9) Debe decir: Banco por código postal -->
@@ -176,7 +169,7 @@
                             <!-- AS - 20250521 - MEJORA A9) Debe decir: Billetera virtual o banco digital -->
                             <label class="form-check-label" for="btnVirtual">Billetera virtual o banco digital</label>
                         </div>
-                        <!-- Opción: CBU -->
+                        @* Opción: CBU *@
                         <div class="form-check">
                             <input class="form-check-input option-button" type="radio" name="medioPago" id="btnCBU" />
                             <!-- AS - 20250521 - MEJORA A9) Debe decir: Acreditación en cuenta (CBU) -->
@@ -192,17 +185,17 @@
                 }
             </div>
 
-            <!-- Bloque de opciones virtuales -->
+            @* Bloque de opciones virtuales *@
             <div id="virtualOptions" style="display: none;">
                 <!-- AS - 20250514 - MEJORA A24) Debe decir: Seleccioná el tipo de medio de cobro virtual -->
                 <h5>Seleccioná el tipo de medio de cobro virtual</h5>
                 <div class="option-container">
-                    <!-- Opción: Banco Digital -->
+                    @* Opción: Banco Digital *@
                     <div class="form-check">
                         <input class="form-check-input option-button" type="radio" name="medioVirtual" id="btnBancoDigital" />
                         <label class="form-check-label" for="btnBancoDigital">BANCO DIGITAL</label>
                     </div>
-                    <!-- Opción: Billetera Virtual -->
+                    @* Opción: Billetera Virtual *@
                     <div class="form-check">
                         <input class="form-check-input option-button" type="radio" name="medioVirtual" id="btnBilleteraVirtual" />
                         <label class="form-check-label" for="btnBilleteraVirtual">BILLETERA VIRTUAL</label>
@@ -250,7 +243,6 @@
                     @ViewBag.MensajeGenericoZonaAustral
                 </div>
             }
-
             <!-- AS - 20250514 - MEJORA A10) Debe decir: Tené en cuenta que en este nuevo medio de cobro vas a recibir todas las asignaciones familiares y otras prestaciones de ANSES (excepto las de jubilación o pensión).   -->
             <!-- AS - 20250516 - MEJORA B5) Debe decir: En el nuevo medio de cobro informado la persona va a empezar a cobrar todas sus asignaciones familiares y otras prestaciones (excepto jubilación o pensión).  -->
             @if (ViewBag.UDAI != null && (bool)ViewBag.UDAI)
@@ -274,49 +266,112 @@
 @section Scripts {
     <script>
         // ===== Variables traídas de ViewBag para uso en JavaScript =====
-        var udai  = '@ViewBag.UDAI'.toLowerCase();
-        var error = '@ViewBag.Error'.toLowerCase();
-        var cui   = '@ViewBag.cuil'.toLowerCase();
+        var udai           = '@ViewBag.UDAI'.toLowerCase();
+        var error          = '@ViewBag.Error'.toLowerCase();
+        var cui            = '@ViewBag.cuil'.toLowerCase();
 
         // 3) Restricciones de Edad & Apoderado (booleans)
-        var esMenor13       = ('@ViewBag.EsMenor13'       === 'True');
-        var esEntre13y18    = ('@ViewBag.EsEntre13y18'    === 'True');
-        var esMayorIgual18  = ('@ViewBag.EsMayorIgual18'  === 'True');
+        var esMenor13       = ('@ViewBag.EsMenor13' === 'True');
+        var esEntre13y18    = ('@ViewBag.EsEntre13y18' === 'True');
+        var esMayorIgual18  = ('@ViewBag.EsMayorIgual18' === 'True');
         var tieneApoderado2 = ('@ViewBag.TieneApoderado2' === 'True');
 
         $(document).ready(function() {
-            // ----------------------------
-            // 1) Lógica original adaptada a radio buttons
-            // ----------------------------
+            // ------------------------------------------------
+            // Lógica para mostrar/ocultar opciones según edad, UDAI, apoderado, etc.
+            // ------------------------------------------------
+            $('#btnBanco, #btnVirtual, #btnCBU, #btnBancoDigital').closest('.form-check').hide();
+
+            // Menor de 13
+            if (esMenor13) {
+                if (tieneApoderado2) {
+                    // Menor de 13 con apoderado -> Banco, Virtual, CBU
+                    $('#btnCBU').closest('.form-check').show();
+                    $('#btnBanco').closest('.form-check').show();
+                    $('#btnVirtual').closest('.form-check').show();
+                    $('#btnBilleteraVirtual').closest('.form-check').hide();
+                }
+                // Menor de 13 sin apoderado => se mostrará error más abajo
+            }
+            // Entre 13 y 18
+            else if (esEntre13y18) {
+                if (tieneApoderado2) {
+                    // 13..17 con apoderado -> Banco, Virtual, CBU
+                    $('#btnBanco').closest('.form-check').show();
+                    if (udai === "false") {
+                        $('#btnVirtual').closest('.form-check').show();
+                    }
+                    $('#btnCBU').closest('.form-check').show();
+                } else {
+                    // 13..17 sin apoderado -> Virtual (si UDAI==false), CBU
+                    if (udai === "false") {
+                        $('#btnVirtual').closest('.form-check').show();
+						//AS - 20250407 - Bug 373. Menor entre 13 y 17 Sin apoderado no debe mostrar Banco Digital (MIANSES)
+                        $('#btnBilleteraVirtual').closest('.form-check').show();
+                        $('#btnBancoDigital').closest('.form-check').hide();
+                    }
+					//JLS  - BUG 366 - Debería mostrar las opciones “BILLETERA VIRTUAL” y “ACREDITACION EN CUENTA (CBU)”. Muestra todas
+                    $('#btnBanco').closest('.form-check').hide();
+                    $('#btnCBU').closest('.form-check').show();
+                }
+            }
+            // Mayor o igual a 18
+            else if (esMayorIgual18) {
+                $('#btnBanco').closest('.form-check').show();
+                if (udai === "false") {
+                    $('#btnVirtual').closest('.form-check').show();
+                }
+                $('#btnCBU').closest('.form-check').show();
+            }
+			//AS - 20250407 - Mejora 370. - Ver de ocultar la opción de Bancos Virtuales
+            // Siempre ocultamos la opción “Banco Digital” (solo mostramos “Billetera Virtual”)
+            $('#btnBancoDigital').closest('.form-check').hide();
+
+            // Si (ViewBag.Error != "0"), mostramos mensaje de apoderado
+            if (error !== "0") {
+                mostrarError("Necesitás designar a un apoderado para cambiar tu medio de cobro. Tu apoderado deberá presentarse en una oficina de ANSES para solicitar el cambio.");
+            }
+
+            // ------------------------------------------------
+            // Manejo de clics en opciones (radio buttons)
+            // ------------------------------------------------
             $('.option-button').click(function() {
+                // Quitar clase active de todos y agregarla al seleccionado
                 $('.option-button').removeClass('active');
                 $(this).addClass('active');
+
+                // Ocultar todos los bloques secundarios
                 $('#virtualOptions, #sucursalOptions, #cbuInput, #listaVirtual, #cvuInput, #msgGenAustral').hide();
 
                 var selectedId = $(this).attr('id');
                 if (selectedId === 'btnBanco') {
                     $('#sucursalOptions').show();
                     $('#btnGuardar').show();
-                } else if (selectedId === 'btnVirtual') {
+                }
+                else if (selectedId === 'btnVirtual') {
                     $('#virtualOptions').show();
-                    // mostrar siempre Banco Digital debajo
-                    //$('#btnBancoDigital').closest('.form-check').hide();
-                    //$('#btnBancoDigital').hide(); 
                     $('#btnBilleteraVirtual').closest('.form-check').show();
-                    $('#btnBilleteraVirtual').show();
                     $('#msgGenAustral').show();
-                } else if (selectedId === 'btnCBU') {
+                }
+                else if (selectedId === 'btnCBU') {
                     $('#cbuInput').show();
                     $('#msgGenAustral').show();
                     $('#btnGuardar').show();
                 }
-                $('input[type=radio][name=medioPago]:checked, input[type=radio][name=medioVirtual]:checked').prop('checked', true);
+
+                // Asegurarse de que el radio HTML quede realmente “checked”
+                $('input[type=radio][name=medioPago]:checked, input[type=radio][name=medioVirtual]:checked')
+                    .prop('checked', true);
             });
 
+            // ------------------------------------------------
+            // Manejo de clic en “Banco Digital” o “Billetera Virtual”
+            // ------------------------------------------------
             let isCVU = 0;
             $('#btnBancoDigital, #btnBilleteraVirtual').click(function() {
                 $('#listaVirtual').show();
                 $('.btn-guardar-container button').show();
+
                 if (this.id === 'btnBancoDigital') {
                     cargarBancosVirtuales();
                     isCVU = 0;
@@ -326,9 +381,15 @@
                     isCVU = 1;
                 }
             });
+
+            // Si elige “Virtual” directamente, ocultamos temporalmente el botón Guardar
             $('#btnVirtual').click(function () {
                 $('.btn-guardar-container button').hide();
             });
+
+            // ------------------------------------------------
+            // Cargar sucursales físicas al hacer click en “Buscar sucursales”
+            // ------------------------------------------------
             $('#btnBuscarSucursales').click(function() {
                 var codigoPostal = $('#codigoPostal').val();
                 if (codigoPostal) {
@@ -337,15 +398,17 @@
                 }
             });
 
-			function cargarBancosFisicos(codigoPostal) {
+            // ------------------------------------------------
+            // Funciones AJAX para traer bancos físicos y virtuales
+            // ------------------------------------------------
+            function cargarBancosFisicos(codigoPostal) {
                 $.ajax({
                     url: '@Url.Action("TraerBancosFisicos", "Home")',
                     type: 'GET',
                     data: { codigoPostal: codigoPostal },
                     success: function(bancos) {
-                        if (udai == "true") {
+                        if (udai === "true") {
                             if (bancos && bancos.length > 0) {
-                                // AS - 20250514 - MEJORA A31) Debe decir: Existen bocas de pago bancarias. Deberá realizar el trámite en mi ANSES
                                 // AS - 20250516 - MEJORA B6) Debe decir: Existen sucursales bancarias para el código postal ingresado. La persona debe realizar el trámite de cambio de medio de cobro a través de mi ANSES
                                 mostrarError('Existen sucursales bancarias para el código postal ingresado. La persona debe realizar el trámite de cambio de medio de cobro a través de mi ANSES');
                                 return;
@@ -392,7 +455,7 @@
                 });
             }
 
-			function cargarBancosVirtuales() {
+            function cargarBancosVirtuales() {
                 $.ajax({
                     url: '@Url.Action("TraerBancosVirtuales", "Home")',
                     type: 'GET',
@@ -431,18 +494,21 @@
                 });
             }
 
-            $('#btnGuardar').click(function () {
+            // ------------------------------------------------
+            // Manejo de clic en “Guardar” → en lugar de confirm(), abrimos el modal
+            // ------------------------------------------------
+            var dataACapturar = {};
 
-                if (!confirm("Confirma guardar su medio de cobro?")) {
+            $('#btnGuardar').click(function () {
+                // Preparamos dataACapturar:
+                dataACapturar = {};
+                var tipoMedioPago = $('.option-button.active').attr('id');
+                if (!tipoMedioPago) {
+                    mostrarError("Debe seleccionar un medio de cobro.");
                     return;
                 }
-                var tipoMedioPago = $('.option-button.active').attr('id');
-                var data = {
-                    tipoMedioPago: tipoMedioPago.replace('btn', ''),
-                    valor: ''
-                };
-                console.log(tipoMedioPago);
-                borrarError();
+                dataACapturar.tipoMedioPago = tipoMedioPago.replace('btn', '');
+                dataACapturar.valor = '';
 
                 switch (tipoMedioPago) {
                     case 'btnBanco':
@@ -451,9 +517,9 @@
                             mostrarError("Por favor, seleccione una sucursal.");
                             return;
                         }
-                        var [codigoBanco, codigoAgencia] = sucursalSeleccionada.split('-');
-                        data.codigoBanco = codigoBanco;
-                        data.codigoAgencia = codigoAgencia;
+                        var partes = sucursalSeleccionada.split('-');
+                        dataACapturar.codigoBanco = partes[0];
+                        dataACapturar.codigoAgencia = partes[1];
                         break;
 
                     case 'btnBancoDigital':
@@ -462,10 +528,9 @@
                             mostrarError("Por favor, seleccione una opción virtual.");
                             return;
                         }
-                        var [bancoDig, agDig] = virtualSeleccionado.split('-');
-                        data.codigoBanco = bancoDig;
-                        data.codigoAgencia = agDig;
-                        // if (isCVU == 1) { ... }
+                        var partes2 = virtualSeleccionado.split('-');
+                        dataACapturar.codigoBanco = partes2[0];
+                        dataACapturar.codigoAgencia = partes2[1];
                         break;
 
                     case 'btnBilleteraVirtual':
@@ -474,40 +539,59 @@
                             mostrarError("Por favor, seleccione una opción virtual.");
                             return;
                         }
-                        var [bancoBil, agBil] = virtualSeleccionado2.split('-');
-                        data.codigoBanco = bancoBil;
-                        data.codigoAgencia = agBil;
-                        // if (isCVU == 1) { ... }
+                        var partes3 = virtualSeleccionado2.split('-');
+                        dataACapturar.codigoBanco = partes3[0];
+                        dataACapturar.codigoAgencia = partes3[1];
                         break;
 
                     case 'btnCBU':
-                        data.valor = $('#cbu').val();
-                        if (!data.valor || data.valor.length !== 22) {
-                            // AS - 20250514 - MEJORA A26) Debe decir: Por favor, ingresá una CBU válida de 22 dígitos
+                        var cbu = $('#cbu').val();
+                        if (!cbu || cbu.length !== 22) {
+						// AS - 20250514 - MEJORA A26) Debe decir: Por favor, ingresá una CBU válida de 22 dígitos
                             mostrarError("Por favor, ingresá una CBU válida de 22 dígitos.");
                             return;
                         }
-                        validarCBU(data.valor);
+                        dataACapturar.valor = cbu;
+                        break;
+
+                    default:
+                        mostrarError("Debe seleccionar un medio de cobro válido.");
                         return;
                 }
 
-                guardarMedioPago(data);
+                // En lugar de confirm(), abrimos el modal de Bootstrap
+                $('#confirmModal').modal('show');
             });
 
-            function validarCBU(cbu) {
+            // ------------------------------------------------
+            // Cuando el usuario presiona “Confirmar” dentro del modal
+            // ------------------------------------------------
+            $('#btnConfirmarGuardar').click(function () {
+                if (dataACapturar.tipoMedioPago === 'CBU') {
+                    // Primero validamos la CBU y luego guardamos
+                    validarCBU_antesDeGuardar(dataACapturar.valor);
+                } else {
+                    $('#confirmModal').modal('hide');
+                    guardarMedioPago(dataACapturar);
+                }
+            });
+
+            function validarCBU_antesDeGuardar(cbu) {
                 $.ajax({
                     url: '@Url.Action("ValidarCBU", "Home")',
                     type: 'POST',
                     data: { CBU: cbu },
                     success: function(response) {
                         if (response.isValid) {
-                            borrarError();
+                            $('#confirmModal').modal('hide');
                             guardarMedioPago({ tipoMedioPago: 'CBU', valor: cbu });
                         } else {
+                            $('#confirmModal').modal('hide');
                             mostrarError("La CBU no es válida. Por favor verifica el número ingresado.");
                         }
                     },
                     error: function() {
+                        $('#confirmModal').modal('hide');
                         mostrarError("Error al validar el CBU.");
                     }
                 });
@@ -520,7 +604,7 @@
                     data: data,
                     success: function(response) {
                         if (response.success) {
-                           window.location.href = '@Url.Action("MensajeFinal", "Home")';
+                            window.location.href = '@Url.Action("MensajeFinal", "Home")';
                             borrarError();
                         } else {
                             mostrarError(response.message || "Error al guardar el medio de pago.");
@@ -539,73 +623,6 @@
             function borrarError() {
                 $('#mensajeError').hide();
                 $('#listaSucursales').hide();
-            }
-
-			// ----------------------------
-            // 2) Lógica extra: Edad & Apoderado
-            //    Ocultar/mostrar botones (#btnBanco, #btnVirtual, #btnCBU)
-            // ----------------------------
-
-            // Primero los ocultamos todos
-            //$('#btnBanco').hide();
-            //$('#btnVirtual').hide();
-            //$('#btnCBU').hide();
-            $('#btnBanco, #btnVirtual, #btnCBU, #btnBancoDigital').closest('.form-check').hide();
-
-            // Menor de 13
-            if (esMenor13) {
-                if (tieneApoderado2) {
-                    // Menor de 13 con apoderado -> Banco y CBU
-                    $('#btnCBU').closest('.form-check').show();
-                    $('#btnBanco').closest('.form-check').show();
-                    $('#btnVirtual').closest('.form-check').show(); //se debe mostrar solo banco digital
-                    $('#btnBilleteraVirtual').closest('.form-check').hide();
-                    //$('#btnBancoDigital').hide();
-                    //$('#btnCBU').show();
-                }
-                // Menor de 13 sin apoderado => ya se muestra error
-            }
-            // Entre 13 y 18
-            else if (esEntre13y18) {
-                if (tieneApoderado2) {
-                    // 13..17 con apoderado -> Banco, Virtual, CBU
-                    $('#btnBanco').closest('.form-check').show();
-                    if (udai === "false") {
-                        $('#btnVirtual').closest('.form-check').show();
-                    }
-                    $('#btnCBU').closest('.form-check').show();
-                }
-                else { // NO TIENE APODERADO
-                    // 13..17 sin apoderado -> Virtual (si UDAI==false), CBU
-                    if (udai === "false") {
-                        $('#btnVirtual').closest('.form-check').show(); // solo billetera virtual
-
-                        //AS - 20250407 - Bug 373. Menor entre 13 y 17 Sin apoderado no debe mostrar Banco Digital (MIANSES)
-                        $('#btnBilleteraVirtual').closest('.form-check').show();
-                        $('#btnBancoDigital').closest('.form-check').hide();
-                    }
-                    //JLS  - BUG 366 - Debería mostrar las opciones “BILLETERA VIRTUAL” y “ACREDITACION EN CUENTA (CBU)”. Muestra todas
-                    $('#btnBanco').closest('.form-check').hide();
-                    $('#btnCBU').closest('.form-check').show();
-                }
-            }
-            // Mayor o igual a 18
-            else if (esMayorIgual18) {
-                $('#btnBanco').closest('.form-check').show();
-                if (udai === "false") {
-                    $('#btnVirtual').closest('.form-check').show();
-                }
-                $('#btnCBU').closest('.form-check').show();
-            }
-            //AS - 20250407 - Mejora 370. - Ver de ocultar la opción de Bancos Virtuales
-            //$('#btnBancoDigital').hide();
-            $('#btnBancoDigital').closest('.form-check').hide();
-
-            // ----------------------------
-            // 3) Si error != "0", mostrar mensaje
-            // ----------------------------
-            if (error != "0") {
-                mostrarError("Necesitás designar a un apoderado para cambiar tu medio de cobro. Tu apoderado deberá presentarse en una oficina de ANSES para solicitar el cambio.");
             }
         });
     </script>
