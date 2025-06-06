@@ -440,6 +440,7 @@
     <Content Include="Views\Home\ListadoMDP.cshtml" />
     <Content Include="Views\Home\MensajeFinal.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
+    <Content Include="Views\Home\TestView.cshtml" />
     <None Include="Web References\ADPWrapperWS\ADPWrapperWS.wsdl" />
     <Content Include="Web References\ADPWrapperWS\DireccionEx.datasource">
       <DependentUpon>Reference.map</DependentUpon>
@@ -742,6 +743,9 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>MedioUnicoDePago_ADPWrapperWS_ADPWrapperWS</CachedSettingsPropName>
     </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

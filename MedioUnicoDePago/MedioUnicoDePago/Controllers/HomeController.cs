@@ -147,7 +147,10 @@ namespace MedioUnicoDePago.Controllers
             // Retornamos la vista
             return View();
         }
-
+        public ActionResult TestView()
+        {
+            return View();
+        }
         private bool EsMayorDe13Anios(DateTime fechaNacimiento)
         {
             DateTime fechaActual = DateTime.Today;

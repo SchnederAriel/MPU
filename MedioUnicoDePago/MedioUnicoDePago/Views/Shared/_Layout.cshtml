@@ -1,13 +1,9 @@
-﻿@*
-    _Layout.cshtml con modal de confirmación de Bootstrap agregado
-*@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="icon" type="image/png" sizes="32x32" href="~/assets/ico/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="~/assets/ico/favicon-16x16.png">
 
@@ -22,21 +18,33 @@
 
     <title>@ViewBag.Title - CUNA</title>
 
-    @* ===== Estilos (Bundles) ===== *@
-    @Styles.Render("~/Content/css")        @* Debe incluir Bootstrap.css y Site.css *@
+    @*<title>@ViewBag.Title - My ASP.NET Application</title>*@
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
     @Styles.Render("~/Content/datepicker")
     @Styles.Render("~/Content/grilla")
     @Styles.Render("~/Content/fontawesome")
-    @RenderSection("estilos", required: false)
 
-    @* ===== Modernizr (si lo usás) ===== *@
-    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/impresion")
+
+    @RenderSection("estilos", required: false)
 
     <script type="text/javascript">
         var isIE = document.all && document.addEventListener && !window.atob;
     </script>
+
+
 </head>
 <body>
+    @*<div class="container body-content">
+            @RenderBody()
+            <hr />
+        </div>*@
+
     <div id="spinner-container">
         <div class="overlay">
             <div class="spinner__container">
@@ -45,7 +53,6 @@
             </div>
         </div>
     </div>
-
     <main class="body-content">
         <div class="container">
             <div class="row">
@@ -56,34 +63,9 @@
         </div>
     </main>
 
-    @* ==========================================
-        Modal de confirmación (disponible para todas las vistas que usan este Layout)
-        ========================================== *@
-    <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="confirmModalLabel">Confirmar acción</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    ¿Estás seguro de que querés guardar tu medio de cobro?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="button" id="btnConfirmarGuardar" class="btn btn-primary">Confirmar</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")*@
 
-    @* ==========================================
-        Scripts compartidos (Bundles)
-        ========================================== *@
-    @Scripts.Render("~/bundles/jquery")           @* jQuery *@
-    @Scripts.Render("~/bundles/bootstrap")        @* Bootstrap.js (incluye Popper si está en el bundle) *@
     @Scripts.Render("~/bundles/datepicker")
     @Scripts.Render("~/bundles/inputmask")
     @Scripts.Render("~/bundles/moment")

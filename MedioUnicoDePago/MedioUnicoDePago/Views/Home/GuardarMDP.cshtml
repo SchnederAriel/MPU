@@ -3,11 +3,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@* Si quieres forzar la carga de Bootstrap.css y Site.css en esta vista, pero normalmente ya lo trae el bundle de Layout *@
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 <link href="~/Content/Site.css" rel="stylesheet" />
-
 <style>
+
     body {
         background-color: #f5f6f7;
         font-family: Arial, sans-serif;
@@ -58,7 +57,6 @@
         margin-bottom: 20px;
     }
 
-    /* AS - 20250603 - Bug 401 - MDPU Mobile - Los radio buttons se ven desalineados */
     .form-check {
         display: flex;
         align-items: center;
@@ -115,20 +113,114 @@
     .btn-guardar-container {
         margin-top: 30px;
     }
+
+    /* ====================================
+       Estilos del Confirm Box personalizado
+       ==================================== */
+
+    /* Overlay oscuro de fondo */
+    .confirm-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+        .confirm-overlay.visible {
+            display: flex;
+            opacity: 1;
+        }
+
+    /* Contenedor del diálogo */
+    .confirm-box {
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        padding: 24px;
+        width: 90%;
+        max-width: 400px;
+        text-align: center;
+        transform: scale(0.9);
+        transition: transform 0.3s ease;
+    }
+
+    .confirm-overlay.visible .confirm-box {
+        transform: scale(1);
+    }
+
+    .confirm-title {
+        margin: 0 0 12px 0;
+        font-size: 1.5rem;
+        color: #333;
+    }
+
+    .confirm-message {
+        margin: 0 0 24px 0;
+        font-size: 1rem;
+        color: #666;
+        line-height: 1.5;
+    }
+
+    .confirm-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+    }
+
+    .confirm-button {
+        border: none;
+        border-radius: 8px;
+        padding: 12px 24px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.2s ease, transform 0.1s ease;
+        flex-grow: 1;
+    }
+
+        .confirm-button:active {
+            transform: translateY(1px);
+        }
+
+    .confirm-button-ok {
+        background-color: #007bff;
+        color: white;
+    }
+
+        .confirm-button-ok:hover {
+            background-color: #0056b3;
+        }
+
+    .confirm-button-cancel {
+        background-color: #e9ecef;
+        color: #495057;
+    }
+
+        .confirm-button-cancel:hover {
+            background-color: #ced4da;
+        }
 </style>
 
 <div class="container">
     <div>
         <div>
-            <!-- AS - 20250514 - MEJORA A5) Debe decir: Seleccioná tu medio de cobro para recibir tus asignaciones familiares y otras prestaciones -->
+            <!-- AS - 20250514 - MEJORA A5) Debe decir: Seleccioná tu medio de cobro para recibir tus asignaciones familiares y otras prestaciones  -->
             <h1>Seleccioná tu medio de cobro para recibir tus asignaciones familiares y otras prestaciones</h1>
             <hr />
 
             <div class="mb-4">
                 <h5 class="subtitle">Cambio de lugar de cobro</h5>
+                <!-- AS - 20250516 - MEJORA B3) Debe Decir: Desde esta pantalla seleccioná el medio de cobro correspondiente a correo/zona rural  -->
                 @if (ViewBag.UDAI != null && (bool)ViewBag.UDAI)
                 {
-                    <!-- AS - 20250516 - MEJORA B3) Debe decir: Desde esta pantalla seleccioná el medio de cobro correspondiente a correo/zona rural -->
                     <p>Desde esta pantalla seleccioná el medio de cobro correspondiente a correo/zona rural</p>
                 }
                 else
@@ -138,11 +230,10 @@
             </div>
 
             <div class="alert alert-info" role="alert">
-                <!-- AS - 20250514 - MEJORA A4) Elimina "Forma de pago" Debe decir: al seleccionar un nuevo medio de cobro reemplazás en forma permanente el medio donde actualmente cobrás tus asignaciones familiares y otras prestaciones -->
+                <!-- AS - 20250514 - MEJORA A4) Elimina "Forma de pago" Debe decir: al seleccionar un nuevo medio de cobro reemplazás en forma permanente el medio donde actualmente cobrás tus asignaciones familiares y otras prestaciones  -->
                 <strong>Importante:</strong> al seleccionar un nuevo medio de cobro reemplazás en forma permanente el medio donde actualmente cobrás tus asignaciones familiares y otras prestaciones
             </div>
 
-            @* 1) Mensaje de Zona Austral, solo si ViewBag.MensajeZonaAustral no está vacío *@
             @if (!string.IsNullOrEmpty(ViewBag.MensajeZonaAustral))
             {
                 <div class="alert alert-warning" role="alert">
@@ -150,18 +241,17 @@
                 </div>
             }
 
-            @* 2) Bloque original de opciones *@
+            <!-- Opciones principales -->
             <div class="option-container">
                 @if (ViewBag.Error == "0")
                 {
-                    @* Opción: Sucursal Bancaria *@
                     <div class="form-check">
                         <input class="form-check-input option-button" type="radio" name="medioPago" id="btnBanco" />
                         <!-- AS - 20250521 - MEJORA A9) Debe decir: Banco por código postal -->
                         <label class="form-check-label" for="btnBanco">Banco por código postal</label>
                     </div>
 
-                    @* Opción: Virtual *@
+                    @* Solo si no es UDAI *@
                     if (ViewBag.UDAI == false)
                     {
                         <div class="form-check">
@@ -169,7 +259,6 @@
                             <!-- AS - 20250521 - MEJORA A9) Debe decir: Billetera virtual o banco digital -->
                             <label class="form-check-label" for="btnVirtual">Billetera virtual o banco digital</label>
                         </div>
-                        @* Opción: CBU *@
                         <div class="form-check">
                             <input class="form-check-input option-button" type="radio" name="medioPago" id="btnCBU" />
                             <!-- AS - 20250521 - MEJORA A9) Debe decir: Acreditación en cuenta (CBU) -->
@@ -185,17 +274,15 @@
                 }
             </div>
 
-            @* Bloque de opciones virtuales *@
+            <!-- Bloque de opciones virtuales -->
             <div id="virtualOptions" style="display: none;">
                 <!-- AS - 20250514 - MEJORA A24) Debe decir: Seleccioná el tipo de medio de cobro virtual -->
                 <h5>Seleccioná el tipo de medio de cobro virtual</h5>
                 <div class="option-container">
-                    @* Opción: Banco Digital *@
                     <div class="form-check">
                         <input class="form-check-input option-button" type="radio" name="medioVirtual" id="btnBancoDigital" />
                         <label class="form-check-label" for="btnBancoDigital">BANCO DIGITAL</label>
                     </div>
-                    @* Opción: Billetera Virtual *@
                     <div class="form-check">
                         <input class="form-check-input option-button" type="radio" name="medioVirtual" id="btnBilleteraVirtual" />
                         <label class="form-check-label" for="btnBilleteraVirtual">BILLETERA VIRTUAL</label>
@@ -203,6 +290,7 @@
                 </div>
             </div>
 
+            <!-- Bloque para sucursales físicas -->
             <div id="sucursalOptions" style="display: none; margin-top:20px;">
                 <div id="codigoPostalInput">
                     <label for="codigoPostal">Código Postal:</label>
@@ -216,24 +304,29 @@
                 </div>
             </div>
 
+            <!-- Bloque para CBU -->
             <div id="cbuInput" style="display: none; margin-top:20px;">
                 <label for="cbu">CBU:</label>
                 <input type="text" id="cbu" class="form-control" maxlength="22">
             </div>
 
+            <!-- Bloques para opciones virtuales cargadas -->
             <div id="listaVirtual" style="display: none; margin-top:20px;">
                 <!-- AS - 20250514 - MEJORA A25) Debe decir: Seleccioná una opción -->
                 <label for="virtualSelect">Seleccioná una opción:</label>
                 <select id="virtualSelect" class="form-control"></select>
             </div>
 
+            <!-- Bloque para CVU -->
             <div id="cvuInput" style="display: none; margin-top:20px;">
                 <label for="cvu">CVU:</label>
                 <input type="text" id="cvu" class="form-control" maxlength="22">
             </div>
 
             <hr />
+
             <div class="btn-guardar-container">
+                <!-- Botón de Guardar: oculto por defecto -->
                 <button id="btnGuardar" class="btn btn-primary" style="display: none;">Guardar</button>
             </div>
 
@@ -263,115 +356,62 @@
     </div>
 </div>
 
+<!-- Confirm Box HTML -->
+<div id="custom-confirm" class="confirm-overlay">
+    <div class="confirm-box">
+        <h2 id="confirm-title" class="confirm-title">Confirmar Acción</h2>
+        <p id="confirm-message" class="confirm-message">¿Estás seguro?</p>
+        <div class="confirm-buttons">
+            <button id="confirm-cancel" class="confirm-button confirm-button-cancel">Cancelar</button>
+            <button id="confirm-ok" class="confirm-button confirm-button-ok">Aceptar</button>
+        </div>
+    </div>
+</div>
+
 @section Scripts {
     <script>
         // ===== Variables traídas de ViewBag para uso en JavaScript =====
-        var udai           = '@ViewBag.UDAI'.toLowerCase();
-        var error          = '@ViewBag.Error'.toLowerCase();
-        var cui            = '@ViewBag.cuil'.toLowerCase();
+        var udai  = '@ViewBag.UDAI'.toLowerCase();
+        var error = '@ViewBag.Error'.toLowerCase();
+        var cui   = '@ViewBag.cuil'.toLowerCase();
 
         // 3) Restricciones de Edad & Apoderado (booleans)
-        var esMenor13       = ('@ViewBag.EsMenor13' === 'True');
-        var esEntre13y18    = ('@ViewBag.EsEntre13y18' === 'True');
-        var esMayorIgual18  = ('@ViewBag.EsMayorIgual18' === 'True');
+        var esMenor13       = ('@ViewBag.EsMenor13'       === 'True');
+        var esEntre13y18    = ('@ViewBag.EsEntre13y18'    === 'True');
+        var esMayorIgual18  = ('@ViewBag.EsMayorIgual18'  === 'True');
         var tieneApoderado2 = ('@ViewBag.TieneApoderado2' === 'True');
 
         $(document).ready(function() {
-            // ------------------------------------------------
-            // Lógica para mostrar/ocultar opciones según edad, UDAI, apoderado, etc.
-            // ------------------------------------------------
-            $('#btnBanco, #btnVirtual, #btnCBU, #btnBancoDigital').closest('.form-check').hide();
-
-            // Menor de 13
-            if (esMenor13) {
-                if (tieneApoderado2) {
-                    // Menor de 13 con apoderado -> Banco, Virtual, CBU
-                    $('#btnCBU').closest('.form-check').show();
-                    $('#btnBanco').closest('.form-check').show();
-                    $('#btnVirtual').closest('.form-check').show();
-                    $('#btnBilleteraVirtual').closest('.form-check').hide();
-                }
-                // Menor de 13 sin apoderado => se mostrará error más abajo
-            }
-            // Entre 13 y 18
-            else if (esEntre13y18) {
-                if (tieneApoderado2) {
-                    // 13..17 con apoderado -> Banco, Virtual, CBU
-                    $('#btnBanco').closest('.form-check').show();
-                    if (udai === "false") {
-                        $('#btnVirtual').closest('.form-check').show();
-                    }
-                    $('#btnCBU').closest('.form-check').show();
-                } else {
-                    // 13..17 sin apoderado -> Virtual (si UDAI==false), CBU
-                    if (udai === "false") {
-                        $('#btnVirtual').closest('.form-check').show();
-						//AS - 20250407 - Bug 373. Menor entre 13 y 17 Sin apoderado no debe mostrar Banco Digital (MIANSES)
-                        $('#btnBilleteraVirtual').closest('.form-check').show();
-                        $('#btnBancoDigital').closest('.form-check').hide();
-                    }
-					//JLS  - BUG 366 - Debería mostrar las opciones “BILLETERA VIRTUAL” y “ACREDITACION EN CUENTA (CBU)”. Muestra todas
-                    $('#btnBanco').closest('.form-check').hide();
-                    $('#btnCBU').closest('.form-check').show();
-                }
-            }
-            // Mayor o igual a 18
-            else if (esMayorIgual18) {
-                $('#btnBanco').closest('.form-check').show();
-                if (udai === "false") {
-                    $('#btnVirtual').closest('.form-check').show();
-                }
-                $('#btnCBU').closest('.form-check').show();
-            }
-			//AS - 20250407 - Mejora 370. - Ver de ocultar la opción de Bancos Virtuales
-            // Siempre ocultamos la opción “Banco Digital” (solo mostramos “Billetera Virtual”)
-            $('#btnBancoDigital').closest('.form-check').hide();
-
-            // Si (ViewBag.Error != "0"), mostramos mensaje de apoderado
-            if (error !== "0") {
-                mostrarError("Necesitás designar a un apoderado para cambiar tu medio de cobro. Tu apoderado deberá presentarse en una oficina de ANSES para solicitar el cambio.");
-            }
-
-            // ------------------------------------------------
-            // Manejo de clics en opciones (radio buttons)
-            // ------------------------------------------------
+            // ========================================================
+            // Sección 1: Lógica de selección de medio de cobro (original)
+            // ========================================================
             $('.option-button').click(function() {
-                // Quitar clase active de todos y agregarla al seleccionado
                 $('.option-button').removeClass('active');
                 $(this).addClass('active');
-
-                // Ocultar todos los bloques secundarios
                 $('#virtualOptions, #sucursalOptions, #cbuInput, #listaVirtual, #cvuInput, #msgGenAustral').hide();
+                $('#btnGuardar').hide();
 
                 var selectedId = $(this).attr('id');
                 if (selectedId === 'btnBanco') {
                     $('#sucursalOptions').show();
                     $('#btnGuardar').show();
-                }
-                else if (selectedId === 'btnVirtual') {
+                } else if (selectedId === 'btnVirtual') {
                     $('#virtualOptions').show();
                     $('#btnBilleteraVirtual').closest('.form-check').show();
+                    $('#btnBilleteraVirtual').show();
                     $('#msgGenAustral').show();
-                }
-                else if (selectedId === 'btnCBU') {
+                } else if (selectedId === 'btnCBU') {
                     $('#cbuInput').show();
                     $('#msgGenAustral').show();
                     $('#btnGuardar').show();
                 }
-
-                // Asegurarse de que el radio HTML quede realmente “checked”
-                $('input[type=radio][name=medioPago]:checked, input[type=radio][name=medioVirtual]:checked')
-                    .prop('checked', true);
+                $('input[type=radio][name=medioPago]:checked, input[type=radio][name=medioVirtual]:checked').prop('checked', true);
             });
 
-            // ------------------------------------------------
-            // Manejo de clic en “Banco Digital” o “Billetera Virtual”
-            // ------------------------------------------------
             let isCVU = 0;
             $('#btnBancoDigital, #btnBilleteraVirtual').click(function() {
                 $('#listaVirtual').show();
                 $('.btn-guardar-container button').show();
-
                 if (this.id === 'btnBancoDigital') {
                     cargarBancosVirtuales();
                     isCVU = 0;
@@ -381,15 +421,9 @@
                     isCVU = 1;
                 }
             });
-
-            // Si elige “Virtual” directamente, ocultamos temporalmente el botón Guardar
             $('#btnVirtual').click(function () {
                 $('.btn-guardar-container button').hide();
             });
-
-            // ------------------------------------------------
-            // Cargar sucursales físicas al hacer click en “Buscar sucursales”
-            // ------------------------------------------------
             $('#btnBuscarSucursales').click(function() {
                 var codigoPostal = $('#codigoPostal').val();
                 if (codigoPostal) {
@@ -398,16 +432,13 @@
                 }
             });
 
-            // ------------------------------------------------
-            // Funciones AJAX para traer bancos físicos y virtuales
-            // ------------------------------------------------
             function cargarBancosFisicos(codigoPostal) {
                 $.ajax({
                     url: '@Url.Action("TraerBancosFisicos", "Home")',
                     type: 'GET',
                     data: { codigoPostal: codigoPostal },
                     success: function(bancos) {
-                        if (udai === "true") {
+                        if (udai == "true") {
                             if (bancos && bancos.length > 0) {
                                 // AS - 20250516 - MEJORA B6) Debe decir: Existen sucursales bancarias para el código postal ingresado. La persona debe realizar el trámite de cambio de medio de cobro a través de mi ANSES
                                 mostrarError('Existen sucursales bancarias para el código postal ingresado. La persona debe realizar el trámite de cambio de medio de cobro a través de mi ANSES');
@@ -494,104 +525,21 @@
                 });
             }
 
-            // ------------------------------------------------
-            // Manejo de clic en “Guardar” → en lugar de confirm(), abrimos el modal
-            // ------------------------------------------------
-            var dataACapturar = {};
-
-            $('#btnGuardar').click(function () {
-                // Preparamos dataACapturar:
-                dataACapturar = {};
-                var tipoMedioPago = $('.option-button.active').attr('id');
-                if (!tipoMedioPago) {
-                    mostrarError("Debe seleccionar un medio de cobro.");
-                    return;
-                }
-                dataACapturar.tipoMedioPago = tipoMedioPago.replace('btn', '');
-                dataACapturar.valor = '';
-
-                switch (tipoMedioPago) {
-                    case 'btnBanco':
-                        var sucursalSeleccionada = $('#sucursalSelect').val();
-                        if (!sucursalSeleccionada) {
-                            mostrarError("Por favor, seleccione una sucursal.");
-                            return;
-                        }
-                        var partes = sucursalSeleccionada.split('-');
-                        dataACapturar.codigoBanco = partes[0];
-                        dataACapturar.codigoAgencia = partes[1];
-                        break;
-
-                    case 'btnBancoDigital':
-                        var virtualSeleccionado = $('#virtualSelect').val();
-                        if (!virtualSeleccionado) {
-                            mostrarError("Por favor, seleccione una opción virtual.");
-                            return;
-                        }
-                        var partes2 = virtualSeleccionado.split('-');
-                        dataACapturar.codigoBanco = partes2[0];
-                        dataACapturar.codigoAgencia = partes2[1];
-                        break;
-
-                    case 'btnBilleteraVirtual':
-                        var virtualSeleccionado2 = $('#virtualSelect').val();
-                        if (!virtualSeleccionado2) {
-                            mostrarError("Por favor, seleccione una opción virtual.");
-                            return;
-                        }
-                        var partes3 = virtualSeleccionado2.split('-');
-                        dataACapturar.codigoBanco = partes3[0];
-                        dataACapturar.codigoAgencia = partes3[1];
-                        break;
-
-                    case 'btnCBU':
-                        var cbu = $('#cbu').val();
-                        if (!cbu || cbu.length !== 22) {
-						// AS - 20250514 - MEJORA A26) Debe decir: Por favor, ingresá una CBU válida de 22 dígitos
-                            mostrarError("Por favor, ingresá una CBU válida de 22 dígitos.");
-                            return;
-                        }
-                        dataACapturar.valor = cbu;
-                        break;
-
-                    default:
-                        mostrarError("Debe seleccionar un medio de cobro válido.");
-                        return;
-                }
-
-                // En lugar de confirm(), abrimos el modal de Bootstrap
-                $('#confirmModal').modal('show');
-            });
-
-            // ------------------------------------------------
-            // Cuando el usuario presiona “Confirmar” dentro del modal
-            // ------------------------------------------------
-            $('#btnConfirmarGuardar').click(function () {
-                if (dataACapturar.tipoMedioPago === 'CBU') {
-                    // Primero validamos la CBU y luego guardamos
-                    validarCBU_antesDeGuardar(dataACapturar.valor);
-                } else {
-                    $('#confirmModal').modal('hide');
-                    guardarMedioPago(dataACapturar);
-                }
-            });
-
-            function validarCBU_antesDeGuardar(cbu) {
+            function validarCBU(cbu) {
                 $.ajax({
                     url: '@Url.Action("ValidarCBU", "Home")',
                     type: 'POST',
                     data: { CBU: cbu },
                     success: function(response) {
                         if (response.isValid) {
-                            $('#confirmModal').modal('hide');
+                            borrarError();
+                            // Si la CBU es válida, llamamos guardarMedioPago con los datos
                             guardarMedioPago({ tipoMedioPago: 'CBU', valor: cbu });
                         } else {
-                            $('#confirmModal').modal('hide');
                             mostrarError("La CBU no es válida. Por favor verifica el número ingresado.");
                         }
                     },
                     error: function() {
-                        $('#confirmModal').modal('hide');
                         mostrarError("Error al validar el CBU.");
                     }
                 });
@@ -624,6 +572,178 @@
                 $('#mensajeError').hide();
                 $('#listaSucursales').hide();
             }
+
+            // =======================================================
+            // Sección 2: Lógica de restricciones de Edad & Apoderado
+            // =======================================================
+            // Primero los ocultamos todos
+            $('#btnBanco, #btnVirtual, #btnCBU, #btnBancoDigital').closest('.form-check').hide();
+
+            if (esMenor13) {
+                if (tieneApoderado2) {
+                    $('#btnCBU').closest('.form-check').show();
+                    $('#btnBanco').closest('.form-check').show();
+                    $('#btnVirtual').closest('.form-check').show();
+                    $('#btnBilleteraVirtual').closest('.form-check').hide();
+                }
+                // Si es menor de 13 sin apoderado, no mostramos botones
+            }
+            else if (esEntre13y18) {
+                if (tieneApoderado2) {
+                    // 13..17 con apoderado -> Banco, Virtual, CBU
+                    $('#btnBanco').closest('.form-check').show();
+                    if (udai === "false") {
+                        $('#btnVirtual').closest('.form-check').show();
+                    }
+                    $('#btnCBU').closest('.form-check').show();
+                } else { // NO TIENE APODERADO
+                    // 13..17 sin apoderado -> Virtual (si UDAI==false), CBU
+                    if (udai === "false") {
+                        $('#btnVirtual').closest('.form-check').show(); // solo billetera virtual
+                        //AS - 20250407 - Bug 373. Menor entre 13 y 17 Sin apoderado no debe mostrar Banco Digital (MIANSES)
+                        $('#btnBilleteraVirtual').closest('.form-check').show();
+                        $('#btnBancoDigital').closest('.form-check').hide();
+                    }
+                    //JLS  - BUG 366 - Debería mostrar las opciones “BILLETERA VIRTUAL” y “ACREDITACION EN CUENTA (CBU)”. Muestra todas
+                    $('#btnBanco').closest('.form-check').hide();
+                    $('#btnCBU').closest('.form-check').show();
+                }
+            }
+            // Mayor o igual a 18
+            else if (esMayorIgual18) {
+                $('#btnBanco').closest('.form-check').show();
+                if (udai === "false") {
+                    $('#btnVirtual').closest('.form-check').show();
+                }
+                $('#btnCBU').closest('.form-check').show();
+            }
+            //AS - 20250407 - Mejora 370. - Ver de ocultar la opción de Bancos Virtuales
+            //$('#btnBancoDigital').hide();
+            $('#btnBancoDigital').closest('.form-check').hide();
+
+            if (error != "0") {
+                mostrarError("Necesitás designar a un apoderado para cambiar tu medio de cobro. Tu apoderado deberá presentarse en una oficina de ANSES para solicitar el cambio.");
+            }
+
+
+            // ===================================================
+            // Sección 3: Integración del Custom Confirm Box
+            // ===================================================
+            const confirmElement = document.getElementById('custom-confirm');
+            const titleElement = document.getElementById('confirm-title');
+            const messageElement = document.getElementById('confirm-message');
+            const okButton = document.getElementById('confirm-ok');
+            const cancelButton = document.getElementById('confirm-cancel');
+
+            class CustomConfirm {
+                constructor() {
+                    this.resolve = null;
+                }
+
+                show({ title, message, okText = 'Aceptar', cancelText = 'Cancelar' }) {
+                    titleElement.textContent = title;
+                    messageElement.textContent = message;
+                    okButton.textContent = okText;
+                    cancelButton.textContent = cancelText;
+
+                    confirmElement.classList.add('visible');
+
+                    return new Promise(resolve => {
+                        this.resolve = resolve;
+                    });
+                }
+
+                hide() {
+                    confirmElement.classList.remove('visible');
+                }
+
+                handleOk() {
+                    if (this.resolve) {
+                        this.resolve(true);
+                    }
+                    this.hide();
+                }
+
+                handleCancel() {
+                    if (this.resolve) {
+                        this.resolve(false);
+                    }
+                    this.hide();
+                }
+            }
+
+            const myConfirm = new CustomConfirm();
+            okButton.addEventListener('click', () => myConfirm.handleOk());
+            cancelButton.addEventListener('click', () => myConfirm.handleCancel());
+
+            // Reemplazamos el confirm() nativo en el click de #btnGuardar
+            $('#btnGuardar').click(async function() {
+                // Mostramos nuestro custom confirm
+                const userConfirmed = await myConfirm.show({
+                    title: 'Confirmar',
+                    message: '¿Confirma guardar su medio de cobro?',
+                    okText: 'Sí, guardar',
+                    cancelText: 'No, cancelar'
+                });
+
+                if (!userConfirmed) {
+                    return;
+                }
+
+                // Si el usuario confirmó, procedemos con la lógica de envío
+                var tipoMedioPago = $('.option-button.active').attr('id');
+                var data = {
+                    tipoMedioPago: tipoMedioPago.replace('btn', ''),
+                    valor: ''
+                };
+                borrarError();
+
+                switch (tipoMedioPago) {
+                    case 'btnBanco':
+                        var sucursalSeleccionada = $('#sucursalSelect').val();
+                        if (!sucursalSeleccionada) {
+                            mostrarError("Por favor, seleccione una sucursal.");
+                            return;
+                        }
+                        var partsBanco = sucursalSeleccionada.split('-');
+                        data.codigoBanco = partsBanco[0];
+                        data.codigoAgencia = partsBanco[1];
+                        break;
+
+                    case 'btnBancoDigital':
+                        var virtualSeleccionado = $('#virtualSelect').val();
+                        if (!virtualSeleccionado) {
+                            mostrarError("Por favor, seleccione una opción virtual.");
+                            return;
+                        }
+                        var partsVirtual = virtualSeleccionado.split('-');
+                        data.codigoBanco = partsVirtual[0];
+                        data.codigoAgencia = partsVirtual[1];
+                        break;
+
+                    case 'btnBilleteraVirtual':
+                        var virtualSeleccionado2 = $('#virtualSelect').val();
+                        if (!virtualSeleccionado2) {
+                            mostrarError("Por favor, seleccione una opción virtual.");
+                            return;
+                        }
+                        var partsBil = virtualSeleccionado2.split('-');
+                        data.codigoBanco = partsBil[0];
+                        data.codigoAgencia = partsBil[1];
+                        break;
+
+                    case 'btnCBU':
+                        data.valor = $('#cbu').val();
+                        if (!data.valor || data.valor.length !== 22) {
+                            mostrarError("Por favor, ingresá una CBU válida de 22 dígitos.");
+                            return;
+                        }
+                        validarCBU(data.valor);
+                        return;
+                }
+
+                guardarMedioPago(data);
+            });
         });
     </script>
 }
