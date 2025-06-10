@@ -80,71 +80,72 @@
             <hr />
 
             <p class="subtitle">
-                <strong>Cambio de lugar de cobro</strong><br>
-                Si quiere cambiar el lugar donde recibe su asignación familiar podrá elegir entre: acreditación en cuenta (CBU), banco por código postal o billetera virtual. Simplifique su trámite según sus preferencias. ¡La elección es comodidad!
+                <!-- <strong>Cambio de lugar de cobro</strong><br> -->
+                <!-- AS - 20250610 - BUG 397 Debe decir: Para cobrar tus asignaciones familiares y otras prestaciones (Asignación Universal, Vouchers Educativos, etc. ) podés elegir entre: acreditación en cuenta (CBU), banco digital o billetera virtual, o banco por código postal (si elegís esta opción, al ir a cobrar por primera vez, tenés que firmar la apertura de la cuenta). -->
+                Para cobrar tus asignaciones familiares y otras prestaciones (Asignación Universal, Vouchers Educativos, etc. ) podés elegir entre: acreditación en cuenta (CBU), banco digital o billetera virtual, o banco por código postal (si elegís esta opción, al ir a cobrar por primera vez, tenés que firmar la apertura de la cuenta).
             </p>
-            <!-- AS - 20250602 - BUG 396 Debe decir: al seleccionar un nuevo medio de cobro reemplazás en forma permanente el medio donde actualmente cobrás tus asignaciones familiares y otras prestaciones (Asignacion Universal, Voucher educativo, etc.). -->
-            <div class="alert alert-info" role="alert">
-                <strong>Importante: </strong> al seleccionar un nuevo medio de cobro reemplazás en forma permanente el medio donde actualmente cobrás tus asignaciones familiares y otras prestaciones (Asignacion Universal, Voucher educativo, etc.).
-            </div>
+                <!-- AS - 20250602 - BUG 396 Debe decir: al seleccionar un nuevo medio de cobro reemplazás en forma permanente el medio donde actualmente cobrás tus asignaciones familiares y otras prestaciones (Asignacion Universal, Voucher educativo, etc.). -->
+                <div class="alert alert-info" role="alert">
+                    <strong>Importante: </strong> al seleccionar un nuevo medio de cobro reemplazás en forma permanente el medio donde actualmente cobrás tus asignaciones familiares y otras prestaciones (Asignacion Universal, Voucher educativo, etc.).
+                </div>
 
-            @if (Model.Count > 0)
-            {
-                <form id="formMedioPago">
-                    <div class="mb-4">
-                        <h5 class="mb-3">Medios de pago disponibles</h5>
-                        @foreach (var medioPago in Model)
-                        {
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="medioPagoSeleccionado"
-                                       id="@medioPago.TipoMedioPago-@(medioPago.CBU ?? medioPago.CodigoBanco)"
-                                       value="@medioPago.TipoMedioPago"
-                                       data-cbu="@medioPago.CBU"
-                                       data-codigo-banco="@medioPago.CodigoBanco"
-                                       data-codigo-agencia="@medioPago.CodigoAgencia"
-                                       data-nombre-banco="@medioPago.NombreBanco"
-                                       data-nombre-agencia="@medioPago.NombreAgencia">
-                                <label class="form-check-label" for="@medioPago.TipoMedioPago-@(medioPago.CBU ?? medioPago.CodigoBanco)">
-                                    @if (!string.IsNullOrEmpty(medioPago.NombreBanco) && medioPago.NombreBanco != "N/A")
-                                    {
-                                        @medioPago.NombreBanco
-                                        if (!string.IsNullOrEmpty(medioPago.NombreAgencia) && medioPago.NombreAgencia != "N/A")
+                @if (Model.Count > 0)
+                {
+                    <form id="formMedioPago">
+                        <div class="mb-4">
+                            <h5 class="mb-3">Medios de pago disponibles</h5>
+                            @foreach (var medioPago in Model)
+                            {
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="medioPagoSeleccionado"
+                                           id="@medioPago.TipoMedioPago-@(medioPago.CBU ?? medioPago.CodigoBanco)"
+                                           value="@medioPago.TipoMedioPago"
+                                           data-cbu="@medioPago.CBU"
+                                           data-codigo-banco="@medioPago.CodigoBanco"
+                                           data-codigo-agencia="@medioPago.CodigoAgencia"
+                                           data-nombre-banco="@medioPago.NombreBanco"
+                                           data-nombre-agencia="@medioPago.NombreAgencia">
+                                    <label class="form-check-label" for="@medioPago.TipoMedioPago-@(medioPago.CBU ?? medioPago.CodigoBanco)">
+                                        @if (!string.IsNullOrEmpty(medioPago.NombreBanco) && medioPago.NombreBanco != "N/A")
                                         {
-                                            <span> - @medioPago.NombreAgencia</span>
+                                            @medioPago.NombreBanco
+                                            if (!string.IsNullOrEmpty(medioPago.NombreAgencia) && medioPago.NombreAgencia != "N/A")
+                                            {
+                                                <span> - @medioPago.NombreAgencia</span>
+                                            }
                                         }
-                                    }
-                                    @if (!string.IsNullOrEmpty(medioPago.CBU) && medioPago.CBU != "N/A")
-                                    {
-                                        <span> - CBU: @medioPago.CBU</span>
-                                    }
-                                    @*@if (!string.IsNullOrEmpty(medioPago.MPago) && medioPago.MPago != "N/A")
+                                        @if (!string.IsNullOrEmpty(medioPago.CBU) && medioPago.CBU != "N/A")
+                                        {
+                                            <span> - CBU: @medioPago.CBU</span>
+                                        }
+                                        @*@if (!string.IsNullOrEmpty(medioPago.MPago) && medioPago.MPago != "N/A")
                                 {
                                     <span> - Tipo: @medioPago.MPago</span>
                                 }*@
+                                    </label>
+                                </div>
+                            }
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="medioPagoSeleccionado" id="ninguno" value="ninguno">
+                                <label class="form-check-label" for="ninguno">
+                                    Nuevo Medio de Cobro
                                 </label>
                             </div>
-                        }
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="medioPagoSeleccionado" id="ninguno" value="ninguno">
-                            <label class="form-check-label" for="ninguno">
-                                Nuevo Medio de Cobro
-                            </label>
                         </div>
+
+
+                    </form>
+                }
+                else
+                {
+                    <div class="form-check" hidden>
+                        <input class="form-check-input" type="radio" name="medioPagoSeleccionado" id="ninguno" value="ninguno" checked>
+                        <label class="form-check-label" for="ninguno" checked>
+                            Nuevo Medio de Cobro
+                        </label>
                     </div>
 
-
-                </form>
-            }
-            else
-            {
-                <div class="form-check" hidden>
-                    <input class="form-check-input" type="radio" name="medioPagoSeleccionado" id="ninguno" value="ninguno" checked>
-                    <label class="form-check-label" for="ninguno" checked>
-                        Nuevo Medio de Cobro
-                    </label>
-                </div>
-
-                <p>No se encontraron medios de pago disponibles.</p>
+<p>No se encontraron medios de pago disponibles.</p>
 
             }
             <hr />

@@ -194,10 +194,11 @@ namespace MedioUnicoDePago.Controllers
                         }
                         else
                         {
-                            return "ATENCION: si vivís en una Zona Austral, " +
-                                   "antes de seleccionar un nuevo medio de cobro " +
-                                   "acreditá tu domicilio en una oficina de ANSES para " +
-                                   "mantener el pago adicional por zona";
+                        // AS - 20250610 - BUG 398 MDPU Debe decir: IMPORTANTE: Si vivís en una zona austral y elegís como medio de cobro billetera virtual o CBU no nos será posible identificar tu zona geográfica y, en consecuencia, no recibirás el diferencial por zona
+                        return "IMPORTANTE: si vivís en una Zona Austral " +
+                                   "y elegís como medio de cobro billetera virtual " +
+                                   "o CBU no nos será posible identificar tu zona geográfica " +
+                                   "y, en consecuencia, no recibirás el diferencial por zona";
                         }
                     
                     }else if (response.Retorno.CodigoRetorno != 99 &&
