@@ -195,7 +195,7 @@ namespace MedioUnicoDePago.Controllers
                         else
                         {
                         // AS - 20250610 - BUG 398 MDPU Debe decir: IMPORTANTE: Si vivís en una zona austral y elegís como medio de cobro billetera virtual o CBU no nos será posible identificar tu zona geográfica y, en consecuencia, no recibirás el diferencial por zona
-                        return "IMPORTANTE: si vivís en una Zona Austral " +
+                        return "IMPORTANTE: si vivís en una zona austral " +
                                    "y elegís como medio de cobro billetera virtual " +
                                    "o CBU no nos será posible identificar tu zona geográfica " +
                                    "y, en consecuencia, no recibirás el diferencial por zona";
@@ -215,11 +215,11 @@ namespace MedioUnicoDePago.Controllers
                         log.Error("Es zona austral: " + EsZonaAustral);
                         if(EsZonaAustral)
                         {
-                            // AS - 20250514 - MEJORA A8) Debe decir: IMPORTANTE: Si vivís en una zona austral y elegís como medio de cobro billetera virtual o CBU no nos será posible identificar tu zona geográfica y, en consecuencia, no recibirás el diferencial por zona
+                            // AS - 20250612 - BUG 416 Debe decir: IMPORTANTE: Si vivís en una zona austral y elegís como medio de cobro billetera virtual o CBU no nos será posible identificar tu zona geográfica y, en consecuencia, no recibirás el diferencial por zona
                             return "IMPORTANTE: Si vivís en una zona austral " +
                                "y elegís como medio de cobro billetera virtual " +
                                "o CBU no nos será posible identificar tu zona geográfica " +
-                               "y, en consecuencia, <strong>no recibirás el diferencial por zona</strong>";
+                               "y, en consecuencia, no recibirás el diferencial por zona";
                         }
 
                         }
