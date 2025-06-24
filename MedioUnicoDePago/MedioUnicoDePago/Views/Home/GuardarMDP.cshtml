@@ -678,8 +678,20 @@
             cancelButton.addEventListener('click', () => myConfirm.handleCancel());
 
             // Reemplazamos el confirm() nativo en el click de #btnGuardar
-            $('#btnGuardar').click(async function() {
-                // Mostramos nuestro custom confirm
+            $('#btnGuardar').click(async function () {
+                var tipoMedioPago = $('.option-button.active').attr('id');
+                // Validación CBU pura (antes de confirmar)
+                // AS - 20250624 - BUG 425 - CBU no valido debe ser de 22 digitos
+                if (tipoMedioPago === 'btnCBU') {
+                    var cbuVal = $('#cbu').val().trim();
+                    var soloDigitos22 = /^\d{22}$/.test(cbuVal);
+                    if (!soloDigitos22) {
+                        mostrarError("El CBU debe contener 22 dígitos");
+                        return; // cortamos aquí, no abrimos confirm
+                    }
+                }
+
+                // Si pasamos la validación local, mostramos el confirm
                 const userConfirmed = await myConfirm.show({
                     title: 'Confirmar',
                     message: '¿Confirma guardar su medio de cobro?',

@@ -1135,9 +1135,6 @@ namespace MedioUnicoDePago.Controllers
             }
         }
 
-
-
-
         private async Task<PersonaViewModel> ObtenerYValidarPersona(string cuil)
         {
             // Datos hardcodeados para pruebas
@@ -1279,14 +1276,6 @@ namespace MedioUnicoDePago.Controllers
             log.Warn("No se pudo determinar el tipo de medio de pago");
             return "Otro";
         }
-
-
-
-
-
-
-
-
 
         private string ObtenerDescripcionMedioPago()
         {
