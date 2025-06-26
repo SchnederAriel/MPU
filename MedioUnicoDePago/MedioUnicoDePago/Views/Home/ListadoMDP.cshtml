@@ -1,4 +1,5 @@
-﻿@{
+﻿
+@{
     ViewBag.Title = "Listado de Medios de Pago Disponibles - ANSES";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -71,295 +72,171 @@
             background-color: #0056b3;
             border-color: #0056b3;
         }
-
-    /* Estilos del Confirm Box */
-    .confirm-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.6);
-        display: none;
-        justify-content: center;
-        align-items: center;
-        z-index: 1000;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-
-        .confirm-overlay.visible {
-            display: flex;
-            opacity: 1;
-        }
-
-    .confirm-box {
-        background: #ffffff;
-        border-radius: 12px;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-        padding: 24px;
-        width: 90%;
-        max-width: 400px;
-        text-align: center;
-        transform: scale(0.9);
-        transition: transform 0.3s ease;
-    }
-
-    .confirm-overlay.visible .confirm-box {
-        transform: scale(1);
-    }
-
-    .confirm-title {
-        margin: 0 0 12px 0;
-        font-size: 1.5rem;
-        color: #333;
-    }
-
-    .confirm-message {
-        margin: 0 0 24px 0;
-        font-size: 1rem;
-        color: #666;
-        line-height: 1.5;
-    }
-
-    .confirm-buttons {
-        display: flex;
-        justify-content: center;
-        gap: 16px;
-    }
-
-    .confirm-button {
-        border: none;
-        border-radius: 8px;
-        padding: 12px 24px;
-        font-size: 1rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: background-color 0.2s ease, transform 0.1s ease;
-        flex-grow: 1;
-    }
-
-        .confirm-button:active {
-            transform: translateY(1px);
-        }
-
-    .confirm-button-ok {
-        background-color: #007bff;
-        color: white;
-    }
-
-        .confirm-button-ok:hover {
-            background-color: #0056b3;
-        }
-
-    .confirm-button-cancel {
-        background-color: #e9ecef;
-        color: #495057;
-    }
-
-        .confirm-button-cancel:hover {
-            background-color: #ced4da;
-        }
-
-    /* Feedback container */
-    #feedback {
-        display: none;
-        margin-top: 15px;
-        padding: 10px 15px;
-        border-radius: 4px;
-        transition: opacity 0.3s;
-    }
-
-        #feedback.show {
-            display: block;
-            opacity: 1;
-        }
-
-        #feedback.hide {
-            opacity: 0;
-        }
-
-    .alert-success {
-        background-color: #d4edda;
-        border: 1px solid #c3e6cb;
-        color: #155724;
-    }
-
-    .alert-danger {
-        background-color: #f8d7da;
-        border: 1px solid #f5c6cb;
-        color: #721c24;
-    }
 </style>
-
 <div class="container">
-    <!-- AS - 20250602 - BUG 396 Debe decir : Seleccioná tu medio de cobro para recibir tus asignaciones familiares y otras prestaciones -->
-    <h1>Seleccioná tu medio de cobro para recibir tus asignaciones familiares y otras prestaciones</h1>
-    <hr />
-    <p class="subtitle">
-        <!-- <strong>Cambio de lugar de cobro</strong><br> -->
-        <!-- AS - 20250610 - BUG 397 Debe decir: Para cobrar tus asignaciones familiares y otras prestaciones (Asignación Universal, Vouchers Educativos, etc. ) podés elegir entre: acreditación en cuenta (CBU), banco digital o billetera virtual, o banco por código postal (si elegís esta opción, al ir a cobrar por primera vez, tenés que firmar la apertura de la cuenta). -->
-        Para cobrar tus asignaciones familiares y otras prestaciones (Asignación Universal, Vouchers Educativos, etc.) podés elegir entre: acreditación en cuenta (CBU), banco digital o billetera virtual, o banco por código postal (si elegís esta opción, al ir a cobrar por primera vez, tenés que firmar la apertura de la cuenta).
-    </p>
-    <p>
-        <strong> Si al ingresar tu código postal no aparecen sucursales bancarias o figuran a más de 40 kilómetros, dirigite a la oficina de ANSES más cercana para realizar el cambio de medio de cobro. </strong>
-    </p>
-    <!-- AS - 20250602 - BUG 396 Debe decir: al seleccionar un nuevo medio de cobro reemplazás en forma permanente el medio donde actualmente cobrás tus asignaciones familiares y otras prestaciones (Asignacion Universal, Voucher educativo, etc.). -->
-    <div class="alert alert-info" role="alert">
-        <strong>Importante:</strong> al seleccionar un nuevo medio de cobro reemplazás en forma permanente el medio donde actualmente cobrás tus asignaciones familiares y otras prestaciones.
-    </div>
+    <div>
+        <div>
+            <!-- AS - 20250602 - BUG 396 Debe decir : Seleccioná tu medio de cobro para recibir tus asignaciones familiares y otras prestaciones -->
+            <h1>Seleccioná tu medio de cobro para recibir tus asignaciones familiares y otras prestaciones</h1>
+            <hr />
 
-    @if (Model.Count() > 0)
-    {
-        <form id="formMedioPago">
-            <div class="mb-4">
-                <h5 class="mb-3">Medios de pago disponibles</h5>
-                @foreach (var medioPago in Model)
-                {
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="medioPagoSeleccionado"
-                               id="@medioPago.TipoMedioPago-@(medioPago.CBU ?? medioPago.CodigoBanco)"
-                               value="@medioPago.TipoMedioPago"
-                               data-cbu="@medioPago.CBU"
-                               data-codigo-banco="@medioPago.CodigoBanco"
-                               data-codigo-agencia="@medioPago.CodigoAgencia"
-                               data-nombre-banco="@medioPago.NombreBanco"
-                               data-nombre-agencia="@medioPago.NombreAgencia">
-                        <label class="form-check-label" for="@medioPago.TipoMedioPago-@(medioPago.CBU ?? medioPago.CodigoBanco)">
-                            @if (!string.IsNullOrEmpty(medioPago.NombreBanco) && medioPago.NombreBanco != "N/A")
-                            {
-                                @medioPago.NombreBanco
-                                if (!string.IsNullOrEmpty(medioPago.NombreAgencia) && medioPago.NombreAgencia != "N/A")
-                                {
-                                    <span> - @medioPago.NombreAgencia</span>
-                                }
-                            }
-                            @if (!string.IsNullOrEmpty(medioPago.CBU) && medioPago.CBU != "N/A")
-                            {
-                                <span> - CBU: @medioPago.CBU</span>
-                            }
-                        </label>
-                    </div>
-                }
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="medioPagoSeleccionado" id="ninguno" value="ninguno">
-                    <label class="form-check-label" for="ninguno">Nuevo Medio de Cobro</label>
-                </div>
-            </div>
-        </form>
-    }
-    else
-    {
-        <div class="form-check" hidden>
-            <input class="form-check-input" type="radio" name="medioPagoSeleccionado" id="ninguno" value="ninguno" checked>
-            <label class="form-check-label" for="ninguno">Nuevo Medio de Cobro</label>
-        </div>
-        <p>No se encontraron medios de pago disponibles.</p>
-    }
-
-    <div id="feedback"></div>
-
-    <hr />
-    <div class="d-flex justify-content-start mt-4">
-        <button type="button" id="btnContinuar" class="btn btn-primary">Continuar</button>
-    </div>
-
-    <!-- Confirm Box -->
-    <div id="custom-confirm" class="confirm-overlay">
-        <div class="confirm-box">
-            <h2 id="confirm-title" class="confirm-title">¿Estás seguro?</h2>
-            <p id="confirm-message" class="confirm-message">
-                Al cambiar tu medio de cobro, perderás el anterior de manera permanente.
+            <p class="subtitle">
+                <!-- <strong>Cambio de lugar de cobro</strong><br> -->
+                <!-- AS - 20250610 - BUG 397 Debe decir: Para cobrar tus asignaciones familiares y otras prestaciones (Asignación Universal, Vouchers Educativos, etc. ) podés elegir entre: acreditación en cuenta (CBU), banco digital o billetera virtual, o banco por código postal (si elegís esta opción, al ir a cobrar por primera vez, tenés que firmar la apertura de la cuenta). -->
+                Para cobrar tus asignaciones familiares y otras prestaciones (Asignación Universal, Vouchers Educativos, etc. ) podés elegir entre: acreditación en cuenta (CBU), banco digital o billetera virtual, o banco por código postal (si elegís esta opción, al ir a cobrar por primera vez, tenés que firmar la apertura de la cuenta).
             </p>
-            <div class="confirm-buttons">
-                <button id="confirm-cancel" class="confirm-button confirm-button-cancel">Cancelar</button>
-                <button id="confirm-ok" class="confirm-button confirm-button-ok">Aceptar</button>
+            <!-- AS - 20250624 - BUG 424 Debe decir : Si al ingresar tu código postal no aparecen sucursales bancarias o figuran a más de 40 kilómetros, dirigite a la oficina de ANSES más cercana para realizar el cambio de medio de cobro. -->
+            <p>
+                <strong> Si al ingresar tu código postal no aparecen sucursales bancarias o figuran a más de 40 kilómetros, dirigite a la oficina de ANSES más cercana para realizar el cambio de medio de cobro. </strong>
+            </p>
+            <!-- AS - 20250602 - BUG 396 Debe decir: al seleccionar un nuevo medio de cobro reemplazás en forma permanente el medio donde actualmente cobrás tus asignaciones familiares y otras prestaciones (Asignacion Universal, Voucher educativo, etc.). -->
+            <div class="alert alert-info" role="alert">
+                <strong>Importante: </strong> al seleccionar un nuevo medio de cobro reemplazás en forma permanente el medio donde actualmente cobrás tus asignaciones familiares y otras prestaciones (Asignacion Universal, Voucher educativo, etc.).
+            </div>
+
+            @if (Model.Count > 0)
+            {
+                <form id="formMedioPago">
+                    <div class="mb-4">
+                        <h5 class="mb-3">Medios de pago disponibles</h5>
+                        @foreach (var medioPago in Model)
+                        {
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="medioPagoSeleccionado"
+                                       id="@medioPago.TipoMedioPago-@(medioPago.CBU ?? medioPago.CodigoBanco)"
+                                       value="@medioPago.TipoMedioPago"
+                                       data-cbu="@medioPago.CBU"
+                                       data-codigo-banco="@medioPago.CodigoBanco"
+                                       data-codigo-agencia="@medioPago.CodigoAgencia"
+                                       data-nombre-banco="@medioPago.NombreBanco"
+                                       data-nombre-agencia="@medioPago.NombreAgencia">
+                                <label class="form-check-label" for="@medioPago.TipoMedioPago-@(medioPago.CBU ?? medioPago.CodigoBanco)">
+                                    @if (!string.IsNullOrEmpty(medioPago.NombreBanco) && medioPago.NombreBanco != "N/A")
+                                    {
+                                        @medioPago.NombreBanco
+                                        if (!string.IsNullOrEmpty(medioPago.NombreAgencia) && medioPago.NombreAgencia != "N/A")
+                                        {
+                                            <span> - @medioPago.NombreAgencia</span>
+                                        }
+                                    }
+                                    @if (!string.IsNullOrEmpty(medioPago.CBU) && medioPago.CBU != "N/A")
+                                    {
+                                        <span> - CBU: @medioPago.CBU</span>
+                                    }
+                                    @*@if (!string.IsNullOrEmpty(medioPago.MPago) && medioPago.MPago != "N/A")
+                                        {
+                                            <span> - Tipo: @medioPago.MPago</span>
+                                        }*@
+                                </label>
+                            </div>
+                        }
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="medioPagoSeleccionado" id="ninguno" value="ninguno">
+                            <label class="form-check-label" for="ninguno">
+                                Nuevo Medio de Cobro
+                            </label>
+                        </div>
+                    </div>
+
+
+                </form>
+            }
+            else
+            {
+                <div class="form-check" hidden>
+                    <input class="form-check-input" type="radio" name="medioPagoSeleccionado" id="ninguno" value="ninguno" checked>
+                    <label class="form-check-label" for="ninguno" checked>
+                        Nuevo Medio de Cobro
+                    </label>
+                </div>
+
+                <p>No se encontraron medios de pago disponibles.</p>
+
+            }
+            <hr />
+            <div class="d-flex justify-content-start mt-4">
+                <button type="button" id="btnContinuar" class="btn btn-primary">Continuar</button>
             </div>
         </div>
     </div>
 </div>
 
+
+
 @section Scripts {
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        class CustomConfirm {
-            constructor() { this.resolve = null; }
-            show({ title, message, okText = 'Aceptar', cancelText = 'Cancelar' }) {
-                document.getElementById('confirm-title').textContent = title;
-                document.getElementById('confirm-message').textContent = message;
-                document.getElementById('confirm-ok').textContent = okText;
-                document.getElementById('confirm-cancel').textContent = cancelText;
-                document.getElementById('custom-confirm').classList.add('visible');
-                return new Promise(resolve => { this.resolve = resolve; });
-            }
-            hide() {
-                document.getElementById('custom-confirm').classList.remove('visible');
-            }
-            handleOk() { this.resolve?.(true); this.hide(); }
-            handleCancel() { this.resolve?.(false); this.hide(); }
-        }
+        $(document).ready(function () {
+            // Variable que indica si existe un medio de pago previo
+            var tieneMedioAnterior = @((Model.Count > 0) ? "true" : "false");
 
-        function showFeedback(message, type) {
-            const fb = $('#feedback');
-            fb.removeClass('alert-success alert-danger hide')
-              .addClass(type === 'success' ? 'alert-success' : 'alert-danger')
-              .text(message)
-              .show()
-              .addClass('show');
-            setTimeout(() => {
-                fb.addClass('hide');
-                setTimeout(() => fb.hide(), 300);
-            }, 5000);
-        }
+            // Manejo del click en Continuar con confirmación si aplica
+            $('#btnContinuar').click(async function (e) {
+                e.preventDefault();
 
-        const myConfirm = new CustomConfirm();
-        $('#confirm-ok').on('click', () => myConfirm.handleOk());
-        $('#confirm-cancel').on('click', () => myConfirm.handleCancel());
+                var seleccion = $('input[name="medioPagoSeleccionado"]:checked');
 
-        $('#btnContinuar').click(async function (e) {
-            e.preventDefault();
-            const confirmado = await myConfirm.show({
-                title: '¿Estás seguro?',
-                message: 'Al cambiar tu medio de cobro, reemplazás permanentemente el medio actual. ¿Querés continuar?',
-                okText: 'Sí, cambiar',
-                cancelText: 'No, volver'
-            });
-            if (!confirmado) return;
+                // Si hay un medio existente y no es 'ninguno', pedimos confirmación
+                if (tieneMedioAnterior === "true" && seleccion.val() !== "ninguno") {
+                    const confirmed = await myConfirm.show({
+                        title: '¿Estás seguro?',
+                        message: 'Al confirmar, reemplazarás tu medio de cobro actual.',
+                        okText: 'Sí, reemplazar',
+                        cancelText: 'No'
+                    });
+                    if (!confirmed) return;
+                }
 
-            var seleccion = $('input[name="medioPagoSeleccionado"]:checked');
-            if (seleccion.val() === 'ninguno') {
-                window.location.href = '@Url.Action("GuardarMDP","Home")';
-                return;
-            }
+                if (seleccion.val() === "ninguno") {
+                    window.location.href = '@Url.Action("GuardarMDP", "Home")';
+                } else if (seleccion.length > 0) {
+                    var tipoMedioPago = seleccion.val();
+                    var data = {
+                        tipoMedioPago: tipoMedioPago,
+                        valor: ''
+                    };
 
-            var tipoMedioPago = seleccion.val();
-            var data = { tipoMedioPago: tipoMedioPago, valor: '' };
-            switch (tipoMedioPago) {
-                case 'CBU': data.valor = seleccion.data('cbu'); break;
-                case 'CVU': data.valor = seleccion.data('cvu'); break;
-                case 'Banco':
-                    data.codigoBanco = seleccion.data('codigo-banco');
-                    data.codigoAgencia = seleccion.data('codigo-agencia');
-                    data.valor = data.codigoBanco + '/' + data.codigoAgencia;
-                    break;
-            }
+                    switch (tipoMedioPago) {
+                        case 'CBU':
+                            data.valor = seleccion.data('cbu');
+                            break;
+                        case 'CVU':
+                            data.valor = seleccion.data('cvu');
+                            break;
+                        case 'Banco':
+                            data.codigoBanco = seleccion.data('codigo-banco');
+                            data.codigoAgencia = seleccion.data('codigo-agencia');
+                            data.valor = data.codigoBanco + '/' + data.codigoAgencia;
+                            break;
 
-            $.ajax({
-                url: '@Url.Action("GuardarMedioDePago","Home")',
-                type: 'POST',
-                data: data,
-                success: function (response) {
-                    if (response.success) {
-                        showFeedback('Medio de pago guardado correctamente.', 'success');
-                        setTimeout(() => window.location.href = '@Url.Action("MensajeFinal","Home")', 1000);
-                    } else {
-                        showFeedback('Error al guardar el medio de pago: ' + response.message, 'danger');
                     }
-                },
-                error: function () {
-                    showFeedback('Error de conexión. Por favor, intente nuevamente más tarde.', 'danger');
+
+                    //console.log("Datos a enviar:", data); // Para depuración
+
+
+
+                    if (1 == 1) {
+                    $.ajax({
+                        url: '@Url.Action("GuardarMedioDePago", "Home")',
+                        type: 'POST',
+                        data: data,
+                        success: function (response) {
+                            if (response.success) {
+                                window.location.href = '@Url.Action("MensajeFinal", "Home")';
+                            } else {
+                                alert('Error al guardar el medio de pago: ' + response.message);
+                            }
+                        },
+                        error: function () {
+                            alert('Error de conexión. Por favor, intente nuevamente más tarde.');
+                        }
+                    });
+                }
+                } else {
+                    alert('Por favor, seleccione un medio de pago.');
                 }
             });
         });
     </script>
 }
+
+
