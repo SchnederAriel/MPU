@@ -2,10 +2,10 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Listado de Medios de Pago Disponibles - ANSES (Simulado)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Medios de Pago Disponibles - ANSES (Simulación)</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
     <style>
-        /* Página principal */
         body {
             font-family: Arial, sans-serif;
             background-color: #f5f6f7;
@@ -27,6 +27,17 @@
             margin-bottom: 10px;
         }
 
+        p {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        hr {
+            margin: 20px 0;
+            border: none;
+            border-top: 1px solid #ccc;
+        }
+
         .subtitle {
             color: #6c757d;
             font-size: 14px;
@@ -41,6 +52,10 @@
             border-radius: 4px;
             padding: 12px 15px;
             margin-bottom: 25px;
+        }
+
+        .form-check {
+            margin-bottom: 10px;
         }
 
         .btn-primary {
@@ -58,7 +73,7 @@
                 border-color: #0056b3;
             }
 
-        /* Confirm box personalizado */
+        /* Estilos del Confirm Box */
         .confirm-overlay {
             position: fixed;
             top: 0;
@@ -96,13 +111,13 @@
         }
 
         .confirm-title {
-            margin: 0 0 12px;
+            margin: 0 0 12px 0;
             font-size: 1.5rem;
             color: #333;
         }
 
         .confirm-message {
-            margin: 0 0 24px;
+            margin: 0 0 24px 0;
             font-size: 1rem;
             color: #666;
             line-height: 1.5;
@@ -146,132 +161,227 @@
             .confirm-button-cancel:hover {
                 background-color: #ced4da;
             }
+
+        /* Feedback container */
+        #feedback {
+            display: none;
+            margin-top: 15px;
+            padding: 10px 15px;
+            border-radius: 4px;
+            transition: opacity 0.3s;
+        }
+
+            #feedback.show {
+                display: block;
+                opacity: 1;
+            }
+
+            #feedback.hide {
+                opacity: 0;
+            }
+
+        .alert-success {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+
+        .alert-danger {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
     </style>
 </head>
 <body>
+
     <div class="container">
-        <h1>Seleccioná tu medio de cobro para recibir tus asignaciones</h1>
+        <h1>Seleccioná tu medio de cobro para recibir tus asignaciones familiares y otras prestaciones</h1>
         <hr />
         <p class="subtitle">
-            Simulación: tenés dos medios de pago activos. Al cambiar, reemplazás permanentemente el medio actual.
+            Para cobrar tus asignaciones familiares y otras prestaciones (Asignación Universal, Vouchers Educativos, etc.) podés elegir entre: acreditación en cuenta (CBU), banco digital o billetera virtual, o banco por código postal (si elegís esta opción, al ir a cobrar por primera vez, tenés que firmar la apertura de la cuenta).
         </p>
         <div class="alert alert-info" role="alert">
-            <strong>Importante:</strong> al seleccionar un nuevo medio de cobro reemplazás el medio actual.
+            <strong>Importante:</strong> al seleccionar un nuevo medio de cobro reemplazás en forma permanente el medio donde actualmente cobrás tus asignaciones familiares y otras prestaciones.
         </div>
 
-        <!-- Simulación de Model.Count > 0 -->
         <form id="formMedioPago">
             <div class="mb-4">
                 <h5 class="mb-3">Medios de pago disponibles</h5>
 
-                <!-- Medio de pago 1: CBU -->
                 <div class="form-check">
-                    <input class="form-check-input" type="radio"
-                           name="medioPagoSeleccionado"
-                           id="CBU-000111222333"
+                    <input class="form-check-input" type="radio" name="medioPagoSeleccionado"
+                           id="CBU-0290022510000000673418"
                            value="CBU"
-                           data-cbu="000111222333">
-                    <label class="form-check-label" for="CBU-000111222333">
-                        Banco Simulado - CBU: 000111222333
+                           data-cbu="0290022510000000673418"
+                           data-codigo-banco="299"
+                           data-codigo-agencia="0"
+                           data-nombre-banco="BANCO CIUDAD DE BUENOS AIRES"
+                           data-nombre-agencia="N/A">
+                    <label class="form-check-label" for="CBU-0290022510000000673418">
+                        BANCO CIUDAD DE BUENOS AIRES - CBU: 0290022510000000673418
                     </label>
                 </div>
 
-                <!-- Medio de pago 2: Banco físico -->
                 <div class="form-check">
-                    <input class="form-check-input" type="radio"
-                           name="medioPagoSeleccionado"
-                           id="Banco-123-456"
+                    <input class="form-check-input" type="radio" name="medioPagoSeleccionado"
+                           id="CVU-0000003100012345678912"
+                           value="CVU"
+                           data-cvu="0000003100012345678912" data-codigo-banco="322"
+                           data-codigo-agencia="0"
+                           data-nombre-banco="MERCADO PAGO"
+                           data-nombre-agencia="N/A">
+                    <label class="form-check-label" for="CVU-0000003100012345678912">
+                        MERCADO PAGO - CVU: 0000003100012345678912
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="medioPagoSeleccionado"
+                           id="Banco-97"
                            value="Banco"
-                           data-codigo-banco="123"
-                           data-codigo-agencia="456">
-                    <label class="form-check-label" for="Banco-123-456">
-                        Banco Ejemplo - Agencia 456 (Código Banco: 123)
+                           data-cbu=""
+                           data-codigo-banco="97"
+                           data-codigo-agencia="101"
+                           data-nombre-banco="BANCO DE LA NACION ARGENTINA"
+                           data-nombre-agencia="SUCURSAL CONGRESO">
+                    <label class="form-check-label" for="Banco-97">
+                        BANCO DE LA NACION ARGENTINA - SUCURSAL CONGRESO
                     </label>
                 </div>
 
-                <!-- Opción de nuevo medio -->
                 <div class="form-check">
-                    <input class="form-check-input" type="radio"
-                           name="medioPagoSeleccionado"
-                           id="ninguno"
-                           value="ninguno">
-                    <label class="form-check-label" for="ninguno">
-                        Nuevo Medio de Cobro
-                    </label>
+                    <input class="form-check-input" type="radio" name="medioPagoSeleccionado" id="ninguno" value="ninguno" checked>
+                    <label class="form-check-label" for="ninguno">Nuevo Medio de Cobro</label>
                 </div>
             </div>
         </form>
+        <div id="feedback"></div>
 
+        <hr />
         <div class="d-flex justify-content-start mt-4">
             <button type="button" id="btnContinuar" class="btn btn-primary">Continuar</button>
         </div>
-    </div>
 
-    <!-- Confirm Box -->
-    <div id="custom-confirm" class="confirm-overlay">
-        <div class="confirm-box">
-            <h2 id="confirm-title" class="confirm-title">Confirmar Cambio</h2>
-            <p id="confirm-message" class="confirm-message">
-                Al cambiar el medio de cobro, reemplazás permanentemente el medio actual. ¿Querés continuar?
-            </p>
-            <div class="confirm-buttons">
-                <button id="confirm-cancel" class="confirm-button confirm-button-cancel">Cancelar</button>
-                <button id="confirm-ok" class="confirm-button confirm-button-ok">Aceptar</button>
+        <div id="custom-confirm" class="confirm-overlay">
+            <div class="confirm-box">
+                <h2 id="confirm-title" class="confirm-title">¿Estás seguro?</h2>
+                <p id="confirm-message" class="confirm-message">
+                    Al cambiar tu medio de cobro, perderás el anterior de manera permanente.
+                </p>
+                <div class="confirm-buttons">
+                    <button id="confirm-cancel" class="confirm-button confirm-button-cancel">Cancelar</button>
+                    <button id="confirm-ok" class="confirm-button confirm-button-ok">Aceptar</button>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        // CustomConfirm class
-        class CustomConfirm {
-            constructor() { this.resolve = null; }
-            show({ title, message, okText = 'Aceptar', cancelText = 'Cancelar' }) {
-                $('#confirm-title').text(title);
-                $('#confirm-message').text(message);
-                $('#confirm-ok').text(okText);
-                $('#confirm-cancel').text(cancelText);
-                $('#custom-confirm').addClass('visible');
-                return new Promise(res => { this.resolve = res; });
-            }
-            hide() { $('#custom-confirm').removeClass('visible'); }
-            handleOk() { if (this.resolve) this.resolve(true); this.hide(); }
-            handleCancel() { if (this.resolve) this.resolve(false); this.hide(); }
+    // Tu código JavaScript con modificaciones para funcionar en un entorno estático.
+    class CustomConfirm {
+        constructor() { this.resolve = null; }
+        show({ title, message, okText = 'Aceptar', cancelText = 'Cancelar' }) {
+            document.getElementById('confirm-title').textContent = title;
+            document.getElementById('confirm-message').textContent = message;
+            document.getElementById('confirm-ok').textContent = okText;
+            document.getElementById('confirm-cancel').textContent = cancelText;
+            document.getElementById('custom-confirm').classList.add('visible');
+            return new Promise(resolve => { this.resolve = resolve; });
+        }
+        hide() {
+            document.getElementById('custom-confirm').classList.remove('visible');
+        }
+        handleOk() { this.resolve?.(true); this.hide(); }
+        handleCancel() { this.resolve?.(false); this.hide(); }
+    }
+
+    function showFeedback(message, type) {
+        const fb = $('#feedback');
+        fb.removeClass('alert-success alert-danger hide')
+          .addClass(type === 'success' ? 'alert-success' : 'alert-danger')
+          .text(message)
+          .show()
+          .addClass('show');
+        setTimeout(() => {
+            fb.addClass('hide');
+            setTimeout(() => fb.hide(), 300);
+        }, 5000);
+    }
+
+    const myConfirm = new CustomConfirm();
+    $('#confirm-ok').on('click', () => myConfirm.handleOk());
+    $('#confirm-cancel').on('click', () => myConfirm.handleCancel());
+
+    $('#btnContinuar').click(async function (e) {
+        e.preventDefault();
+        const confirmado = await myConfirm.show({
+            title: '¿Estás seguro?',
+            message: 'Al cambiar tu medio de cobro, perderás el anterior de manera permanente.',
+            okText: 'Sí, cambiar',
+            cancelText: 'No, volver'
+        });
+
+        if (!confirmado) {
+            console.log("Operación cancelada por el usuario.");
+            return;
         }
 
-        $(document).ready(function () {
-            const myConfirm = new CustomConfirm();
-            $('#confirm-ok').on('click', () => myConfirm.handleOk());
-            $('#confirm-cancel').on('click', () => myConfirm.handleCancel());
+        var seleccion = $('input[name="medioPagoSeleccionado"]:checked');
 
-            $('#btnContinuar').click(async function (e) {
-                e.preventDefault();
-                const seleccion = $('input[name="medioPagoSeleccionado"]:checked');
-                if (seleccion.length === 0) {
-                    alert('Por favor, seleccione un medio de pago.');
-                    return;
-                }
+        if (seleccion.length === 0) {
+            alert("Por favor, selecciona un medio de pago.");
+            return;
+        }
 
-                // Simulamos Model.Count > 0 siempre true
-                if (seleccion.val() !== 'ninguno') {
-                    const confirmed = await myConfirm.show({
-                        title: '¿Estás seguro?',
-                        message: 'Al cambiar el medio de cobro, reemplazás permanentemente el medio actual. ¿Querés continuar?',
-                        okText: 'Sí, continuar',
-                        cancelText: 'No, cancelar'
-                    });
-                    if (!confirmed) return;
-                }
+        if (seleccion.val() === 'ninguno') {
+            // SIMULACIÓN: En lugar de redirigir, mostramos una alerta.
+            alert('SIMULACIÓN: Redirigiendo a /Home/GuardarMDP');
+            // La línea original era: window.location.href = '@Url.Action("GuardarMDP","Home")';
+            return;
+        }
 
-                if (seleccion.val() === 'ninguno') {
-                    alert('Iría a la página de Nuevo Medio de Cobro...');
-                } else {
-                    // Aquí normalmente harías el AJAX; para simulación:
-                    alert('Guardando: ' + seleccion.val());
-                }
-            });
-        });
+        var tipoMedioPago = seleccion.val();
+        var data = { tipoMedioPago: tipoMedioPago, valor: '' };
+        switch (tipoMedioPago) {
+            case 'CBU': data.valor = seleccion.data('cbu'); break;
+            case 'CVU': data.valor = seleccion.data('cvu'); break;
+            case 'Banco':
+                data.codigoBanco = seleccion.data('codigo-banco');
+                data.codigoAgencia = seleccion.data('codigo-agencia');
+                data.valor = data.codigoBanco + '/' + data.codigoAgencia;
+                break;
+        }
+
+        console.log("Datos a enviar (simulación):", data);
+
+        // SIMULACIÓN de la llamada AJAX
+        // La URL original era: '@Url.Action("GuardarMedioDePago","Home")'
+        alert('SIMULACIÓN: Enviando datos a /Home/GuardarMedioDePago...');
+
+        // Puedes cambiar entre la simulación de 'success' y 'error' para probar ambos casos
+
+        // -- Simulación de SUCCESS --
+        var response = { success: true };
+        if (response.success) {
+            showFeedback('Medio de pago guardado correctamente.', 'success');
+            setTimeout(() => {
+                // SIMULACIÓN: En lugar de redirigir, mostramos una alerta.
+                alert('SIMULACIÓN: Redirigiendo a la página final /Home/MensajeFinal');
+                // La línea original era: window.location.href = '@Url.Action("MensajeFinal","Home")'
+            }, 1000);
+        } else {
+            showFeedback('Error al guardar el medio de pago: ' + response.message, 'danger');
+        }
+
+        /*
+        // -- Simulación de ERROR --
+        var errorResponse = { success: false, message: "El CBU ingresado ya existe." };
+        showFeedback('Error al guardar el medio de pago: ' + errorResponse.message, 'danger');
+        */
+    });
     </script>
+
 </body>
 </html>
