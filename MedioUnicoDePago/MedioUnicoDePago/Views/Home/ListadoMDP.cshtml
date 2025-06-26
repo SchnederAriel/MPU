@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Listado de Medios de Pago Disponibles - ANSES";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var hasPrevious = Model.Count > 0;
 }
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 <link href="~/Content/Site.css" rel="stylesheet" />
@@ -72,6 +73,137 @@
             background-color: #0056b3;
             border-color: #0056b3;
         }
+
+    /* --- Estilos del Confirm Box --- */
+
+    /* Capa oscura de fondo (overlay) */
+    .confirm-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        /* Oculto por defecto */
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+        /* Clase para mostrar el overlay */
+        .confirm-overlay.visible {
+            display: flex;
+            opacity: 1;
+        }
+
+    /* Contenedor principal del diálogo */
+    .confirm-box {
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        padding: 24px;
+        width: 90%;
+        max-width: 400px;
+        text-align: center;
+        transform: scale(0.9);
+        transition: transform 0.3s ease;
+    }
+
+    .confirm-overlay.visible .confirm-box {
+        transform: scale(1);
+    }
+
+    /* Título del diálogo */
+    .confirm-title {
+        margin: 0 0 12px 0;
+        font-size: 1.5rem;
+        color: #333;
+    }
+
+    /* Mensaje del diálogo */
+    .confirm-message {
+        margin: 0 0 24px 0;
+        font-size: 1rem;
+        color: #666;
+        line-height: 1.5;
+    }
+
+    /* Contenedor de los botones */
+    .confirm-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+    }
+
+    /* Estilo base para los botones */
+    .confirm-button {
+        border: none;
+        border-radius: 8px;
+        padding: 12px 24px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.2s ease, transform 0.1s ease;
+        flex-grow: 1;
+    }
+
+        .confirm-button:active {
+            transform: translateY(1px);
+        }
+
+    /* Botón de Aceptar (confirmar) */
+    .confirm-button-ok {
+        background-color: #007bff;
+        color: white;
+    }
+
+        .confirm-button-ok:hover {
+            background-color: #0056b3;
+        }
+
+    /* Botón de Cancelar */
+    .confirm-button-cancel {
+        background-color: #e9ecef;
+        color: #495057;
+    }
+
+        .confirm-button-cancel:hover {
+            background-color: #ced4da;
+        }
+
+    /* --- Estilos del contenido principal --- */
+
+    .main-content {
+        text-align: center;
+    }
+
+    #trigger-button {
+        border: none;
+        border-radius: 8px;
+        padding: 14px 28px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        background-color: #28a745;
+        color: white;
+        box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+        transition: all 0.2s ease;
+    }
+
+        #trigger-button:hover {
+            background-color: #218838;
+            box-shadow: 0 6px 16px rgba(40, 167, 69, 0.4);
+        }
+
+    #result-text {
+        margin-top: 20px;
+        font-size: 1.2rem;
+        color: #555;
+        min-height: 25px;
+    }
 </style>
 <div class="container">
     <div>
@@ -165,19 +297,32 @@
 
 @section Scripts {
     <script>
-        $(document).ready(function () {
-            // Variable que indica si existe un medio de pago previo
-            var tieneMedioAnterior = @((Model.Count > 0) ? "true" : "false");
+        $(function() {
+            class CustomConfirm {
+                constructor() { this.resolve = null; }
+                show(opts) {
+                    $('#confirm-title').text(opts.title);
+                    $('#confirm-message').text(opts.message);
+                    $('#confirm-ok').text(opts.okText);
+                    $('#confirm-cancel').text(opts.cancelText);
+                    $('#custom-confirm').addClass('visible');
+                    return new Promise(res => this.resolve = res);
+                }
+                hide() { $('#custom-confirm').removeClass('visible'); }
+                ok() { this.resolve(true); this.hide(); }
+                cancel() { this.resolve(false); this.hide(); }
+            }
+            const myConfirm = new CustomConfirm();
+            $('#confirm-ok').click(() => myConfirm.ok());
+            $('#confirm-cancel').click(() => myConfirm.cancel());
 
-            // Manejo del click en Continuar con confirmación si aplica
-            $('#btnContinuar').click(async function (e) {
+            var tieneMedioAnterior = @(hasPrevious.ToString().ToLower());
+            $('#btnContinuar').click(async function(e) {
                 e.preventDefault();
-
                 var seleccion = $('input[name="medioPagoSeleccionado"]:checked');
-
-                // Si hay un medio existente y no es 'ninguno', pedimos confirmación
-                if (tieneMedioAnterior === "true" && seleccion.val() !== "ninguno") {
-                    const confirmed = await myConfirm.show({
+                if (!seleccion.length) { alert('Por favor, seleccione un medio de cobro.'); return; }
+                if (tieneMedioAnterior && seleccion.val() !== 'ninguno') {
+                    var confirmed = await myConfirm.show({
                         title: '¿Estás seguro?',
                         message: 'Al confirmar, reemplazarás tu medio de cobro actual.',
                         okText: 'Sí, reemplazar',
@@ -185,55 +330,36 @@
                     });
                     if (!confirmed) return;
                 }
-
-                if (seleccion.val() === "ninguno") {
-                    window.location.href = '@Url.Action("GuardarMDP", "Home")';
-                } else if (seleccion.length > 0) {
-                    var tipoMedioPago = seleccion.val();
-                    var data = {
-                        tipoMedioPago: tipoMedioPago,
-                        valor: ''
-                    };
-
-                    switch (tipoMedioPago) {
-                        case 'CBU':
-                            data.valor = seleccion.data('cbu');
-                            break;
-                        case 'CVU':
-                            data.valor = seleccion.data('cvu');
-                            break;
-                        case 'Banco':
-                            data.codigoBanco = seleccion.data('codigo-banco');
-                            data.codigoAgencia = seleccion.data('codigo-agencia');
-                            data.valor = data.codigoBanco + '/' + data.codigoAgencia;
-                            break;
-
+                if (seleccion.val() === 'ninguno') {
+                    window.location.href = '@Url.Action("GuardarMDP","Home")';
+                } else {
+                    var tipo = seleccion.val();
+                    var data = { tipoMedioPago: tipo, valor: '' };
+                    switch(tipo) {
+                        case 'CBU': data.valor = seleccion.data('cbu'); break;
+                        case 'CVU': data.valor = seleccion.data('cvu'); break;
+                        case 'Banco': data.valor = seleccion.data('codigo-banco') + '/' + seleccion.data('codigo-agencia'); break;
                     }
-
-                    //console.log("Datos a enviar:", data); // Para depuración
-
-
-
+                    // Llamada AJAX con $.ajax
                     if (1 == 1) {
                     $.ajax({
-                        url: '@Url.Action("GuardarMedioDePago", "Home")',
+                        url: '@Url.Action("GuardarMedioDePago","Home")',
                         type: 'POST',
                         data: data,
-                        success: function (response) {
+                        success: function(response) {
                             if (response.success) {
-                                window.location.href = '@Url.Action("MensajeFinal", "Home")';
+                                window.location.href = '@Url.Action("MensajeFinal","Home")';
                             } else {
                                 alert('Error al guardar el medio de pago: ' + response.message);
                             }
                         },
-                        error: function () {
+                        error: function() {
                             alert('Error de conexión. Por favor, intente nuevamente más tarde.');
                         }
                     });
+                    }
                 }
-                } else {
-                    alert('Por favor, seleccione un medio de pago.');
-                }
+
             });
         });
     </script>
