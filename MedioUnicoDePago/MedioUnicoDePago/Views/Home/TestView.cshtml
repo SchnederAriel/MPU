@@ -2,41 +2,34 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Prueba Medio de Pago Único</title>
-    <!-- Bootstrap CSS desde CDN -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.2/css/bootstrap.min.css"
-          rel="stylesheet" />
+    <title>Listado de Medios de Pago Disponibles - ANSES (Simulado)</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
     <style>
-
+        /* Página principal */
         body {
-            background-color: #f5f6f7;
             font-family: Arial, sans-serif;
-            color: #212529;
+            background-color: #f5f6f7;
             margin: 0 auto;
-            padding: 5px;
+            padding: 40px;
             max-width: 720px;
+            color: #212529;
         }
 
         .container {
             max-width: 800px;
-            margin-top: 5px;
+            margin-top: 50px;
         }
 
         h1 {
             color: #0056b3;
             font-size: 24px;
             font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        p {
-            font-size: 14px;
-            line-height: 1.5;
+            margin-bottom: 10px;
         }
 
         .subtitle {
             color: #6c757d;
-            font-size: 16px;
+            font-size: 14px;
             margin-bottom: 20px;
         }
 
@@ -48,42 +41,6 @@
             border-radius: 4px;
             padding: 12px 15px;
             margin-bottom: 25px;
-        }
-
-        .option-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 12px;
-            margin-bottom: 20px;
-        }
-
-        .form-check {
-            display: flex;
-            align-items: center;
-            flex: 1 1 calc(33.33% - 8px);
-            min-width: 140px;
-            cursor: pointer;
-            margin-bottom: 10px;
-        }
-
-        .form-check-input.option-button {
-            margin: 0;
-            margin-right: 8px;
-            cursor: pointer;
-        }
-
-        .form-check-label {
-            margin: 0;
-            font-size: 14px;
-            cursor: pointer;
-            color: #007bff;
-        }
-
-        .form-check-input.option-button:hover,
-        .form-check-input.option-button.active {
-            background-color: #007bff;
-            color: #fff;
         }
 
         .btn-primary {
@@ -101,25 +58,7 @@
                 border-color: #0056b3;
             }
 
-        .form-control {
-            border-radius: 5px;
-        }
-
-        hr {
-            margin: 20px 0;
-            border: none;
-            border-top: 1px solid #ccc;
-        }
-
-        .btn-guardar-container {
-            margin-top: 30px;
-        }
-
-        /* ====================================
-           Estilos del Confirm Box personalizado
-           ==================================== */
-
-        /* Overlay oscuro de fondo */
+        /* Confirm box personalizado */
         .confirm-overlay {
             position: fixed;
             top: 0;
@@ -140,7 +79,6 @@
                 opacity: 1;
             }
 
-        /* Contenedor del diálogo */
         .confirm-box {
             background: #ffffff;
             border-radius: 12px;
@@ -158,13 +96,13 @@
         }
 
         .confirm-title {
-            margin: 0 0 12px 0;
+            margin: 0 0 12px;
             font-size: 1.5rem;
             color: #333;
         }
 
         .confirm-message {
-            margin: 0 0 24px 0;
+            margin: 0 0 24px;
             font-size: 1rem;
             color: #666;
             line-height: 1.5;
@@ -212,123 +150,70 @@
 </head>
 <body>
     <div class="container">
-        <div>
-            <h1>Seleccioná tu medio de cobro para recibir tus asignaciones familiares y otras prestaciones</h1>
-            <hr />
+        <h1>Seleccioná tu medio de cobro para recibir tus asignaciones</h1>
+        <hr />
+        <p class="subtitle">
+            Simulación: tenés dos medios de pago activos. Al cambiar, reemplazás permanentemente el medio actual.
+        </p>
+        <div class="alert alert-info" role="alert">
+            <strong>Importante:</strong> al seleccionar un nuevo medio de cobro reemplazás el medio actual.
+        </div>
 
+        <!-- Simulación de Model.Count > 0 -->
+        <form id="formMedioPago">
             <div class="mb-4">
-                <h5 class="subtitle">Cambio de lugar de cobro</h5>
-                <!-- Información estática para simular ViewBag.UDAI -->
-                <p id="textoUbicacion">
-                    Si quiere cambiar el lugar donde recibe su asignación familiar podrá elegir entre:
-                    acreditación en cuenta (CBU), banco por código postal o billetera virtual.
-                    Simplifique su trámite según sus preferencias. ¡La elección es comodidad!
-                </p>
-            </div>
+                <h5 class="mb-3">Medios de pago disponibles</h5>
 
-            <div class="alert alert-info" role="alert">
-                <strong>Importante:</strong> al seleccionar un nuevo medio de cobro reemplazás en forma
-                permanente el medio donde actualmente cobrás tus asignaciones familiares y otras prestaciones (Asignacion Universal, Voucher educativo, etc.).
-            </div>
-
-            <!-- Mensaje de zona austral simulada -->
-            <div id="alertZonaAustral" class="alert alert-warning" role="alert" style="display: none;">
-                Usted se encuentra en Zona, deberá realizar el trámite en oficina de correo.
-            </div>
-
-            <div class="option-container">
-                <!-- Simulamos que no hay error: ViewBag.Error == "0" -->
+                <!-- Medio de pago 1: CBU -->
                 <div class="form-check">
-                    <input class="form-check-input option-button" type="radio" name="medioPago" id="btnBanco" />
-                    <label class="form-check-label" for="btnBanco">Banco por código postal</label>
+                    <input class="form-check-input" type="radio"
+                           name="medioPagoSeleccionado"
+                           id="CBU-000111222333"
+                           value="CBU"
+                           data-cbu="000111222333">
+                    <label class="form-check-label" for="CBU-000111222333">
+                        Banco Simulado - CBU: 000111222333
+                    </label>
                 </div>
 
-                <!-- Simulamos ViewBag.UDAI = false -->
+                <!-- Medio de pago 2: Banco físico -->
                 <div class="form-check">
-                    <input class="form-check-input option-button" type="radio" name="medioPago" id="btnVirtual" />
-                    <label class="form-check-label" for="btnVirtual">Billetera virtual o banco digital</label>
+                    <input class="form-check-input" type="radio"
+                           name="medioPagoSeleccionado"
+                           id="Banco-123-456"
+                           value="Banco"
+                           data-codigo-banco="123"
+                           data-codigo-agencia="456">
+                    <label class="form-check-label" for="Banco-123-456">
+                        Banco Ejemplo - Agencia 456 (Código Banco: 123)
+                    </label>
                 </div>
+
+                <!-- Opción de nuevo medio -->
                 <div class="form-check">
-                    <input class="form-check-input option-button" type="radio" name="medioPago" id="btnCBU" />
-                    <label class="form-check-label" for="btnCBU">Acreditación en cuenta (CBU)</label>
+                    <input class="form-check-input" type="radio"
+                           name="medioPagoSeleccionado"
+                           id="ninguno"
+                           value="ninguno">
+                    <label class="form-check-label" for="ninguno">
+                        Nuevo Medio de Cobro
+                    </label>
                 </div>
             </div>
+        </form>
 
-            <!-- Bloque de opciones virtuales -->
-            <div id="virtualOptions" style="display: none;">
-                <h5>Seleccioná el tipo de medio de cobro virtual</h5>
-                <div class="option-container">
-                    <div class="form-check">
-                        <input class="form-check-input option-button" type="radio" name="medioVirtual" id="btnBancoDigital" />
-                        <label class="form-check-label" for="btnBancoDigital">BANCO DIGITAL</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input option-button" type="radio" name="medioVirtual" id="btnBilleteraVirtual" />
-                        <label class="form-check-label" for="btnBilleteraVirtual">BILLETERA VIRTUAL</label>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Bloque para sucursales físicas -->
-            <div id="sucursalOptions" style="display: none; margin-top:20px;">
-                <div id="codigoPostalInput">
-                    <label for="codigoPostal">Código Postal:</label>
-                    <input type="text" id="codigoPostal" class="form-control" maxlength="4" pattern="\d{4}"
-                           onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-                    <button id="btnBuscarSucursales" class="btn btn-primary mt-2">Buscar sucursales</button>
-                </div>
-                <div id="listaSucursales" style="display: none; margin-top:10px;">
-                    <label for="sucursalSelect">Seleccione una sucursal:</label>
-                    <select id="sucursalSelect" class="form-control"></select>
-                </div>
-            </div>
-
-            <!-- Bloque para CBU -->
-            <div id="cbuInput" style="display: none; margin-top:20px;">
-                <label for="cbu">CBU:</label>
-                <input type="text" id="cbu" class="form-control" maxlength="22" placeholder="Ingrese 22 dígitos">
-            </div>
-
-            <!-- Bloques para opciones virtuales cargadas -->
-            <div id="listaVirtual" style="display: none; margin-top:20px;">
-                <label for="virtualSelect">Seleccioná una opción:</label>
-                <select id="virtualSelect" class="form-control"></select>
-            </div>
-
-            <!-- Bloque para CVU (simulado, no se usa en este ejemplo) -->
-            <div id="cvuInput" style="display: none; margin-top:20px;">
-                <label for="cvu">CVU:</label>
-                <input type="text" id="cvu" class="form-control" maxlength="22">
-            </div>
-
-            <hr />
-
-            <div class="btn-guardar-container">
-                <!-- Botón de Guardar: oculto por defecto -->
-                <button id="btnGuardar" class="btn btn-primary" style="display: none;">Guardar</button>
-            </div>
-
-            <!-- Mensaje genérico zona austral (simulado) -->
-            <div id="msgGenAustral" class="alert alert-warning" role="alert"
-                 style="display: none; margin-top:20px;">
-                Atención: en Zona Austral debe realizar el trámite en oficina de ANSES.
-            </div>
-
-            <p class="danger" style="margin-top:20px;">
-                Tené en cuenta que en este nuevo medio de cobro vas a recibir todas las asignaciones familiares
-                y otras prestaciones de ANSES (excepto las de jubilación o pensión).
-            </p>
-
-            <!-- Div para mostrar errores o mensajes de éxito -->
-            <div id="mensajeError" class="alert alert-danger mt-3" style="display: none;"></div>
+        <div class="d-flex justify-content-start mt-4">
+            <button type="button" id="btnContinuar" class="btn btn-primary">Continuar</button>
         </div>
     </div>
 
-    <!-- Confirm Box HTML -->
+    <!-- Confirm Box -->
     <div id="custom-confirm" class="confirm-overlay">
         <div class="confirm-box">
-            <h2 id="confirm-title" class="confirm-title">Confirmar Acción</h2>
-            <p id="confirm-message" class="confirm-message">¿Estás seguro?</p>
+            <h2 id="confirm-title" class="confirm-title">Confirmar Cambio</h2>
+            <p id="confirm-message" class="confirm-message">
+                Al cambiar el medio de cobro, reemplazás permanentemente el medio actual. ¿Querés continuar?
+            </p>
             <div class="confirm-buttons">
                 <button id="confirm-cancel" class="confirm-button confirm-button-cancel">Cancelar</button>
                 <button id="confirm-ok" class="confirm-button confirm-button-ok">Aceptar</button>
@@ -336,359 +221,54 @@
         </div>
     </div>
 
-    <!-- jQuery y Bootstrap JS desde CDN -->
+    <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.2/js/bootstrap.bundle.min.js"></script>
-
     <script>
-        // ===== Variables estáticas en lugar de ViewBag =====
-        var udai = false;         // reemplaza ViewBag.UDAI
-        var error = "0";          // reemplaza ViewBag.Error
-        // Simulamos restricciones de edad y apoderado (todas false para pruebas generales)
-        var esMenor13 = false;
-        var esEntre13y18 = false;
-        var esMayorIgual18 = true;
-        var tieneApoderado2 = false;
-
-        // Elementos del Confirm Box
-        const confirmElement = document.getElementById('custom-confirm');
-        const titleElement = document.getElementById('confirm-title');
-        const messageElement = document.getElementById('confirm-message');
-        const okButton = document.getElementById('confirm-ok');
-        const cancelButton = document.getElementById('confirm-cancel');
-
+        // CustomConfirm class
         class CustomConfirm {
-            constructor() {
-                this.resolve = null;
-            }
+            constructor() { this.resolve = null; }
             show({ title, message, okText = 'Aceptar', cancelText = 'Cancelar' }) {
-                titleElement.textContent = title;
-                messageElement.textContent = message;
-                okButton.textContent = okText;
-                cancelButton.textContent = cancelText;
-                confirmElement.classList.add('visible');
-                return new Promise(resolve => {
-                    this.resolve = resolve;
-                });
+                $('#confirm-title').text(title);
+                $('#confirm-message').text(message);
+                $('#confirm-ok').text(okText);
+                $('#confirm-cancel').text(cancelText);
+                $('#custom-confirm').addClass('visible');
+                return new Promise(res => { this.resolve = res; });
             }
-            hide() {
-                confirmElement.classList.remove('visible');
-            }
-            handleOk() {
-                if (this.resolve) this.resolve(true);
-                this.hide();
-            }
-            handleCancel() {
-                if (this.resolve) this.resolve(false);
-                this.hide();
-            }
-        }
-        const myConfirm = new CustomConfirm();
-        okButton.addEventListener('click', () => myConfirm.handleOk());
-        cancelButton.addEventListener('click', () => myConfirm.handleCancel());
-
-        // ================================
-        // Funciones auxiliares de UI
-        // ================================
-        function mostrarError(mensaje) {
-            $('#mensajeError')
-                .text(mensaje)
-                .removeClass('alert-success')
-                .addClass('alert-danger')
-                .show();
-        }
-
-        function mostrarExito(mensaje) {
-            $('#mensajeError')
-                .text(mensaje)
-                .removeClass('alert-danger')
-                .addClass('alert-success')
-                .show();
-        }
-
-        function borrarError() {
-            $('#mensajeError').hide();
-            $('#listaSucursales').hide();
-        }
-
-        function enviarDatosAlServidor(data) {
-            // Simulamos POST al servidor
-            setTimeout(function () {
-                mostrarExito("Tus datos se enviaron correctamente. Redirigiendo…");
-                setTimeout(function () {
-                    window.location.href = '/MensajeFinal'; // Cambia por la URL real de destino
-                }, 1200);
-            }, 500);
-        }
-
-        function validarCBU(cbu) {
-            // Simulamos validación de CBU: si empieza con '0' es inválida
-            setTimeout(function () {
-                if (cbu.startsWith("0") || cbu.length !== 22) {
-                    mostrarError("La CBU no es válida. Por favor verifica el número ingresado.");
-                } else {
-                    borrarError();
-                    // En lugar de alert, enviamos los datos al servidor
-                    enviarDatosAlServidor({ tipoMedioPago: 'CBU', valor: cbu });
-                }
-            }, 500);
+            hide() { $('#custom-confirm').removeClass('visible'); }
+            handleOk() { if (this.resolve) this.resolve(true); this.hide(); }
+            handleCancel() { if (this.resolve) this.resolve(false); this.hide(); }
         }
 
         $(document).ready(function () {
-            // ================================
-            // 1) Lógica de selección de medio
-            // ================================
-            $('.option-button').click(function () {
-                // Removemos la clase active de todos y la agregamos al seleccionado
-                $('.option-button').removeClass('active');
-                $(this).addClass('active');
-                $('#virtualOptions, #sucursalOptions, #cbuInput, #listaVirtual, #cvuInput, #msgGenAustral').hide();
-                $('#btnGuardar').hide();
+            const myConfirm = new CustomConfirm();
+            $('#confirm-ok').on('click', () => myConfirm.handleOk());
+            $('#confirm-cancel').on('click', () => myConfirm.handleCancel());
 
-                var selectedId = $(this).attr('id');
-                if (selectedId === 'btnBanco') {
-                    $('#sucursalOptions').show();
-                    $('#btnGuardar').show();
-                } else if (selectedId === 'btnVirtual') {
-                    $('#virtualOptions').show();
-                    $('#msgGenAustral').show();
-                    // Ocultamos el botón Guardar hasta que se seleccione BancoDigital o BilleteraVirtual
-                    $('#btnGuardar').hide();
-                } else if (selectedId === 'btnCBU') {
-                    $('#cbuInput').show();
-                    $('#msgGenAustral').show();
-                    $('#btnGuardar').show();
-                }
-                // Marcamos el radio correctamente
-                $('input[type=radio][name=medioPago]:checked, input[type=radio][name=medioVirtual]:checked')
-                    .prop('checked', true);
-            });
-
-            let isCVU = 0;
-            $('#btnBancoDigital, #btnBilleteraVirtual').click(function () {
-                $('#listaVirtual').show();
-                $('#btnGuardar').show();
-                if (this.id === 'btnBancoDigital') {
-                    cargarBancosVirtuales();
-                    isCVU = 0;
-                    $('#cvuInput').hide();
-                } else {
-                    cargarBilleterasVirtuales();
-                    isCVU = 1;
-                }
-            });
-            $('#btnVirtual').click(function () {
-                $('#btnGuardar').hide();
-            });
-
-            $('#btnBuscarSucursales').click(function () {
-                var codigoPostal = $('#codigoPostal').val();
-                if (codigoPostal) {
-                    borrarError();
-                    cargarBancosFisicos(codigoPostal);
-                } else {
-                    mostrarError("Ingresá un código postal válido (4 dígitos).");
-                }
-            });
-
-            function cargarBancosFisicos(codigoPostal) {
-                // Simulamos una llamada AJAX: si el CP termina en 00, devolvemos lista vacía
-                setTimeout(function () {
-                    var bancos = [];
-                    if (!codigoPostal.endsWith("00")) {
-                        bancos = [
-                            { Codigo: "001", CodigoAgencia: "01", Nombre: "Banco Ejemplo A", NombreAgencia: "Sucursal Centro" },
-                            { Codigo: "002", CodigoAgencia: "02", Nombre: "Banco Ejemplo B", NombreAgencia: "Sucursal Norte" }
-                        ];
-                    }
-                    if (udai) {
-                        if (bancos.length > 0) {
-                            mostrarError('Existen sucursales bancarias. Debe hacer el trámite a través de mi ANSES.');
-                            return;
-                        } else {
-                            borrarError();
-                            cargarBancosCorreo(codigoPostal);
-                        }
-                    } else {
-                        if (bancos.length > 0) {
-                            borrarError();
-                            mostrarError('ATENCIÓN: si para el código ingresado no hay bancos o están a más de 40 km, acérquese a ANSES.');
-                            llenarSelect('#sucursalSelect', bancos);
-                            $('#listaSucursales').show();
-                        } else {
-                            mostrarError('ATENCIÓN: no hay una sucursal bancaria para ese código postal. Acérquese a ANSES.');
-                        }
-                    }
-                }, 500);
-            }
-
-            function cargarBancosCorreo(codigoPostal) {
-                // Simulamos otra llamada AJAX que devuelve 1 sucursal
-                setTimeout(function () {
-                    var bancos = [
-                        { Codigo: "C01", CodigoAgencia: "C1", Nombre: "Correo Argentino", NombreAgencia: "Sucursal Local" }
-                    ];
-                    if (bancos.length > 0) {
-                        borrarError();
-                        llenarSelect('#sucursalSelect', bancos);
-                        $('#listaSucursales').show();
-                    } else {
-                        mostrarError('No se encontraron sucursales de correo.');
-                    }
-                }, 500);
-            }
-
-            function cargarBancosVirtuales() {
-                // Simulamos llamada AJAX para bancos virtuales
-                setTimeout(function () {
-                    var bancos = [
-                        { Codigo: "V01", CodigoAgencia: "V1", Nombre: "Banco Virtual X", NombreAgencia: "App X" },
-                        { Código: "V02", CódigoAgencia: "V2", Nombre: "Banco Virtual Y", NombreAgencia: "App Y" }
-                    ];
-                    borrarError();
-                    llenarSelect('#virtualSelect', bancos);
-                }, 500);
-            }
-            function cargarBilleterasVirtuales() {
-                // Simulamos llamada AJAX para billeteras
-                setTimeout(function () {
-                    var billeteras = [
-                        { Codigo: "B01", CodigoAgencia: "B1", Nombre: "Billetera Z", NombreAgencia: "App Z" },
-                        { Codigo: "B02", CodigoAgencia: "B2", Nombre: "Billetera W", NombreAgencia: "App W" }
-                    ];
-                    borrarError();
-                    llenarSelect('#virtualSelect', billeteras);
-                }, 500);
-            }
-
-            function llenarSelect(selectId, opciones) {
-                var select = $(selectId);
-                select.empty();
-                select.append('<option value="" disabled selected>Seleccione una opción</option>');
-                $.each(opciones, function (i, opcion) {
-                    select.append(
-                        $('<option></option>')
-                            .val(opcion.Codigo + '-' + opcion.CodigoAgencia)
-                            .text(opcion.Nombre + ' - ' + opcion.NombreAgencia)
-                    );
-                });
-            }
-
-            // =======================================================
-            // 2) Lógica de restricciones de Edad & Apoderado (simulada)
-            // =======================================================
-            $('#btnBanco, #btnVirtual, #btnCBU, #btnBancoDigital').closest('.form-check').hide();
-
-            if (esMenor13) {
-                if (tieneApoderado2) {
-                    $('#btnCBU').closest('.form-check').show();
-                    $('#btnBanco').closest('.form-check').show();
-                    $('#btnVirtual').closest('.form-check').show();
-                    $('#btnBilleteraVirtual').closest('.form-check').hide();
-                }
-            }
-            else if (esEntre13y18) {
-                if (tieneApoderado2) {
-                    $('#btnBanco').closest('.form-check').show();
-                    if (!udai) {
-                        $('#btnVirtual').closest('.form-check').show();
-                    }
-                    $('#btnCBU').closest('.form-check').show();
-                } else {
-                    if (!udai) {
-                        $('#btnVirtual').closest('.form-check').show();
-                        $('#btnBilleteraVirtual').closest('.form-check').show();
-                        $('#btnBancoDigital').closest('.form-check').hide();
-                    }
-                    $('#btnBanco').closest('.form-check').hide();
-                    $('#btnCBU').closest('.form-check').show();
-                }
-            }
-            else if (esMayorIgual18) {
-                $('#btnBanco').closest('.form-check').show();
-                if (!udai) {
-                    $('#btnVirtual').closest('.form-check').show();
-                }
-                $('#btnCBU').closest('.form-check').show();
-            }
-            $('#btnBancoDigital').closest('.form-check').hide();
-
-            if (error !== "0") {
-                mostrarError("Necesitás designar a un apoderado para cambiar tu medio de cobro.");
-            }
-
-            // ===================================================
-            // 3) Integración del Custom Confirm Box en “Guardar”
-            // ===================================================
-            $('#btnGuardar').click(async function () {
-                // Mostramos nuestro custom confirm
-                const userConfirmed = await myConfirm.show({
-                    title: 'Confirmar',
-                    message: '¿Confirma guardar su medio de cobro?',
-                    okText: 'Sí, guardar',
-                    cancelText: 'No, cancelar'
-                });
-
-                if (!userConfirmed) {
+            $('#btnContinuar').click(async function (e) {
+                e.preventDefault();
+                const seleccion = $('input[name="medioPagoSeleccionado"]:checked');
+                if (seleccion.length === 0) {
+                    alert('Por favor, seleccione un medio de pago.');
                     return;
                 }
 
-                var tipoMedioPago = $('.option-button.active').attr('id');
-                var data = {
-                    tipoMedioPago: tipoMedioPago.replace('btn', ''),
-                    valor: ''
-                };
-                borrarError();
+                // Simulamos Model.Count > 0 siempre true
+                if (seleccion.val() !== 'ninguno') {
+                    const confirmed = await myConfirm.show({
+                        title: '¿Estás seguro?',
+                        message: 'Al cambiar el medio de cobro, reemplazás permanentemente el medio actual. ¿Querés continuar?',
+                        okText: 'Sí, continuar',
+                        cancelText: 'No, cancelar'
+                    });
+                    if (!confirmed) return;
+                }
 
-                switch (tipoMedioPago) {
-                    case 'btnBanco':
-                        var sucursalSeleccionada = $('#sucursalSelect').val();
-                        if (!sucursalSeleccionada) {
-                            mostrarError("Por favor, seleccione una sucursal.");
-                            return;
-                        }
-                        var partsBanco = sucursalSeleccionada.split('-');
-                        data.codigoBanco = partsBanco[0];
-                        data.codigoAgencia = partsBanco[1];
-                        enviarDatosAlServidor(data);
-                        break;
-
-                    case 'btnBancoDigital':
-                        var virtualSeleccionado = $('#virtualSelect').val();
-                        if (!virtualSeleccionado) {
-                            mostrarError("Por favor, seleccione una opción virtual.");
-                            return;
-                        }
-                        var partsVirtual = virtualSeleccionado.split('-');
-                        data.codigoBanco = partsVirtual[0];
-                        data.codigoAgencia = partsVirtual[1];
-                        enviarDatosAlServidor(data);
-                        break;
-
-                    case 'btnBilleteraVirtual':
-                        var virtualSeleccionado2 = $('#virtualSelect').val();
-                        if (!virtualSeleccionado2) {
-                            mostrarError("Por favor, seleccione una opción virtual.");
-                            return;
-                        }
-                        var partsBil = virtualSeleccionado2.split('-');
-                        data.codigoBanco = partsBil[0];
-                        data.codigoAgencia = partsBil[1];
-                        enviarDatosAlServidor(data);
-                        break;
-
-                    case 'btnCBU':
-                        data.valor = $('#cbu').val();
-                        if (!data.valor || data.valor.length !== 22) {
-                            mostrarError("Por favor, ingresá una CBU válida de 22 dígitos.");
-                            return;
-                        }
-                        validarCBU(data.valor);
-                        break;
-
-                    default:
-                        mostrarError("Seleccione un medio de pago válido.");
-                        return;
+                if (seleccion.val() === 'ninguno') {
+                    alert('Iría a la página de Nuevo Medio de Cobro...');
+                } else {
+                    // Aquí normalmente harías el AJAX; para simulación:
+                    alert('Guardando: ' + seleccion.val());
                 }
             });
         });
